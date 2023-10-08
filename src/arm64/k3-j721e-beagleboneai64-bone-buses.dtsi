@@ -1,6 +1,9 @@
 // SPDX-License-Identifier: GPL-2.0
 /*
  * Copyright (C) 2022 BeagleBoard.org - https://beagleboard.org/
+ *
+ * See https://docs.beagleboard.org/latest/boards/capes/cape-interface-spec.html for
+ * details on what is implemented here.
  */
 
 #include <dt-bindings/gpio/gpio.h>
@@ -211,6 +214,7 @@ ocp: &main_pmx0 {
 	XX##_##ZZ##_pin: pinmux_##XX##_##ZZ##_pin { pinctrl-single,pins = < QQ >; };
 
 	/* I2C: https://docs.beagleboard.io/latest/boards/capes/cape-interface-spec.html#i2c */
+	/* bone_i2c_0 wkup_i2c0 on-board PMIC */
 	/* bone_i2c_1 main_i2c6 P9.17 P9.18 */
 	/* bone_i2c_2 main_i2c2 P9.19 P9.20 */
 	/* bone_i2c_3 main_i2c4 P9.24 P9.26 */
@@ -911,6 +915,10 @@ ocp: &main_pmx0 {
 	/* P9_44 - GND */
 	/* P9_45 - GND */
 	/* P9_46 - GND */
+};
+
+bone_i2c_0: &wkup_i2c0 {
+	symlink = "bone/i2c/0";
 };
 
 bone_i2c_1: &main_i2c6 {
