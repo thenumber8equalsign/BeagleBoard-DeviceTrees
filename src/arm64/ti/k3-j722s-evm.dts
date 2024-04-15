@@ -226,6 +226,7 @@
 &cpsw_port1 {
 	phy-mode = "rgmii-rxid";
 	phy-handle = <&cpsw3g_phy0>;
+	status = "okay";
 };
 
 &cpsw_port2 {
@@ -367,6 +368,13 @@
 		};
 	};
 
+};
+
+&sdhci0 {
+	disable-wp;
+	bootph-all;
+	ti,driver-strength-ohm = <50>;
+	status = "okay";
 };
 
 &sdhci1 {
