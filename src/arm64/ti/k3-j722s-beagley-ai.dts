@@ -867,14 +867,6 @@
 				regulator-always-on;
 			};
 
-			buck3_reg: buck3 {
-				regulator-name = "VDD_1V1";
-				regulator-min-microvolt = <1100000>;
-				regulator-max-microvolt = <1100000>;
-				regulator-boot-on;
-				regulator-always-on;
-			};
-
 			ldo1_reg: ldo1 {
 				regulator-name = "VDDSHV5_SDIO";
 				regulator-min-microvolt = <3300000>;
@@ -885,7 +877,11 @@
 			};
 
 			ldo2_reg: ldo2 {
-				//Regulator is left as is unused.
+				regulator-name = "VDD_1V2";
+				regulator-min-microvolt = <1200000>;
+				regulator-max-microvolt = <1200000>;
+				regulator-boot-on;
+				regulator-always-on;
 			};
 
 			ldo3_reg: ldo3 {
@@ -931,7 +927,7 @@ dsi0_csi1_i2c: &main_i2c0 {
 		pinctrl-0 = <&hdmi_gpio_pins_default>;
 		vcn33-supply = <&vdd_3v3>;
 		vcn18-supply = <&buck2_reg>;
-		vrf12-supply = <&buck3_reg>;
+		vrf12-supply = <&ldo2_reg>;
 		reset-gpios = <&mcu_gpio0 13 GPIO_ACTIVE_LOW>;
 		interrupt-parent = <&mcu_gpio0>;
 		interrupts = <14 IRQ_TYPE_EDGE_FALLING>;
