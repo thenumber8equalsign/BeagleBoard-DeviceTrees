@@ -683,8 +683,9 @@
 	bluetooth {
 		pinctrl-names = "default";
 		pinctrl-0 = <&bt_en_pins_default>;
-		compatible = "ti,wl1835-st";
+		compatible = "ti,cc33xx-bt";
 		enable-gpios = <&main_gpio0 3 GPIO_ACTIVE_HIGH>;
+		max-speed = <115200>;
 	};
 };
 
@@ -1008,7 +1009,7 @@ csi0_i2c: &main_i2c2 {
 	status = "okay";
 
 	wlcore: wlcore@2 {
-		compatible = "ti,wl1835";
+		compatible = "ti,cc33xx";
 		reg = <2>;
 		pinctrl-names = "default";
 		pinctrl-0 = <&wifi_wlirq_pins_default>;
