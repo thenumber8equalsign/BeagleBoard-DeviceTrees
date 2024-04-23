@@ -241,14 +241,14 @@
 		type = "d";
 		port {
 			hdmi_connector_in: endpoint {
-				remote-endpoint = <&it66121hdmitx_out>;
+				remote-endpoint = <&it66122hdmitx_out>;
 			};
 		};
 	};
 
 	sound0: sound {
 		compatible = "simple-audio-card";
-		simple-audio-card,name = "it66121 HDMI";
+		simple-audio-card,name = "it66122 HDMI";
 		simple-audio-card,format = "i2s";
 		simple-audio-card,bitclock-master = <&hdmi_dailink_master>;
 		simple-audio-card,frame-master = <&hdmi_dailink_master>;
@@ -259,7 +259,7 @@
 		};
 
 		simple-audio-card,codec {
-			sound-dai = <&it66121hdmitx>;
+			sound-dai = <&it66122hdmitx>;
 		};
 	};
 
@@ -920,8 +920,8 @@ dsi0_csi1_i2c: &main_i2c0 {
 	clock-frequency = <100000>;
 	bootph-all;
 
-	it66121hdmitx: hdmitx@4c {
-		compatible = "ite,it66121";
+	it66122hdmitx: hdmitx@4c {
+		compatible = "ite,it66122";
 		reg = <0x4c>;
 		pinctrl-names = "default";
 		pinctrl-0 = <&hdmi_gpio_pins_default>;
@@ -945,7 +945,7 @@ dsi0_csi1_i2c: &main_i2c0 {
 			port@0 {
 				reg = <0>;
 
-				it66121hdmitx_in: endpoint {
+				it66122hdmitx_in: endpoint {
 					bus-width = <24>;
 					remote-endpoint = <&dss1_dpi0_out>;
 				};
@@ -954,7 +954,7 @@ dsi0_csi1_i2c: &main_i2c0 {
 			port@1 {
 				reg = <1>;
 
-				it66121hdmitx_out: endpoint {
+				it66122hdmitx_out: endpoint {
 					remote-endpoint = <&hdmi_connector_in>;
 				};
 			};
@@ -1224,7 +1224,7 @@ csi0_i2c: &main_i2c2 {
 		reg = <0>;
 
 		dss1_dpi0_out: endpoint {
-			remote-endpoint = <&it66121hdmitx_in>;
+			remote-endpoint = <&it66122hdmitx_in>;
 		};
 	};
 };
