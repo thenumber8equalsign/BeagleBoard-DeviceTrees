@@ -1014,7 +1014,7 @@ csi0_i2c: &main_i2c2 {
 		pinctrl-names = "default";
 		pinctrl-0 = <&wifi_wlirq_pins_default>;
 		interrupt-parent = <&main_gpio0>;
-		interrupts = <5 IRQ_TYPE_EDGE_FALLING>;
+		interrupts = <5 IRQ_TYPE_EDGE_RISING>;
 	};
 };
 
