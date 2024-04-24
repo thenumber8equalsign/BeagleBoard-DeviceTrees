@@ -17,7 +17,7 @@
 #include <dt-bindings/pwm/pwm.h>
 
 / {
-	compatible = "beagle,am67-beagley-ai", "ti,j722s";
+	compatible = "beagle,am67a-beagley-ai", "ti,j722s";
 	model = "BeagleBoard.org BeagleY-AI";
 
 	aliases {
