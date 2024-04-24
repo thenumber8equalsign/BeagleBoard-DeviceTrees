@@ -570,12 +570,6 @@
 		>;
 	};
 
-	bt_en_pins_default: bt-en-pins-default {
-		pinctrl-single,pins = <
-			J722S_IOPAD(0x000c, PIN_OUTPUT, 7)	/* (K27) OSPI0_D0.GPIO0_3 */
-		>;
-	};
-
 	main_oldi_backlight_default_pins: main-backlight-default-pins {
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x01f0, PIN_OUTPUT, 8) /* (A23) EXT_REFCLK1.ECAP0_IN_APWM_OUT */
