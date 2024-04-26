@@ -5,7 +5,7 @@
  * Copyright (C) 2024 Texas Instruments Incorporated - https://www.ti.com/
  * Copyright (C) 2024 Robert Nelson, BeagleBoard.org Foundation
  */
- 
+
 //WARNING: this is for the EVT (DO NOT PUSH MAINLINE), production boards have some hardware changes...
 
 /dts-v1/;
@@ -1205,6 +1205,7 @@ csi0_i2c: &main_i2c2 {
 	num-lanes = <1>;
 	max-link-speed = <3>;
 	reset-gpios = <&mcu_gpio0 6 GPIO_ACTIVE_HIGH>;
+	enable-gpios = <&mcu_gpio0 8 GPIO_ACTIVE_HIGH>; /* Extra GPIO for pwr_en for BeagleY AI */
 };
 
 &dss1 {
