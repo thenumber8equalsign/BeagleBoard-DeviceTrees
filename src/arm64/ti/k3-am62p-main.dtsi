@@ -673,6 +673,7 @@
 		assigned-clock-parents = <&k3_clks 13 11>;
 		clock-names = "fck";
 		power-domains = <&k3_pds 13 TI_SCI_PD_EXCLUSIVE>;
+		status = "disabled";
 
 		dmas = <&main_pktdma 0xc600 15>,
 		       <&main_pktdma 0xc601 15>,
