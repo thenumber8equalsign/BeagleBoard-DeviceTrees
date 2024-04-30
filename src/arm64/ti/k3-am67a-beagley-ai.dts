@@ -27,6 +27,7 @@
 		serial6 = &main_uart6;
 		mmc0 = &sdhci1;
 		mmc2 = &sdhci2;
+		rtc0 = &rtc;
 		usb0 = &usb0;
 		usb1 = &usb1;
 	};
@@ -883,6 +884,11 @@
 				regulator-always-on;
 			};
 		};
+	};
+
+	rtc: rtc@68 {
+		compatible = "dallas,ds1340";
+		reg = <0x68>;
 	};
 };
 
