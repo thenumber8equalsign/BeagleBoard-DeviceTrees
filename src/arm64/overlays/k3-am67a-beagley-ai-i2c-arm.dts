@@ -16,3 +16,4 @@
 &wkup_i2c0 {
     status = "okay";
 };
+
