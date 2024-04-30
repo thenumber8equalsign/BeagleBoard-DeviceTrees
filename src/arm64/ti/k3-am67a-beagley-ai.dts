@@ -886,6 +886,11 @@
 		};
 	};
 
+	eeprom@50 {
+		compatible = "atmel,24c32";
+		reg = <0x50>;
+	};
+
 	rtc: rtc@68 {
 		compatible = "dallas,ds1340";
 		reg = <0x68>;
