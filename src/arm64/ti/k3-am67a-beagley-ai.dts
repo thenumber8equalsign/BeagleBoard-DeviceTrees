@@ -297,6 +297,27 @@
 			default-state = "off";
 		};
 	};
+
+	beagle-pin-mux {
+		compatible = "beagle,rpi";
+		pinctrl-names = "default";
+		pinctrl-0 = <&rpi_3_pins_default>, <&rpi_5_pins_default>, <&rpi_8_pins_default>;
+
+		gpios = <&mcu_gpio0 2 GPIO_ACTIVE_HIGH>,
+				<&mcu_gpio0 3 GPIO_ACTIVE_HIGH>,
+				<&main_gpio1 14 GPIO_ACTIVE_HIGH>;
+		gpio-line-names = "ID_SDA", "ID_SCL", "GPIO2";
+	};
+
+	beagle-rpi-uart-ttyAMA0 {
+		compatible = "beagle,rpi";
+		pinctrl-names = "default";
+		pinctrl-0 = <&rpi_8_pins_uart>, <&rpi_10_pins_uart>;
+
+		gpios = <&main_gpio1 14 GPIO_ACTIVE_HIGH>,
+				<&main_gpio1 15 GPIO_ACTIVE_HIGH>;
+		gpio-line-names = "UART1_TXD", "UART1_RXD";
+	};
 };
 
 &main_pmx0 {
@@ -580,6 +601,114 @@
 			J722S_IOPAD(0x008c, PIN_INPUT, 2) /* (N23) GPMC0_WEn.MCASP1_AXR0 */
 		>;
 	};
+
+	rpi_8_pins_default: rpi-8-default-pins {
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x01b0, PIN_INPUT, 7) /* (F24) MCASP0_ACLKR.GPIO1_14 */
+		>;
+	};
+
+	rpi_8_pins_uart: rpi-8-uart-pins {
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x01b0, PIN_OUTPUT, 2) /* (F24) MCASP0_ACLKR.UART1_TXD */
+		>;
+	};
+
+	rpi_10_pins_default: rpi-10-default-pins {
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x01ac, PIN_INPUT, 7) /* (C27) MCASP0_AFSR.GPIO1_13 */
+		>;
+	};
+
+	rpi_10_pins_uart: rpi-10-uart-pins {
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x01ac, PIN_INPUT, 2) /* (C27) MCASP0_AFSR.UART1_RXD */
+		>;
+	};
+
+	rpi_11_pins_default: rpi-11-default-pins {
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x0198, PIN_INPUT, 7) /* (A26) MCASP0_AXR2.GPIO1_8 */
+		>;
+	};
+
+	rpi_12_pins_default: rpi-12-default-pins {
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x01a4, PIN_INPUT, 7) /* (D25) MCASP0_ACLKX.GPIO1_11 */
+		>;
+	};
+
+	rpi_13_pins_default: rpi-13-default-pins {
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x0088, PIN_INPUT, 7) /* (N22) GPMC0_OEn_REn.GPIO0_33 */
+		>;
+	};
+
+	rpi_15_pins_default: rpi-15-default-pins {
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x00a8, PIN_INPUT, 7) /* (R27) GPMC0_CSn0.GPIO0_41 */
+		>;
+	};
+
+	rpi_22_pins_default: rpi-22-default-pins {
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x00ac, PIN_INPUT, 7) /* (P21) GPMC0_CSn1.GPIO0_42 */
+		>;
+	};
+
+	rpi_29_pins_default: rpi-29-default-pins {
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x01b4, PIN_INPUT, 7) /* (B20) SPI0_CS0.GPIO1_15 */
+		>;
+	};
+
+	rpi_31_pins_default: rpi-31-default-pins {
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x01bc, PIN_INPUT, 7) /* (D20) SPI0_CLK.GPIO1_17 */
+		>;
+	};
+
+	rpi_32_pins_default: rpi-32-default-pins {
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x01b8, PIN_INPUT, 7) /* (C20) SPI0_CS1.GPIO1_16 */
+		>;
+	};
+
+	rpi_33_pins_default: rpi-33-default-pins {
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x01c0, PIN_INPUT, 7) /* (E19) SPI0_D0.GPIO1_18 */
+		>;
+	};
+
+	rpi_35_pins_default: rpi-35-default-pins {
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x01a8, PIN_INPUT, 7) /* (C26) MCASP0_AFSX.GPIO1_12 */
+		>;
+	};
+
+	rpi_36_pins_default: rpi-36-default-pins {
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x0194, PIN_INPUT, 7) /* (A25) MCASP0_AXR3.GPIO1_7 */
+		>;
+	};
+
+	rpi_37_pins_default: rpi-37-default-pins {
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x0094, PIN_INPUT, 7) /* (P26) GPMC0_BE1n.GPIO0_36 */
+		>;
+	};
+
+	rpi_38_pins_default: rpi-38-default-pins {
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x01a0, PIN_INPUT, 7) /* (F23) MCASP0_AXR0.GPIO1_10 */
+		>;
+	};
+
+	rpi_40_pins_default: rpi-40-default-pins {
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x019c, PIN_INPUT, 7) /* (B25) MCASP0_AXR1.GPIO1_9 */
+		>;
+	};
 };
 
 &cpsw3g {
@@ -652,8 +781,8 @@
 
 &main_uart1 {
 	symlink = "ttyAMA0";
-	pinctrl-names = "default";
-	pinctrl-0 = <&main_uart1_pins_default>;
+	//pinctrl-names = "default";
+	//pinctrl-0 = <&main_uart1_pins_default>;
 	status = "okay";
 	bootph-all;
 };
@@ -785,13 +914,79 @@
 			J722S_MCU_IOPAD(0x0004, PIN_OUTPUT, 1) /* (A10) MCU_SPI0_CS1.MCU_OBSCLK0 */
 		>;
 	};
+
+	rpi_3_pins_default: rpi-3-default-pins {
+		pinctrl-single,pins = <
+			J722S_MCU_IOPAD(0x0048, PIN_INPUT, 7) /* (E11) MCU_I2C0_SDA.MCU_GPIO0_18 */
+		>;
+	};
+
+	rpi_5_pins_default: rpi-5-default-pins {
+		pinctrl-single,pins = <
+			J722S_MCU_IOPAD(0x0044, PIN_INPUT, 7) /* (B13) MCU_I2C0_SCL.MCU_GPIO0_17 */
+		>;
+	};
+
+	rpi_16_pins_default: rpi-16-default-pins {
+		pinctrl-single,pins = <
+			J722S_MCU_IOPAD(0x001c, PIN_INPUT, 7) /* (B5) MCU_UART0_CTSn.MCU_GPIO0_7 */
+		>;
+	};
+
+	rpi_18_pins_default: rpi-18-default-pins {
+		pinctrl-single,pins = <
+			J722S_MCU_IOPAD(0x0028, PIN_INPUT, 7) /* (C8) WKUP_UART0_TXD.MCU_GPIO0_10 */
+		>;
+	};
+
+	rpi_19_pins_default: rpi-19-default-pins {
+		pinctrl-single,pins = <
+			J722S_MCU_IOPAD(0x000c, PIN_INPUT, 7) /* (B12) MCU_SPI0_D0.MCU_GPIO0_3 */
+		>;
+	};
+
+	rpi_21_pins_default: rpi-21-default-pins {
+		pinctrl-single,pins = <
+			J722S_MCU_IOPAD(0x0010, PIN_INPUT, 7) /* (C11) MCU_SPI0_D1.MCU_GPIO0_4 */
+		>;
+	};
+
+	rpi_23_pins_default: rpi-23-default-pins {
+		pinctrl-single,pins = <
+			J722S_MCU_IOPAD(0x0008, PIN_INPUT, 7) /* (A9) MCU_SPI0_CLK.MCU_GPIO0_2 */
+		>;
+	};
+
+	rpi_24_pins_default: rpi-24-default-pins {
+		pinctrl-single,pins = <
+			J722S_MCU_IOPAD(0x0000, PIN_INPUT, 7) /* (C12) MCU_SPI0_CS0.MCU_GPIO0_0 */
+		>;
+	};
+
+	rpi_26_pins_default: rpi-26-default-pins {
+		pinctrl-single,pins = <
+			J722S_MCU_IOPAD(0x0024, PIN_INPUT, 7) /* (B3) WKUP_UART0_RXD.MCU_GPIO0_9 */
+		>;
+	};
+
+	rpi_27_pins_default: rpi-27-default-pins {
+		pinctrl-single,pins = <
+			J722S_MCU_IOPAD(0x0050, PIN_INPUT, 7) /* (D11) WKUP_I2C0_SDA.MCU_GPIO0_20 */
+		>;
+	};
+
+	rpi_28_pins_default: rpi-28-default-pins {
+		pinctrl-single,pins = <
+			J722S_MCU_IOPAD(0x004c, PIN_INPUT, 7) /* (B9) WKUP_I2C0_SCL.MCU_GPIO0_19 */
+		>;
+	};
 };
 
 &mcu_i2c0 {
 	symlink = "hat/mcu_i2c0";
 	status = "okay";
-	pinctrl-names = "default";
-	pinctrl-0 = <&mcu_i2c0_pins_default>;
+	//pinctrl-names = "default";
+	//pinctrl-0 = <&mcu_i2c0_pins_default>;
 	clock-frequency = <100000>;
 	bootph-all;
 };
