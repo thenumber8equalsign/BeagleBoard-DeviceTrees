@@ -298,25 +298,62 @@
 		};
 	};
 
-	beagle-pin-mux {
-		compatible = "beagle,rpi";
+	beagle-hat-array {
+		compatible = "beagle,array";
 		pinctrl-names = "default";
-		pinctrl-0 = <&rpi_3_pins_default>, <&rpi_5_pins_default>, <&rpi_8_pins_default>;
+		pinctrl-0 = <&rpi_3_pins_default>, <&rpi_5_pins_default>, <&rpi_8_pins_default>, <&rpi_10_pins_default>;
 
 		gpios = <&mcu_gpio0 2 GPIO_ACTIVE_HIGH>,
 				<&mcu_gpio0 3 GPIO_ACTIVE_HIGH>,
-				<&main_gpio1 14 GPIO_ACTIVE_HIGH>;
-		gpio-line-names = "ID_SDA", "ID_SCL", "GPIO2";
+				<&main_gpio1 14 GPIO_ACTIVE_HIGH>,
+				<&main_gpio1 15 GPIO_ACTIVE_HIGH>;
+		gpio-line-names = "ID_SDA", "ID_SCL", "GPIO2", "GPIO3";
 	};
 
-	beagle-rpi-uart-ttyAMA0 {
-		compatible = "beagle,rpi";
+	beagle-hat-uart-ttyAMA0 {
+		compatible = "beagle,peripheral";
 		pinctrl-names = "default";
 		pinctrl-0 = <&rpi_8_pins_uart>, <&rpi_10_pins_uart>;
 
 		gpios = <&main_gpio1 14 GPIO_ACTIVE_HIGH>,
 				<&main_gpio1 15 GPIO_ACTIVE_HIGH>;
 		gpio-line-names = "UART1_TXD", "UART1_RXD";
+	};
+
+	beagle-hat-8-gpio {
+		compatible = "beagle,single";
+		pinctrl-names = "default";
+		pinctrl-0 = <&rpi_8_pins_default>;
+
+		gpios = <&main_gpio1 14 GPIO_ACTIVE_HIGH>;
+		gpio-line-names = "UART1_TXD";
+	};
+
+	beagle-hat-8-uart-txd0 {
+		compatible = "beagle,single";
+		pinctrl-names = "default";
+		pinctrl-0 = <&rpi_8_pins_uart>;
+
+		gpios = <&main_gpio1 14 GPIO_ACTIVE_HIGH>;
+		gpio-line-names = "UART1_TXD";
+	};
+
+	beagle-hat-10-gpio {
+		compatible = "beagle,single";
+		pinctrl-names = "default";
+		pinctrl-0 = <&rpi_10_pins_uart>;
+
+		gpios = <&main_gpio1 15 GPIO_ACTIVE_HIGH>;
+		gpio-line-names = "UART1_TXD";
+	};
+
+	beagle-hat-10-uart1-rxd {
+		compatible = "beagle,single";
+		pinctrl-names = "default";
+		pinctrl-0 = <&rpi_10_pins_uart>;
+
+		gpios = <&main_gpio1 15 GPIO_ACTIVE_HIGH>;
+		gpio-line-names = "UART1_RXD";
 	};
 };
 
