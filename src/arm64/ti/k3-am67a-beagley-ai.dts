@@ -600,7 +600,6 @@
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x0084, PIN_OUTPUT, 7) /* (N21) GPMC0_ADVn_ALE.GPIO0_32 */
 		>;
-		//E27/RESETSTATz/3V3
 	};
 
 	mipi_switch_pins: mipi-switch-default-pins {
