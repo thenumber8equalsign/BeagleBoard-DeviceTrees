@@ -451,7 +451,7 @@
 		>;
 	};
 
-	vdd_3v3_sd_pins_default: vdd-3v3-sd-pins-default {
+	vdd_3v3_sd_pins_default: vdd-3v3-sd-default-pins {
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x0254, PIN_OUTPUT, 7) /* (E25) USB0_DRVVBUS.GPIO1_50 */
 		>;
@@ -533,7 +533,7 @@
 		>;
 	};
 
-	csi1_gpio_pins_default: csi1-gpio-pins-default {
+	csi1_gpio_pins_default: csi1-gpio-default-pins {
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x01d8, PIN_OUTPUT, 7) /* (D22) MCAN0_TX.GPIO1_24 */
 			/* J722S_IOPAD(0x01dc, PIN_OUTPUT, 7) /* (C22) MCAN0_RX.GPIO1_25 */
@@ -554,7 +554,7 @@
 		>;
 	};
 
-	main_uart6_pins_default: main-uart6-pins-default {
+	main_uart6_pins_default: main-uart6-default-pins {
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x0028, PIN_INPUT, 3)	/* (M27) OSPI0_D7.UART6_CTSn */
 			J722S_IOPAD(0x0024, PIN_OUTPUT, 3)	/* (N27) OSPI0_D6.UART6_RTSn */
@@ -563,7 +563,7 @@
 		>;
 	};
 
-	bt_en_pins_default: bt-en-pins-default {
+	bt_en_pins_default: bt-en-default-pins {
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x000c, PIN_OUTPUT, 7)	/* (K27) OSPI0_D0.GPIO0_3 */
 		>;
@@ -762,7 +762,7 @@
 		>;
 	};
 
-	csi0_gpio_pins_default: csi0-gpio-pins-default {
+	csi0_gpio_pins_default: csi0-gpio-default-pins {
 		pinctrl-single,pins = <
 			J722S_MCU_IOPAD(0x003c, PIN_OUTPUT, 7) /* (C1) MCU_MCAN1_TX.MCU_GPIO0_15 */
 			/* J722S_MCU_IOPAD(0x0040, PIN_OUTPUT, 7) /* (B1) MCU_MCAN1_RX.MCU_GPIO0_16 */
