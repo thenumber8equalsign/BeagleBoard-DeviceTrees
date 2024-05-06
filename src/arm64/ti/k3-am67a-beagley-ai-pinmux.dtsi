@@ -10,7 +10,7 @@
 
 / {
 	hat-array {
-		compatible = "beagle,array";
+		compatible = "gpio-array";
 		pinctrl-names = "default";
 		pinctrl-0 = <&exp_03_gpio>, <&exp_05_gpio>, <&exp_08_gpio>, <&exp_10_gpio>;
 
@@ -22,7 +22,7 @@
 	};
 
 	hat-uart-ttyAMA0 {
-		compatible = "beagle,peripheral";
+		compatible = "gpio-peripheral";
 		pinctrl-names = "default";
 		pinctrl-0 = <&exp_08_uart>, <&exp_10_uart>;
 
@@ -32,7 +32,7 @@
 	};
 
 	hat-8-gpio {
-		compatible = "beagle,single";
+		compatible = "gpio-single";
 		pinctrl-names = "default";
 		pinctrl-0 = <&exp_08_gpio>;
 
@@ -41,7 +41,7 @@
 	};
 
 	hat-8-uart-txd0 {
-		compatible = "beagle,single";
+		compatible = "gpio-single";
 		pinctrl-names = "default";
 		pinctrl-0 = <&exp_08_uart>;
 
@@ -50,7 +50,7 @@
 	};
 
 	hat-10-gpio {
-		compatible = "beagle,single";
+		compatible = "gpio-single";
 		pinctrl-names = "default";
 		pinctrl-0 = <&exp_10_gpio>;
 
@@ -59,7 +59,7 @@
 	};
 
 	hat-10-uart1-rxd {
-		compatible = "beagle,single";
+		compatible = "gpio-single";
 		pinctrl-names = "default";
 		pinctrl-0 = <&exp_10_uart>;
 
