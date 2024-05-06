@@ -9,7 +9,7 @@
 #include <dt-bindings/gpio/gpio.h>
 
 / {
-	beagle-hat-array {
+	hat-array {
 		compatible = "beagle,array";
 		pinctrl-names = "default";
 		pinctrl-0 = <&exp_03_gpio>, <&exp_05_gpio>, <&exp_08_gpio>, <&exp_10_gpio>;
@@ -21,7 +21,7 @@
 		gpio-line-names = "ID_SDA", "ID_SCL", "GPIO2", "GPIO3";
 	};
 
-	beagle-hat-uart-ttyAMA0 {
+	hat-uart-ttyAMA0 {
 		compatible = "beagle,peripheral";
 		pinctrl-names = "default";
 		pinctrl-0 = <&exp_08_uart>, <&exp_10_uart>;
@@ -31,7 +31,7 @@
 		gpio-line-names = "UART1_TXD", "UART1_RXD";
 	};
 
-	beagle-hat-8-gpio {
+	hat-8-gpio {
 		compatible = "beagle,single";
 		pinctrl-names = "default";
 		pinctrl-0 = <&exp_08_gpio>;
@@ -40,7 +40,7 @@
 		gpio-line-names = "UART1_TXD";
 	};
 
-	beagle-hat-8-uart-txd0 {
+	hat-8-uart-txd0 {
 		compatible = "beagle,single";
 		pinctrl-names = "default";
 		pinctrl-0 = <&exp_08_uart>;
@@ -49,7 +49,7 @@
 		gpio-line-names = "UART1_TXD";
 	};
 
-	beagle-hat-10-gpio {
+	hat-10-gpio {
 		compatible = "beagle,single";
 		pinctrl-names = "default";
 		pinctrl-0 = <&exp_10_gpio>;
@@ -58,7 +58,7 @@
 		gpio-line-names = "UART1_TXD";
 	};
 
-	beagle-hat-10-uart1-rxd {
+	hat-10-uart1-rxd {
 		compatible = "beagle,single";
 		pinctrl-names = "default";
 		pinctrl-0 = <&exp_10_uart>;
