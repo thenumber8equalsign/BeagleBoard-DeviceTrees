@@ -1,8 +1,8 @@
 #!/bin/bash
 
-#cat J721E_DRA829_TDA4VM_AM752x.json | jq '.devicePins'
-#cat J721E_DRA829_TDA4VM_AM752x.json | jq '.useCases'
-#cat J721E_DRA829_TDA4VM_AM752x.json | jq '.packages .ID_0 .packagePin[202] .devicePinID'
+#cat ${json_file} | jq '.devicePins'
+#cat ${json_file} | jq '.useCases'
+#cat ${json_file} | jq '.packages .ID_0 .packagePin[202] .devicePinID'
 
 echo_both () {
 #	echo "$msg"
@@ -33,32 +33,32 @@ get_json_pkg () {
 	chmod +x ${wfile}
 	mkdir tmp
 	./${wfile} --unattendedmodeui none --mode unattended --prefix ./tmp
-	cp -v ./tmp/dist/deviceData/J721E_DRA829_TDA4VM_AM752x/J721E_DRA829_TDA4VM_AM752x.json ./
+	cp -v ./tmp/dist/deviceData/${json_dir}/${json_file} ./
 	rm -rf ./tmp/ || true
 	rm -rf ${wfile} || true
 }
 
 get_name_mode () {
-	#echo "debug-${ball} [cat J721E_DRA829_TDA4VM_AM752x.json | jq '.pinCommonInfos .'${found_devicePinID}' .pinModeInfo['$number'] .signalName']"
-	#cat J721E_DRA829_TDA4VM_AM752x.json | jq '.pinCommonInfos .'${found_devicePinID}' .pinModeInfo['$number'] .signalName' | sed 's/\"//g' | sed 's/\[/_/g' | sed 's/\]//g' || true
+	#echo "debug-${ball} [cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID}' .pinModeInfo['$number'] .signalName']"
+	#cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID}' .pinModeInfo['$number'] .signalName' | sed 's/\"//g' | sed 's/\[/_/g' | sed 's/\]//g' || true
 	#echo "debug------------------------------------------"
 
-	name=$(cat J721E_DRA829_TDA4VM_AM752x.json | jq '.pinCommonInfos .'${found_devicePinID}' .pinModeInfo['$number'] .signalName' | sed 's/\"//g' | sed 's/\[/_/g' | sed 's/\]//g' | awk '{print tolower($0)}' || true)
-	mode=$(cat J721E_DRA829_TDA4VM_AM752x.json | jq '.pinCommonInfos .'${found_devicePinID}' .pinModeInfo['$number'] .mode' | sed 's/\"//g' | awk '{print tolower($0)}' || true)
-	ioDir=$(cat J721E_DRA829_TDA4VM_AM752x.json | jq '.pinCommonInfos .'${found_devicePinID}' .pinModeInfo['$number'] .ioDir' | sed 's/\"//g' || true)
+	name=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID}' .pinModeInfo['$number'] .signalName' | sed 's/\"//g' | sed 's/\[/_/g' | sed 's/\]//g' | awk '{print tolower($0)}' || true)
+	mode=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID}' .pinModeInfo['$number'] .mode' | sed 's/\"//g' | awk '{print tolower($0)}' || true)
+	ioDir=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID}' .pinModeInfo['$number'] .ioDir' | sed 's/\"//g' || true)
 	#echo "debug: get_name_mode; name=${name}; mode=${mode}; ioDir=${ioDir}"
 }
 
 get_name_mode_a () {
-	name_a=$(cat J721E_DRA829_TDA4VM_AM752x.json | jq '.pinCommonInfos .'${found_devicePinID_a}' .pinModeInfo['$number_a'] .signalName' | sed 's/\"//g' | sed 's/\[/_/g' | sed 's/\]//g' | awk '{print tolower($0)}' || true)
-	mode_a=$(cat J721E_DRA829_TDA4VM_AM752x.json | jq '.pinCommonInfos .'${found_devicePinID_a}' .pinModeInfo['$number_a'] .mode' | sed 's/\"//g' | awk '{print tolower($0)}' || true)
-	ioDir_a=$(cat J721E_DRA829_TDA4VM_AM752x.json | jq '.pinCommonInfos .'${found_devicePinID_a}' .pinModeInfo['$number_a'] .ioDir' | sed 's/\"//g' || true)
+	name_a=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID_a}' .pinModeInfo['$number_a'] .signalName' | sed 's/\"//g' | sed 's/\[/_/g' | sed 's/\]//g' | awk '{print tolower($0)}' || true)
+	mode_a=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID_a}' .pinModeInfo['$number_a'] .mode' | sed 's/\"//g' | awk '{print tolower($0)}' || true)
+	ioDir_a=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID_a}' .pinModeInfo['$number_a'] .ioDir' | sed 's/\"//g' || true)
 }
 
 get_name_mode_b () {
-	name_b=$(cat J721E_DRA829_TDA4VM_AM752x.json | jq '.pinCommonInfos .'${found_devicePinID_b}' .pinModeInfo['$number_b'] .signalName' | sed 's/\"//g' | sed 's/\[/_/g' | sed 's/\]//g' | awk '{print tolower($0)}' || true)
-	mode_b=$(cat J721E_DRA829_TDA4VM_AM752x.json | jq '.pinCommonInfos .'${found_devicePinID_b}' .pinModeInfo['$number_b'] .mode' | sed 's/\"//g' | awk '{print tolower($0)}' || true)
-	ioDir_b=$(cat J721E_DRA829_TDA4VM_AM752x.json | jq '.pinCommonInfos .'${found_devicePinID_b}' .pinModeInfo['$number_b'] .ioDir' | sed 's/\"//g' || true)
+	name_b=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID_b}' .pinModeInfo['$number_b'] .signalName' | sed 's/\"//g' | sed 's/\[/_/g' | sed 's/\]//g' | awk '{print tolower($0)}' || true)
+	mode_b=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID_b}' .pinModeInfo['$number_b'] .mode' | sed 's/\"//g' | awk '{print tolower($0)}' || true)
+	ioDir_b=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID_b}' .pinModeInfo['$number_b'] .ioDir' | sed 's/\"//g' || true)
 }
 
 find_pin () {
@@ -69,32 +69,32 @@ find_pin () {
 
 	for number in {0..500}
 	do
-		compare=$(cat J721E_DRA829_TDA4VM_AM752x.json | jq '.packages .ID_0 .packagePin['$number'] .ball' | sed 's/\"//g' || true)
+		compare=$(cat ${json_file} | jq '.packages .ID_0 .packagePin['$number'] .ball' | sed 's/\"//g' || true)
 		if [ "x${compare}" = "x${ball}" ] ; then
 			echo "debug-${ball}-${compare}-${number}"
 			echo "debug-${ball}-${compare}-${number}" >> ${file}-pins.txt
 
-			found_devicePinID_a=$(cat J721E_DRA829_TDA4VM_AM752x.json | jq '.packages .ID_0 .packagePin['$number'] .devicePinID' | sed 's/\"//g' || true)
-			found_ball_a=$(cat J721E_DRA829_TDA4VM_AM752x.json | jq '.packages .ID_0 .packagePin['$number'] .ball' | sed 's/\"//g' || true)
-			found_powerDomainID_a=$(cat J721E_DRA829_TDA4VM_AM752x.json | jq '.packages .ID_0 .packagePin['$number'] .powerDomainID' | sed 's/\"//g' || true)
+			found_devicePinID_a=$(cat ${json_file} | jq '.packages .ID_0 .packagePin['$number'] .devicePinID' | sed 's/\"//g' || true)
+			found_ball_a=$(cat ${json_file} | jq '.packages .ID_0 .packagePin['$number'] .ball' | sed 's/\"//g' || true)
+			found_powerDomainID_a=$(cat ${json_file} | jq '.packages .ID_0 .packagePin['$number'] .powerDomainID' | sed 's/\"//g' || true)
 			echo "devicePinID_a=${found_devicePinID_a},ball_a=${found_ball_a},powerDomainID_a=${found_powerDomainID_a}"
 			echo "devicePinID_a=${found_devicePinID_a},ball_a=${found_ball_a},powerDomainID_a=${found_powerDomainID_a}" >> ${file}-pins.txt
 			break;
 		fi
 	done
 
-	PinID_a=$(cat J721E_DRA829_TDA4VM_AM752x.json | jq '.devicePins .'${found_devicePinID_a}' .name' | sed 's/\"//g' || true)
+	PinID_a=$(cat ${json_file} | jq '.devicePins .'${found_devicePinID_a}' .name' | sed 's/\"//g' || true)
 	echo "name_a=${PinID_a}" >> ${file}-pins.txt
 
-	cro_a=$(cat J721E_DRA829_TDA4VM_AM752x.json | jq '.pinCommonInfos .'${found_devicePinID_a}' .controlRegisterOffset' | sed 's/\"//g' || true)
+	cro_a=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID_a}' .controlRegisterOffset' | sed 's/\"//g' || true)
 	echo "controlRegisterOffset_a=${cro_a}" >> ${file}-pins.txt
 
 	unset pupdStateDuringHHV_a
-	pupdStateDuringHHV_a=$(cat J721E_DRA829_TDA4VM_AM752x.json | jq '.pinCommonInfos .'${found_devicePinID_a}' .pupdStateDuringHHV' | sed 's/\"//g' || true)
+	pupdStateDuringHHV_a=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID_a}' .pupdStateDuringHHV' | sed 's/\"//g' || true)
 	echo "pupdStateDuringHHV_a=${pupdStateDuringHHV_a}" >> ${file}-pins.txt
 
 	unset pupdStateAfterHHV_a
-	pupdStateAfterHHV_a=$(cat J721E_DRA829_TDA4VM_AM752x.json | jq '.pinCommonInfos .'${found_devicePinID_a}' .pupdStateAfterHHV' | sed 's/\"//g' || true)
+	pupdStateAfterHHV_a=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID_a}' .pupdStateAfterHHV' | sed 's/\"//g' || true)
 	echo "pupdStateAfterHHV_a=${pupdStateAfterHHV_a}" >> ${file}-pins.txt
 
 	unset MCU_ADC_a
@@ -110,9 +110,12 @@ find_pin () {
 	unset got_dmtimer_a
 	for number_a in {0..14}
 	do
-		interface_a=$(cat J721E_DRA829_TDA4VM_AM752x.json | jq '.pinCommonInfos .'${found_devicePinID_a}' .pinModeInfo['$number_a'] .interfaceName' | sed 's/\"//g' || true)
-		compare=$(cat J721E_DRA829_TDA4VM_AM752x.json | jq '.pinCommonInfos .'${found_devicePinID_a}' .pinModeInfo['$number_a'] .interfaceName' | sed 's/\"//g' || true)
+		interface_a=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID_a}' .pinModeInfo['$number_a'] .interfaceName' | sed 's/\"//g' || true)
+		compare=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID_a}' .pinModeInfo['$number_a'] .interfaceName' | sed 's/\"//g' || true)
 		get_name_mode_a
+		if [ "x${interface_a}" = "xnull" ] ; then
+			break;
+		fi
 		echo ${label}:${interface_a}:${ball_a}:${name_a}:${mode_a}:${ioDir_a}: >> ${file}-pins.txt
 
 		if [ "x${default}" = "x${interface_a}" ] ; then
@@ -266,14 +269,14 @@ find_shared_pin () {
 
 	for number in {0..500}
 	do
-		compare=$(cat J721E_DRA829_TDA4VM_AM752x.json | jq '.packages .ID_0 .packagePin['$number'] .ball' | sed 's/\"//g' || true)
+		compare=$(cat ${json_file} | jq '.packages .ID_0 .packagePin['$number'] .ball' | sed 's/\"//g' || true)
 		if [ "x${compare}" = "x${ball_a}" ] ; then
 			echo "debug-${ball_a}-${compare}-${number}"
 			echo "debug-${ball_a}-${compare}-${number}" >> ${file}-pins.txt
 
-			found_devicePinID_a=$(cat J721E_DRA829_TDA4VM_AM752x.json | jq '.packages .ID_0 .packagePin['$number'] .devicePinID' | sed 's/\"//g' || true)
-			found_ball_a=$(cat J721E_DRA829_TDA4VM_AM752x.json | jq '.packages .ID_0 .packagePin['$number'] .ball' | sed 's/\"//g' || true)
-			found_powerDomainID_a=$(cat J721E_DRA829_TDA4VM_AM752x.json | jq '.packages .ID_0 .packagePin['$number'] .powerDomainID' | sed 's/\"//g' || true)
+			found_devicePinID_a=$(cat ${json_file} | jq '.packages .ID_0 .packagePin['$number'] .devicePinID' | sed 's/\"//g' || true)
+			found_ball_a=$(cat ${json_file} | jq '.packages .ID_0 .packagePin['$number'] .ball' | sed 's/\"//g' || true)
+			found_powerDomainID_a=$(cat ${json_file} | jq '.packages .ID_0 .packagePin['$number'] .powerDomainID' | sed 's/\"//g' || true)
 			echo "devicePinID_a=${found_devicePinID_a},ball_a=${found_ball_a},powerDomainID_a=${found_powerDomainID_a}"
 			echo "devicePinID_a=${found_devicePinID_a},ball_a=${found_ball_a},powerDomainID_a=${found_powerDomainID_a}" >> ${file}-pins.txt
 			break;
@@ -282,44 +285,44 @@ find_shared_pin () {
 
 	for number in {0..500}
 	do
-		compare=$(cat J721E_DRA829_TDA4VM_AM752x.json | jq '.packages .ID_0 .packagePin['$number'] .ball' | sed 's/\"//g' || true)
+		compare=$(cat ${json_file} | jq '.packages .ID_0 .packagePin['$number'] .ball' | sed 's/\"//g' || true)
 		if [ "x${compare}" = "x${ball_b}" ] ; then
 			echo "debug-${ball_b}-${compare}-${number}" >> ${file}-pins.txt
 
-			found_devicePinID_b=$(cat J721E_DRA829_TDA4VM_AM752x.json | jq '.packages .ID_0 .packagePin['$number'] .devicePinID' | sed 's/\"//g' || true)
-			found_ball_b=$(cat J721E_DRA829_TDA4VM_AM752x.json | jq '.packages .ID_0 .packagePin['$number'] .ball' | sed 's/\"//g' || true)
-			found_powerDomainID_b=$(cat J721E_DRA829_TDA4VM_AM752x.json | jq '.packages .ID_0 .packagePin['$number'] .powerDomainID' | sed 's/\"//g' || true)
+			found_devicePinID_b=$(cat ${json_file} | jq '.packages .ID_0 .packagePin['$number'] .devicePinID' | sed 's/\"//g' || true)
+			found_ball_b=$(cat ${json_file} | jq '.packages .ID_0 .packagePin['$number'] .ball' | sed 's/\"//g' || true)
+			found_powerDomainID_b=$(cat ${json_file} | jq '.packages .ID_0 .packagePin['$number'] .powerDomainID' | sed 's/\"//g' || true)
 			echo "devicePinID_b=${found_devicePinID_b},ball_b=${found_ball_b},powerDomainID_b=${found_powerDomainID_b}" >> ${file}-pins.txt
 			break;
 		fi
 	done
 
-	PinID_a=$(cat J721E_DRA829_TDA4VM_AM752x.json | jq '.devicePins .'${found_devicePinID_a}' .name' | sed 's/\"//g' || true)
+	PinID_a=$(cat ${json_file} | jq '.devicePins .'${found_devicePinID_a}' .name' | sed 's/\"//g' || true)
 	echo "name_a=${PinID_a}" >> ${file}-pins.txt
 
-	PinID_b=$(cat J721E_DRA829_TDA4VM_AM752x.json | jq '.devicePins .'${found_devicePinID_b}' .name' | sed 's/\"//g' || true)
+	PinID_b=$(cat ${json_file} | jq '.devicePins .'${found_devicePinID_b}' .name' | sed 's/\"//g' || true)
 	echo "name_b=${PinID_b}" >> ${file}-pins.txt
 
-	cro_a=$(cat J721E_DRA829_TDA4VM_AM752x.json | jq '.pinCommonInfos .'${found_devicePinID_a}' .controlRegisterOffset' | sed 's/\"//g' || true)
+	cro_a=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID_a}' .controlRegisterOffset' | sed 's/\"//g' || true)
 	echo "controlRegisterOffset_a=${cro_a}" >> ${file}-pins.txt
 
-	cro_b=$(cat J721E_DRA829_TDA4VM_AM752x.json | jq '.pinCommonInfos .'${found_devicePinID_b}' .controlRegisterOffset' | sed 's/\"//g' || true)
+	cro_b=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID_b}' .controlRegisterOffset' | sed 's/\"//g' || true)
 	echo "controlRegisterOffset_b=${cro_b}" >> ${file}-pins.txt
 
 	unset pupdStateDuringHHV_a
-	pupdStateDuringHHV_a=$(cat J721E_DRA829_TDA4VM_AM752x.json | jq '.pinCommonInfos .'${found_devicePinID_a}' .pupdStateDuringHHV' | sed 's/\"//g' || true)
+	pupdStateDuringHHV_a=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID_a}' .pupdStateDuringHHV' | sed 's/\"//g' || true)
 	echo "pupdStateDuringHHV_a=${pupdStateDuringHHV_a}" >> ${file}-pins.txt
 
 	unset pupdStateDuringHHV_b
-	pupdStateDuringHHV_b=$(cat J721E_DRA829_TDA4VM_AM752x.json | jq '.pinCommonInfos .'${found_devicePinID_b}' .pupdStateDuringHHV' | sed 's/\"//g' || true)
+	pupdStateDuringHHV_b=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID_b}' .pupdStateDuringHHV' | sed 's/\"//g' || true)
 	echo "pupdStateDuringHHV_b=${pupdStateDuringHHV_b}" >> ${file}-pins.txt
 
 	unset pupdStateAfterHHV_a
-	pupdStateAfterHHV_a=$(cat J721E_DRA829_TDA4VM_AM752x.json | jq '.pinCommonInfos .'${found_devicePinID_a}' .pupdStateAfterHHV' | sed 's/\"//g' || true)
+	pupdStateAfterHHV_a=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID_a}' .pupdStateAfterHHV' | sed 's/\"//g' || true)
 	echo "pupdStateAfterHHV_a=${pupdStateAfterHHV_a}" >> ${file}-pins.txt
 
 	unset pupdStateAfterHHV_b
-	pupdStateAfterHHV_b=$(cat J721E_DRA829_TDA4VM_AM752x.json | jq '.pinCommonInfos .'${found_devicePinID_b}' .pupdStateAfterHHV' | sed 's/\"//g' || true)
+	pupdStateAfterHHV_b=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID_b}' .pupdStateAfterHHV' | sed 's/\"//g' || true)
 	echo "pupdStateAfterHHV_b=${pupdStateAfterHHV_b}" >> ${file}-pins.txt
 
 	unset MCU_ADC_a
@@ -335,9 +338,12 @@ find_shared_pin () {
 	unset got_dmtimer_a
 	for number_a in {0..14}
 	do
-		interface_a=$(cat J721E_DRA829_TDA4VM_AM752x.json | jq '.pinCommonInfos .'${found_devicePinID_a}' .pinModeInfo['$number_a'] .interfaceName' | sed 's/\"//g' || true)
-		compare=$(cat J721E_DRA829_TDA4VM_AM752x.json | jq '.pinCommonInfos .'${found_devicePinID_a}' .pinModeInfo['$number_a'] .interfaceName' | sed 's/\"//g' || true)
+		interface_a=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID_a}' .pinModeInfo['$number_a'] .interfaceName' | sed 's/\"//g' || true)
+		compare=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID_a}' .pinModeInfo['$number_a'] .interfaceName' | sed 's/\"//g' || true)
 		get_name_mode_a
+		if [ "x${interface_a}" = "xnull" ] ; then
+			break;
+		fi
 		echo ${label}:${interface_a}:${ball_a}:${name_a}:${mode_a}:${ioDir_a}: >> ${file}-pins.txt
 
 		if [ "x${default}" = "x${interface_a}" ] ; then
@@ -446,9 +452,12 @@ find_shared_pin () {
 	unset got_dmtimer_b
 	for number_b in {0..14}
 	do
-		interface_b=$(cat J721E_DRA829_TDA4VM_AM752x.json | jq '.pinCommonInfos .'${found_devicePinID_b}' .pinModeInfo['$number_b'] .interfaceName' | sed 's/\"//g' || true)
-		compare=$(cat J721E_DRA829_TDA4VM_AM752x.json | jq '.pinCommonInfos .'${found_devicePinID_b}' .pinModeInfo['$number_b'] .interfaceName' | sed 's/\"//g' || true)
+		interface_b=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID_b}' .pinModeInfo['$number_b'] .interfaceName' | sed 's/\"//g' || true)
+		compare=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID_b}' .pinModeInfo['$number_b'] .interfaceName' | sed 's/\"//g' || true)
 		get_name_mode_b
+		if [ "x${interface_b}" = "xnull" ] ; then
+			break;
+		fi
 		echo ${label}:${interface_b}:${ball_b}:${name_b}:${mode_b}:${ioDir_b}: >> ${file}-pins.txt
 
 		if [ "x${default}" = "x${interface_b}" ] ; then
@@ -696,6 +705,6 @@ find_shared_pin () {
 	fi
 }
 
-if [ ! -f J721E_DRA829_TDA4VM_AM752x.json ] ; then
+if [ ! -f ${json_file} ] ; then
 	get_json_pkg
 fi
