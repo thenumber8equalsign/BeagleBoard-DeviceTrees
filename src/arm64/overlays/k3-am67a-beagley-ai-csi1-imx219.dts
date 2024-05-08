@@ -17,7 +17,7 @@
  */
 &{/chosen} {
 	overlays {
-		k3-j722s-beagley-ai-csi1-imx219.kernel = __TIMESTAMP__;
+		k3-am67a-beagley-ai-csi1-imx219.kernel = __TIMESTAMP__;
 	};
 };
 
