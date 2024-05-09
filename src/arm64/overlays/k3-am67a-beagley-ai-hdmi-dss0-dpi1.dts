@@ -8,9 +8,18 @@
 /dts-v1/;
 /plugin/;
 
+/*
+ * Helper to show loaded overlays under: /proc/device-tree/chosen/overlays/
+ */
+&{/chosen} {
+	overlays {
+		k3-am67a-beagley-ai-hdmi-dss0-dpi1.kernel = __TIMESTAMP__;
+	};
+};
+
 /* disable DSS1 so that the clocks can be set correctly */
 &dss1 {
-    status = "disable";
+    status = "disabled";
 };
 
 &dss0 {
