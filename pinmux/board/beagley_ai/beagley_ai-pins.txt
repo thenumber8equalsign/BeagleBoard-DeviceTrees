@@ -5,8 +5,6 @@ debug-E11-E11-18
 devicePinID_a=ID_1810,ball_a=E11,powerDomainID_a=ID_1722
 name_a=MCU_I2C0_SDA
 controlRegisterOffset_a=0x4048
-pupdStateDuringHHV_a=
-pupdStateAfterHHV_a=
 hat_03:MCU_I2C0::mcu_i2c0_sda:0::
 hat_03:MCU_GPIO0::mcu_gpio0_18:7::
 ##################
@@ -15,8 +13,6 @@ debug-B13-B13-17
 devicePinID_a=ID_1806,ball_a=B13,powerDomainID_a=ID_1722
 name_a=MCU_I2C0_SCL
 controlRegisterOffset_a=0x4044
-pupdStateDuringHHV_a=
-pupdStateAfterHHV_a=
 hat_05:MCU_I2C0::mcu_i2c0_scl:0::
 hat_05:MCU_GPIO0::mcu_gpio0_17:7::
 ##################
@@ -25,8 +21,6 @@ debug-F24-F24-132
 devicePinID_a=ID_2408,ball_a=F24,powerDomainID_a=ID_2361
 name_a=MCASP0_ACLKR
 controlRegisterOffset_a=0x41B0
-pupdStateDuringHHV_a=
-pupdStateAfterHHV_a=
 hat_08:MCASP0::mcasp0_aclkr:0::
 hat_08:SPI2::spi2_clk:1::
 hat_08:USART1::uart1_txd:2::
@@ -39,8 +33,6 @@ debug-C27-C27-131
 devicePinID_a=ID_2402,ball_a=C27,powerDomainID_a=ID_2361
 name_a=MCASP0_AFSR
 controlRegisterOffset_a=0x41AC
-pupdStateDuringHHV_a=
-pupdStateAfterHHV_a=
 hat_10:MCASP0::mcasp0_afsr:0::
 hat_10:SPI2::spi2_cs0:1::
 hat_10:USART1::uart1_rxd:2::
@@ -53,8 +45,6 @@ debug-A26-A26-126
 devicePinID_a=ID_2374,ball_a=A26,powerDomainID_a=ID_2361
 name_a=MCASP0_AXR2
 controlRegisterOffset_a=0x4198
-pupdStateDuringHHV_a=
-pupdStateAfterHHV_a=
 hat_11:MCASP0::mcasp0_axr2:0::
 hat_11:SPI2::spi2_d1:1::
 hat_11:USART1::uart1_rtsn:2::
@@ -68,8 +58,6 @@ debug-D25-D25-129
 devicePinID_a=ID_2391,ball_a=D25,powerDomainID_a=ID_2361
 name_a=MCASP0_ACLKX
 controlRegisterOffset_a=0x41A4
-pupdStateDuringHHV_a=
-pupdStateAfterHHV_a=
 hat_12:MCASP0::mcasp0_aclkx:0::
 hat_12:SPI2::spi2_cs1:1::
 hat_12:ECAP2::ecap2_in_apwm_out:2::
@@ -81,8 +69,6 @@ debug-N22-N22-71
 devicePinID_a=ID_2050,ball_a=N22,powerDomainID_a=ID_1939
 name_a=GPMC0_OEn_REn
 controlRegisterOffset_a=0x4088
-pupdStateDuringHHV_a=
-pupdStateAfterHHV_a=
 hat_13:GPMC0::gpmc0_oen_ren:0::
 hat_13:MCASP1::mcasp1_axr1:2::
 hat_13:DEBUG0::trc_data8:6::
@@ -93,8 +79,6 @@ debug-R27-R27-79
 devicePinID_a=ID_2092,ball_a=R27,powerDomainID_a=ID_1939
 name_a=GPMC0_CSn0
 controlRegisterOffset_a=0x40A8
-pupdStateDuringHHV_a=
-pupdStateAfterHHV_a=
 hat_15:GPMC0::gpmc0_csn0:0::
 hat_15:I2C4::i2c4_scl:1::
 hat_15:MCASP2::mcasp2_axr14:3::
@@ -106,8 +90,6 @@ debug-B5-B5-7
 devicePinID_a=ID_1755,ball_a=B5,powerDomainID_a=ID_1748
 name_a=MCU_UART0_CTSn
 controlRegisterOffset_a=0x401C
-pupdStateDuringHHV_a=
-pupdStateAfterHHV_a=
 hat_16:MCU_USART0::mcu_uart0_ctsn:0::
 hat_16:MCU_DMTIMER0::mcu_timer_io0:1::
 hat_16:MCU_SPI1::mcu_spi1_d0:3::
@@ -118,8 +100,6 @@ debug-C8-C8-10
 devicePinID_a=ID_1771,ball_a=C8,powerDomainID_a=ID_1748
 name_a=WKUP_UART0_TXD
 controlRegisterOffset_a=0x4028
-pupdStateDuringHHV_a=
-pupdStateAfterHHV_a=
 hat_18:WKUP_USART0::wkup_uart0_txd:0::
 hat_18:MCU_SPI1::mcu_spi1_cs2:2::
 hat_18:MCU_GPIO0::mcu_gpio0_10:7::
@@ -129,8 +109,6 @@ debug-B12-B12-3
 devicePinID_a=ID_1741,ball_a=B12,powerDomainID_a=ID_1722
 name_a=MCU_SPI0_D0
 controlRegisterOffset_a=0x400C
-pupdStateDuringHHV_a=
-pupdStateAfterHHV_a=
 hat_19:MCU_SPI0::mcu_spi0_d0:0::
 hat_19:MCU_GPIO0::mcu_gpio0_3:7::
 ##################
@@ -139,8 +117,6 @@ debug-C11-C11-4
 devicePinID_a=ID_1744,ball_a=C11,powerDomainID_a=ID_1722
 name_a=MCU_SPI0_D1
 controlRegisterOffset_a=0x4010
-pupdStateDuringHHV_a=
-pupdStateAfterHHV_a=
 hat_21:MCU_SPI0::mcu_spi0_d1:0::
 hat_21:MCU_GPIO0::mcu_gpio0_4:7::
 ##################
@@ -149,8 +125,6 @@ debug-P21-P21-80
 devicePinID_a=ID_2099,ball_a=P21,powerDomainID_a=ID_1939
 name_a=GPMC0_CSn1
 controlRegisterOffset_a=0x40AC
-pupdStateDuringHHV_a=
-pupdStateAfterHHV_a=
 hat_22:GPMC0::gpmc0_csn1:0::
 hat_22:I2C4::i2c4_sda:1::
 hat_22:MCASP2::mcasp2_axr15:3::
@@ -162,8 +136,6 @@ debug-A9-A9-2
 devicePinID_a=ID_1738,ball_a=A9,powerDomainID_a=ID_1722
 name_a=MCU_SPI0_CLK
 controlRegisterOffset_a=0x4008
-pupdStateDuringHHV_a=
-pupdStateAfterHHV_a=
 hat_23:MCU_SPI0::mcu_spi0_clk:0::
 hat_23:MCU_GPIO0::mcu_gpio0_2:7::
 ##################
@@ -172,8 +144,6 @@ debug-C12-C12-0
 devicePinID_a=ID_1721,ball_a=C12,powerDomainID_a=ID_1722
 name_a=MCU_SPI0_CS0
 controlRegisterOffset_a=0x4000
-pupdStateDuringHHV_a=
-pupdStateAfterHHV_a=
 hat_24:MCU_SPI0::mcu_spi0_cs0:0::
 hat_24:WKUP_DMTIMER1::wkup_timer_io1:4::
 hat_24:MCU_GPIO0::mcu_gpio0_0:7::
@@ -183,8 +153,6 @@ debug-B3-B3-9
 devicePinID_a=ID_1766,ball_a=B3,powerDomainID_a=ID_1748
 name_a=WKUP_UART0_RXD
 controlRegisterOffset_a=0x4024
-pupdStateDuringHHV_a=
-pupdStateAfterHHV_a=
 hat_26:WKUP_USART0::wkup_uart0_rxd:0::
 hat_26:MCU_SPI0::mcu_spi0_cs2:2::
 hat_26:MCU_GPIO0::mcu_gpio0_9:7::
@@ -194,8 +162,6 @@ debug-D11-D11-20
 devicePinID_a=ID_1817,ball_a=D11,powerDomainID_a=ID_1722
 name_a=WKUP_I2C0_SDA
 controlRegisterOffset_a=0x4050
-pupdStateDuringHHV_a=
-pupdStateAfterHHV_a=
 hat_27:WKUP_I2C0::wkup_i2c0_sda:0::
 hat_27:MCU_GPIO0::mcu_gpio0_20:7::
 ##################
@@ -204,8 +170,6 @@ debug-B9-B9-19
 devicePinID_a=ID_1813,ball_a=B9,powerDomainID_a=ID_1722
 name_a=WKUP_I2C0_SCL
 controlRegisterOffset_a=0x404C
-pupdStateDuringHHV_a=
-pupdStateAfterHHV_a=
 hat_28:WKUP_I2C0::wkup_i2c0_scl:0::
 hat_28:MCU_GPIO0::mcu_gpio0_19:7::
 ##################
@@ -214,8 +178,6 @@ debug-B20-B20-133
 devicePinID_a=ID_2414,ball_a=B20,powerDomainID_a=ID_2361
 name_a=SPI0_CS0
 controlRegisterOffset_a=0x41B4
-pupdStateDuringHHV_a=
-pupdStateAfterHHV_a=
 hat_29:SPI0::spi0_cs0:0::
 hat_29:EHRPWM0::ehrpwm0_a:2::
 hat_29:GPIO1::gpio1_15:7::
@@ -225,8 +187,6 @@ debug-D20-D20-135
 devicePinID_a=ID_2426,ball_a=D20,powerDomainID_a=ID_2361
 name_a=SPI0_CLK
 controlRegisterOffset_a=0x41BC
-pupdStateDuringHHV_a=
-pupdStateAfterHHV_a=
 hat_31:SPI0::spi0_clk:0::
 hat_31:CP_GEMAC_CPTS0::cp_gemac_cpts0_ts_sync:1::
 hat_31:EHRPWM1::ehrpwm1_a:2::
@@ -237,8 +197,6 @@ debug-C20-C20-134
 devicePinID_a=ID_2418,ball_a=C20,powerDomainID_a=ID_2361
 name_a=SPI0_CS1
 controlRegisterOffset_a=0x41B8
-pupdStateDuringHHV_a=
-pupdStateAfterHHV_a=
 hat_32:SPI0::spi0_cs1:0::
 hat_32:CP_GEMAC_CPTS0::cp_gemac_cpts0_ts_comp:1::
 hat_32:EHRPWM0::ehrpwm0_b:2::
@@ -252,8 +210,6 @@ debug-E19-E19-136
 devicePinID_a=ID_2430,ball_a=E19,powerDomainID_a=ID_2361
 name_a=SPI0_D0
 controlRegisterOffset_a=0x41C0
-pupdStateDuringHHV_a=
-pupdStateAfterHHV_a=
 hat_33:SPI0::spi0_d0:0::
 hat_33:CP_GEMAC_CPTS0::cp_gemac_cpts0_hw1tspush:1::
 hat_33:EHRPWM1::ehrpwm1_b:2::
@@ -264,8 +220,6 @@ debug-C26-C26-130
 devicePinID_a=ID_2397,ball_a=C26,powerDomainID_a=ID_2361
 name_a=MCASP0_AFSX
 controlRegisterOffset_a=0x41A8
-pupdStateDuringHHV_a=
-pupdStateAfterHHV_a=
 hat_35:MCASP0::mcasp0_afsx:0::
 hat_35:SPI2::spi2_cs3:1::
 hat_35:SYSTEM0::audio_ext_refclk1:2::
@@ -277,8 +231,6 @@ debug-A25-A25-125
 devicePinID_a=ID_2360,ball_a=A25,powerDomainID_a=ID_2361
 name_a=MCASP0_AXR3
 controlRegisterOffset_a=0x4194
-pupdStateDuringHHV_a=
-pupdStateAfterHHV_a=
 hat_36:MCASP0::mcasp0_axr3:0::
 hat_36:SPI2::spi2_d0:1::
 hat_36:USART1::uart1_ctsn:2::
@@ -292,8 +244,6 @@ debug-P26-P26-74
 devicePinID_a=ID_2062,ball_a=P26,powerDomainID_a=ID_1939
 name_a=GPMC0_BE1n
 controlRegisterOffset_a=0x4094
-pupdStateDuringHHV_a=
-pupdStateAfterHHV_a=
 hat_37:GPMC0::gpmc0_be1n:0::
 hat_37:MCASP2::mcasp2_axr12:3::
 hat_37:DEBUG0::trc_data11:6::
@@ -304,8 +254,6 @@ debug-F23-F23-128
 devicePinID_a=ID_2387,ball_a=F23,powerDomainID_a=ID_2361
 name_a=MCASP0_AXR0
 controlRegisterOffset_a=0x41A0
-pupdStateDuringHHV_a=
-pupdStateAfterHHV_a=
 hat_38:MCASP0::mcasp0_axr0:0::
 hat_38:SYSTEM0::audio_ext_refclk0:2::
 hat_38:EHRPWM1::ehrpwm1_b:6::
@@ -317,8 +265,6 @@ debug-B25-B25-127
 devicePinID_a=ID_2382,ball_a=B25,powerDomainID_a=ID_2361
 name_a=MCASP0_AXR1
 controlRegisterOffset_a=0x419C
-pupdStateDuringHHV_a=
-pupdStateAfterHHV_a=
 hat_40:MCASP0::mcasp0_axr1:0::
 hat_40:SPI2::spi2_cs2:1::
 hat_40:ECAP1::ecap1_in_apwm_out:2::

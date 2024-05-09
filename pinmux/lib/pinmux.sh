@@ -92,11 +92,15 @@ find_pin () {
 
 	unset pupdStateDuringHHV_a
 	pupdStateDuringHHV_a=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID_a}' .pupdStateDuringHHV' | sed 's/\"//g' || true)
-	echo "pupdStateDuringHHV_a=${pupdStateDuringHHV_a}" >> ${file}-pins.txt
+	if [ ! "x${pupdStateDuringHHV_a}" = "x" ] ; then
+		echo "pupdStateDuringHHV_a=${pupdStateDuringHHV_a}" >> ${file}-pins.txt
+	fi
 
 	unset pupdStateAfterHHV_a
 	pupdStateAfterHHV_a=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID_a}' .pupdStateAfterHHV' | sed 's/\"//g' || true)
-	echo "pupdStateAfterHHV_a=${pupdStateAfterHHV_a}" >> ${file}-pins.txt
+	if [ ! "x${pupdStateAfterHHV_a}" = "x" ] ; then
+		echo "pupdStateAfterHHV_a=${pupdStateAfterHHV_a}" >> ${file}-pins.txt
+	fi
 
 	unset MCU_ADC_a
 	unset got_pruout_a
@@ -312,19 +316,27 @@ find_shared_pin () {
 
 	unset pupdStateDuringHHV_a
 	pupdStateDuringHHV_a=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID_a}' .pupdStateDuringHHV' | sed 's/\"//g' || true)
-	echo "pupdStateDuringHHV_a=${pupdStateDuringHHV_a}" >> ${file}-pins.txt
+	if [ ! "x${pupdStateDuringHHV_a}" = "x" ] ; then
+		echo "pupdStateDuringHHV_a=${pupdStateDuringHHV_a}" >> ${file}-pins.txt
+	fi
 
 	unset pupdStateDuringHHV_b
 	pupdStateDuringHHV_b=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID_b}' .pupdStateDuringHHV' | sed 's/\"//g' || true)
-	echo "pupdStateDuringHHV_b=${pupdStateDuringHHV_b}" >> ${file}-pins.txt
+	if [ ! "x${pupdStateDuringHHV_b}" = "x" ] ; then
+		echo "pupdStateDuringHHV_b=${pupdStateDuringHHV_b}" >> ${file}-pins.txt
+	fi
 
 	unset pupdStateAfterHHV_a
 	pupdStateAfterHHV_a=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID_a}' .pupdStateAfterHHV' | sed 's/\"//g' || true)
-	echo "pupdStateAfterHHV_a=${pupdStateAfterHHV_a}" >> ${file}-pins.txt
+	if [ ! "x${pupdStateAfterHHV_a}" = "x" ] ; then
+		echo "pupdStateAfterHHV_a=${pupdStateAfterHHV_a}" >> ${file}-pins.txt
+	fi
 
 	unset pupdStateAfterHHV_b
 	pupdStateAfterHHV_b=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID_b}' .pupdStateAfterHHV' | sed 's/\"//g' || true)
-	echo "pupdStateAfterHHV_b=${pupdStateAfterHHV_b}" >> ${file}-pins.txt
+	if [ ! "x${pupdStateAfterHHV_b}" = "x" ] ; then
+		echo "pupdStateAfterHHV_b=${pupdStateAfterHHV_b}" >> ${file}-pins.txt
+	fi
 
 	unset MCU_ADC_a
 	unset got_pruout_a
