@@ -42,12 +42,12 @@
 		reg = <1>;
 
 		dss0_dpi1_out: endpoint {
-			remote-endpoint = <&it66121hdmitx_in>;
+			remote-endpoint = <&it66122_in>;
 		};
 	};
 };
 
 /* change hdmi_in endpoint to DSS0-DPI1 instead of DSS1-DPI0 */
-&it66121hdmitx_in {
+&it66122_in {
     remote-endpoint = <&dss0_dpi1_out>;
 };
