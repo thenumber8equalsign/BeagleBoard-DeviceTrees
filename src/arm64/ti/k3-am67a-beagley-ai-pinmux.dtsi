@@ -200,7 +200,7 @@
 		compatible = "gpio-single";
 		pinctrl-names = "default";
 		pinctrl-0 = <&hat_24_gpio>;
-		gpios = <&mcu_gpio0 7 GPIO_ACTIVE_HIGH>;
+		gpios = <&mcu_gpio0 0 GPIO_ACTIVE_HIGH>;
 		gpio-line-names = "HAT_GPIO_24";
 	};
 
