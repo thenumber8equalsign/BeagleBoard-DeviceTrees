@@ -58,6 +58,22 @@
 			"GPIO25", "GPIO26", "GPIO27";			/* 25-27 */
 	};
 
+	hat-03-gpio {
+		compatible = "gpio-single";
+		pinctrl-names = "default";
+		pinctrl-0 = <&hat_03_gpio>;
+		gpios = <&mcu_gpio0 18 GPIO_ACTIVE_HIGH>;
+		gpio-line-names = "HAT_GPIO_03";
+	};
+
+	hat-05-gpio {
+		compatible = "gpio-single";
+		pinctrl-names = "default";
+		pinctrl-0 = <&hat_05_gpio>;
+		gpios = <&mcu_gpio0 17 GPIO_ACTIVE_HIGH>;
+		gpio-line-names = "HAT_GPIO_05";
+	};
+
 	hat-uart-ttyAMA0 {
 		compatible = "gpio-peripheral";
 		pinctrl-names = "default";
@@ -132,12 +148,84 @@
 		gpio-line-names = "HAT_GPIO_15";
 	};
 
+	hat-16-gpio {
+		compatible = "gpio-single";
+		pinctrl-names = "default";
+		pinctrl-0 = <&hat_16_gpio>;
+		gpios = <&mcu_gpio0 7 GPIO_ACTIVE_HIGH>;
+		gpio-line-names = "HAT_GPIO_16";
+	};
+
+	hat-18-gpio {
+		compatible = "gpio-single";
+		pinctrl-names = "default";
+		pinctrl-0 = <&hat_18_gpio>;
+		gpios = <&mcu_gpio0 10 GPIO_ACTIVE_HIGH>;
+		gpio-line-names = "HAT_GPIO_18";
+	};
+
+	hat-19-gpio {
+		compatible = "gpio-single";
+		pinctrl-names = "default";
+		pinctrl-0 = <&hat_19_gpio>;
+		gpios = <&mcu_gpio0 3 GPIO_ACTIVE_HIGH>;
+		gpio-line-names = "HAT_GPIO_19";
+	};
+
+	hat-21-gpio {
+		compatible = "gpio-single";
+		pinctrl-names = "default";
+		pinctrl-0 = <&hat_21_gpio>;
+		gpios = <&mcu_gpio0 4 GPIO_ACTIVE_HIGH>;
+		gpio-line-names = "HAT_GPIO_21";
+	};
+
 	hat-22-gpio {
 		compatible = "gpio-single";
 		pinctrl-names = "default";
 		pinctrl-0 = <&hat_22_gpio>;
 		gpios = <&main_gpio0 42 GPIO_ACTIVE_HIGH>;
 		gpio-line-names = "HAT_GPIO_22";
+	};
+
+	hat-23-gpio {
+		compatible = "gpio-single";
+		pinctrl-names = "default";
+		pinctrl-0 = <&hat_23_gpio>;
+		gpios = <&mcu_gpio0 2 GPIO_ACTIVE_HIGH>;
+		gpio-line-names = "HAT_GPIO_23";
+	};
+
+	hat-24-gpio {
+		compatible = "gpio-single";
+		pinctrl-names = "default";
+		pinctrl-0 = <&hat_24_gpio>;
+		gpios = <&mcu_gpio0 7 GPIO_ACTIVE_HIGH>;
+		gpio-line-names = "HAT_GPIO_24";
+	};
+
+	hat-26-gpio {
+		compatible = "gpio-single";
+		pinctrl-names = "default";
+		pinctrl-0 = <&hat_26_gpio>;
+		gpios = <&mcu_gpio0 9 GPIO_ACTIVE_HIGH>;
+		gpio-line-names = "HAT_GPIO_26";
+	};
+
+	hat-27-gpio {
+		compatible = "gpio-single";
+		pinctrl-names = "default";
+		pinctrl-0 = <&hat_27_gpio>;
+		gpios = <&mcu_gpio0 20 GPIO_ACTIVE_HIGH>;
+		gpio-line-names = "HAT_GPIO_27";
+	};
+
+	hat-28-gpio {
+		compatible = "gpio-single";
+		pinctrl-names = "default";
+		pinctrl-0 = <&hat_28_gpio>;
+		gpios = <&mcu_gpio0 19 GPIO_ACTIVE_HIGH>;
+		gpio-line-names = "HAT_GPIO_28";
 	};
 
 	hat-29-gpio {
