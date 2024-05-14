@@ -140,12 +140,28 @@
 		gpio-line-names = "GPIO17";
 	};
 
+	hat-11-pwm-ecap {
+		compatible = "gpio-single";
+		pinctrl-names = "default";
+		pinctrl-0 = <&hat_11_pwm_ecap>;
+		gpios = <&main_gpio1 8 GPIO_ACTIVE_HIGH>;
+		gpio-line-names = "ECAP2_HAT11";
+	};
+
 	hat-12-gpio {
 		compatible = "gpio-single";
 		pinctrl-names = "default";
 		pinctrl-0 = <&hat_12_gpio>;
 		gpios = <&main_gpio1 11 GPIO_ACTIVE_HIGH>;
 		gpio-line-names = "GPIO18";
+	};
+
+	hat-12-pwm-ecap {
+		compatible = "gpio-single";
+		pinctrl-names = "default";
+		pinctrl-0 = <&hat_12_pwm_ecap>;
+		gpios = <&main_gpio1 11 GPIO_ACTIVE_HIGH>;
+		gpio-line-names = "ECAP2_HAT12";
 	};
 
 	hat-13-gpio {
@@ -276,6 +292,14 @@
 		gpio-line-names = "EHRPWM0_B_HAT32";
 	};
 
+	hat-32-pwm-ecap {
+		compatible = "gpio-single";
+		pinctrl-names = "default";
+		pinctrl-0 = <&hat_32_pwm_ecap>;
+		gpios = <&main_gpio1 16 GPIO_ACTIVE_HIGH>;
+		gpio-line-names = "ECAP0_HAT32";
+	};
+
 	hat-33-gpio {
 		compatible = "gpio-single";
 		pinctrl-names = "default";
@@ -306,6 +330,14 @@
 		pinctrl-0 = <&hat_36_gpio>;
 		gpios = <&main_gpio1 7 GPIO_ACTIVE_HIGH>;
 		gpio-line-names = "GPIO16";
+	};
+
+	hat-36-pwm-ecap {
+		compatible = "gpio-single";
+		pinctrl-names = "default";
+		pinctrl-0 = <&hat_36_pwm_ecap>;
+		gpios = <&main_gpio1 7 GPIO_ACTIVE_HIGH>;
+		gpio-line-names = "ECAP1_HAT36";
 	};
 
 	hat-37-gpio {
@@ -346,6 +378,14 @@
 		pinctrl-0 = <&hat_40_pwm>;
 		gpios = <&main_gpio1 9 GPIO_ACTIVE_HIGH>;
 		gpio-line-names = "EHRPWM1_A_HAT40";
+	};
+
+	hat-40-pwm-ecap {
+		compatible = "gpio-single";
+		pinctrl-names = "default";
+		pinctrl-0 = <&hat_40_pwm_ecap>;
+		gpios = <&main_gpio1 9 GPIO_ACTIVE_HIGH>;
+		gpio-line-names = "ECAP1_HAT40";
 	};
 };
 
@@ -413,6 +453,13 @@
 		>;
 	};
 
+	hat_11_pwm_ecap: hat-11-pwm-ecap-pins {
+		/* hat_11:ECAP2::ecap2_in_apwm_out:5:: */
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x198, PIN_OUTPUT, 5) /* (A26) MCASP0_AXR2.ECAP2 */
+		>;
+	};
+
 	hat_12_gpio: hat-12-gpio-pins {
 		/* hat_12:MCASP0::mcasp0_aclkx:0:: */
 		/* hat_12:SPI2::spi2_cs1:1:: */
@@ -421,6 +468,13 @@
 		/* hat_12:EQEP1::eqep1_a:8:: */
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x01a4, PIN_INPUT, 7) /* (D25) MCASP0_ACLKX.GPIO1_11 */
+		>;
+	};
+
+	hat_12_pwm_ecap: hat-12-pwm-ecap-pins {
+		/* hat_12:ECAP2::ecap2_in_apwm_out:2:: */
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x1a4, PIN_OUTPUT, 2) /* (D25) MCASP0_ACLKX.ECAP2 */
 		>;
 	};
 
@@ -509,6 +563,13 @@
 		>;
 	};
 
+	hat_32_pwm_ecap: hat-32-pwm-ecap-pins {
+		/* hat_32:ECAP0::ecap0_in_apwm_out:3:: */
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x1b8, PIN_OUTPUT, 3) /* (C20) SPI0_CS1.ECAP0 */
+		>;
+	};
+
 	hat_33_gpio: hat-33-gpio-pins {
 		/* hat_33:SPI0::spi0_d0:0:: */
 		/* hat_33:CP_GEMAC_CPTS0::cp_gemac_cpts0_hw1tspush:1:: */
@@ -547,6 +608,13 @@
 		/* hat_36:EQEP0::eqep0_a:8:: */
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x0194, PIN_INPUT, 7) /* (A25) MCASP0_AXR3.GPIO1_7 */
+		>;
+	};
+
+	hat_36_pwm_ecap: hat-36-pwm-ecap-pins {
+		/* hat_36:ECAP1::ecap1_in_apwm_out:5:: */
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x19c, PIN_OUTPUT, 5) /* (A25) MCASP0_AXR3.ECAP1 */
 		>;
 	};
 
@@ -595,6 +663,13 @@
 		/* hat_40:EHRPWM1::ehrpwm1_a:6:: */
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x19c, PIN_OUTPUT, 6) /* (B25) MCASP0_AXR1.EHRPWM1_A */
+		>;
+	};
+
+	hat_40_pwm_ecap: hat-40-pwm-ecap-pins {
+		/* hat_40:ECAP1::ecap1_in_apwm_out:2:: */
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x19c, PIN_OUTPUT, 2) /* (B25) MCASP0_AXR1.ECAP1 */
 		>;
 	};
 };
@@ -676,6 +751,18 @@
 			J722S_MCU_IOPAD(0x0024, PIN_INPUT, 7) /* (B3) WKUP_UART0_RXD.MCU_GPIO0_9 */
 		>;
 	};
+};
+
+&ecap0 {
+	status = "okay";
+};
+
+&ecap1 {
+	status = "okay";
+};
+
+&ecap2 {
+	status = "okay";
 };
 
 &epwm0 {
