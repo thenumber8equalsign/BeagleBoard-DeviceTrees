@@ -614,7 +614,7 @@
 	hat_36_pwm_ecap: hat-36-pwm-ecap-pins {
 		/* hat_36:ECAP1::ecap1_in_apwm_out:5:: */
 		pinctrl-single,pins = <
-			J722S_IOPAD(0x19c, PIN_OUTPUT, 5) /* (A25) MCASP0_AXR3.ECAP1 */
+			J722S_IOPAD(0x194, PIN_OUTPUT, 5) /* (A25) MCASP0_AXR3.ECAP1 */
 		>;
 	};
 
