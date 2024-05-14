@@ -63,7 +63,7 @@
 		pinctrl-names = "default";
 		pinctrl-0 = <&hat_03_gpio>;
 		gpios = <&mcu_gpio0 18 GPIO_ACTIVE_HIGH>;
-		gpio-line-names = "GPIO02";
+		gpio-line-names = "GPIO2";
 	};
 
 	hat-05-gpio {
@@ -71,7 +71,7 @@
 		pinctrl-names = "default";
 		pinctrl-0 = <&hat_05_gpio>;
 		gpios = <&mcu_gpio0 17 GPIO_ACTIVE_HIGH>;
-		gpio-line-names = "GPIO03";
+		gpio-line-names = "GPIO3";
 	};
 
 	hat-uart-ttyAMA0 {
@@ -177,7 +177,7 @@
 		pinctrl-names = "default";
 		pinctrl-0 = <&hat_21_gpio>;
 		gpios = <&mcu_gpio0 4 GPIO_ACTIVE_HIGH>;
-		gpio-line-names = "GPIO09";
+		gpio-line-names = "GPIO9";
 	};
 
 	hat-22-gpio {
@@ -209,7 +209,7 @@
 		pinctrl-names = "default";
 		pinctrl-0 = <&hat_26_gpio>;
 		gpios = <&mcu_gpio0 9 GPIO_ACTIVE_HIGH>;
-		gpio-line-names = "GPIO07";
+		gpio-line-names = "GPIO7";
 	};
 
 	hat-29-gpio {
@@ -217,7 +217,7 @@
 		pinctrl-names = "default";
 		pinctrl-0 = <&hat_29_gpio>;
 		gpios = <&main_gpio1 15 GPIO_ACTIVE_HIGH>;
-		gpio-line-names = "GPIO05";
+		gpio-line-names = "GPIO5";
 	};
 
 	hat-31-gpio {
