@@ -9,6 +9,27 @@
 #include <dt-bindings/gpio/gpio.h>
 
 / {
+	hat-mcu-i2c0 {
+		compatible = "gpio-peripheral";
+		pinctrl-names = "default";
+		pinctrl-0 = <&hat_03_i2c>, <&hat_05_i2c>;
+
+		gpios = <&mcu_gpio0 18 GPIO_ACTIVE_HIGH>,
+			<&mcu_gpio0 17 GPIO_ACTIVE_HIGH>;
+		gpio-line-names = "MCU_I2C0_SDA_HAT03", "MCU_I2C0_SCL_HAT05";
+	};
+
+
+//	hat-i2c4 {
+//		compatible = "gpio-peripheral";
+//		pinctrl-names = "default";
+//		pinctrl-0 = <&hat_22_i2c>, <&hat_15_i2c>;
+//
+//		gpios = <&main_gpio0 42 GPIO_ACTIVE_HIGH>,
+//			<&main_gpio0 41 GPIO_ACTIVE_HIGH>;
+//		gpio-line-names = "I2C4_SDA_HAT22", "I2C4_SCL_HAT15";
+//	};
+
 	hat-uart1-ttyAMA0 {
 		compatible = "gpio-peripheral";
 		pinctrl-names = "default";
@@ -27,28 +48,12 @@
 		gpio-line-names = "GPIO2";
 	};
 
-	hat-03-i2c {
-		compatible = "gpio-single";
-		pinctrl-names = "default";
-		pinctrl-0 = <&hat_03_i2c>;
-		gpios = <&mcu_gpio0 18 GPIO_ACTIVE_HIGH>;
-		gpio-line-names = "I2C_HAT03_GPIO2";
-	};
-
 	hat-05-gpio {
 		compatible = "gpio-single";
 		pinctrl-names = "default";
 		pinctrl-0 = <&hat_05_gpio>;
 		gpios = <&mcu_gpio0 17 GPIO_ACTIVE_HIGH>;
 		gpio-line-names = "GPIO3";
-	};
-
-	hat-05-i2c {
-		compatible = "gpio-single";
-		pinctrl-names = "default";
-		pinctrl-0 = <&hat_05_i2c>;
-		gpios = <&mcu_gpio0 17 GPIO_ACTIVE_HIGH>;
-		gpio-line-names = "I2C_HAT05_GPIO3";
 	};
 
 	hat-08-gpio {
@@ -147,14 +152,6 @@
 		gpio-line-names = "GPIO22";
 	};
 
-//	hat-15-i2c {
-//		compatible = "gpio-single";
-//		pinctrl-names = "default";
-//		pinctrl-0 = <&hat_15_i2c>;
-//		gpios = <&main_gpio0 41 GPIO_ACTIVE_HIGH>;
-//		gpio-line-names = "I2C4_HAT15";
-//	};
-
 	hat-16-gpio {
 		compatible = "gpio-single";
 		pinctrl-names = "default";
@@ -194,14 +191,6 @@
 		gpios = <&main_gpio0 42 GPIO_ACTIVE_HIGH>;
 		gpio-line-names = "GPIO25";
 	};
-
-//	hat-22-i2c {
-//		compatible = "gpio-single";
-//		pinctrl-names = "default";
-//		pinctrl-0 = <&hat_22_i2c>;
-//		gpios = <&main_gpio0 42 GPIO_ACTIVE_HIGH>;
-//		gpio-line-names = "I2C4_HAT22";
-//	};
 
 	hat-23-gpio {
 		compatible = "gpio-single";
