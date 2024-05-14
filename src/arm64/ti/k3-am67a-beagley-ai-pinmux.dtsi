@@ -74,13 +74,13 @@
 		gpio-line-names = "GPIO3";
 	};
 
-	hat-uart-ttyAMA0 {
+	hat-uart1-ttyAMA0 {
 		compatible = "gpio-peripheral";
 		pinctrl-names = "default";
-		pinctrl-0 = <&hat_08_uart>, <&hat_10_uart>;
+		pinctrl-0 = <&hat_08_uart1_txd>, <&hat_10_uart1_rxd>;
 
 		gpios = <&main_gpio1 14 GPIO_ACTIVE_HIGH>,
-				<&main_gpio1 15 GPIO_ACTIVE_HIGH>;
+			<&main_gpio1 15 GPIO_ACTIVE_HIGH>;
 		gpio-line-names = "UART1_TXD", "UART1_RXD";
 	};
 
@@ -100,12 +100,12 @@
 		gpio-line-names = "EHRPWM0_B_HAT08";
 	};
 
-	hat-08-uart-txd0 {
+	hat-08-uart1-txd {
 		compatible = "gpio-single";
 		pinctrl-names = "default";
-		pinctrl-0 = <&hat_08_uart>;
+		pinctrl-0 = <&hat_08_uart1_txd>;
 		gpios = <&main_gpio1 14 GPIO_ACTIVE_HIGH>;
-		gpio-line-names = "UART1_TXD";
+		gpio-line-names = "UART1_TXD_HAT08";
 	};
 
 	hat-10-gpio {
@@ -127,9 +127,9 @@
 	hat-10-uart1-rxd {
 		compatible = "gpio-single";
 		pinctrl-names = "default";
-		pinctrl-0 = <&hat_10_uart>;
+		pinctrl-0 = <&hat_10_uart1_rxd>;
 		gpios = <&main_gpio1 13 GPIO_ACTIVE_HIGH>;
-		gpio-line-names = "UART1_RXD";
+		gpio-line-names = "UART1_RXD_HAT10";
 	};
 
 	hat-11-gpio {
@@ -409,7 +409,7 @@
 		>;
 	};
 
-	hat_08_uart: hat-08-uart-pins {
+	hat_08_uart1_txd: hat-08-uart1-txd-pins {
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x01b0, PIN_OUTPUT, 2) /* (F24) MCASP0_ACLKR.UART1_TXD */
 		>;
@@ -434,7 +434,7 @@
 		>;
 	};
 
-	hat_10_uart: hat-10-uart-pins {
+	hat_10_uart1_rxd: hat-10-uart1-rxd-pins {
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x01ac, PIN_INPUT, 2) /* (C27) MCASP0_AFSR.UART1_RXD */
 		>;
@@ -444,7 +444,7 @@
 		/* hat_11:MCASP0::mcasp0_axr2:0:: */
 		/* hat_11:SPI2::spi2_d1:1:: */
 		/* hat_11:USART1::uart1_rtsn:2:: */
-		/* hat_11:USART6::uart6_txd:3:: */
+		/* hat_11:USART6::uart6_txd:3:: USED by BLE */
 		/* hat_11:ECAP2::ecap2_in_apwm_out:5:: */
 		/* hat_11:GPIO1::gpio1_8:7:: */
 		/* hat_11:EQEP0::eqep0_b:8:: */
@@ -602,7 +602,7 @@
 		/* hat_36:MCASP0::mcasp0_axr3:0:: */
 		/* hat_36:SPI2::spi2_d0:1:: */
 		/* hat_36:USART1::uart1_ctsn:2:: */
-		/* hat_36:USART6::uart6_rxd:3:: */
+		/* hat_36:USART6::uart6_rxd:3:: USED by BLE */
 		/* hat_36:ECAP1::ecap1_in_apwm_out:5:: */
 		/* hat_36:GPIO1::gpio1_7:7:: */
 		/* hat_36:EQEP0::eqep0_a:8:: */
