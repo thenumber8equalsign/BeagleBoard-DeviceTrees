@@ -17,6 +17,7 @@
 		mmc0 = &sdhci0;
 		mmc1 = &sdhci1;
 		serial0 = &main_uart0;
+		serial2 = &main_uart2;
 	};
 
 	chosen {
