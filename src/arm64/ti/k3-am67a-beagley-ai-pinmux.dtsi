@@ -9,12 +9,30 @@
 #include <dt-bindings/gpio/gpio.h>
 
 / {
+	hat-uart1-ttyAMA0 {
+		compatible = "gpio-peripheral";
+		pinctrl-names = "default";
+		pinctrl-0 = <&hat_08_uart1_txd>, <&hat_10_uart1_rxd>;
+
+		gpios = <&main_gpio1 14 GPIO_ACTIVE_HIGH>,
+			<&main_gpio1 15 GPIO_ACTIVE_HIGH>;
+		gpio-line-names = "UART1_TXD", "UART1_RXD";
+	};
+
 	hat-03-gpio {
 		compatible = "gpio-single";
 		pinctrl-names = "default";
 		pinctrl-0 = <&hat_03_gpio>;
 		gpios = <&mcu_gpio0 18 GPIO_ACTIVE_HIGH>;
 		gpio-line-names = "GPIO2";
+	};
+
+	hat-03-i2c {
+		compatible = "gpio-single";
+		pinctrl-names = "default";
+		pinctrl-0 = <&hat_03_i2c>;
+		gpios = <&mcu_gpio0 18 GPIO_ACTIVE_HIGH>;
+		gpio-line-names = "I2C_HAT03_GPIO2";
 	};
 
 	hat-05-gpio {
@@ -25,14 +43,12 @@
 		gpio-line-names = "GPIO3";
 	};
 
-	hat-uart1-ttyAMA0 {
-		compatible = "gpio-peripheral";
+	hat-05-i2c {
+		compatible = "gpio-single";
 		pinctrl-names = "default";
-		pinctrl-0 = <&hat_08_uart1_txd>, <&hat_10_uart1_rxd>;
-
-		gpios = <&main_gpio1 14 GPIO_ACTIVE_HIGH>,
-			<&main_gpio1 15 GPIO_ACTIVE_HIGH>;
-		gpio-line-names = "UART1_TXD", "UART1_RXD";
+		pinctrl-0 = <&hat_05_i2c>;
+		gpios = <&mcu_gpio0 17 GPIO_ACTIVE_HIGH>;
+		gpio-line-names = "I2C_HAT05_GPIO3";
 	};
 
 	hat-08-gpio {
@@ -131,6 +147,14 @@
 		gpio-line-names = "GPIO22";
 	};
 
+//	hat-15-i2c {
+//		compatible = "gpio-single";
+//		pinctrl-names = "default";
+//		pinctrl-0 = <&hat_15_i2c>;
+//		gpios = <&main_gpio0 41 GPIO_ACTIVE_HIGH>;
+//		gpio-line-names = "I2C4_HAT15";
+//	};
+
 	hat-16-gpio {
 		compatible = "gpio-single";
 		pinctrl-names = "default";
@@ -170,6 +194,14 @@
 		gpios = <&main_gpio0 42 GPIO_ACTIVE_HIGH>;
 		gpio-line-names = "GPIO25";
 	};
+
+//	hat-22-i2c {
+//		compatible = "gpio-single";
+//		pinctrl-names = "default";
+//		pinctrl-0 = <&hat_22_i2c>;
+//		gpios = <&main_gpio0 42 GPIO_ACTIVE_HIGH>;
+//		gpio-line-names = "I2C4_HAT22";
+//	};
 
 	hat-23-gpio {
 		compatible = "gpio-single";
@@ -452,6 +484,13 @@
 		>;
 	};
 
+	hat_15_i2c: hat-15-i2c-pins {
+		/* hat_15:I2C4::i2c4_scl:1:: */
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x0a8, PIN_INPUT_PULLUP, 1) /* (R27) GPMC0_CSn0.I2C4_SCL */
+		>;
+	};
+
 	hat_22_gpio: hat-22-gpio-pins {
 		/* hat_22:GPMC0::gpmc0_csn1:0:: */
 		/* hat_22:I2C4::i2c4_sda:1:: */
@@ -460,6 +499,13 @@
 		/* hat_22:GPIO0::gpio0_42:7:: */
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x0ac, PIN_INPUT, 7) /* (P21) GPMC0_CSn1.GPIO0_42 */
+		>;
+	};
+
+	hat_22_i2c: hat-22-i2c-pins {
+		/* hat_22:I2C4::i2c4_sda:1:: */
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x0ac, PIN_INPUT_PULLUP, 1) /* (P21) GPMC0_CSn1.I2C4_SDA */
 		>;
 	};
 
@@ -636,11 +682,25 @@
 		>;
 	};
 
+	hat_03_i2c: hat-03-i2c-pins {
+		/* hat_03:MCU_I2C0::mcu_i2c0_sda:0::  */
+		pinctrl-single,pins = <
+			J722S_MCU_IOPAD(0x048, PIN_INPUT_PULLUP, 0) /* (E11) MCU_I2C0_SDA */
+		>;
+	};
+
 	hat_05_gpio: hat-05-gpio-pins {
 		/* hat_05:MCU_I2C0::mcu_i2c0_scl:0:: */
 		/* hat_05:MCU_GPIO0::mcu_gpio0_17:7:: */
 		pinctrl-single,pins = <
 			J722S_MCU_IOPAD(0x044, PIN_INPUT, 7) /* (B13) MCU_I2C0_SCL.MCU_GPIO0_17 */
+		>;
+	};
+
+	hat_05_i2c: hat-05-i2c-pins {
+		/* hat_05:MCU_I2C0::mcu_i2c0_scl:0:: */
+		pinctrl-single,pins = <
+			J722S_MCU_IOPAD(0x044, PIN_INPUT_PULLUP, 0) /* (B13) MCU_I2C0_SCL */
 		>;
 	};
 
@@ -728,6 +788,8 @@
 
 &mcu_i2c0 {
 	symlink = "hat/mcu_i2c0";
+	status = "okay";
+	clock-frequency = <100000>;
 };
 
 dsi0_csi1_i2c: &main_i2c0 {
@@ -741,3 +803,9 @@ dsi0_csi1_i2c: &main_i2c0 {
 csi0_i2c: &main_i2c2 {
 	symlink = "hat/csi0";
 };
+
+//&main_i2c4 {
+//	symlink = "hat/i2c4";
+//	status = "okay";
+//	clock-frequency = <100000>;
+//};
