@@ -361,6 +361,7 @@
 	};
 
 	hat_08_uart1_txd: hat-08-uart1-txd-pins {
+		/* hat_08:USART1::uart1_txd:2:: */
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x1b0, PIN_OUTPUT, 2) /* (F24) MCASP0_ACLKR.UART1_TXD */
 		>;
@@ -386,6 +387,7 @@
 	};
 
 	hat_10_uart1_rxd: hat-10-uart1-rxd-pins {
+		/* hat_10:USART1::uart1_rxd:2:: */
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x1ac, PIN_INPUT, 2) /* (C27) MCASP0_AFSR.UART1_RXD */
 		>;
