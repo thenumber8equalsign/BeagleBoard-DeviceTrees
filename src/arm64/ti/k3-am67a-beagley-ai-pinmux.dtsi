@@ -653,7 +653,7 @@
 	};
 
 	hat_18_gpio: hat-18-gpio-pins {
-		/* hat_18:WKUP_USART0::wkup_uart0_txd:0:: */
+		/* hat_18:WKUP_USART0::wkup_uart0_txd:0:: Device Manager firmware */
 		/* hat_18:MCU_SPI1::mcu_spi1_cs2:2:: */
 		/* hat_18:MCU_GPIO0::mcu_gpio0_10:7:: */
 		pinctrl-single,pins = <
@@ -695,7 +695,7 @@
 	};
 
 	hat_26_gpio: hat-26-gpio-pins {
-		/* hat_26:WKUP_USART0::wkup_uart0_rxd:0:: */
+		/* hat_26:WKUP_USART0::wkup_uart0_rxd:0:: Device Manager firmware */
 		/* hat_26:MCU_SPI0::mcu_spi0_cs2:2:: */
 		/* hat_26:MCU_GPIO0::mcu_gpio0_9:7:: */
 		pinctrl-single,pins = <
@@ -726,14 +726,6 @@
 
 &mcu_i2c0 {
 	symlink = "hat/mcu_i2c0";
-};
-
-&wkup_uart0 {
-	symlink = "play/wkup_uart0";
-};
-
-&wkup_i2c0 {
-	symlink = "play/wkup_i2c0";
 };
 
 dsi0_csi1_i2c: &main_i2c0 {

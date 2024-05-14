@@ -795,7 +795,6 @@
 };
 
 &wkup_uart0 {
-	symlink = "play/wkup_uart0";
 	/* WKUP UART0 is used by Device Manager firmware */
 	pinctrl-names = "default";
 	pinctrl-0 = <&wkup_uart0_pins_default>;
@@ -804,7 +803,6 @@
 };
 
 &wkup_i2c0 {
-	symlink = "play/wkup_i2c0";
 	pinctrl-names = "default";
 	pinctrl-0 = <&wkup_i2c0_pins_default>;
 	clock-frequency = <100000>;
