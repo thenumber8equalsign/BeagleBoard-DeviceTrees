@@ -676,22 +676,6 @@
 			J722S_MCU_IOPAD(0x0024, PIN_INPUT, 7) /* (B3) WKUP_UART0_RXD.MCU_GPIO0_9 */
 		>;
 	};
-
-	hat_27_gpio: hat-27-gpio-pins {
-		/* hat_27:WKUP_I2C0::wkup_i2c0_sda:0:: */
-		/* hat_27:MCU_GPIO0::mcu_gpio0_20:7:: */
-		pinctrl-single,pins = <
-			J722S_MCU_IOPAD(0x0050, PIN_INPUT, 7) /* (D11) WKUP_I2C0_SDA.MCU_GPIO0_20 */
-		>;
-	};
-
-	hat_28_gpio: hat-28-gpio-pins {
-		/* hat_28:WKUP_I2C0::wkup_i2c0_scl:0:: */
-		/* hat_28:MCU_GPIO0::mcu_gpio0_19:7:: */
-		pinctrl-single,pins = <
-			J722S_MCU_IOPAD(0x004c, PIN_INPUT, 7) /* (B9) WKUP_I2C0_SCL.MCU_GPIO0_19 */
-		>;
-	};
 };
 
 &mcu_i2c0 {
