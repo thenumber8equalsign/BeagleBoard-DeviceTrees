@@ -97,7 +97,7 @@
 		pinctrl-names = "default";
 		pinctrl-0 = <&hat_08_pwm>;
 		gpios = <&main_gpio1 14 GPIO_ACTIVE_HIGH>;
-		gpio-line-names = "EHRPWM0_B_GPIO14";
+		gpio-line-names = "EHRPWM0_B_HAT08";
 	};
 
 	hat-08-uart-txd0 {
@@ -121,7 +121,7 @@
 		pinctrl-names = "default";
 		pinctrl-0 = <&hat_10_pwm>;
 		gpios = <&main_gpio1 13 GPIO_ACTIVE_HIGH>;
-		gpio-line-names = "EHRPWM0_A_GPIO15";
+		gpio-line-names = "EHRPWM0_A_HAT10";
 	};
 
 	hat-10-uart1-rxd {
@@ -241,7 +241,7 @@
 		pinctrl-names = "default";
 		pinctrl-0 = <&hat_29_pwm>;
 		gpios = <&main_gpio1 15 GPIO_ACTIVE_HIGH>;
-		gpio-line-names = "EHRPWM0_A_GPIO5";
+		gpio-line-names = "EHRPWM0_A_HAT29";
 	};
 
 	hat-31-gpio {
@@ -257,7 +257,7 @@
 		pinctrl-names = "default";
 		pinctrl-0 = <&hat_31_pwm>;
 		gpios = <&main_gpio1 17 GPIO_ACTIVE_HIGH>;
-		gpio-line-names = "EHRPWM1_A_GPIO16";
+		gpio-line-names = "EHRPWM1_A_HAT31";
 	};
 
 	hat-32-gpio {
@@ -273,7 +273,7 @@
 		pinctrl-names = "default";
 		pinctrl-0 = <&hat_32_pwm>;
 		gpios = <&main_gpio1 16 GPIO_ACTIVE_HIGH>;
-		gpio-line-names = "EHRPWM0_B_GPIO12";
+		gpio-line-names = "EHRPWM0_B_HAT32";
 	};
 
 	hat-33-gpio {
@@ -289,7 +289,7 @@
 		pinctrl-names = "default";
 		pinctrl-0 = <&hat_33_pwm>;
 		gpios = <&main_gpio1 18 GPIO_ACTIVE_HIGH>;
-		gpio-line-names = "EHRPWM1_B_GPIO13";
+		gpio-line-names = "EHRPWM1_B_HAT33";
 	};
 
 	hat-35-gpio {
@@ -329,7 +329,7 @@
 		pinctrl-names = "default";
 		pinctrl-0 = <&hat_38_pwm>;
 		gpios = <&main_gpio1 10 GPIO_ACTIVE_HIGH>;
-		gpio-line-names = "EHRPWM1_B_GPIO20";
+		gpio-line-names = "EHRPWM1_B_HAT38";
 	};
 
 	hat-40-gpio {
@@ -345,7 +345,7 @@
 		pinctrl-names = "default";
 		pinctrl-0 = <&hat_40_pwm>;
 		gpios = <&main_gpio1 9 GPIO_ACTIVE_HIGH>;
-		gpio-line-names = "EHRPWM1_A_GPIO21";
+		gpio-line-names = "EHRPWM1_A_HAT40";
 	};
 };
 
