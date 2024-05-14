@@ -767,14 +767,6 @@
 		>;
 	};
 
-	mcu_i2c0_pins_default: mcu-i2c0-default-pins {
-		pinctrl-single,pins = <
-			J722S_MCU_IOPAD(0x0044, PIN_INPUT_PULLUP, 0) /* (B13) MCU_I2C0_SCL */
-			J722S_MCU_IOPAD(0x0048, PIN_INPUT_PULLUP, 0) /* (E11) MCU_I2C0_SDA */
-		>;
-		bootph-all;
-	};
-
 	mcu_oldi_backlight_default_pins: mcu-backlight-default-pins {
 		pinctrl-single,pins = <
 			J722S_MCU_IOPAD(0x002c, PIN_OUTPUT, 7) /* (C4) WKUP_UART0_CTSn.MCU_GPIO0_11 */
@@ -794,17 +786,7 @@
 	};
 };
 
-&mcu_i2c0 {
-	symlink = "hat/mcu_i2c0";
-	status = "okay";
-	//pinctrl-names = "default";
-	//pinctrl-0 = <&mcu_i2c0_pins_default>;
-	clock-frequency = <100000>;
-	bootph-all;
-};
-
 &wkup_uart0 {
-	symlink = "play/wkup_uart0";
 	/* WKUP UART0 is used by Device Manager firmware */
 	pinctrl-names = "default";
 	pinctrl-0 = <&wkup_uart0_pins_default>;
@@ -813,7 +795,6 @@
 };
 
 &wkup_i2c0 {
-	symlink = "play/wkup_i2c0";
 	pinctrl-names = "default";
 	pinctrl-0 = <&wkup_i2c0_pins_default>;
 	clock-frequency = <100000>;
