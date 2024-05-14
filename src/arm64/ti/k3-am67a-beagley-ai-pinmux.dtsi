@@ -678,6 +678,14 @@
 	};
 };
 
+&epwm0 {
+	status = "okay";
+};
+
+&epwm1 {
+	status = "okay";
+};
+
 &mcu_i2c0 {
 	symlink = "hat/mcu_i2c0";
 };
