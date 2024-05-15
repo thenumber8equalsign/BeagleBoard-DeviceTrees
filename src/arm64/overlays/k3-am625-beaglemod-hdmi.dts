@@ -83,14 +83,6 @@
 			AM62X_IOPAD(0x0060, PIN_OUTPUT, 1) /* (R25) GPMC0_AD9.VOUT0_DATA17 */
 		>;
 	};
-
-	mcasp_hdmi_pins_default: mcasp-hdmi-default-pins {
-		pinctrl-single,pins = <
-			AM62X_IOPAD(0x0090, PIN_INPUT, 2) /* (M24) GPMC0_BE0n_CLE.MCASP1_ACLKX */
-			AM62X_IOPAD(0x0098, PIN_INPUT, 2) /* (U23) GPMC0_WAIT0.MCASP1_AFSX */
-			AM62X_IOPAD(0x007c, PIN_INPUT, 2) /* (P25) GPMC0_CLK.MCASP1_AXR3 */
-		>;
-	};
 };
 
 &mcu_pmx0 {
@@ -181,19 +173,6 @@
 
 &mcasp1 {
 	status = "okay";
-	#sound-dai-cells = <0>;
-	pinctrl-names = "default";
-	pinctrl-0 = <&mcasp_hdmi_pins_default>;
 	auxclk-fs-ratio = <2177>;
-	op-mode = <0>;          /* MCASP_IIS_MODE */
-	tdm-slots = <2>;
-	serial-dir = <  /* 0: INACTIVE, 1: TX, 2: RX */
-	       0 0 0 1 
-	       0 0 0 0
-	       0 0 0 0
-	       0 0 0 0
-	>;
-	tx-num-evt = <32>;
-	rx-num-evt = <32>;
 };
 
