@@ -9,6 +9,15 @@
 #include "ti/k3-pinctrl.h"
 #include <dt-bindings/gpio/gpio.h>
 
+/*
+ * Helper to show loaded overlays under: /proc/device-tree/chosen/overlays/
+ */
+&{/chosen} {
+	overlays {
+		k3-am625-beaglemod-eth.kernel = __TIMESTAMP__;
+	};
+};
+
 &{/} {
 	mdio0: bitbang-mdio {
 		compatible = "virtual,mdio-gpio";

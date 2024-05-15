@@ -8,6 +8,15 @@
 
 #include "ti/k3-pinctrl.h"
 
+/*
+ * Helper to show loaded overlays under: /proc/device-tree/chosen/overlays/
+ */
+&{/chosen} {
+	overlays {
+		k3-am625-beaglemod-external-eeprom.kernel = __TIMESTAMP__;
+	};
+};
+
 &main_pmx0 {
 	main_i2c1_pins_default: main-i2c1-pins-default {
 		pinctrl-single,pins = <

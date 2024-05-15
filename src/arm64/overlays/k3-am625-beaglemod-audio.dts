@@ -8,6 +8,15 @@
 
 #include "ti/k3-pinctrl.h"
 
+/*
+ * Helper to show loaded overlays under: /proc/device-tree/chosen/overlays/
+ */
+&{/chosen} {
+	overlays {
+		k3-am625-beaglemod-audio.kernel = __TIMESTAMP__;
+	};
+};
+
 &{/} {
 	tlv320aic3104_mclk: tlv320aic3104_mclk {
 		#clock-cells = <0>;

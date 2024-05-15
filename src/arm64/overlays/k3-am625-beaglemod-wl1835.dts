@@ -10,6 +10,15 @@
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/interrupt-controller/irq.h>
 
+/*
+ * Helper to show loaded overlays under: /proc/device-tree/chosen/overlays/
+ */
+&{/chosen} {
+	overlays {
+		k3-am625-beaglemod-wl1835.kernel = __TIMESTAMP__;
+	};
+};
+
 &{/} {
 	wlan_en: regulator-3 {
 		/* OUTPUT of SN74AVC2T244DQMR */

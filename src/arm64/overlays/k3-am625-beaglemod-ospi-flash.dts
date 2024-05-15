@@ -8,6 +8,15 @@
 
 #include "ti/k3-pinctrl.h"
 
+/*
+ * Helper to show loaded overlays under: /proc/device-tree/chosen/overlays/
+ */
+&{/chosen} {
+	overlays {
+		k3-am625-beaglemod-ospi-flash.kernel = __TIMESTAMP__;
+	};
+};
+
 &main_pmx0 {
         ospi0_pins_default: ospi0-pins-default {
                 pinctrl-single,pins = <

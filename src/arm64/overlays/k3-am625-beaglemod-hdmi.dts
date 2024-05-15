@@ -10,6 +10,15 @@
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/interrupt-controller/irq.h>
 
+/*
+ * Helper to show loaded overlays under: /proc/device-tree/chosen/overlays/
+ */
+&{/chosen} {
+	overlays {
+		k3-am625-beaglemod-hdmi.kernel = __TIMESTAMP__;
+	};
+};
+
 &{/} {
 	hdmi0: connector {
 		compatible = "hdmi-connector";
