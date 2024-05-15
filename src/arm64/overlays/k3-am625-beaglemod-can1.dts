@@ -8,6 +8,15 @@
 
 #include "ti/k3-pinctrl.h"
 
+/*
+ * Helper to show loaded overlays under: /proc/device-tree/chosen/overlays/
+ */
+&{/chosen} {
+	overlays {
+		k3-am625-beaglemod-can1.kernel = __TIMESTAMP__;
+	};
+};
+
 &{/} {
 	transceiver2: can-phy2 {
 		compatible = "ti,tcan1042";

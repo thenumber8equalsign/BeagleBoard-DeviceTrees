@@ -10,9 +10,9 @@
  * Helper to show loaded overlays under: /proc/device-tree/chosen/overlays/
  */
 &{/chosen} {
-	overlays {
-		k3-am625-beaglemod-external-eeprom.kernel = __TIMESTAMP__;
-	};
+        overlays {
+                k3-am625-beaglemod-io-expand.kernel = __TIMESTAMP__;
+        };
 };
 
 &main_i2c1 {
@@ -20,8 +20,14 @@
 	#address-cells = <1>;
 	#size-cells = <0>;
 
-	eeprom1: eeprom@57 {
-		compatible = "atmel,24c256";
-		reg = <0x57>;
+	pca953x: pca@21 {
+		compatible = "nxp,pca9535";
+		reg = <0x21>;
+		status = "okay";
+
+		gpio-controller;
+		#gpio-cells = <2>;
+		//We don't use interrupt here?
+		//Because all the expand IO are output.
 	};
 };
