@@ -155,15 +155,6 @@
 	status = "okay";
 };
 
-&mcu_pmx0 {
-	mcu_i2c0_pins_default: i2c-qwiic-pins-default {
-		pinctrl-single,pins = <
-			AM62X_MCU_IOPAD(0x0044, PIN_INPUT, 0) /* (A8) MCU_I2C0_SCL */
-			AM62X_MCU_IOPAD(0x0048, PIN_INPUT, 0) /* (D10) MCU_I2C0_SDA */
-		>;
-	};
-};
-
 &dss {
 	pinctrl-names = "default";
 	pinctrl-0 = <&oldi_pins_default>;
@@ -191,11 +182,8 @@
 };
 
 &mcu_i2c0 {
-	pinctrl-names = "default";
-	pinctrl-0 = <&mcu_i2c0_pins_default>;
 	#address-cells = <1>;
 	#size-cells = <0>;
-	clock-frequency = <100000>;
 	status = "okay";
 
 	eeprom@57 {
