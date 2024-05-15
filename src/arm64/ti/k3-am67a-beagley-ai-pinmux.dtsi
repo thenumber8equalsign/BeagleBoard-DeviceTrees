@@ -237,7 +237,7 @@
 		pinctrl-names = "default";
 		pinctrl-0 = <&hat_31_gpio>;
 		gpios = <&main_gpio1 17 GPIO_ACTIVE_HIGH>;
-		gpio-line-names = "GPIO16";
+		gpio-line-names = "GPIO6";
 	};
 
 	hat-31-pwm {
