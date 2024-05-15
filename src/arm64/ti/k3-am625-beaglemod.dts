@@ -245,9 +245,7 @@
 			AM62X_MCU_IOPAD(0x0050, PIN_INPUT_PULLUP, 0) /* (A9) WKUP_I2C0_SDA */
 		>;
 	};
-};
 
-&mcu_pmx0 {
 	mcu_i2c0_pins_default: i2c-qwiic-pins-default {
 		pinctrl-single,pins = <
 			AM62X_MCU_IOPAD(0x0044, PIN_INPUT, 0) /* (A8) MCU_I2C0_SCL */
