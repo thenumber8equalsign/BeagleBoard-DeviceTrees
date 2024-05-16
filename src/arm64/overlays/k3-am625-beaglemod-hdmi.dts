@@ -50,13 +50,6 @@
 };
 
 &main_pmx0 {
-	main_i2c1_pins_default: main-i2c1-pins-default {
-		pinctrl-single,pins = <
-			AM62X_IOPAD(0x01e8, PIN_INPUT_PULLUP, 0) /* (B17) I2C1_SCL */
-			AM62X_IOPAD(0x01ec, PIN_INPUT_PULLUP, 0) /* (A17) I2C1_SDA */
-		>;
-	};
-
 	hdmi_pins_default: hdmi-pins-default {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x0100, PIN_OUTPUT, 0) /* (AC25) VOUT0_VSYNC */
@@ -94,23 +87,9 @@
 };
 
 &main_i2c1 {
-	pinctrl-names = "default";
-	pinctrl-0 = <&main_i2c1_pins_default>;
-	clock-frequency = <10000>;
 	status = "okay";
 	#address-cells = <1>;
 	#size-cells = <0>;
-
-	pca953x: pca@21 {
-		compatible = "nxp,pca9535";
-		reg = <0x21>;
-		status = "okay";
-
-		gpio-controller;
-		#gpio-cells = <2>;
-		//We don't use interrupt here?
-		//Because all the expand IO are output.
-	};
 
 	it66121hdmitx: hdmitx@4c {
 		#sound-dai-cells = <0>;
