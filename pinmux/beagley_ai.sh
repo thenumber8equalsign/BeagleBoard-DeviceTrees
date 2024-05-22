@@ -17,6 +17,8 @@ echo "" >${file}-a-bone-pins.h
 echo "" >${file}-b-bone-pins.h
 echo "" >${file}-bone-pins.h
 echo "" >${file}-pins.txt
+echo "" >${file}-main-pinmux.txt
+echo "" >${file}-mcu-pinmux.txt
 
 echo "/* macro:  */" >${file}.dts
 

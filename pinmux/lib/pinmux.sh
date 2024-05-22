@@ -44,21 +44,21 @@ get_name_mode () {
 	#cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID}' .pinModeInfo['$number'] .signalName' | sed 's/\"//g' | sed 's/\[/_/g' | sed 's/\]//g' || true
 	#echo "debug------------------------------------------"
 
-	name=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID}' .pinModeInfo['$number'] .signalName' | sed 's/\"//g' | sed 's/\[/_/g' | sed 's/\]//g' | awk '{print tolower($0)}' || true)
-	mode=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID}' .pinModeInfo['$number'] .mode' | sed 's/\"//g' | awk '{print tolower($0)}' || true)
+	name=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID}' .pinModeInfo['$number'] .signalName' | sed 's/\"//g' | sed 's/\[/_/g' | sed 's/\]//g' | awk '{print toupper($0)}' || true)
+	mode=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID}' .pinModeInfo['$number'] .mode' | sed 's/\"//g' | awk '{print toupper($0)}' || true)
 	ioDir=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID}' .pinModeInfo['$number'] .ioDir' | sed 's/\"//g' || true)
 	#echo "debug: get_name_mode; name=${name}; mode=${mode}; ioDir=${ioDir}"
 }
 
 get_name_mode_a () {
-	name_a=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID_a}' .pinModeInfo['$number_a'] .signalName' | sed 's/\"//g' | sed 's/\[/_/g' | sed 's/\]//g' | awk '{print tolower($0)}' || true)
-	mode_a=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID_a}' .pinModeInfo['$number_a'] .mode' | sed 's/\"//g' | awk '{print tolower($0)}' || true)
+	name_a=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID_a}' .pinModeInfo['$number_a'] .signalName' | sed 's/\"//g' | sed 's/\[/_/g' | sed 's/\]//g' | awk '{print toupper($0)}' || true)
+	mode_a=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID_a}' .pinModeInfo['$number_a'] .mode' | sed 's/\"//g' | awk '{print toupper($0)}' || true)
 	ioDir_a=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID_a}' .pinModeInfo['$number_a'] .ioDir' | sed 's/\"//g' || true)
 }
 
 get_name_mode_b () {
-	name_b=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID_b}' .pinModeInfo['$number_b'] .signalName' | sed 's/\"//g' | sed 's/\[/_/g' | sed 's/\]//g' | awk '{print tolower($0)}' || true)
-	mode_b=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID_b}' .pinModeInfo['$number_b'] .mode' | sed 's/\"//g' | awk '{print tolower($0)}' || true)
+	name_b=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID_b}' .pinModeInfo['$number_b'] .signalName' | sed 's/\"//g' | sed 's/\[/_/g' | sed 's/\]//g' | awk '{print toupper($0)}' || true)
+	mode_b=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID_b}' .pinModeInfo['$number_b'] .mode' | sed 's/\"//g' | awk '{print toupper($0)}' || true)
 	ioDir_b=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID_b}' .pinModeInfo['$number_b'] .ioDir' | sed 's/\"//g' || true)
 }
 
@@ -121,7 +121,79 @@ find_pin () {
 		if [ "x${interface_a}" = "xnull" ] ; then
 			break;
 		fi
-		echo ${label}:${interface_a}:${ball_a}:${name_a}:${mode_a}:${ioDir_a}: >> ${file}-pins.txt
+		echo ${label}:${interface_a}:${found_ball_a}:${name_a}:${mode_a}:${ioDir_a}: >> ${file}-pins.txt
+
+		if [ "x${mode_a}" = "x0" ] ; then
+			interface=${name_a}
+		fi
+
+		iopad="J722S_IOPAD"
+		PIN_a="PIN_INPUT"
+		type="gpio"
+		core="main"
+
+		case "${name_a}" in
+		I2C*)
+			PIN_a="PIN_INPUT_PULLUP"
+			type="i2c"
+		;;
+		ECAP*)
+			PIN_a="PIN_OUTPUT"
+			type="pwm-ecap"
+		;;
+		EHRPWM*)
+			PIN_a="PIN_OUTPUT"
+			type="pwm"
+		;;
+		EQEP*)
+			type="eqep"
+		;;
+		MCASP*)
+			type="audio"
+		;;
+		MCU_GPIO*)
+			iopad="J722S_MCU_IOPAD"
+			type="gpio"
+			core="mcu"
+		;;
+		MCU_I2C*_S*)
+			iopad="J722S_MCU_IOPAD"
+			PIN_a="PIN_INPUT_PULLUP"
+			type="i2c"
+			core="mcu"
+		;;
+		SPI*)
+			type="spi"
+		;;
+		UART*_TXD)
+			PIN_a="PIN_OUTPUT"
+			type=$(echo ${name_a} | awk '{print tolower($0)}' | sed 's/_/-/g' || true)
+		;;
+		UART*_RXD)
+			type=$(echo ${name_a} | awk '{print tolower($0)}' | sed 's/_/-/g' || true)
+		;;
+		WKUP_DMTIMER*)
+			iopad="J722S_MCU_IOPAD"
+			PIN_a="PIN_OUTPUT"
+			type="pwm-timer"
+			core="mcu"
+		;;
+		esac
+
+		labela=$(echo ${label} | sed 's/_/-/g' || true)
+		cro_aa=$(echo ${cro_a} | sed 's/^...//' || true)
+
+		echo "	${label}_${type}: ${labela}-${type}-pins {" >> ${file}-${core}-pinmux.txt
+		echo "		/* ${label}:${interface_a}:${found_ball_a}:${name_a}:${mode_a}:${ioDir_a}: */" >> ${file}-${core}-pinmux.txt
+		echo "		pinctrl-single,pins = <" >> ${file}-${core}-pinmux.txt
+		if [ "x${mode_a}" = "x0" ] ; then
+			echo "			${iopad}(0x${cro_aa}, ${PIN_a}, ${mode_a}) /* (${found_ball_a}) ${interface} */" >> ${file}-${core}-pinmux.txt
+		else
+			echo "			${iopad}(0x${cro_aa}, ${PIN_a}, ${mode_a}) /* (${found_ball_a}) ${interface}.${name_a} */" >> ${file}-${core}-pinmux.txt
+		fi
+		echo "		>;" >> ${file}-${core}-pinmux.txt
+		echo "	};" >> ${file}-${core}-pinmux.txt
+		echo "" >> ${file}-${core}-pinmux.txt
 
 		if [ "x${default}" = "x${interface_a}" ] ; then
 			default_name_a=${name_a}
@@ -136,7 +208,7 @@ find_pin () {
 			;;
 		EHRPWM*)
 			case "${name_a}" in
-			ehrpwm*_a|ehrpwm*_b)
+			EHRPWM*_A|EHRPWM*_B)
 				ehrpwm_mode_a=${mode_a}
 				ehrpwm_name_a=${name_a}
 				got_ehrpwm_a=yes
@@ -160,13 +232,13 @@ find_pin () {
 			;;
 		MCAN0|MCAN4|MCAN5)
 			case "${name_a}" in
-			mcan*_rx)
+			MCAN*_RX)
 				mcan_mode_a=${mode_a}
 				mcan_name_a=${name_a}
 				mcan_pinmux_a="PIN_INPUT"
 				got_mcan_a=yes
 				;;
-			mcan*_tx)
+			MCAN*_TX)
 				mcan_mode_a=${mode_a}
 				mcan_name_a=${name_a}
 				mcan_pinmux_a="PIN_OUTPUT"
@@ -195,13 +267,13 @@ find_pin () {
 			;;
 		USART0|USART2|USART5)
 			case "${name_a}" in
-			uart*_rxd)
+			UART*_RXD)
 				uart_mode_a=${mode_a}
 				uart_name_a=${name_a}
 				uart_pinmux_a="PIN_INPUT"
 				got_uart_a=yes
 				;;
-			uart*_txd)
+			UART*_TXD)
 				uart_mode_a=${mode_a}
 				uart_name_a=${name_a}
 				uart_pinmux_a="PIN_OUTPUT"
@@ -212,6 +284,7 @@ find_pin () {
 		esac
 	done
 
+	label=$(echo ${label} | awk '{print tolower($0)}' || true)
 	echo "	/* ${label} (${ball}) ${PinID_a} (${gpio_name_a}) ${sch} */" >> ${file}.dts
 	echo "	BONE_PIN(${label}, default,   ${label}(PIN_INPUT, ${default_mode_a}))" >> ${file}.dts
 
@@ -260,7 +333,7 @@ find_pin () {
 	echo "" >>${file}.dts
 
 	if [ "x${got_gpio_a}" = "xyes" ] ; then
-		gpio_pinmux=$(echo ${gpio_name_a} | sed 's/_/ /g')
+		gpio_pinmux=$(echo ${gpio_name_a} | awk '{print tolower($0)}' | sed 's/_/ /g')
 		echo "#define gpio_${label} &main_${gpio_pinmux}	/* ${ball}: ${PinID_a} ${sch} */" >> ${file}-a-bone-pins.h
 		echo "#define ${label}(mode, mux) J721E_IOPAD(${cro_a}, mode, mux)	/* ${ball}: ${PinID_a} ${sch} */" >> ${file}-b-bone-pins.h
 	fi
@@ -400,13 +473,13 @@ find_shared_pin () {
 			;;
 		MCAN0|MCAN4|MCAN5)
 			case "${name_a}" in
-			mcan*_rx)
+			MCAN*_RX)
 				mcan_mode_a=${mode_a}
 				mcan_name_a=${name_a}
 				mcan_pinmux_a="PIN_INPUT"
 				got_mcan_a=yes
 				;;
-			mcan*_tx)
+			MCAN*_TX)
 				mcan_mode_a=${mode_a}
 				mcan_name_a=${name_a}
 				mcan_pinmux_a="PIN_OUTPUT"
@@ -435,13 +508,13 @@ find_shared_pin () {
 			;;
 		USART0|USART2|USART5)
 			case "${name_a}" in
-			uart*_rxd)
+			UART*_RXD)
 				uart_mode_a=${mode_a}
 				uart_name_a=${name_a}
 				uart_pinmux_a="PIN_INPUT"
 				got_uart_a=yes
 				;;
-			uart*_txd)
+			UART*_TXD)
 				uart_mode_a=${mode_a}
 				uart_name_a=${name_a}
 				uart_pinmux_a="PIN_OUTPUT"
@@ -510,13 +583,13 @@ find_shared_pin () {
 			;;
 		MCAN0|MCAN4|MCAN5)
 			case "${name_b}" in
-			mcan*_rx)
+			MCAN*_RX)
 				mcan_mode_b=${mode_b}
 				mcan_name_b=${name_b}
 				mcan_pinmux_b="PIN_INPUT"
 				got_mcan_b=yes
 				;;
-			mcan*_tx)
+			MCAN*_TX)
 				mcan_mode_b=${mode_b}
 				mcan_name_b=${name_b}
 				mcan_pinmux_b="PIN_OUTPUT"
@@ -545,13 +618,13 @@ find_shared_pin () {
 			;;
 		USART0|USART2|USART5)
 			case "${name_b}" in
-			uart*_rxd)
+			UART*_RXD)
 				uart_mode_b=${mode_b}
 				uart_name_b=${name_b}
 				uart_pinmux_b="PIN_INPUT"
 				got_uart_b=yes
 				;;
-			uart*_txd)
+			UART*_TXD)
 				uart_mode_b=${mode_b}
 				uart_name_b=${name_b}
 				uart_pinmux_b="PIN_OUTPUT"
