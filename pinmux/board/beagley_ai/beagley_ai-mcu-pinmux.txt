@@ -41,6 +41,13 @@
 		>;
 	};
 
+	hat_18_wkup_uart0_txd: hat-18-wkup-uart0-txd-pins {
+		/* hat_18:WKUP_USART0:C8:WKUP_UART0_TXD:0:: */
+		pinctrl-single,pins = <
+			J722S_MCU_IOPAD(0x028, PIN_OUTPUT, 0) /* (C8) WKUP_UART0_TXD */
+		>;
+	};
+
 	hat_18_spi: hat-18-spi-pins {
 		/* hat_18:MCU_SPI1:C8:MCU_SPI1_CS2:2:: */
 		pinctrl-single,pins = <
@@ -108,6 +115,13 @@
 		/* hat_24:MCU_GPIO0:C12:MCU_GPIO0_0:7:: */
 		pinctrl-single,pins = <
 			J722S_MCU_IOPAD(0x000, PIN_INPUT, 7) /* (C12) MCU_SPI0_CS0.MCU_GPIO0_0 */
+		>;
+	};
+
+	hat_26_wkup_uart0_rxd: hat-26-wkup-uart0-rxd-pins {
+		/* hat_26:WKUP_USART0:B3:WKUP_UART0_RXD:0:: */
+		pinctrl-single,pins = <
+			J722S_MCU_IOPAD(0x024, PIN_INPUT, 0) /* (B3) WKUP_UART0_RXD */
 		>;
 	};
 

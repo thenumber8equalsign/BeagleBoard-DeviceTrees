@@ -202,13 +202,13 @@ find_pin () {
 			#core="mcu"
 			unset print_dts
 		;;
-		WKUP_USART*_TXD)
+		WKUP_UART*_TXD)
 			iopad="J722S_MCU_IOPAD"
 			PIN_a="PIN_OUTPUT"
 			type=$(echo ${name_a} | awk '{print tolower($0)}' | sed 's/_/-/g' || true)
 			core="mcu"
 		;;
-		WKUP_USART*_RXD)
+		WKUP_UART*_RXD)
 			iopad="J722S_MCU_IOPAD"
 			PIN_a="PIN_INPUT"
 			type=$(echo ${name_a} | awk '{print tolower($0)}' | sed 's/_/-/g' || true)

@@ -153,13 +153,6 @@
 		>;
 	};
 
-	hat_18_gpio: hat-18-gpio-pins {
-		/* hat_18:WKUP_USART0:C8:WKUP_UART0_TXD:0:: */
-		pinctrl-single,pins = <
-			J722S_IOPAD(0x028, PIN_INPUT, 0) /* (C8) WKUP_UART0_TXD */
-		>;
-	};
-
 	hat_22_i2c: hat-22-i2c-pins {
 		/* hat_22:I2C4:P21:I2C4_SDA:1:: */
 		pinctrl-single,pins = <
@@ -178,13 +171,6 @@
 		/* hat_24:WKUP_DMTIMER1:C12:WKUP_TIMER_IO1:4:: */
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x000, PIN_INPUT, 4) /* (C12) MCU_SPI0_CS0.WKUP_TIMER_IO1 */
-		>;
-	};
-
-	hat_26_gpio: hat-26-gpio-pins {
-		/* hat_26:WKUP_USART0:B3:WKUP_UART0_RXD:0:: */
-		pinctrl-single,pins = <
-			J722S_IOPAD(0x024, PIN_INPUT, 0) /* (B3) WKUP_UART0_RXD */
 		>;
 	};
 
