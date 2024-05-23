@@ -198,7 +198,7 @@ find_pin () {
 		UART*_*TSn)
 			unset print_dts
 		;;
-		WKUP_DMTIMER*)
+		WKUP_DMTIMER*|WKUP_TIMER_IO*)
 			#iopad="J722S_MCU_IOPAD"
 			#PIN_a="PIN_OUTPUT"
 			#type="pwm-timer"

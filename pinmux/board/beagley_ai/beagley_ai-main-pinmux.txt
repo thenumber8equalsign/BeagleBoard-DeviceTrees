@@ -111,13 +111,6 @@
 		>;
 	};
 
-	hat_24_gpio: hat-24-gpio-pins {
-		/* hat_24:WKUP_DMTIMER1:C12:WKUP_TIMER_IO1:4:: */
-		pinctrl-single,pins = <
-			J722S_IOPAD(0x000, PIN_INPUT, 4) /* (C12) MCU_SPI0_CS0.WKUP_TIMER_IO1 */
-		>;
-	};
-
 	hat_29_pwm: hat-29-pwm-pins {
 		/* hat_29:EHRPWM0:B20:EHRPWM0_A:2:: */
 		pinctrl-single,pins = <
