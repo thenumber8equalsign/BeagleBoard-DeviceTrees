@@ -150,7 +150,8 @@ find_pin () {
 			type="pwm"
 		;;
 		EQEP*)
-			type="eqep"
+			#type="eqep"
+			unset print_dts
 		;;
 		MCASP*)
 			#type="audio"
@@ -168,9 +169,10 @@ find_pin () {
 			core="mcu"
 		;;
 		MCU_SPI*)
-			iopad="J722S_MCU_IOPAD"
-			type="spi"
-			core="mcu"
+			#iopad="J722S_MCU_IOPAD"
+			#type="spi"
+			#core="mcu"
+			unset print_dts
 		;;
 		MCU_TIMER*)
 			#iopad="J722S_MCU_IOPAD"
@@ -183,7 +185,8 @@ find_pin () {
 			unset print_dts
 		;;
 		SPI*)
-			type="spi"
+			#type="spi"
+			unset print_dts
 		;;
 		UART*_TXD)
 			PIN_a="PIN_OUTPUT"

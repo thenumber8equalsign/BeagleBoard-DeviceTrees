@@ -1,11 +1,4 @@
 &main_pmx0 {
-	hat_08_spi: hat-08-spi-pins {
-		/* hat_08:SPI2:F24:SPI2_CLK:1:: */
-		pinctrl-single,pins = <
-			J722S_IOPAD(0x1B0, PIN_INPUT, 1) /* (F24) MCASP0_ACLKR.SPI2_CLK */
-		>;
-	};
-
 	hat_08_uart1_txd: hat-08-uart1-txd-pins {
 		/* hat_08:USART1:F24:UART1_TXD:2:: */
 		pinctrl-single,pins = <
@@ -24,20 +17,6 @@
 		/* hat_08:GPIO1:F24:GPIO1_14:7:: */
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x1B0, PIN_INPUT, 7) /* (F24) MCASP0_ACLKR.GPIO1_14 */
-		>;
-	};
-
-	hat_08_eqep: hat-08-eqep-pins {
-		/* hat_08:EQEP1:F24:EQEP1_I:8:: */
-		pinctrl-single,pins = <
-			J722S_IOPAD(0x1B0, PIN_INPUT, 8) /* (F24) MCASP0_ACLKR.EQEP1_I */
-		>;
-	};
-
-	hat_10_spi: hat-10-spi-pins {
-		/* hat_10:SPI2:C27:SPI2_CS0:1:: */
-		pinctrl-single,pins = <
-			J722S_IOPAD(0x1AC, PIN_INPUT, 1) /* (C27) MCASP0_AFSR.SPI2_CS0 */
 		>;
 	};
 
@@ -62,20 +41,6 @@
 		>;
 	};
 
-	hat_10_eqep: hat-10-eqep-pins {
-		/* hat_10:EQEP1:C27:EQEP1_S:8:: */
-		pinctrl-single,pins = <
-			J722S_IOPAD(0x1AC, PIN_INPUT, 8) /* (C27) MCASP0_AFSR.EQEP1_S */
-		>;
-	};
-
-	hat_11_spi: hat-11-spi-pins {
-		/* hat_11:SPI2:A26:SPI2_D1:1:: */
-		pinctrl-single,pins = <
-			J722S_IOPAD(0x198, PIN_INPUT, 1) /* (A26) MCASP0_AXR2.SPI2_D1 */
-		>;
-	};
-
 	hat_11_uart6_txd: hat-11-uart6-txd-pins {
 		/* hat_11:USART6:A26:UART6_TXD:3:: */
 		pinctrl-single,pins = <
@@ -97,20 +62,6 @@
 		>;
 	};
 
-	hat_11_eqep: hat-11-eqep-pins {
-		/* hat_11:EQEP0:A26:EQEP0_B:8:: */
-		pinctrl-single,pins = <
-			J722S_IOPAD(0x198, PIN_INPUT, 8) /* (A26) MCASP0_AXR2.EQEP0_B */
-		>;
-	};
-
-	hat_12_spi: hat-12-spi-pins {
-		/* hat_12:SPI2:D25:SPI2_CS1:1:: */
-		pinctrl-single,pins = <
-			J722S_IOPAD(0x1A4, PIN_INPUT, 1) /* (D25) MCASP0_ACLKX.SPI2_CS1 */
-		>;
-	};
-
 	hat_12_pwm_ecap: hat-12-pwm-ecap-pins {
 		/* hat_12:ECAP2:D25:ECAP2_IN_APWM_OUT:2:: */
 		pinctrl-single,pins = <
@@ -122,13 +73,6 @@
 		/* hat_12:GPIO1:D25:GPIO1_11:7:: */
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x1A4, PIN_INPUT, 7) /* (D25) MCASP0_ACLKX.GPIO1_11 */
-		>;
-	};
-
-	hat_12_eqep: hat-12-eqep-pins {
-		/* hat_12:EQEP1:D25:EQEP1_A:8:: */
-		pinctrl-single,pins = <
-			J722S_IOPAD(0x1A4, PIN_INPUT, 8) /* (D25) MCASP0_ACLKX.EQEP1_A */
 		>;
 	};
 
@@ -174,13 +118,6 @@
 		>;
 	};
 
-	hat_29_spi: hat-29-spi-pins {
-		/* hat_29:SPI0:B20:SPI0_CS0:0:: */
-		pinctrl-single,pins = <
-			J722S_IOPAD(0x1B4, PIN_INPUT, 0) /* (B20) SPI0_CS0 */
-		>;
-	};
-
 	hat_29_pwm: hat-29-pwm-pins {
 		/* hat_29:EHRPWM0:B20:EHRPWM0_A:2:: */
 		pinctrl-single,pins = <
@@ -195,13 +132,6 @@
 		>;
 	};
 
-	hat_31_spi: hat-31-spi-pins {
-		/* hat_31:SPI0:D20:SPI0_CLK:0:: */
-		pinctrl-single,pins = <
-			J722S_IOPAD(0x1BC, PIN_INPUT, 0) /* (D20) SPI0_CLK */
-		>;
-	};
-
 	hat_31_pwm: hat-31-pwm-pins {
 		/* hat_31:EHRPWM1:D20:EHRPWM1_A:2:: */
 		pinctrl-single,pins = <
@@ -213,13 +143,6 @@
 		/* hat_31:GPIO1:D20:GPIO1_17:7:: */
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x1BC, PIN_INPUT, 7) /* (D20) SPI0_CLK.GPIO1_17 */
-		>;
-	};
-
-	hat_32_spi: hat-32-spi-pins {
-		/* hat_32:SPI0:C20:SPI0_CS1:0:: */
-		pinctrl-single,pins = <
-			J722S_IOPAD(0x1B8, PIN_INPUT, 0) /* (C20) SPI0_CS1 */
 		>;
 	};
 
@@ -244,13 +167,6 @@
 		>;
 	};
 
-	hat_33_spi: hat-33-spi-pins {
-		/* hat_33:SPI0:E19:SPI0_D0:0:: */
-		pinctrl-single,pins = <
-			J722S_IOPAD(0x1C0, PIN_INPUT, 0) /* (E19) SPI0_D0 */
-		>;
-	};
-
 	hat_33_pwm: hat-33-pwm-pins {
 		/* hat_33:EHRPWM1:E19:EHRPWM1_B:2:: */
 		pinctrl-single,pins = <
@@ -265,31 +181,10 @@
 		>;
 	};
 
-	hat_35_spi: hat-35-spi-pins {
-		/* hat_35:SPI2:C26:SPI2_CS3:1:: */
-		pinctrl-single,pins = <
-			J722S_IOPAD(0x1A8, PIN_INPUT, 1) /* (C26) MCASP0_AFSX.SPI2_CS3 */
-		>;
-	};
-
 	hat_35_gpio: hat-35-gpio-pins {
 		/* hat_35:GPIO1:C26:GPIO1_12:7:: */
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x1A8, PIN_INPUT, 7) /* (C26) MCASP0_AFSX.GPIO1_12 */
-		>;
-	};
-
-	hat_35_eqep: hat-35-eqep-pins {
-		/* hat_35:EQEP1:C26:EQEP1_B:8:: */
-		pinctrl-single,pins = <
-			J722S_IOPAD(0x1A8, PIN_INPUT, 8) /* (C26) MCASP0_AFSX.EQEP1_B */
-		>;
-	};
-
-	hat_36_spi: hat-36-spi-pins {
-		/* hat_36:SPI2:A25:SPI2_D0:1:: */
-		pinctrl-single,pins = <
-			J722S_IOPAD(0x194, PIN_INPUT, 1) /* (A25) MCASP0_AXR3.SPI2_D0 */
 		>;
 	};
 
@@ -314,13 +209,6 @@
 		>;
 	};
 
-	hat_36_eqep: hat-36-eqep-pins {
-		/* hat_36:EQEP0:A25:EQEP0_A:8:: */
-		pinctrl-single,pins = <
-			J722S_IOPAD(0x194, PIN_INPUT, 8) /* (A25) MCASP0_AXR3.EQEP0_A */
-		>;
-	};
-
 	hat_37_gpio: hat-37-gpio-pins {
 		/* hat_37:GPIO0:P26:GPIO0_36:7:: */
 		pinctrl-single,pins = <
@@ -342,20 +230,6 @@
 		>;
 	};
 
-	hat_38_eqep: hat-38-eqep-pins {
-		/* hat_38:EQEP0:F23:EQEP0_I:8:: */
-		pinctrl-single,pins = <
-			J722S_IOPAD(0x1A0, PIN_INPUT, 8) /* (F23) MCASP0_AXR0.EQEP0_I */
-		>;
-	};
-
-	hat_40_spi: hat-40-spi-pins {
-		/* hat_40:SPI2:B25:SPI2_CS2:1:: */
-		pinctrl-single,pins = <
-			J722S_IOPAD(0x19C, PIN_INPUT, 1) /* (B25) MCASP0_AXR1.SPI2_CS2 */
-		>;
-	};
-
 	hat_40_pwm_ecap: hat-40-pwm-ecap-pins {
 		/* hat_40:ECAP1:B25:ECAP1_IN_APWM_OUT:2:: */
 		pinctrl-single,pins = <
@@ -374,13 +248,6 @@
 		/* hat_40:GPIO1:B25:GPIO1_9:7:: */
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x19C, PIN_INPUT, 7) /* (B25) MCASP0_AXR1.GPIO1_9 */
-		>;
-	};
-
-	hat_40_eqep: hat-40-eqep-pins {
-		/* hat_40:EQEP0:B25:EQEP0_S:8:: */
-		pinctrl-single,pins = <
-			J722S_IOPAD(0x19C, PIN_INPUT, 8) /* (B25) MCASP0_AXR1.EQEP0_S */
 		>;
 	};
 

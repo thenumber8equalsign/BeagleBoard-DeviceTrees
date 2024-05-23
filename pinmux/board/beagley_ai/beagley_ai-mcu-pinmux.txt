@@ -27,13 +27,6 @@
 		>;
 	};
 
-	hat_16_spi: hat-16-spi-pins {
-		/* hat_16:MCU_SPI1:B5:MCU_SPI1_D0:3:: */
-		pinctrl-single,pins = <
-			J722S_MCU_IOPAD(0x01C, PIN_INPUT, 3) /* (B5) MCU_UART0_CTSn.MCU_SPI1_D0 */
-		>;
-	};
-
 	hat_16_gpio: hat-16-gpio-pins {
 		/* hat_16:MCU_GPIO0:B5:MCU_GPIO0_7:7:: */
 		pinctrl-single,pins = <
@@ -48,24 +41,10 @@
 		>;
 	};
 
-	hat_18_spi: hat-18-spi-pins {
-		/* hat_18:MCU_SPI1:C8:MCU_SPI1_CS2:2:: */
-		pinctrl-single,pins = <
-			J722S_MCU_IOPAD(0x028, PIN_INPUT, 2) /* (C8) WKUP_UART0_TXD.MCU_SPI1_CS2 */
-		>;
-	};
-
 	hat_18_gpio: hat-18-gpio-pins {
 		/* hat_18:MCU_GPIO0:C8:MCU_GPIO0_10:7:: */
 		pinctrl-single,pins = <
 			J722S_MCU_IOPAD(0x028, PIN_INPUT, 7) /* (C8) WKUP_UART0_TXD.MCU_GPIO0_10 */
-		>;
-	};
-
-	hat_19_spi: hat-19-spi-pins {
-		/* hat_19:MCU_SPI0:B12:MCU_SPI0_D0:0:: */
-		pinctrl-single,pins = <
-			J722S_MCU_IOPAD(0x00C, PIN_INPUT, 0) /* (B12) MCU_SPI0_D0 */
 		>;
 	};
 
@@ -76,13 +55,6 @@
 		>;
 	};
 
-	hat_21_spi: hat-21-spi-pins {
-		/* hat_21:MCU_SPI0:C11:MCU_SPI0_D1:0:: */
-		pinctrl-single,pins = <
-			J722S_MCU_IOPAD(0x010, PIN_INPUT, 0) /* (C11) MCU_SPI0_D1 */
-		>;
-	};
-
 	hat_21_gpio: hat-21-gpio-pins {
 		/* hat_21:MCU_GPIO0:C11:MCU_GPIO0_4:7:: */
 		pinctrl-single,pins = <
@@ -90,24 +62,10 @@
 		>;
 	};
 
-	hat_23_spi: hat-23-spi-pins {
-		/* hat_23:MCU_SPI0:A9:MCU_SPI0_CLK:0:: */
-		pinctrl-single,pins = <
-			J722S_MCU_IOPAD(0x008, PIN_INPUT, 0) /* (A9) MCU_SPI0_CLK */
-		>;
-	};
-
 	hat_23_gpio: hat-23-gpio-pins {
 		/* hat_23:MCU_GPIO0:A9:MCU_GPIO0_2:7:: */
 		pinctrl-single,pins = <
 			J722S_MCU_IOPAD(0x008, PIN_INPUT, 7) /* (A9) MCU_SPI0_CLK.MCU_GPIO0_2 */
-		>;
-	};
-
-	hat_24_spi: hat-24-spi-pins {
-		/* hat_24:MCU_SPI0:C12:MCU_SPI0_CS0:0:: */
-		pinctrl-single,pins = <
-			J722S_MCU_IOPAD(0x000, PIN_INPUT, 0) /* (C12) MCU_SPI0_CS0 */
 		>;
 	};
 
@@ -122,13 +80,6 @@
 		/* hat_26:WKUP_USART0:B3:WKUP_UART0_RXD:0:: */
 		pinctrl-single,pins = <
 			J722S_MCU_IOPAD(0x024, PIN_INPUT, 0) /* (B3) WKUP_UART0_RXD */
-		>;
-	};
-
-	hat_26_spi: hat-26-spi-pins {
-		/* hat_26:MCU_SPI0:B3:MCU_SPI0_CS2:2:: */
-		pinctrl-single,pins = <
-			J722S_MCU_IOPAD(0x024, PIN_INPUT, 2) /* (B3) WKUP_UART0_RXD.MCU_SPI0_CS2 */
 		>;
 	};
 
