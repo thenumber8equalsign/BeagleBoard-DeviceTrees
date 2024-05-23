@@ -1,11 +1,4 @@
 &main_pmx0 {
-	hat_08_audio: hat-08-audio-pins {
-		/* hat_08:MCASP0:F24:MCASP0_ACLKR:0:: */
-		pinctrl-single,pins = <
-			J722S_IOPAD(0x1B0, PIN_INPUT, 0) /* (F24) MCASP0_ACLKR */
-		>;
-	};
-
 	hat_08_spi: hat-08-spi-pins {
 		/* hat_08:SPI2:F24:SPI2_CLK:1:: */
 		pinctrl-single,pins = <
@@ -13,7 +6,7 @@
 		>;
 	};
 
-	hat_08_uart1-txd: hat-08-uart1-txd-pins {
+	hat_08_uart1_txd: hat-08-uart1-txd-pins {
 		/* hat_08:USART1:F24:UART1_TXD:2:: */
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x1B0, PIN_OUTPUT, 2) /* (F24) MCASP0_ACLKR.UART1_TXD */
@@ -41,13 +34,6 @@
 		>;
 	};
 
-	hat_10_audio: hat-10-audio-pins {
-		/* hat_10:MCASP0:C27:MCASP0_AFSR:0:: */
-		pinctrl-single,pins = <
-			J722S_IOPAD(0x1AC, PIN_INPUT, 0) /* (C27) MCASP0_AFSR */
-		>;
-	};
-
 	hat_10_spi: hat-10-spi-pins {
 		/* hat_10:SPI2:C27:SPI2_CS0:1:: */
 		pinctrl-single,pins = <
@@ -55,7 +41,7 @@
 		>;
 	};
 
-	hat_10_uart1-rxd: hat-10-uart1-rxd-pins {
+	hat_10_uart1_rxd: hat-10-uart1-rxd-pins {
 		/* hat_10:USART1:C27:UART1_RXD:2:: */
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x1AC, PIN_INPUT, 2) /* (C27) MCASP0_AFSR.UART1_RXD */
@@ -83,13 +69,6 @@
 		>;
 	};
 
-	hat_11_audio: hat-11-audio-pins {
-		/* hat_11:MCASP0:A26:MCASP0_AXR2:0:: */
-		pinctrl-single,pins = <
-			J722S_IOPAD(0x198, PIN_INPUT, 0) /* (A26) MCASP0_AXR2 */
-		>;
-	};
-
 	hat_11_spi: hat-11-spi-pins {
 		/* hat_11:SPI2:A26:SPI2_D1:1:: */
 		pinctrl-single,pins = <
@@ -97,14 +76,14 @@
 		>;
 	};
 
-	hat_11_uart6-txd: hat-11-uart6-txd-pins {
+	hat_11_uart6_txd: hat-11-uart6-txd-pins {
 		/* hat_11:USART6:A26:UART6_TXD:3:: */
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x198, PIN_OUTPUT, 3) /* (A26) MCASP0_AXR2.UART6_TXD */
 		>;
 	};
 
-	hat_11_pwm-ecap: hat-11-pwm-ecap-pins {
+	hat_11_pwm_ecap: hat-11-pwm-ecap-pins {
 		/* hat_11:ECAP2:A26:ECAP2_IN_APWM_OUT:5:: */
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x198, PIN_OUTPUT, 5) /* (A26) MCASP0_AXR2.ECAP2_IN_APWM_OUT */
@@ -125,13 +104,6 @@
 		>;
 	};
 
-	hat_12_audio: hat-12-audio-pins {
-		/* hat_12:MCASP0:D25:MCASP0_ACLKX:0:: */
-		pinctrl-single,pins = <
-			J722S_IOPAD(0x1A4, PIN_INPUT, 0) /* (D25) MCASP0_ACLKX */
-		>;
-	};
-
 	hat_12_spi: hat-12-spi-pins {
 		/* hat_12:SPI2:D25:SPI2_CS1:1:: */
 		pinctrl-single,pins = <
@@ -139,7 +111,7 @@
 		>;
 	};
 
-	hat_12_pwm-ecap: hat-12-pwm-ecap-pins {
+	hat_12_pwm_ecap: hat-12-pwm-ecap-pins {
 		/* hat_12:ECAP2:D25:ECAP2_IN_APWM_OUT:2:: */
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x1A4, PIN_OUTPUT, 2) /* (D25) MCASP0_ACLKX.ECAP2_IN_APWM_OUT */
@@ -160,13 +132,6 @@
 		>;
 	};
 
-	hat_13_audio: hat-13-audio-pins {
-		/* hat_13:MCASP1:N22:MCASP1_AXR1:2:: */
-		pinctrl-single,pins = <
-			J722S_IOPAD(0x088, PIN_INPUT, 2) /* (N22) GPMC0_OEN_REN.MCASP1_AXR1 */
-		>;
-	};
-
 	hat_13_gpio: hat-13-gpio-pins {
 		/* hat_13:GPIO0:N22:GPIO0_33:7:: */
 		pinctrl-single,pins = <
@@ -178,13 +143,6 @@
 		/* hat_15:I2C4:R27:I2C4_SCL:1:: */
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x0A8, PIN_INPUT_PULLUP, 1) /* (R27) GPMC0_CSN0.I2C4_SCL */
-		>;
-	};
-
-	hat_15_audio: hat-15-audio-pins {
-		/* hat_15:MCASP2:R27:MCASP2_AXR14:3:: */
-		pinctrl-single,pins = <
-			J722S_IOPAD(0x0A8, PIN_INPUT, 3) /* (R27) GPMC0_CSN0.MCASP2_AXR14 */
 		>;
 	};
 
@@ -206,13 +164,6 @@
 		/* hat_22:I2C4:P21:I2C4_SDA:1:: */
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x0AC, PIN_INPUT_PULLUP, 1) /* (P21) GPMC0_CSN1.I2C4_SDA */
-		>;
-	};
-
-	hat_22_audio: hat-22-audio-pins {
-		/* hat_22:MCASP2:P21:MCASP2_AXR15:3:: */
-		pinctrl-single,pins = <
-			J722S_IOPAD(0x0AC, PIN_INPUT, 3) /* (P21) GPMC0_CSN1.MCASP2_AXR15 */
 		>;
 	};
 
@@ -293,7 +244,7 @@
 		>;
 	};
 
-	hat_32_pwm-ecap: hat-32-pwm-ecap-pins {
+	hat_32_pwm_ecap: hat-32-pwm-ecap-pins {
 		/* hat_32:ECAP0:C20:ECAP0_IN_APWM_OUT:3:: */
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x1B8, PIN_OUTPUT, 3) /* (C20) SPI0_CS1.ECAP0_IN_APWM_OUT */
@@ -328,13 +279,6 @@
 		>;
 	};
 
-	hat_35_audio: hat-35-audio-pins {
-		/* hat_35:MCASP0:C26:MCASP0_AFSX:0:: */
-		pinctrl-single,pins = <
-			J722S_IOPAD(0x1A8, PIN_INPUT, 0) /* (C26) MCASP0_AFSX */
-		>;
-	};
-
 	hat_35_spi: hat-35-spi-pins {
 		/* hat_35:SPI2:C26:SPI2_CS3:1:: */
 		pinctrl-single,pins = <
@@ -356,13 +300,6 @@
 		>;
 	};
 
-	hat_36_audio: hat-36-audio-pins {
-		/* hat_36:MCASP0:A25:MCASP0_AXR3:0:: */
-		pinctrl-single,pins = <
-			J722S_IOPAD(0x194, PIN_INPUT, 0) /* (A25) MCASP0_AXR3 */
-		>;
-	};
-
 	hat_36_spi: hat-36-spi-pins {
 		/* hat_36:SPI2:A25:SPI2_D0:1:: */
 		pinctrl-single,pins = <
@@ -370,14 +307,14 @@
 		>;
 	};
 
-	hat_36_uart6-rxd: hat-36-uart6-rxd-pins {
+	hat_36_uart6_rxd: hat-36-uart6-rxd-pins {
 		/* hat_36:USART6:A25:UART6_RXD:3:: */
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x194, PIN_INPUT, 3) /* (A25) MCASP0_AXR3.UART6_RXD */
 		>;
 	};
 
-	hat_36_pwm-ecap: hat-36-pwm-ecap-pins {
+	hat_36_pwm_ecap: hat-36-pwm-ecap-pins {
 		/* hat_36:ECAP1:A25:ECAP1_IN_APWM_OUT:5:: */
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x194, PIN_OUTPUT, 5) /* (A25) MCASP0_AXR3.ECAP1_IN_APWM_OUT */
@@ -398,24 +335,10 @@
 		>;
 	};
 
-	hat_37_audio: hat-37-audio-pins {
-		/* hat_37:MCASP2:P26:MCASP2_AXR12:3:: */
-		pinctrl-single,pins = <
-			J722S_IOPAD(0x094, PIN_INPUT, 3) /* (P26) GPMC0_BE1N.MCASP2_AXR12 */
-		>;
-	};
-
 	hat_37_gpio: hat-37-gpio-pins {
 		/* hat_37:GPIO0:P26:GPIO0_36:7:: */
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x094, PIN_INPUT, 7) /* (P26) GPMC0_BE1N.GPIO0_36 */
-		>;
-	};
-
-	hat_38_audio: hat-38-audio-pins {
-		/* hat_38:MCASP0:F23:MCASP0_AXR0:0:: */
-		pinctrl-single,pins = <
-			J722S_IOPAD(0x1A0, PIN_INPUT, 0) /* (F23) MCASP0_AXR0 */
 		>;
 	};
 
@@ -440,13 +363,6 @@
 		>;
 	};
 
-	hat_40_audio: hat-40-audio-pins {
-		/* hat_40:MCASP0:B25:MCASP0_AXR1:0:: */
-		pinctrl-single,pins = <
-			J722S_IOPAD(0x19C, PIN_INPUT, 0) /* (B25) MCASP0_AXR1 */
-		>;
-	};
-
 	hat_40_spi: hat-40-spi-pins {
 		/* hat_40:SPI2:B25:SPI2_CS2:1:: */
 		pinctrl-single,pins = <
@@ -454,7 +370,7 @@
 		>;
 	};
 
-	hat_40_pwm-ecap: hat-40-pwm-ecap-pins {
+	hat_40_pwm_ecap: hat-40-pwm-ecap-pins {
 		/* hat_40:ECAP1:B25:ECAP1_IN_APWM_OUT:2:: */
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x19C, PIN_OUTPUT, 2) /* (B25) MCASP0_AXR1.ECAP1_IN_APWM_OUT */

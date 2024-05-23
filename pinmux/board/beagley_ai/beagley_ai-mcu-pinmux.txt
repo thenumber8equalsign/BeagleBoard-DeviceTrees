@@ -27,7 +27,7 @@
 		>;
 	};
 
-	hat_16_pwm-timer: hat-16-pwm-timer-pins {
+	hat_16_pwm_timer: hat-16-pwm-timer-pins {
 		/* hat_16:MCU_DMTIMER0:B5:MCU_TIMER_IO0:1:: */
 		pinctrl-single,pins = <
 			J722S_MCU_IOPAD(0x01C, PIN_OUTPUT, 1) /* (B5) MCU_UART0_CTSN.MCU_TIMER_IO0 */

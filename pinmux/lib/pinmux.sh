@@ -153,7 +153,8 @@ find_pin () {
 			type="eqep"
 		;;
 		MCASP*)
-			type="audio"
+			#type="audio"
+			unset print_dts
 		;;
 		MCU_GPIO*)
 			iopad="J722S_MCU_IOPAD"
@@ -205,8 +206,9 @@ find_pin () {
 			echo "${name_a}"
 			labela=$(echo ${label} | sed 's/_/-/g' || true)
 			cro_aa=$(echo ${cro_a} | sed 's/^...//' || true)
+			typeu=$(echo ${type} | sed 's/-/_/g' || true)
 
-			echo "	${label}_${type}: ${labela}-${type}-pins {" >> ${file}-${core}-pinmux.txt
+			echo "	${label}_${typeu}: ${labela}-${type}-pins {" >> ${file}-${core}-pinmux.txt
 			echo "		/* ${label}:${interface_a}:${found_ball_a}:${name_a}:${mode_a}:${ioDir_a}: */" >> ${file}-${core}-pinmux.txt
 			echo "		pinctrl-single,pins = <" >> ${file}-${core}-pinmux.txt
 			if [ "x${mode_a}" = "x0" ] ; then
