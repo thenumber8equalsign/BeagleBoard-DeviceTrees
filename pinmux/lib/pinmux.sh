@@ -44,21 +44,21 @@ get_name_mode () {
 	#cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID}' .pinModeInfo['$number'] .signalName' | sed 's/\"//g' | sed 's/\[/_/g' | sed 's/\]//g' || true
 	#echo "debug------------------------------------------"
 
-	name=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID}' .pinModeInfo['$number'] .signalName' | sed 's/\"//g' | sed 's/\[/_/g' | sed 's/\]//g' | awk '{print toupper($0)}' || true)
-	mode=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID}' .pinModeInfo['$number'] .mode' | sed 's/\"//g' | awk '{print toupper($0)}' || true)
+	name=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID}' .pinModeInfo['$number'] .signalName' | sed 's/\"//g' | sed 's/\[/_/g' | sed 's/\]//g' || true)
+	mode=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID}' .pinModeInfo['$number'] .mode' | sed 's/\"//g' || true)
 	ioDir=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID}' .pinModeInfo['$number'] .ioDir' | sed 's/\"//g' || true)
 	#echo "debug: get_name_mode; name=${name}; mode=${mode}; ioDir=${ioDir}"
 }
 
 get_name_mode_a () {
-	name_a=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID_a}' .pinModeInfo['$number_a'] .signalName' | sed 's/\"//g' | sed 's/\[/_/g' | sed 's/\]//g' | awk '{print toupper($0)}' || true)
-	mode_a=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID_a}' .pinModeInfo['$number_a'] .mode' | sed 's/\"//g' | awk '{print toupper($0)}' || true)
+	name_a=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID_a}' .pinModeInfo['$number_a'] .signalName' | sed 's/\"//g' | sed 's/\[/_/g' | sed 's/\]//g' || true)
+	mode_a=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID_a}' .pinModeInfo['$number_a'] .mode' | sed 's/\"//g' || true)
 	ioDir_a=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID_a}' .pinModeInfo['$number_a'] .ioDir' | sed 's/\"//g' || true)
 }
 
 get_name_mode_b () {
-	name_b=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID_b}' .pinModeInfo['$number_b'] .signalName' | sed 's/\"//g' | sed 's/\[/_/g' | sed 's/\]//g' | awk '{print toupper($0)}' || true)
-	mode_b=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID_b}' .pinModeInfo['$number_b'] .mode' | sed 's/\"//g' | awk '{print toupper($0)}' || true)
+	name_b=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID_b}' .pinModeInfo['$number_b'] .signalName' | sed 's/\"//g' | sed 's/\[/_/g' | sed 's/\]//g' || true)
+	mode_b=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID_b}' .pinModeInfo['$number_b'] .mode' | sed 's/\"//g' || true)
 	ioDir_b=$(cat ${json_file} | jq '.pinCommonInfos .'${found_devicePinID_b}' .pinModeInfo['$number_b'] .ioDir' | sed 's/\"//g' || true)
 }
 
@@ -134,7 +134,7 @@ find_pin () {
 		print_dts="enable"
 
 		case "${name_a}" in
-		AUDIO*|CP_*|EHRPWM_TZN_IN*|GPMC*|MAIN*|TRC*)
+		AUDIO*|CP_*|EHRPWM_TZn_IN*|GPMC*|MAIN*|TRC*)
 			unset print_dts
 		;;
 		I2C*)
@@ -173,12 +173,13 @@ find_pin () {
 			core="mcu"
 		;;
 		MCU_TIMER*)
-			iopad="J722S_MCU_IOPAD"
-			PIN_a="PIN_OUTPUT"
-			type="pwm-timer"
-			core="mcu"
+			#iopad="J722S_MCU_IOPAD"
+			#PIN_a="PIN_OUTPUT"
+			#type="pwm-timer"
+			#core="mcu"
+			unset print_dts
 		;;
-		MCU_UART*_*TSN)
+		MCU_UART*_*TSn)
 			unset print_dts
 		;;
 		SPI*)
@@ -191,13 +192,26 @@ find_pin () {
 		UART*_RXD)
 			type=$(echo ${name_a} | awk '{print tolower($0)}' | sed 's/_/-/g' || true)
 		;;
-		UART*_*TSN)
+		UART*_*TSn)
 			unset print_dts
 		;;
 		WKUP_DMTIMER*)
+			#iopad="J722S_MCU_IOPAD"
+			#PIN_a="PIN_OUTPUT"
+			#type="pwm-timer"
+			#core="mcu"
+			unset print_dts
+		;;
+		WKUP_USART*_TXD)
 			iopad="J722S_MCU_IOPAD"
 			PIN_a="PIN_OUTPUT"
-			type="pwm-timer"
+			type=$(echo ${name_a} | awk '{print tolower($0)}' | sed 's/_/-/g' || true)
+			core="mcu"
+		;;
+		WKUP_USART*_RXD)
+			iopad="J722S_MCU_IOPAD"
+			PIN_a="PIN_INPUT"
+			type=$(echo ${name_a} | awk '{print tolower($0)}' | sed 's/_/-/g' || true)
 			core="mcu"
 		;;
 		esac

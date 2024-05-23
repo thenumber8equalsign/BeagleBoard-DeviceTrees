@@ -27,24 +27,17 @@
 		>;
 	};
 
-	hat_16_pwm_timer: hat-16-pwm-timer-pins {
-		/* hat_16:MCU_DMTIMER0:B5:MCU_TIMER_IO0:1:: */
-		pinctrl-single,pins = <
-			J722S_MCU_IOPAD(0x01C, PIN_OUTPUT, 1) /* (B5) MCU_UART0_CTSN.MCU_TIMER_IO0 */
-		>;
-	};
-
 	hat_16_spi: hat-16-spi-pins {
 		/* hat_16:MCU_SPI1:B5:MCU_SPI1_D0:3:: */
 		pinctrl-single,pins = <
-			J722S_MCU_IOPAD(0x01C, PIN_INPUT, 3) /* (B5) MCU_UART0_CTSN.MCU_SPI1_D0 */
+			J722S_MCU_IOPAD(0x01C, PIN_INPUT, 3) /* (B5) MCU_UART0_CTSn.MCU_SPI1_D0 */
 		>;
 	};
 
 	hat_16_gpio: hat-16-gpio-pins {
 		/* hat_16:MCU_GPIO0:B5:MCU_GPIO0_7:7:: */
 		pinctrl-single,pins = <
-			J722S_MCU_IOPAD(0x01C, PIN_INPUT, 7) /* (B5) MCU_UART0_CTSN.MCU_GPIO0_7 */
+			J722S_MCU_IOPAD(0x01C, PIN_INPUT, 7) /* (B5) MCU_UART0_CTSn.MCU_GPIO0_7 */
 		>;
 	};
 
