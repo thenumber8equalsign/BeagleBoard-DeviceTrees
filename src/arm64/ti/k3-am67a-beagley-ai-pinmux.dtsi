@@ -363,9 +363,9 @@
 
 &main_pmx0 {
 	hat_08_uart1_txd: hat-08-uart1-txd-pins {
-		/* hat_08:USART1::uart1_txd:2:: */
+		/* hat_08:USART1:F24:UART1_TXD:2:: */
 		pinctrl-single,pins = <
-			J722S_IOPAD(0x1b0, PIN_OUTPUT, 2) /* (F24) MCASP0_ACLKR.UART1_TXD */
+			J722S_IOPAD(0x1B0, PIN_OUTPUT, 2) /* (F24) MCASP0_ACLKR.UART1_TXD */
 		>;
 	};
 
@@ -384,9 +384,9 @@
 	};
 
 	hat_10_uart1_rxd: hat-10-uart1-rxd-pins {
-		/* hat_10:USART1::uart1_rxd:2:: */
+		/* hat_10:USART1:C27:UART1_RXD:2:: */
 		pinctrl-single,pins = <
-			J722S_IOPAD(0x1ac, PIN_INPUT, 2) /* (C27) MCASP0_AFSR.UART1_RXD */
+			J722S_IOPAD(0x1AC, PIN_INPUT, 2) /* (C27) MCASP0_AFSR.UART1_RXD */
 		>;
 	};
 
@@ -404,10 +404,18 @@
 		>;
 	};
 
-	hat_11_pwm_ecap: hat-11-pwm-ecap-pins {
-		/* hat_11:ECAP2::ecap2_in_apwm_out:5:: */
+	/* USED by BLE */
+	hat_11_uart6_txd: hat-11-uart6-txd-pins {
+		/* hat_11:USART6:A26:UART6_TXD:3:: */
 		pinctrl-single,pins = <
-			J722S_IOPAD(0x198, PIN_OUTPUT, 5) /* (A26) MCASP0_AXR2.ECAP2 */
+			J722S_IOPAD(0x198, PIN_OUTPUT, 3) /* (A26) MCASP0_AXR2.UART6_TXD */
+		>;
+	};
+
+	hat_11_pwm_ecap: hat-11-pwm-ecap-pins {
+		/* hat_11:ECAP2:A26:ECAP2_IN_APWM_OUT:5:: */
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x198, PIN_OUTPUT, 5) /* (A26) MCASP0_AXR2.ECAP2_IN_APWM_OUT */
 		>;
 	};
 
@@ -419,51 +427,51 @@
 	};
 
 	hat_12_pwm_ecap: hat-12-pwm-ecap-pins {
-		/* hat_12:ECAP2::ecap2_in_apwm_out:2:: */
+		/* hat_12:ECAP2:D25:ECAP2_IN_APWM_OUT:2:: */
 		pinctrl-single,pins = <
-			J722S_IOPAD(0x1a4, PIN_OUTPUT, 2) /* (D25) MCASP0_ACLKX.ECAP2 */
+			J722S_IOPAD(0x1A4, PIN_OUTPUT, 2) /* (D25) MCASP0_ACLKX.ECAP2_IN_APWM_OUT */
 		>;
 	};
 
 	hat_12_gpio: hat-12-gpio-pins {
 		/* hat_12:GPIO1:D25:GPIO1_11:7:: */
 		pinctrl-single,pins = <
-			J722S_IOPAD(0x1a4, PIN_INPUT, 7) /* (D25) MCASP0_ACLKX.GPIO1_11 */
+			J722S_IOPAD(0x1A4, PIN_INPUT, 7) /* (D25) MCASP0_ACLKX.GPIO1_11 */
 		>;
 	};
 
 	hat_13_gpio: hat-13-gpio-pins {
 		/* hat_13:GPIO0:N22:GPIO0_33:7:: */
 		pinctrl-single,pins = <
-			J722S_IOPAD(0x088, PIN_INPUT, 7) /* (N22) GPMC0_OEN_REN.GPIO0_33 */
+			J722S_IOPAD(0x088, PIN_INPUT, 7) /* (N22) GPMC0_OEn_REn.GPIO0_33 */
 		>;
 	};
 
 	hat_15_i2c: hat-15-i2c-pins {
 		/* hat_15:I2C4:R27:I2C4_SCL:1:: */
 		pinctrl-single,pins = <
-			J722S_IOPAD(0x0a8, PIN_INPUT_PULLUP, 1) /* (R27) GPMC0_CSn0.I2C4_SCL */
+			J722S_IOPAD(0x0A8, PIN_INPUT_PULLUP, 1) /* (R27) GPMC0_CSn0.I2C4_SCL */
 		>;
 	};
 
 	hat_15_gpio: hat-15-gpio-pins {
 		/* hat_15:GPIO0:R27:GPIO0_41:7:: */
 		pinctrl-single,pins = <
-			J722S_IOPAD(0x0a8, PIN_INPUT, 7) /* (R27) GPMC0_CSn0.GPIO0_41 */
+			J722S_IOPAD(0x0A8, PIN_INPUT, 7) /* (R27) GPMC0_CSn0.GPIO0_41 */
 		>;
 	};
 
 	hat_22_i2c: hat-22-i2c-pins {
 		/* hat_22:I2C4:P21:I2C4_SDA:1:: */
 		pinctrl-single,pins = <
-			J722S_IOPAD(0x0ac, PIN_INPUT_PULLUP, 1) /* (P21) GPMC0_CSn1.I2C4_SDA */
+			J722S_IOPAD(0x0AC, PIN_INPUT_PULLUP, 1) /* (P21) GPMC0_CSn1.I2C4_SDA */
 		>;
 	};
 
 	hat_22_gpio: hat-22-gpio-pins {
 		/* hat_22:GPIO0:P21:GPIO0_42:7:: */
 		pinctrl-single,pins = <
-			J722S_IOPAD(0x0ac, PIN_INPUT, 7) /* (P21) GPMC0_CSn1.GPIO0_42 */
+			J722S_IOPAD(0x0AC, PIN_INPUT, 7) /* (P21) GPMC0_CSn1.GPIO0_42 */
 		>;
 	};
 
@@ -477,7 +485,7 @@
 	hat_29_gpio: hat-29-gpio-pins {
 		/* hat_29:GPIO1:B20:GPIO1_15:7:: */
 		pinctrl-single,pins = <
-			J722S_IOPAD(0x1b4, PIN_INPUT, 7) /* (B20) SPI0_CS0.GPIO1_15 */
+			J722S_IOPAD(0x1B4, PIN_INPUT, 7) /* (B20) SPI0_CS0.GPIO1_15 */
 		>;
 	};
 
@@ -491,7 +499,7 @@
 	hat_31_gpio: hat-31-gpio-pins {
 		/* hat_31:GPIO1:D20:GPIO1_17:7:: */
 		pinctrl-single,pins = <
-			J722S_IOPAD(0x1bc, PIN_INPUT, 7) /* (D20) SPI0_CLK.GPIO1_17 */
+			J722S_IOPAD(0x1BC, PIN_INPUT, 7) /* (D20) SPI0_CLK.GPIO1_17 */
 		>;
 	};
 
@@ -503,22 +511,16 @@
 	};
 
 	hat_32_pwm_ecap: hat-32-pwm-ecap-pins {
-		/* hat_32:ECAP0::ecap0_in_apwm_out:3:: */
+		/* hat_32:ECAP0:C20:ECAP0_IN_APWM_OUT:3:: */
 		pinctrl-single,pins = <
-			J722S_IOPAD(0x1b8, PIN_OUTPUT, 3) /* (C20) SPI0_CS1.ECAP0 */
+			J722S_IOPAD(0x1B8, PIN_OUTPUT, 3) /* (C20) SPI0_CS1.ECAP0_IN_APWM_OUT */
 		>;
 	};
 
 	hat_32_gpio: hat-32-gpio-pins {
-		/* hat_32:SPI0::spi0_cs1:0:: */
-		/* hat_32:CP_GEMAC_CPTS0::cp_gemac_cpts0_ts_comp:1:: */
-		/* hat_32:EHRPWM0::ehrpwm0_b:2:: */
-		/* hat_32:ECAP0::ecap0_in_apwm_out:3:: */
-		/* hat_32:SYSTEM0::main_errorn:5:: */
-		/* hat_32:GPIO1::gpio1_16:7:: */
-		/* hat_32:EHRPWM::ehrpwm_tzn_in5:9:: */
+		/* hat_32:GPIO1:C20:GPIO1_16:7:: */
 		pinctrl-single,pins = <
-			J722S_IOPAD(0x1b8, PIN_INPUT, 7) /* (C20) SPI0_CS1.GPIO1_16 */
+			J722S_IOPAD(0x1B8, PIN_INPUT, 7) /* (C20) SPI0_CS1.GPIO1_16 */
 		>;
 	};
 
@@ -537,88 +539,73 @@
 	};
 
 	hat_35_gpio: hat-35-gpio-pins {
-		/* hat_35:MCASP0::mcasp0_afsx:0:: */
-		/* hat_35:SPI2::spi2_cs3:1:: */
-		/* hat_35:SYSTEM0::audio_ext_refclk1:2:: */
-		/* hat_35:GPIO1::gpio1_12:7:: */
-		/* hat_35:EQEP1::eqep1_b:8:: */
+		/* hat_35:GPIO1:C26:GPIO1_12:7:: */
 		pinctrl-single,pins = <
-			J722S_IOPAD(0x1a8, PIN_INPUT, 7) /* (C26) MCASP0_AFSX.GPIO1_12 */
+			J722S_IOPAD(0x1A8, PIN_INPUT, 7) /* (C26) MCASP0_AFSX.GPIO1_12 */
+		>;
+	};
+
+	/* USED by BLE */
+	hat_36_uart6_rxd: hat-36-uart6-rxd-pins {
+		/* hat_36:USART6:A25:UART6_RXD:3:: */
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x194, PIN_INPUT, 3) /* (A25) MCASP0_AXR3.UART6_RXD */
 		>;
 	};
 
 	hat_36_pwm_ecap: hat-36-pwm-ecap-pins {
-		/* hat_36:ECAP1::ecap1_in_apwm_out:5:: */
+		/* hat_36:ECAP1:A25:ECAP1_IN_APWM_OUT:5:: */
 		pinctrl-single,pins = <
-			J722S_IOPAD(0x194, PIN_OUTPUT, 5) /* (A25) MCASP0_AXR3.ECAP1 */
+			J722S_IOPAD(0x194, PIN_OUTPUT, 5) /* (A25) MCASP0_AXR3.ECAP1_IN_APWM_OUT */
 		>;
 	};
 
 	hat_36_gpio: hat-36-gpio-pins {
-		/* hat_36:MCASP0::mcasp0_axr3:0:: */
-		/* hat_36:SPI2::spi2_d0:1:: */
-		/* hat_36:USART1::uart1_ctsn:2:: */
-		/* hat_36:USART6::uart6_rxd:3:: USED by BLE */
-		/* hat_36:ECAP1::ecap1_in_apwm_out:5:: */
-		/* hat_36:GPIO1::gpio1_7:7:: */
-		/* hat_36:EQEP0::eqep0_a:8:: */
+		/* hat_36:GPIO1:A25:GPIO1_7:7:: */
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x194, PIN_INPUT, 7) /* (A25) MCASP0_AXR3.GPIO1_7 */
 		>;
 	};
 
 	hat_37_gpio: hat-37-gpio-pins {
-		/* hat_37:GPMC0::gpmc0_be1n:0:: */
-		/* hat_37:MCASP2::mcasp2_axr12:3:: */
-		/* hat_37:DEBUG0::trc_data11:6:: */
-		/* hat_37:GPIO0::gpio0_36:7:: */
+		/* hat_37:GPIO0:P26:GPIO0_36:7:: */
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x094, PIN_INPUT, 7) /* (P26) GPMC0_BE1n.GPIO0_36 */
 		>;
 	};
 
 	hat_38_pwm: hat-38-pwm-pins {
-		/* hat_38:EHRPWM1::ehrpwm1_b:6:: */
+		/* hat_38:EHRPWM1:F23:EHRPWM1_B:6:: */
 		pinctrl-single,pins = <
-			J722S_IOPAD(0x1a0, PIN_OUTPUT, 6) /* (F23) MCASP0_AXR0.EHRPWM1_B */
+			J722S_IOPAD(0x1A0, PIN_OUTPUT, 6) /* (F23) MCASP0_AXR0.EHRPWM1_B */
 		>;
 	};
 
 	hat_38_gpio: hat-38-gpio-pins {
-		/* hat_38:MCASP0::mcasp0_axr0:0:: */
-		/* hat_38:SYSTEM0::audio_ext_refclk0:2:: */
-		/* hat_38:EHRPWM1::ehrpwm1_b:6:: */
-		/* hat_38:GPIO1::gpio1_10:7:: */
-		/* hat_38:EQEP0::eqep0_i:8:: */
+		/* hat_38:GPIO1:F23:GPIO1_10:7:: */
 		pinctrl-single,pins = <
-			J722S_IOPAD(0x1a0, PIN_INPUT, 7) /* (F23) MCASP0_AXR0.GPIO1_10 */
+			J722S_IOPAD(0x1A0, PIN_INPUT, 7) /* (F23) MCASP0_AXR0.GPIO1_10 */
 		>;
 	};
 
 	hat_40_pwm_ecap: hat-40-pwm-ecap-pins {
-		/* hat_40:ECAP1::ecap1_in_apwm_out:2:: */
+		/* hat_40:ECAP1:B25:ECAP1_IN_APWM_OUT:2:: */
 		pinctrl-single,pins = <
-			J722S_IOPAD(0x19c, PIN_OUTPUT, 2) /* (B25) MCASP0_AXR1.ECAP1 */
+			J722S_IOPAD(0x19C, PIN_OUTPUT, 2) /* (B25) MCASP0_AXR1.ECAP1_IN_APWM_OUT */
 		>;
 	};
 
 	hat_40_pwm: hat-40-pwm-pins {
-		/* hat_40:EHRPWM1::ehrpwm1_a:6:: */
+		/* hat_40:EHRPWM1:B25:EHRPWM1_A:6:: */
 		pinctrl-single,pins = <
-			J722S_IOPAD(0x19c, PIN_OUTPUT, 6) /* (B25) MCASP0_AXR1.EHRPWM1_A */
+			J722S_IOPAD(0x19C, PIN_OUTPUT, 6) /* (B25) MCASP0_AXR1.EHRPWM1_A */
 		>;
 	};
 
 	hat_40_gpio: hat-40-gpio-pins {
-		/* hat_40:MCASP0::mcasp0_axr1:0:: */
-		/* hat_40:SPI2::spi2_cs2:1:: */
-		/* hat_40:ECAP1::ecap1_in_apwm_out:2:: */
-		/* hat_40:SYSTEM0::main_errorn:5:: */
-		/* hat_40:EHRPWM1::ehrpwm1_a:6:: */
-		/* hat_40:GPIO1::gpio1_9:7:: */
-		/* hat_40:EQEP0::eqep0_s:8:: */
+		/* hat_40:GPIO1:B25:GPIO1_9:7:: */
 		pinctrl-single,pins = <
-			J722S_IOPAD(0x19c, PIN_INPUT, 7) /* (B25) MCASP0_AXR1.GPIO1_9 */
+			J722S_IOPAD(0x19C, PIN_INPUT, 7) /* (B25) MCASP0_AXR1.GPIO1_9 */
 		>;
 	};
 };
