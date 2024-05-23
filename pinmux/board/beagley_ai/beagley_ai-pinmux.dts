@@ -1,4 +1,11 @@
 &main_pmx0 {
+	hat_08_spi: hat-08-spi-pins {
+		/* hat_08:SPI2:F24:SPI2_CLK:1:: */
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x1B0, PIN_INPUT, 1) /* (F24) MCASP0_ACLKR.SPI2_CLK */
+		>;
+	};
+
 	hat_08_uart1_txd: hat-08-uart1-txd-pins {
 		/* hat_08:USART1:F24:UART1_TXD:2:: */
 		pinctrl-single,pins = <
@@ -17,6 +24,13 @@
 		/* hat_08:GPIO1:F24:GPIO1_14:7:: */
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x1B0, PIN_INPUT, 7) /* (F24) MCASP0_ACLKR.GPIO1_14 */
+		>;
+	};
+
+	hat_10_spi: hat-10-spi-pins {
+		/* hat_10:SPI2:C27:SPI2_CS0:1:: */
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x1AC, PIN_INPUT, 1) /* (C27) MCASP0_AFSR.SPI2_CS0 */
 		>;
 	};
 
@@ -41,6 +55,13 @@
 		>;
 	};
 
+	hat_11_spi: hat-11-spi-pins {
+		/* hat_11:SPI2:A26:SPI2_D1:1:: */
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x198, PIN_INPUT, 1) /* (A26) MCASP0_AXR2.SPI2_D1 */
+		>;
+	};
+
 	hat_11_uart6_txd: hat-11-uart6-txd-pins {
 		/* hat_11:USART6:A26:UART6_TXD:3:: */
 		pinctrl-single,pins = <
@@ -59,6 +80,13 @@
 		/* hat_11:GPIO1:A26:GPIO1_8:7:: */
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x198, PIN_INPUT, 7) /* (A26) MCASP0_AXR2.GPIO1_8 */
+		>;
+	};
+
+	hat_12_spi: hat-12-spi-pins {
+		/* hat_12:SPI2:D25:SPI2_CS1:1:: */
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x1A4, PIN_INPUT, 1) /* (D25) MCASP0_ACLKX.SPI2_CS1 */
 		>;
 	};
 
@@ -174,10 +202,24 @@
 		>;
 	};
 
+	hat_35_spi: hat-35-spi-pins {
+		/* hat_35:SPI2:C26:SPI2_CS3:1:: */
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x1A8, PIN_INPUT, 1) /* (C26) MCASP0_AFSX.SPI2_CS3 */
+		>;
+	};
+
 	hat_35_gpio: hat-35-gpio-pins {
 		/* hat_35:GPIO1:C26:GPIO1_12:7:: */
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x1A8, PIN_INPUT, 7) /* (C26) MCASP0_AFSX.GPIO1_12 */
+		>;
+	};
+
+	hat_36_spi: hat-36-spi-pins {
+		/* hat_36:SPI2:A25:SPI2_D0:1:: */
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x194, PIN_INPUT, 1) /* (A25) MCASP0_AXR3.SPI2_D0 */
 		>;
 	};
 
@@ -220,6 +262,13 @@
 		/* hat_38:GPIO1:F23:GPIO1_10:7:: */
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x1A0, PIN_INPUT, 7) /* (F23) MCASP0_AXR0.GPIO1_10 */
+		>;
+	};
+
+	hat_40_spi: hat-40-spi-pins {
+		/* hat_40:SPI2:B25:SPI2_CS2:1:: */
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x19C, PIN_INPUT, 1) /* (B25) MCASP0_AXR1.SPI2_CS2 */
 		>;
 	};
 

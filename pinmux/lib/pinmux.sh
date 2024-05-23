@@ -184,9 +184,11 @@ find_pin () {
 		MCU_UART*_*TSn)
 			unset print_dts
 		;;
-		SPI*)
-			#type="spi"
+		SPI0*)
 			unset print_dts
+		;;
+		SPI2*)
+			type="spi"
 		;;
 		UART*_TXD)
 			PIN_a="PIN_OUTPUT"
