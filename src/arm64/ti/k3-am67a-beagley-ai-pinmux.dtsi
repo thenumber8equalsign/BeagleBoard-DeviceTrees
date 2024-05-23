@@ -642,11 +642,18 @@
 	hat_16_gpio: hat-16-gpio-pins {
 		/* hat_16:MCU_GPIO0:B5:MCU_GPIO0_7:7:: */
 		pinctrl-single,pins = <
-			J722S_MCU_IOPAD(0x01C, PIN_INPUT, 7) /* (B5) MCU_UART0_CTSN.MCU_GPIO0_7 */
+			J722S_MCU_IOPAD(0x01C, PIN_INPUT, 7) /* (B5) MCU_UART0_CTSn.MCU_GPIO0_7 */
 		>;
 	};
 
 	/* Device Manager firmware */
+	hat_18_wkup_uart0_txd: hat-18-wkup-uart0-txd-pins {
+		/* hat_18:WKUP_USART0:C8:WKUP_UART0_TXD:0:: */
+		pinctrl-single,pins = <
+			J722S_MCU_IOPAD(0x028, PIN_OUTPUT, 0) /* (C8) WKUP_UART0_TXD */
+		>;
+	};
+
 	hat_18_gpio: hat-18-gpio-pins {
 		/* hat_18:MCU_GPIO0:C8:MCU_GPIO0_10:7:: */
 		pinctrl-single,pins = <
@@ -657,7 +664,7 @@
 	hat_19_gpio: hat-19-gpio-pins {
 		/* hat_19:MCU_GPIO0:B12:MCU_GPIO0_3:7:: */
 		pinctrl-single,pins = <
-			J722S_MCU_IOPAD(0x00c, PIN_INPUT, 7) /* (B12) MCU_SPI0_D0.MCU_GPIO0_3 */
+			J722S_MCU_IOPAD(0x00C, PIN_INPUT, 7) /* (B12) MCU_SPI0_D0.MCU_GPIO0_3 */
 		>;
 	};
 
@@ -683,10 +690,47 @@
 	};
 
 	/* Device Manager firmware */
+	hat_26_wkup_uart0_rxd: hat-26-wkup-uart0-rxd-pins {
+		/* hat_26:WKUP_USART0:B3:WKUP_UART0_RXD:0:: */
+		pinctrl-single,pins = <
+			J722S_MCU_IOPAD(0x024, PIN_INPUT, 0) /* (B3) WKUP_UART0_RXD */
+		>;
+	};
+
 	hat_26_gpio: hat-26-gpio-pins {
 		/* hat_26:MCU_GPIO0:B3:MCU_GPIO0_9:7:: */
 		pinctrl-single,pins = <
 			J722S_MCU_IOPAD(0x024, PIN_INPUT, 7) /* (B3) WKUP_UART0_RXD.MCU_GPIO0_9 */
+		>;
+	};
+
+	/* I2C PMIC and eeprom */
+	hat_27_i2c: hat-27-i2c-pins {
+		/* hat_27:WKUP_I2C0:D11:WKUP_I2C0_SDA:0:: */
+		pinctrl-single,pins = <
+			J722S_MCU_IOPAD(0x050, PIN_INPUT_PULLUP, 0) /* (D11) WKUP_I2C0_SDA */
+		>;
+	};
+
+	hat_27_gpio: hat-27-gpio-pins {
+		/* hat_27:MCU_GPIO0:D11:MCU_GPIO0_20:7:: */
+		pinctrl-single,pins = <
+			J722S_MCU_IOPAD(0x050, PIN_INPUT, 7) /* (D11) WKUP_I2C0_SDA.MCU_GPIO0_20 */
+		>;
+	};
+
+	/* I2C PMIC and eeprom */
+	hat_28_i2c: hat-28-i2c-pins {
+		/* hat_28:WKUP_I2C0:B9:WKUP_I2C0_SCL:0:: */
+		pinctrl-single,pins = <
+			J722S_MCU_IOPAD(0x04C, PIN_INPUT_PULLUP, 0) /* (B9) WKUP_I2C0_SCL */
+		>;
+	};
+
+	hat_28_gpio: hat-28-gpio-pins {
+		/* hat_28:MCU_GPIO0:B9:MCU_GPIO0_19:7:: */
+		pinctrl-single,pins = <
+			J722S_MCU_IOPAD(0x04C, PIN_INPUT, 7) /* (B9) WKUP_I2C0_SCL.MCU_GPIO0_19 */
 		>;
 	};
 };

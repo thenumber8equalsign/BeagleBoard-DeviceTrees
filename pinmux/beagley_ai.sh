@@ -18,7 +18,9 @@ echo "" >${file}-b-bone-pins.h
 echo "" >${file}-bone-pins.h
 echo "" >${file}-pins.txt
 echo "&main_pmx0 {" >${file}-main-pinmux.txt
-echo "&mcu_pmx0 {" >${file}-mcu-pinmux.txt
+echo "};" >${file}-mcu-pinmux.txt
+echo "" >>${file}-mcu-pinmux.txt
+echo "&mcu_pmx0 {" >>${file}-mcu-pinmux.txt
 
 echo "/* macro:  */" >${file}.dts
 
@@ -121,6 +123,9 @@ msg="" ; echo_both
 cat ${file}-pinmux.dts >> ${file}.dts
 
 rm -rf ${file}-pinmux.dts || true
+
+cat ${file}-main-pinmux.txt > ${file}-pinmux.dts
+cat ${file}-mcu-pinmux.txt >> ${file}-pinmux.dts
 
 cat ${file}-a-bone-pins.h >> ${file}-bone-pins.h
 cat ${file}-b-bone-pins.h >> ${file}-bone-pins.h
