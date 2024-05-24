@@ -397,6 +397,13 @@
 		>;
 	};
 
+	hat_10_audio: hat-10-audio-pins {
+		/* hat_10:MCASP0:C27:MCASP0_AFSR:0:: */
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x1AC, PIN_INPUT, 0) /* (C27) MCASP0_AFSR */
+		>;
+	};
+
 	hat_10_spi: hat-10-spi-pins {
 		/* hat_10:SPI2:C27:SPI2_CS0:1:: */
 		pinctrl-single,pins = <
@@ -429,6 +436,13 @@
 		/* hat_10:EQEP1:C27:EQEP1_S:8:: */
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x1AC, PIN_INPUT, 8) /* (C27) MCASP0_AFSR.EQEP1_S */
+		>;
+	};
+
+	hat_11_audio: hat-11-audio-pins {
+		/* hat_11:MCASP0:A26:MCASP0_AXR2:0:: */
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x198, PIN_INPUT, 0) /* (A26) MCASP0_AXR2 */
 		>;
 	};
 
@@ -468,6 +482,13 @@
 		>;
 	};
 
+	hat_12_audio: hat-12-audio-pins {
+		/* hat_12:MCASP0:D25:MCASP0_ACLKX:0:: */
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x1A4, PIN_INPUT, 0) /* (D25) MCASP0_ACLKX */
+		>;
+	};
+
 	hat_12_spi: hat-12-spi-pins {
 		/* hat_12:SPI2:D25:SPI2_CS1:1:: */
 		pinctrl-single,pins = <
@@ -496,6 +517,13 @@
 		>;
 	};
 
+	hat_13_audio: hat-13-audio-pins {
+		/* hat_13:MCASP1:N22:MCASP1_AXR1:2:: */
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x088, PIN_INPUT, 2) /* (N22) GPMC0_OEn_REn.MCASP1_AXR1 */
+		>;
+	};
+
 	hat_13_gpio: hat-13-gpio-pins {
 		/* hat_13:GPIO0:N22:GPIO0_33:7:: */
 		pinctrl-single,pins = <
@@ -510,6 +538,13 @@
 		>;
 	};
 
+	hat_15_audio: hat-15-audio-pins {
+		/* hat_15:MCASP2:R27:MCASP2_AXR14:3:: */
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x0A8, PIN_INPUT, 3) /* (R27) GPMC0_CSn0.MCASP2_AXR14 */
+		>;
+	};
+
 	hat_15_gpio: hat-15-gpio-pins {
 		/* hat_15:GPIO0:R27:GPIO0_41:7:: */
 		pinctrl-single,pins = <
@@ -521,6 +556,13 @@
 		/* hat_22:I2C4:P21:I2C4_SDA:1:: */
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x0AC, PIN_INPUT_PULLUP, 1) /* (P21) GPMC0_CSn1.I2C4_SDA */
+		>;
+	};
+
+	hat_22_audio: hat-22-audio-pins {
+		/* hat_22:MCASP2:P21:MCASP2_AXR15:3:: */
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x0AC, PIN_INPUT, 3) /* (P21) GPMC0_CSn1.MCASP2_AXR15 */
 		>;
 	};
 
@@ -594,6 +636,13 @@
 		>;
 	};
 
+	hat_35_audio: hat-35-audio-pins {
+		/* hat_35:MCASP0:C26:MCASP0_AFSX:0:: */
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x1A8, PIN_INPUT, 0) /* (C26) MCASP0_AFSX */
+		>;
+	};
+
 	hat_35_spi: hat-35-spi-pins {
 		/* hat_35:SPI2:C26:SPI2_CS3:1:: */
 		pinctrl-single,pins = <
@@ -612,6 +661,13 @@
 		/* hat_35:EQEP1:C26:EQEP1_B:8:: */
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x1A8, PIN_INPUT, 8) /* (C26) MCASP0_AFSX.EQEP1_B */
+		>;
+	};
+
+	hat_36_audio: hat-36-audio-pins {
+		/* hat_36:MCASP0:A25:MCASP0_AXR3:0:: */
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x194, PIN_INPUT, 0) /* (A25) MCASP0_AXR3 */
 		>;
 	};
 
@@ -651,10 +707,24 @@
 		>;
 	};
 
+	hat_37_audio: hat-37-audio-pins {
+		/* hat_37:MCASP2:P26:MCASP2_AXR12:3:: */
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x094, PIN_INPUT, 3) /* (P26) GPMC0_BE1n.MCASP2_AXR12 */
+		>;
+	};
+
 	hat_37_gpio: hat-37-gpio-pins {
 		/* hat_37:GPIO0:P26:GPIO0_36:7:: */
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x094, PIN_INPUT, 7) /* (P26) GPMC0_BE1n.GPIO0_36 */
+		>;
+	};
+
+	hat_38_audio: hat-38-audio-pins {
+		/* hat_38:MCASP0:F23:MCASP0_AXR0:0:: */
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x1A0, PIN_INPUT, 0) /* (F23) MCASP0_AXR0 */
 		>;
 	};
 
@@ -676,6 +746,13 @@
 		/* hat_38:EQEP0:F23:EQEP0_I:8:: */
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x1A0, PIN_INPUT, 8) /* (F23) MCASP0_AXR0.EQEP0_I */
+		>;
+	};
+
+	hat_40_audio: hat-40-audio-pins {
+		/* hat_40:MCASP0:B25:MCASP0_AXR1:0:: */
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x19C, PIN_INPUT, 0) /* (B25) MCASP0_AXR1 */
 		>;
 	};
 

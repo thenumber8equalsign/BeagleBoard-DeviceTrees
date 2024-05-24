@@ -153,8 +153,7 @@ find_pin () {
 			type="eqep"
 		;;
 		MCASP*)
-			#type="audio"
-			unset print_dts
+			type="audio"
 		;;
 		MCU_GPIO*)
 			iopad="J722S_MCU_IOPAD"
