@@ -150,8 +150,7 @@ find_pin () {
 			type="pwm"
 		;;
 		EQEP*)
-			#type="eqep"
-			unset print_dts
+			type="eqep"
 		;;
 		MCASP*)
 			#type="audio"
