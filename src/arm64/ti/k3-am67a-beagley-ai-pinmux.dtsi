@@ -229,7 +229,7 @@
 		pinctrl-0 = <&hat_22_gpio>;
 		gpios = <&main_gpio0 42 GPIO_ACTIVE_HIGH>;
 		gpio-line-names = "GPIO25";
-		beagle-gpio-pi = "GPIO22";
+		beagle-gpio-pi = "GPIO25";
 	};
 
 	hat-23-gpio {
@@ -331,7 +331,7 @@
 		beagle-pwm-bus = "bus@f0000";
 		beagle-pwm-address = "23100000";
 		beagle-pwm-export = "0";
-		beagle-gpio-pi = "GPIO12";
+		beagle-gpio-pi = "GPIO13";
 	};
 
 	hat-33-gpio {
@@ -412,7 +412,7 @@
 		beagle-pwm-bus = "bus@f0000";
 		beagle-pwm-address = "23010000";
 		beagle-pwm-export = "1";
-		beagle-gpio-pi = "GPIO16";
+		beagle-gpio-pi = "GPIO20";
 	};
 
 	hat-40-gpio {
