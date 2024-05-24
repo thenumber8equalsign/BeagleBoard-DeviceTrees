@@ -70,6 +70,9 @@
 		pinctrl-0 = <&hat_08_pwm>;
 		gpios = <&main_gpio1 14 GPIO_ACTIVE_HIGH>;
 		gpio-line-names = "EHRPWM0_B_HAT08";
+		beagle-pwm-bus = "bus@f0000";
+		beagle-pwm-address = "23000000";
+		beagle-pwm-export = "1";
 	};
 
 	hat-08-uart1-txd {
@@ -94,6 +97,9 @@
 		pinctrl-0 = <&hat_10_pwm>;
 		gpios = <&main_gpio1 13 GPIO_ACTIVE_HIGH>;
 		gpio-line-names = "EHRPWM0_A_HAT10";
+		beagle-pwm-bus = "bus@f0000";
+		beagle-pwm-address = "23000000";
+		beagle-pwm-export = "0";
 	};
 
 	hat-10-uart1-rxd {
@@ -118,6 +124,9 @@
 		pinctrl-0 = <&hat_11_pwm_ecap>;
 		gpios = <&main_gpio1 8 GPIO_ACTIVE_HIGH>;
 		gpio-line-names = "ECAP2_HAT11";
+		beagle-pwm-bus = "bus@f0000";
+		beagle-pwm-address = "23120000";
+		beagle-pwm-export = "0";
 	};
 
 	hat-12-gpio {
@@ -134,6 +143,9 @@
 		pinctrl-0 = <&hat_12_pwm_ecap>;
 		gpios = <&main_gpio1 11 GPIO_ACTIVE_HIGH>;
 		gpio-line-names = "ECAP2_HAT12";
+		beagle-pwm-bus = "bus@f0000";
+		beagle-pwm-address = "23120000";
+		beagle-pwm-export = "0";
 	};
 
 	hat-13-gpio {
@@ -230,6 +242,9 @@
 		pinctrl-0 = <&hat_29_pwm>;
 		gpios = <&main_gpio1 15 GPIO_ACTIVE_HIGH>;
 		gpio-line-names = "EHRPWM0_A_HAT29";
+		beagle-pwm-bus = "bus@f0000";
+		beagle-pwm-address = "23000000";
+		beagle-pwm-export = "0";
 	};
 
 	hat-31-gpio {
@@ -246,6 +261,9 @@
 		pinctrl-0 = <&hat_31_pwm>;
 		gpios = <&main_gpio1 17 GPIO_ACTIVE_HIGH>;
 		gpio-line-names = "EHRPWM1_A_HAT31";
+		beagle-pwm-bus = "bus@f0000";
+		beagle-pwm-address = "23010000";
+		beagle-pwm-export = "0";
 	};
 
 	hat-32-gpio {
@@ -262,6 +280,9 @@
 		pinctrl-0 = <&hat_32_pwm>;
 		gpios = <&main_gpio1 16 GPIO_ACTIVE_HIGH>;
 		gpio-line-names = "EHRPWM0_B_HAT32";
+		beagle-pwm-bus = "bus@f0000";
+		beagle-pwm-address = "23000000";
+		beagle-pwm-export = "1";
 	};
 
 	hat-32-pwm-ecap {
@@ -270,6 +291,9 @@
 		pinctrl-0 = <&hat_32_pwm_ecap>;
 		gpios = <&main_gpio1 16 GPIO_ACTIVE_HIGH>;
 		gpio-line-names = "ECAP0_HAT32";
+		beagle-pwm-bus = "bus@f0000";
+		beagle-pwm-address = "23100000";
+		beagle-pwm-export = "0";
 	};
 
 	hat-33-gpio {
@@ -286,6 +310,9 @@
 		pinctrl-0 = <&hat_33_pwm>;
 		gpios = <&main_gpio1 18 GPIO_ACTIVE_HIGH>;
 		gpio-line-names = "EHRPWM1_B_HAT33";
+		beagle-pwm-bus = "bus@f0000";
+		beagle-pwm-address = "23010000";
+		beagle-pwm-export = "1";
 	};
 
 	hat-35-gpio {
@@ -310,6 +337,9 @@
 		pinctrl-0 = <&hat_36_pwm_ecap>;
 		gpios = <&main_gpio1 7 GPIO_ACTIVE_HIGH>;
 		gpio-line-names = "ECAP1_HAT36";
+		beagle-pwm-bus = "bus@f0000";
+		beagle-pwm-address = "23110000";
+		beagle-pwm-export = "0";
 	};
 
 	hat-37-gpio {
@@ -334,6 +364,9 @@
 		pinctrl-0 = <&hat_38_pwm>;
 		gpios = <&main_gpio1 10 GPIO_ACTIVE_HIGH>;
 		gpio-line-names = "EHRPWM1_B_HAT38";
+		beagle-pwm-bus = "bus@f0000";
+		beagle-pwm-address = "23010000";
+		beagle-pwm-export = "1";
 	};
 
 	hat-40-gpio {
@@ -350,6 +383,9 @@
 		pinctrl-0 = <&hat_40_pwm>;
 		gpios = <&main_gpio1 9 GPIO_ACTIVE_HIGH>;
 		gpio-line-names = "EHRPWM1_A_HAT40";
+		beagle-pwm-bus = "bus@f0000";
+		beagle-pwm-address = "23010000";
+		beagle-pwm-export = "0";
 	};
 
 	hat-40-pwm-ecap {
@@ -358,6 +394,9 @@
 		pinctrl-0 = <&hat_40_pwm_ecap>;
 		gpios = <&main_gpio1 9 GPIO_ACTIVE_HIGH>;
 		gpio-line-names = "ECAP1_HAT40";
+		beagle-pwm-bus = "bus@f0000";
+		beagle-pwm-address = "23110000";
+		beagle-pwm-export = "0";
 	};
 };
 
