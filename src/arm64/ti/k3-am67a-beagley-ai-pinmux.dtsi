@@ -81,6 +81,7 @@
 		beagle-pwm-bus = "bus@f0000";
 		beagle-pwm-address = "23000000";
 		beagle-pwm-export = "1";
+		beagle-pwm-pi = "GPIO14";
 	};
 
 	hat-08-uart1-txd {
@@ -108,6 +109,7 @@
 		beagle-pwm-bus = "bus@f0000";
 		beagle-pwm-address = "23000000";
 		beagle-pwm-export = "0";
+		beagle-pwm-pi = "GPIO15";
 	};
 
 	hat-10-uart1-rxd {
@@ -135,6 +137,7 @@
 		beagle-pwm-bus = "bus@f0000";
 		beagle-pwm-address = "23120000";
 		beagle-pwm-export = "0";
+		beagle-pwm-pi = "GPIO17";
 	};
 
 	hat-12-gpio {
@@ -154,6 +157,7 @@
 		beagle-pwm-bus = "bus@f0000";
 		beagle-pwm-address = "23120000";
 		beagle-pwm-export = "0";
+		beagle-pwm-pi = "GPIO18";
 	};
 
 	hat-13-gpio {
@@ -253,6 +257,7 @@
 		beagle-pwm-bus = "bus@f0000";
 		beagle-pwm-address = "23000000";
 		beagle-pwm-export = "0";
+		beagle-pwm-pi = "GPIO5";
 	};
 
 	hat-31-gpio {
@@ -272,6 +277,7 @@
 		beagle-pwm-bus = "bus@f0000";
 		beagle-pwm-address = "23010000";
 		beagle-pwm-export = "0";
+		beagle-pwm-pi = "GPIO6";
 	};
 
 	hat-32-gpio {
@@ -291,6 +297,7 @@
 		beagle-pwm-bus = "bus@f0000";
 		beagle-pwm-address = "23000000";
 		beagle-pwm-export = "1";
+		beagle-pwm-pi = "GPIO12";
 	};
 
 	hat-32-pwm-ecap {
@@ -302,6 +309,7 @@
 		beagle-pwm-bus = "bus@f0000";
 		beagle-pwm-address = "23100000";
 		beagle-pwm-export = "0";
+		beagle-pwm-pi = "GPIO12";
 	};
 
 	hat-33-gpio {
@@ -321,6 +329,7 @@
 		beagle-pwm-bus = "bus@f0000";
 		beagle-pwm-address = "23010000";
 		beagle-pwm-export = "1";
+		beagle-pwm-pi = "GPIO13";
 	};
 
 	hat-35-gpio {
@@ -348,6 +357,7 @@
 		beagle-pwm-bus = "bus@f0000";
 		beagle-pwm-address = "23110000";
 		beagle-pwm-export = "0";
+		beagle-pwm-pi = "GPIO16";
 	};
 
 	hat-37-gpio {
@@ -375,6 +385,7 @@
 		beagle-pwm-bus = "bus@f0000";
 		beagle-pwm-address = "23010000";
 		beagle-pwm-export = "1";
+		beagle-pwm-pi = "GPIO16";
 	};
 
 	hat-40-gpio {
@@ -394,6 +405,7 @@
 		beagle-pwm-bus = "bus@f0000";
 		beagle-pwm-address = "23010000";
 		beagle-pwm-export = "0";
+		beagle-pwm-pi = "GPIO21";
 	};
 
 	hat-40-pwm-ecap {
@@ -405,6 +417,7 @@
 		beagle-pwm-bus = "bus@f0000";
 		beagle-pwm-address = "23110000";
 		beagle-pwm-export = "0";
+		beagle-pwm-pi = "GPIO21";
 	};
 };
 
