@@ -331,7 +331,7 @@
 		beagle-pwm-bus = "bus@f0000";
 		beagle-pwm-address = "23100000";
 		beagle-pwm-export = "0";
-		beagle-gpio-pi = "GPIO13";
+		beagle-gpio-pi = "GPIO12";
 	};
 
 	hat-33-gpio {
