@@ -56,6 +56,14 @@
 		gpio-line-names = "GPIO3";
 	};
 
+	hat-07-gpio {
+		compatible = "gpio-single";
+		pinctrl-names = "default";
+		pinctrl-0 = <&hat_07_gpio>;
+		gpios = <&mcu_gpio0 38 GPIO_ACTIVE_HIGH>;
+		gpio-line-names = "GPIO4";
+	};
+
 	hat-08-gpio {
 		compatible = "gpio-single";
 		pinctrl-names = "default";
