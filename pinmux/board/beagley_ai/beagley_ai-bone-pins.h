@@ -1,5 +1,6 @@
 
 
+#define gpio_hat_07 &main_gpio0 38	/* W26: GPMC0_WAIT1 GPIO4 */
 #define gpio_hat_08 &main_gpio1 14	/* F24: MCASP0_ACLKR GPIO14 */
 #define gpio_hat_10 &main_gpio1 13	/* C27: MCASP0_AFSR GPIO15 */
 #define gpio_hat_11 &main_gpio1 8	/* A26: MCASP0_AXR2 GPIO17 */
@@ -17,6 +18,7 @@
 #define gpio_hat_38 &main_gpio1 10	/* F23: MCASP0_AXR0 GPIO20 */
 #define gpio_hat_40 &main_gpio1 9	/* B25: MCASP0_AXR1 GPIO21 */
 
+#define hat_07(mode, mux) J721E_IOPAD(0x409C, mode, mux)	/* W26: GPMC0_WAIT1 GPIO4 */
 #define hat_08(mode, mux) J721E_IOPAD(0x41B0, mode, mux)	/* F24: MCASP0_ACLKR GPIO14 */
 #define hat_10(mode, mux) J721E_IOPAD(0x41AC, mode, mux)	/* C27: MCASP0_AFSR GPIO15 */
 #define hat_11(mode, mux) J721E_IOPAD(0x4198, mode, mux)	/* A26: MCASP0_AXR2 GPIO17 */

@@ -1,4 +1,25 @@
 &main_pmx0 {
+	hat_07_uart6_rxd: hat-07-uart6-rxd-pins {
+		/* hat_07:USART6:W26:UART6_RXD:3:: */
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x09C, PIN_INPUT, 3) /* (W26) GPMC0_WAIT1.UART6_RXD */
+		>;
+	};
+
+	hat_07_gpio: hat-07-gpio-pins {
+		/* hat_07:GPIO0:W26:GPIO0_38:7:: */
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x09C, PIN_INPUT, 7) /* (W26) GPMC0_WAIT1.GPIO0_38 */
+		>;
+	};
+
+	hat_07_eqep: hat-07-eqep-pins {
+		/* hat_07:EQEP2:W26:EQEP2_I:8:: */
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x09C, PIN_INPUT, 8) /* (W26) GPMC0_WAIT1.EQEP2_I */
+		>;
+	};
+
 	hat_08_audio: hat-08-audio-pins {
 		/* hat_08:MCASP0:F24:MCASP0_ACLKR:0:: */
 		pinctrl-single,pins = <

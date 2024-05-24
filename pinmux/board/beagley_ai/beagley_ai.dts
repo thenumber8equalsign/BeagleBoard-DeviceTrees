@@ -5,6 +5,13 @@
 	/* hat_05 (B13) MCU_I2C0_SCL () GPIO3 */
 	BONE_PIN(hat_05, default,   hat_05(PIN_INPUT, ))
 
+	/* hat_07 (W26) GPMC0_WAIT1 (GPIO0_38) GPIO4 */
+	BONE_PIN(hat_07, default,   hat_07(PIN_INPUT, ))
+	BONE_PIN(hat_07, gpio,      hat_07(PIN_INPUT, 7))
+	BONE_PIN(hat_07, gpio_pu,   hat_07(PIN_INPUT_PULLUP, 7))
+	BONE_PIN(hat_07, gpio_pd,   hat_07(PIN_INPUT_PULLDOWN, 7))
+	BONE_PIN(hat_07, qep,       hat_07(PIN_INPUT, 8))	/* EQEP2_I */
+
 	/* hat_08 (F24) MCASP0_ACLKR (GPIO1_14) GPIO14 */
 	BONE_PIN(hat_08, default,   hat_08(PIN_INPUT, ))
 	BONE_PIN(hat_08, gpio,      hat_08(PIN_INPUT, 7))

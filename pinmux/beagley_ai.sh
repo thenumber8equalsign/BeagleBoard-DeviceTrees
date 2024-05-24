@@ -34,7 +34,9 @@ label="hat_03" ; ball="E11" ; sch="GPIO2"; find_pin
 label="hat_05" ; ball="B13" ; sch="GPIO3"; find_pin
 
 #6: GROUND
-#7: GROUND
+#7:
+label="hat_07" ; ball="W26" ; sch="GPIO4"; find_pin
+
 #8: GPIO 14 : F24/UART1_TXD : J722S_IOPAD(0x01b0, PIN_INPUT, 7) /* (F24) MCASP0_ACLKR.GPIO1_14 */
 label="hat_08" ; ball="F24" ; sch="GPIO14"; find_pin
 

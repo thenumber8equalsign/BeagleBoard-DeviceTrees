@@ -134,7 +134,7 @@ find_pin () {
 		print_dts="enable"
 
 		case "${name_a}" in
-		AUDIO*|CP_*|EHRPWM_TZn_IN*|GPMC*|MAIN*|TRC*)
+		AUDIO*|CP_*|EHRPWM_TZn_IN*|GPMC*|MAIN*|TRC*|VOUT0_EXTPCLKIN)
 			unset print_dts
 		;;
 		I2C*)
