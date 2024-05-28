@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-2.0
 /*
- * DT Overlay for spi0-2cs on BeagleY-AI board.
+ * DT Overlay for spi0-1cs on BeagleY-AI board.
  *
  * Copyright (C) 2023 Texas Instruments Incorporated - https://www.ti.com/
  *
@@ -16,7 +16,7 @@
  */
 &{/chosen} {
 	overlays {
-		k3-am67a-beagley-ai-spi0-2cs.kernel = __TIMESTAMP__;
+		k3-am67a-beagley-ai-spi0-1cs.kernel = __TIMESTAMP__;
 	};
 };
 
@@ -31,10 +31,9 @@
 	miso-gpios = <&mcu_gpio0 4 GPIO_ACTIVE_HIGH>;
 	mosi-gpios = <&mcu_gpio0 3 GPIO_ACTIVE_HIGH>;
 
-	num-chipselects = <2>;
+	num-chipselects = <1>;
 	cs-gpios = <
 		&mcu_gpio0 0 GPIO_ACTIVE_HIGH
-		&mcu_gpio0 9 GPIO_ACTIVE_HIGH
 	>;
 
 	status = "okay";
@@ -42,12 +41,6 @@
 //	mcp795@0 {
 //		compatible = "maxim,mcp795";
 //		reg = <0x0>;
-//		spi-max-frequency = <100000>;
-//	};
-
-//	mcp795@1 {
-//		compatible = "maxim,mcp795";
-//		reg = <0x1>;
 //		spi-max-frequency = <100000>;
 //	};
 };
