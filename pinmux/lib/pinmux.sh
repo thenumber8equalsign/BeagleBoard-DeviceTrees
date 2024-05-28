@@ -245,9 +245,11 @@ find_pin () {
 		UART*_TXD)
 			PIN_a="PIN_OUTPUT"
 			type=$(echo ${name_a} | awk '{print tolower($0)}' | sed 's/_/-/g' || true)
+			export_dts="enable"
 		;;
 		UART*_RXD)
 			type=$(echo ${name_a} | awk '{print tolower($0)}' | sed 's/_/-/g' || true)
+			export_dts="enable"
 		;;
 		UART*_*TSn)
 			unset print_dts

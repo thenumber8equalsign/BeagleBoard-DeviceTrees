@@ -9,26 +9,6 @@
 #include <dt-bindings/gpio/gpio.h>
 
 / {
-	hat-mcu-i2c0 {
-		compatible = "gpio-peripheral";
-		pinctrl-names = "default";
-		pinctrl-0 = <&hat_03_i2c>, <&hat_05_i2c>;
-
-		gpios = <&mcu_gpio0 18 GPIO_ACTIVE_HIGH>,
-			<&mcu_gpio0 17 GPIO_ACTIVE_HIGH>;
-		gpio-line-names = "MCU_I2C0_SDA_HAT03", "MCU_I2C0_SCL_HAT05";
-	};
-
-	hat-uart1-ttyAMA0 {
-		compatible = "gpio-peripheral";
-		pinctrl-names = "default";
-		pinctrl-0 = <&hat_08_uart1_txd>, <&hat_10_uart1_rxd>;
-
-		gpios = <&main_gpio1 14 GPIO_ACTIVE_HIGH>,
-			<&main_gpio1 15 GPIO_ACTIVE_HIGH>;
-		gpio-line-names = "UART1_TXD", "UART1_RXD";
-	};
-
 	hat-03-gpio {
 		compatible = "gpio-single";
 		pinctrl-names = "default";
@@ -56,6 +36,15 @@
 		beagle-gpio-pi = "GPIO4";
 	};
 
+	hat-08-uart1-txd {
+		compatible = "gpio-single";
+		pinctrl-names = "default";
+		pinctrl-0 = <&hat_08_uart1_txd>;
+		gpios = <&main_gpio1 14 GPIO_ACTIVE_HIGH>;
+		gpio-line-names = "GPIO14";
+		beagle-gpio-pi = "GPIO14";
+	};
+
 	hat-08-pwm {
 		compatible = "gpio-single";
 		pinctrl-names = "default";
@@ -77,13 +66,13 @@
 		beagle-gpio-pi = "GPIO14";
 	};
 
-	hat-08-uart1-txd {
+	hat-10-uart1-rxd {
 		compatible = "gpio-single";
 		pinctrl-names = "default";
-		pinctrl-0 = <&hat_08_uart1_txd>;
-		gpios = <&main_gpio1 14 GPIO_ACTIVE_HIGH>;
-		gpio-line-names = "UART1_TXD_HAT08";
-		beagle-gpio-pi = "GPIO14";
+		pinctrl-0 = <&hat_10_uart1_rxd>;
+		gpios = <&main_gpio1 13 GPIO_ACTIVE_HIGH>;
+		gpio-line-names = "GPIO15";
+		beagle-gpio-pi = "GPIO15";
 	};
 
 	hat-10-pwm {
@@ -95,15 +84,6 @@
 		beagle-pwm-bus = "bus@f0000";
 		beagle-pwm-address = "23000000";
 		beagle-pwm-export = "0";
-		beagle-gpio-pi = "GPIO15";
-	};
-
-	hat-10-uart1-rxd {
-		compatible = "gpio-single";
-		pinctrl-names = "default";
-		pinctrl-0 = <&hat_10_uart1_rxd>;
-		gpios = <&main_gpio1 13 GPIO_ACTIVE_HIGH>;
-		gpio-line-names = "UART1_RXD_HAT10";
 		beagle-gpio-pi = "GPIO15";
 	};
 
