@@ -132,6 +132,8 @@ find_pin () {
 		type="gpio"
 		core="main"
 		print_dts="enable"
+		unset export_dts
+		unset pwm_dts
 
 		case "${name_a}" in
 		AUDIO*|CP_*|EHRPWM_TZn_IN*|GPMC*|MAIN*|TRC*|VOUT0_EXTPCLKIN)
@@ -141,17 +143,68 @@ find_pin () {
 			PIN_a="PIN_INPUT_PULLUP"
 			type="i2c"
 		;;
-		ECAP*_IN_APWM_OUT)
+		ECAP0_IN_APWM_OUT)
 			PIN_a="PIN_OUTPUT"
 			type="pwm-ecap"
+			pwm_address="23100000"
+			pwm_export="0"
+			pwm_dts="enable"
+			export_dts="enable"
 		;;
-		EHRPWM*_A|EHRPWM*_B)
+		ECAP1_IN_APWM_OUT)
+			PIN_a="PIN_OUTPUT"
+			type="pwm-ecap"
+			pwm_address="23110000"
+			pwm_export="0"
+			pwm_dts="enable"
+			export_dts="enable"
+		;;
+		ECAP2_IN_APWM_OUT)
+			PIN_a="PIN_OUTPUT"
+			type="pwm-ecap"
+			pwm_address="23120000"
+			pwm_export="0"
+			pwm_dts="enable"
+			export_dts="enable"
+		;;
+		EHRPWM0_A)
 			PIN_a="PIN_OUTPUT"
 			type="pwm"
+			pwm_dts="enable"
+			pwm_address="23000000"
+			pwm_export="0"
+			export_dts="enable"
+		;;
+		EHRPWM1_A)
+			PIN_a="PIN_OUTPUT"
+			type="pwm"
+			pwm_dts="enable"
+			pwm_address="23010000"
+			pwm_export="0"
+			export_dts="enable"
+		;;
+		EHRPWM0_B)
+			PIN_a="PIN_OUTPUT"
+			type="pwm"
+			pwm_dts="enable"
+			pwm_address="23000000"
+			pwm_export="1"
+			export_dts="enable"
+		;;
+		EHRPWM1_B)
+			PIN_a="PIN_OUTPUT"
+			type="pwm"
+			pwm_dts="enable"
+			pwm_address="23010000"
+			pwm_export="1"
+			export_dts="enable"
 		;;
 		EQEP*)
 			type="eqep"
 		;;
+		GPIO*)
+			export_dts="enable"
+			;;
 		MCASP*)
 			type="audio"
 		;;
@@ -159,6 +212,7 @@ find_pin () {
 			iopad="J722S_MCU_IOPAD"
 			type="gpio"
 			core="mcu"
+			export_dts="enable"
 		;;
 		MCU_I2C*_S*|WKUP_I2C*_S*)
 			iopad="J722S_MCU_IOPAD"
@@ -224,6 +278,25 @@ find_pin () {
 			labela=$(echo ${label} | sed 's/_/-/g' || true)
 			cro_aa=$(echo ${cro_a} | sed 's/^...//' || true)
 			typeu=$(echo ${type} | sed 's/-/_/g' || true)
+
+			if [ "x${export_dts}" = "xenable" ] ; then
+			echo "	${labela}-${type} {" >> ${file}-pinmux.txt
+			echo "		compatible = \"gpio-single\";" >> ${file}-pinmux.txt
+			echo "		pinctrl-names = \"default\";" >> ${file}-pinmux.txt
+			echo "		pinctrl-0 = <&${label}_${typeu}>;" >> ${file}-pinmux.txt
+			echo "		gpios = <&${gpio} GPIO_ACTIVE_HIGH>;" >> ${file}-pinmux.txt
+			echo "		gpio-line-names = \"${sch}\";" >> ${file}-pinmux.txt
+
+			if [ "x${pwm_dts}" = "xenable" ] ; then
+				echo "		beagle-pwm-bus = \"bus@f0000\";" >> ${file}-pinmux.txt
+				echo "		beagle-pwm-address = \"${pwm_address}\";" >> ${file}-pinmux.txt
+				echo "		beagle-pwm-export = \"${pwm_export}\";" >> ${file}-pinmux.txt
+			fi
+
+			echo "		beagle-gpio-pi = \"${sch}\";" >> ${file}-pinmux.txt
+			echo "	};" >> ${file}-pinmux.txt
+			echo "" >> ${file}-pinmux.txt
+			fi
 
 			echo "	${label}_${typeu}: ${labela}-${type}-pins {" >> ${file}-${core}-pinmux.txt
 			echo "		/* ${label}:${interface_a}:${found_ball_a}:${name_a}:${mode_a}:${ioDir_a}: */" >> ${file}-${core}-pinmux.txt

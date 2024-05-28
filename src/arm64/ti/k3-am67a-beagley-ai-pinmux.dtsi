@@ -19,17 +19,6 @@
 		gpio-line-names = "MCU_I2C0_SDA_HAT03", "MCU_I2C0_SCL_HAT05";
 	};
 
-
-//	hat-i2c4 {
-//		compatible = "gpio-peripheral";
-//		pinctrl-names = "default";
-//		pinctrl-0 = <&hat_22_i2c>, <&hat_15_i2c>;
-//
-//		gpios = <&main_gpio0 42 GPIO_ACTIVE_HIGH>,
-//			<&main_gpio0 41 GPIO_ACTIVE_HIGH>;
-//		gpio-line-names = "I2C4_SDA_HAT22", "I2C4_SCL_HAT15";
-//	};
-
 	hat-uart1-ttyAMA0 {
 		compatible = "gpio-peripheral";
 		pinctrl-names = "default";
@@ -67,24 +56,24 @@
 		beagle-gpio-pi = "GPIO4";
 	};
 
+	hat-08-pwm {
+		compatible = "gpio-single";
+		pinctrl-names = "default";
+		pinctrl-0 = <&hat_08_pwm>;
+		gpios = <&main_gpio1 14 GPIO_ACTIVE_HIGH>;
+		gpio-line-names = "GPIO14";
+		beagle-pwm-bus = "bus@f0000";
+		beagle-pwm-address = "23000000";
+		beagle-pwm-export = "1";
+		beagle-gpio-pi = "GPIO14";
+	};
+
 	hat-08-gpio {
 		compatible = "gpio-single";
 		pinctrl-names = "default";
 		pinctrl-0 = <&hat_08_gpio>;
 		gpios = <&main_gpio1 14 GPIO_ACTIVE_HIGH>;
 		gpio-line-names = "GPIO14";
-		beagle-gpio-pi = "GPIO14";
-	};
-
-	hat-08-pwm {
-		compatible = "gpio-single";
-		pinctrl-names = "default";
-		pinctrl-0 = <&hat_08_pwm>;
-		gpios = <&main_gpio1 14 GPIO_ACTIVE_HIGH>;
-		gpio-line-names = "EHRPWM0_B_HAT08";
-		beagle-pwm-bus = "bus@f0000";
-		beagle-pwm-address = "23000000";
-		beagle-pwm-export = "1";
 		beagle-gpio-pi = "GPIO14";
 	};
 
@@ -97,21 +86,12 @@
 		beagle-gpio-pi = "GPIO14";
 	};
 
-	hat-10-gpio {
-		compatible = "gpio-single";
-		pinctrl-names = "default";
-		pinctrl-0 = <&hat_10_gpio>;
-		gpios = <&main_gpio1 13 GPIO_ACTIVE_HIGH>;
-		gpio-line-names = "GPIO15";
-		beagle-gpio-pi = "GPIO15";
-	};
-
 	hat-10-pwm {
 		compatible = "gpio-single";
 		pinctrl-names = "default";
 		pinctrl-0 = <&hat_10_pwm>;
 		gpios = <&main_gpio1 13 GPIO_ACTIVE_HIGH>;
-		gpio-line-names = "EHRPWM0_A_HAT10";
+		gpio-line-names = "GPIO15";
 		beagle-pwm-bus = "bus@f0000";
 		beagle-pwm-address = "23000000";
 		beagle-pwm-export = "0";
@@ -127,6 +107,27 @@
 		beagle-gpio-pi = "GPIO15";
 	};
 
+	hat-10-gpio {
+		compatible = "gpio-single";
+		pinctrl-names = "default";
+		pinctrl-0 = <&hat_10_gpio>;
+		gpios = <&main_gpio1 13 GPIO_ACTIVE_HIGH>;
+		gpio-line-names = "GPIO15";
+		beagle-gpio-pi = "GPIO15";
+	};
+
+	hat-11-pwm-ecap {
+		compatible = "gpio-single";
+		pinctrl-names = "default";
+		pinctrl-0 = <&hat_11_pwm_ecap>;
+		gpios = <&main_gpio1 8 GPIO_ACTIVE_HIGH>;
+		gpio-line-names = "GPIO17";
+		beagle-pwm-bus = "bus@f0000";
+		beagle-pwm-address = "23120000";
+		beagle-pwm-export = "0";
+		beagle-gpio-pi = "GPIO17";
+	};
+
 	hat-11-gpio {
 		compatible = "gpio-single";
 		pinctrl-names = "default";
@@ -136,16 +137,16 @@
 		beagle-gpio-pi = "GPIO17";
 	};
 
-	hat-11-pwm-ecap {
+	hat-12-pwm-ecap {
 		compatible = "gpio-single";
 		pinctrl-names = "default";
-		pinctrl-0 = <&hat_11_pwm_ecap>;
-		gpios = <&main_gpio1 8 GPIO_ACTIVE_HIGH>;
-		gpio-line-names = "ECAP2_HAT11";
+		pinctrl-0 = <&hat_12_pwm_ecap>;
+		gpios = <&main_gpio1 11 GPIO_ACTIVE_HIGH>;
+		gpio-line-names = "GPIO18";
 		beagle-pwm-bus = "bus@f0000";
 		beagle-pwm-address = "23120000";
 		beagle-pwm-export = "0";
-		beagle-gpio-pi = "GPIO17";
+		beagle-gpio-pi = "GPIO18";
 	};
 
 	hat-12-gpio {
@@ -154,18 +155,6 @@
 		pinctrl-0 = <&hat_12_gpio>;
 		gpios = <&main_gpio1 11 GPIO_ACTIVE_HIGH>;
 		gpio-line-names = "GPIO18";
-		beagle-gpio-pi = "GPIO18";
-	};
-
-	hat-12-pwm-ecap {
-		compatible = "gpio-single";
-		pinctrl-names = "default";
-		pinctrl-0 = <&hat_12_pwm_ecap>;
-		gpios = <&main_gpio1 11 GPIO_ACTIVE_HIGH>;
-		gpio-line-names = "ECAP2_HAT12";
-		beagle-pwm-bus = "bus@f0000";
-		beagle-pwm-address = "23120000";
-		beagle-pwm-export = "0";
 		beagle-gpio-pi = "GPIO18";
 	};
 
@@ -259,6 +248,18 @@
 		beagle-gpio-pi = "GPIO7";
 	};
 
+	hat-29-pwm {
+		compatible = "gpio-single";
+		pinctrl-names = "default";
+		pinctrl-0 = <&hat_29_pwm>;
+		gpios = <&main_gpio1 15 GPIO_ACTIVE_HIGH>;
+		gpio-line-names = "GPIO5";
+		beagle-pwm-bus = "bus@f0000";
+		beagle-pwm-address = "23000000";
+		beagle-pwm-export = "0";
+		beagle-gpio-pi = "GPIO5";
+	};
+
 	hat-29-gpio {
 		compatible = "gpio-single";
 		pinctrl-names = "default";
@@ -268,16 +269,16 @@
 		beagle-gpio-pi = "GPIO5";
 	};
 
-	hat-29-pwm {
+	hat-31-pwm {
 		compatible = "gpio-single";
 		pinctrl-names = "default";
-		pinctrl-0 = <&hat_29_pwm>;
-		gpios = <&main_gpio1 15 GPIO_ACTIVE_HIGH>;
-		gpio-line-names = "EHRPWM0_A_HAT29";
+		pinctrl-0 = <&hat_31_pwm>;
+		gpios = <&main_gpio1 17 GPIO_ACTIVE_HIGH>;
+		gpio-line-names = "GPIO6";
 		beagle-pwm-bus = "bus@f0000";
-		beagle-pwm-address = "23000000";
+		beagle-pwm-address = "23010000";
 		beagle-pwm-export = "0";
-		beagle-gpio-pi = "GPIO5";
+		beagle-gpio-pi = "GPIO6";
 	};
 
 	hat-31-gpio {
@@ -289,33 +290,12 @@
 		beagle-gpio-pi = "GPIO6";
 	};
 
-	hat-31-pwm {
-		compatible = "gpio-single";
-		pinctrl-names = "default";
-		pinctrl-0 = <&hat_31_pwm>;
-		gpios = <&main_gpio1 17 GPIO_ACTIVE_HIGH>;
-		gpio-line-names = "EHRPWM1_A_HAT31";
-		beagle-pwm-bus = "bus@f0000";
-		beagle-pwm-address = "23010000";
-		beagle-pwm-export = "0";
-		beagle-gpio-pi = "GPIO6";
-	};
-
-	hat-32-gpio {
-		compatible = "gpio-single";
-		pinctrl-names = "default";
-		pinctrl-0 = <&hat_32_gpio>;
-		gpios = <&main_gpio1 16 GPIO_ACTIVE_HIGH>;
-		gpio-line-names = "GPIO12";
-		beagle-gpio-pi = "GPIO12";
-	};
-
 	hat-32-pwm {
 		compatible = "gpio-single";
 		pinctrl-names = "default";
 		pinctrl-0 = <&hat_32_pwm>;
 		gpios = <&main_gpio1 16 GPIO_ACTIVE_HIGH>;
-		gpio-line-names = "EHRPWM0_B_HAT32";
+		gpio-line-names = "GPIO12";
 		beagle-pwm-bus = "bus@f0000";
 		beagle-pwm-address = "23000000";
 		beagle-pwm-export = "1";
@@ -327,11 +307,32 @@
 		pinctrl-names = "default";
 		pinctrl-0 = <&hat_32_pwm_ecap>;
 		gpios = <&main_gpio1 16 GPIO_ACTIVE_HIGH>;
-		gpio-line-names = "ECAP0_HAT32";
+		gpio-line-names = "GPIO12";
 		beagle-pwm-bus = "bus@f0000";
 		beagle-pwm-address = "23100000";
 		beagle-pwm-export = "0";
 		beagle-gpio-pi = "GPIO12";
+	};
+
+	hat-32-gpio {
+		compatible = "gpio-single";
+		pinctrl-names = "default";
+		pinctrl-0 = <&hat_32_gpio>;
+		gpios = <&main_gpio1 16 GPIO_ACTIVE_HIGH>;
+		gpio-line-names = "GPIO12";
+		beagle-gpio-pi = "GPIO12";
+	};
+
+	hat-33-pwm {
+		compatible = "gpio-single";
+		pinctrl-names = "default";
+		pinctrl-0 = <&hat_33_pwm>;
+		gpios = <&main_gpio1 18 GPIO_ACTIVE_HIGH>;
+		gpio-line-names = "GPIO13";
+		beagle-pwm-bus = "bus@f0000";
+		beagle-pwm-address = "23010000";
+		beagle-pwm-export = "1";
+		beagle-gpio-pi = "GPIO13";
 	};
 
 	hat-33-gpio {
@@ -340,18 +341,6 @@
 		pinctrl-0 = <&hat_33_gpio>;
 		gpios = <&main_gpio1 18 GPIO_ACTIVE_HIGH>;
 		gpio-line-names = "GPIO13";
-		beagle-gpio-pi = "GPIO13";
-	};
-
-	hat-33-pwm {
-		compatible = "gpio-single";
-		pinctrl-names = "default";
-		pinctrl-0 = <&hat_33_pwm>;
-		gpios = <&main_gpio1 18 GPIO_ACTIVE_HIGH>;
-		gpio-line-names = "EHRPWM1_B_HAT33";
-		beagle-pwm-bus = "bus@f0000";
-		beagle-pwm-address = "23010000";
-		beagle-pwm-export = "1";
 		beagle-gpio-pi = "GPIO13";
 	};
 
@@ -364,24 +353,24 @@
 		beagle-gpio-pi = "GPIO19";
 	};
 
+	hat-36-pwm-ecap {
+		compatible = "gpio-single";
+		pinctrl-names = "default";
+		pinctrl-0 = <&hat_36_pwm_ecap>;
+		gpios = <&main_gpio1 7 GPIO_ACTIVE_HIGH>;
+		gpio-line-names = "GPIO16";
+		beagle-pwm-bus = "bus@f0000";
+		beagle-pwm-address = "23110000";
+		beagle-pwm-export = "0";
+		beagle-gpio-pi = "GPIO16";
+	};
+
 	hat-36-gpio {
 		compatible = "gpio-single";
 		pinctrl-names = "default";
 		pinctrl-0 = <&hat_36_gpio>;
 		gpios = <&main_gpio1 7 GPIO_ACTIVE_HIGH>;
 		gpio-line-names = "GPIO16";
-		beagle-gpio-pi = "GPIO16";
-	};
-
-	hat-36-pwm-ecap {
-		compatible = "gpio-single";
-		pinctrl-names = "default";
-		pinctrl-0 = <&hat_36_pwm_ecap>;
-		gpios = <&main_gpio1 7 GPIO_ACTIVE_HIGH>;
-		gpio-line-names = "ECAP1_HAT36";
-		beagle-pwm-bus = "bus@f0000";
-		beagle-pwm-address = "23110000";
-		beagle-pwm-export = "0";
 		beagle-gpio-pi = "GPIO16";
 	};
 
@@ -394,6 +383,18 @@
 		beagle-gpio-pi = "GPIO26";
 	};
 
+	hat-38-pwm {
+		compatible = "gpio-single";
+		pinctrl-names = "default";
+		pinctrl-0 = <&hat_38_pwm>;
+		gpios = <&main_gpio1 10 GPIO_ACTIVE_HIGH>;
+		gpio-line-names = "GPIO20";
+		beagle-pwm-bus = "bus@f0000";
+		beagle-pwm-address = "23010000";
+		beagle-pwm-export = "1";
+		beagle-gpio-pi = "GPIO20";
+	};
+
 	hat-38-gpio {
 		compatible = "gpio-single";
 		pinctrl-names = "default";
@@ -403,24 +404,15 @@
 		beagle-gpio-pi = "GPIO20";
 	};
 
-	hat-38-pwm {
+	hat-40-pwm-ecap {
 		compatible = "gpio-single";
 		pinctrl-names = "default";
-		pinctrl-0 = <&hat_38_pwm>;
-		gpios = <&main_gpio1 10 GPIO_ACTIVE_HIGH>;
-		gpio-line-names = "EHRPWM1_B_HAT38";
-		beagle-pwm-bus = "bus@f0000";
-		beagle-pwm-address = "23010000";
-		beagle-pwm-export = "1";
-		beagle-gpio-pi = "GPIO20";
-	};
-
-	hat-40-gpio {
-		compatible = "gpio-single";
-		pinctrl-names = "default";
-		pinctrl-0 = <&hat_40_gpio>;
+		pinctrl-0 = <&hat_40_pwm_ecap>;
 		gpios = <&main_gpio1 9 GPIO_ACTIVE_HIGH>;
 		gpio-line-names = "GPIO21";
+		beagle-pwm-bus = "bus@f0000";
+		beagle-pwm-address = "23110000";
+		beagle-pwm-export = "0";
 		beagle-gpio-pi = "GPIO21";
 	};
 
@@ -429,22 +421,19 @@
 		pinctrl-names = "default";
 		pinctrl-0 = <&hat_40_pwm>;
 		gpios = <&main_gpio1 9 GPIO_ACTIVE_HIGH>;
-		gpio-line-names = "EHRPWM1_A_HAT40";
+		gpio-line-names = "GPIO21";
 		beagle-pwm-bus = "bus@f0000";
 		beagle-pwm-address = "23010000";
 		beagle-pwm-export = "0";
 		beagle-gpio-pi = "GPIO21";
 	};
 
-	hat-40-pwm-ecap {
+	hat-40-gpio {
 		compatible = "gpio-single";
 		pinctrl-names = "default";
-		pinctrl-0 = <&hat_40_pwm_ecap>;
+		pinctrl-0 = <&hat_40_gpio>;
 		gpios = <&main_gpio1 9 GPIO_ACTIVE_HIGH>;
-		gpio-line-names = "ECAP1_HAT40";
-		beagle-pwm-bus = "bus@f0000";
-		beagle-pwm-address = "23110000";
-		beagle-pwm-export = "0";
+		gpio-line-names = "GPIO21";
 		beagle-gpio-pi = "GPIO21";
 	};
 };
