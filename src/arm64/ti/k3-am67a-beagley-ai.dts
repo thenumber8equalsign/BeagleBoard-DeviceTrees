@@ -29,6 +29,7 @@
 		mmc1 = &sdhci1;
 		mmc2 = &sdhci2;
 		rtc0 = &rtc;
+		spi0 = &spi_gpio;
 		usb0 = &usb0;
 		usb1 = &usb1;
 	};
@@ -297,6 +298,38 @@
 			gpios = <&main_gpio0 2 GPIO_ACTIVE_HIGH>;
 			default-state = "off";
 		};
+	};
+
+	spi_gpio: spi {
+		compatible = "spi-gpio";
+		#address-cells = <0x1>;
+		#size-cells = <0x0>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&spi_gpio_default_pins>;
+
+		sck-gpios = <&mcu_gpio0 2 GPIO_ACTIVE_HIGH>;
+		miso-gpios = <&mcu_gpio0 4 GPIO_ACTIVE_HIGH>;
+		mosi-gpios = <&mcu_gpio0 3 GPIO_ACTIVE_HIGH>;
+
+		num-chipselects = <2>;
+		cs-gpios = <
+			&mcu_gpio0 0 GPIO_ACTIVE_HIGH
+			&mcu_gpio0 9 GPIO_ACTIVE_HIGH
+		>;
+
+		status = "disabled";
+
+//		mcp795@0 {
+//			compatible = "maxim,mcp795";
+//			reg = <0x0>;
+//			spi-max-frequency = <100000>;
+//		};
+
+//		mcp795@1 {
+//			compatible = "maxim,mcp795";
+//			reg = <0x1>;
+//			spi-max-frequency = <100000>;
+//		};
 	};
 };
 
@@ -773,6 +806,16 @@
 	gbe_pmx_obsclk: gbe-pmx-obsclk-default-pins {
 		pinctrl-single,pins = <
 			J722S_MCU_IOPAD(0x0004, PIN_OUTPUT, 1) /* (A10) MCU_SPI0_CS1.MCU_OBSCLK0 */
+		>;
+	};
+
+	spi_gpio_default_pins: spi-gpio-pins {
+		pinctrl-single,pins = <
+			J722S_MCU_IOPAD(0x000, PIN_OUTPUT, 7)	/* (C12) MCU_SPI0_CS0.MCU_GPIO0_0 SS 0 */
+			J722S_MCU_IOPAD(0x024, PIN_OUTPUT, 7)	/* (B3) WKUP_UART0_RXD.MCU_GPIO0_9 SS 1 */
+			J722S_MCU_IOPAD(0x008, PIN_OUTPUT, 7)	/* (A9) MCU_SPI0_CLK.MCU_GPIO0_2 SCLK */
+			J722S_MCU_IOPAD(0x010, PIN_INPUT, 7)	/* (C11) MCU_SPI0_D1.MCU_GPIO0_4 MISO */
+			J722S_MCU_IOPAD(0x00C, PIN_OUTPUT, 7)	/* (B12) MCU_SPI0_D0.MCU_GPIO0_3 MOSI */
 		>;
 	};
 };
