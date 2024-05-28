@@ -201,6 +201,7 @@ find_pin () {
 		;;
 		EQEP*)
 			type="eqep"
+			export_dts="enable"
 		;;
 		GPIO*)
 			export_dts="enable"
