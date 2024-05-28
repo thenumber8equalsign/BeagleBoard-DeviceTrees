@@ -135,6 +135,7 @@ find_pin () {
 		unset export_dts
 		unset pwm_dts
 
+		echo "Testing [${name_a}]"
 		case "${name_a}" in
 		AUDIO*|CP_*|EHRPWM_TZn_IN*|GPMC*|MAIN*|TRC*|VOUT0_EXTPCLKIN)
 			unset print_dts
@@ -199,9 +200,12 @@ find_pin () {
 			pwm_export="1"
 			export_dts="enable"
 		;;
-		EQEP*)
+		EQEP0_*|EQEP1_*)
 			type="eqep"
 			export_dts="enable"
+		;;
+		EQEP2*)
+			unset print_dts
 		;;
 		GPIO*)
 			export_dts="enable"

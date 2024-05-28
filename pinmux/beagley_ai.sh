@@ -138,6 +138,28 @@ cat ${file}-pinmux.txt >> ${file}-pinmux.dts
 cat ${file}-main-pinmux.txt >> ${file}-pinmux.dts
 cat ${file}-mcu-pinmux.txt >> ${file}-pinmux.dts
 
+echo "};" >>${file}-pinmux.dts
+echo "" >>${file}-pinmux.dts
+echo "&ecap0 {" >>${file}-pinmux.dts
+echo "	status = \"okay\";" >>${file}-pinmux.dts
+echo "};" >>${file}-pinmux.dts
+echo "" >>${file}-pinmux.dts
+echo "&ecap1 {" >>${file}-pinmux.dts
+echo "	status = \"okay\";" >>${file}-pinmux.dts
+echo "};" >>${file}-pinmux.dts
+echo "" >>${file}-pinmux.dts
+echo "&ecap2 {" >>${file}-pinmux.dts
+echo "	status = \"okay\";" >>${file}-pinmux.dts
+echo "};" >>${file}-pinmux.dts
+echo "" >>${file}-pinmux.dts
+echo "&epwm0 {" >>${file}-pinmux.dts
+echo "	status = \"okay\";" >>${file}-pinmux.dts
+echo "};" >>${file}-pinmux.dts
+echo "" >>${file}-pinmux.dts
+echo "&epwm1 {" >>${file}-pinmux.dts
+echo "	status = \"okay\";" >>${file}-pinmux.dts
+echo "};" >>${file}-pinmux.dts
+
 rm ${file}-pinmux.txt || true
 rm ${file}-main-pinmux.txt || true
 rm ${file}-mcu-pinmux.txt || true
