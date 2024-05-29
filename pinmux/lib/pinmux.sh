@@ -329,7 +329,7 @@ find_pin () {
 			fi
 
 			echo "	${label}_${typeu}: ${labela}-${type}-pins {" >> ${file}-${core}-pinmux.txt
-			echo "		/* ${label}:${interface_a}:${found_ball_a}:${name_a}:${mode_a}:${ioDir_a}: */" >> ${file}-${core}-pinmux.txt
+			#echo "		/* ${label}:${interface_a}:${found_ball_a}:${name_a}:${mode_a}:${ioDir_a}: */" >> ${file}-${core}-pinmux.txt
 			echo "		pinctrl-single,pins = <" >> ${file}-${core}-pinmux.txt
 			if [ "x${mode_a}" = "x0" ] ; then
 				echo "			${iopad}(0x${cro_aa}, ${PIN_a}, ${mode_a}) /* (${found_ball_a}) ${interface} */" >> ${file}-${core}-pinmux.txt
@@ -342,7 +342,6 @@ find_pin () {
 
 			if [ "x${type}" = "xgpio" ] ; then
 				echo "	${label}_${typeu}_pu: ${labela}-${type}-pu-pins {" >> ${file}-${core}-pinmux.txt
-				echo "		/* ${label}:${interface_a}:${found_ball_a}:${name_a}:${mode_a}:${ioDir_a}: */" >> ${file}-${core}-pinmux.txt
 				echo "		pinctrl-single,pins = <" >> ${file}-${core}-pinmux.txt
 				if [ "x${mode_a}" = "x0" ] ; then
 					echo "			${iopad}(0x${cro_aa}, PIN_INPUT_PULLUP, ${mode_a}) /* (${found_ball_a}) ${interface} */" >> ${file}-${core}-pinmux.txt
@@ -354,7 +353,6 @@ find_pin () {
 				echo "" >> ${file}-${core}-pinmux.txt
 
 				echo "	${label}_${typeu}_pd: ${labela}-${type}-pd-pins {" >> ${file}-${core}-pinmux.txt
-				echo "		/* ${label}:${interface_a}:${found_ball_a}:${name_a}:${mode_a}:${ioDir_a}: */" >> ${file}-${core}-pinmux.txt
 				echo "		pinctrl-single,pins = <" >> ${file}-${core}-pinmux.txt
 				if [ "x${mode_a}" = "x0" ] ; then
 					echo "			${iopad}(0x${cro_aa}, PIN_INPUT_PULLDOWN, ${mode_a}) /* (${found_ball_a}) ${interface} */" >> ${file}-${core}-pinmux.txt
