@@ -129,7 +129,7 @@ find_pin () {
 
 		iopad="J722S_IOPAD"
 		PIN_a="PIN_INPUT"
-		type="gpio"
+		unset type
 		core="main"
 		print_dts="enable"
 		unset export_dts
@@ -208,6 +208,7 @@ find_pin () {
 			unset print_dts
 		;;
 		GPIO*)
+			type="gpio"
 			export_dts="enable"
 			;;
 		MCASP*)
@@ -287,22 +288,44 @@ find_pin () {
 			typeu=$(echo ${type} | sed 's/-/_/g' || true)
 
 			if [ "x${export_dts}" = "xenable" ] ; then
-			echo "	${labela}-${type} {" >> ${file}-pinmux.txt
-			echo "		compatible = \"gpio-single\";" >> ${file}-pinmux.txt
-			echo "		pinctrl-names = \"default\";" >> ${file}-pinmux.txt
-			echo "		pinctrl-0 = <&${label}_${typeu}>;" >> ${file}-pinmux.txt
-			echo "		gpios = <&${gpio} GPIO_ACTIVE_HIGH>;" >> ${file}-pinmux.txt
-			echo "		gpio-line-names = \"${sch}\";" >> ${file}-pinmux.txt
+				echo "	${labela}-${type} {" >> ${file}-pinmux.txt
+				echo "		compatible = \"gpio-single\";" >> ${file}-pinmux.txt
+				echo "		pinctrl-names = \"default\";" >> ${file}-pinmux.txt
+				echo "		pinctrl-0 = <&${label}_${typeu}>;" >> ${file}-pinmux.txt
+				echo "		gpios = <&${gpio} GPIO_ACTIVE_HIGH>;" >> ${file}-pinmux.txt
+				echo "		gpio-line-names = \"${sch}\";" >> ${file}-pinmux.txt
 
-			if [ "x${pwm_dts}" = "xenable" ] ; then
-				echo "		beagle-pwm-bus = \"bus@f0000\";" >> ${file}-pinmux.txt
-				echo "		beagle-pwm-address = \"${pwm_address}\";" >> ${file}-pinmux.txt
-				echo "		beagle-pwm-export = \"${pwm_export}\";" >> ${file}-pinmux.txt
-			fi
+				if [ "x${pwm_dts}" = "xenable" ] ; then
+					echo "		beagle-pwm-bus = \"bus@f0000\";" >> ${file}-pinmux.txt
+					echo "		beagle-pwm-address = \"${pwm_address}\";" >> ${file}-pinmux.txt
+					echo "		beagle-pwm-export = \"${pwm_export}\";" >> ${file}-pinmux.txt
+				fi
 
-			echo "		beagle-gpio-pi = \"${sch}\";" >> ${file}-pinmux.txt
-			echo "	};" >> ${file}-pinmux.txt
-			echo "" >> ${file}-pinmux.txt
+				echo "		beagle-gpio-pi = \"${sch}\";" >> ${file}-pinmux.txt
+				echo "	};" >> ${file}-pinmux.txt
+				echo "" >> ${file}-pinmux.txt
+
+				if [ "x${type}" = "xgpio" ] ; then
+					echo "	${labela}-${type}-pu {" >> ${file}-pinmux.txt
+					echo "		compatible = \"gpio-single\";" >> ${file}-pinmux.txt
+					echo "		pinctrl-names = \"default\";" >> ${file}-pinmux.txt
+					echo "		pinctrl-0 = <&${label}_${typeu}_pu>;" >> ${file}-pinmux.txt
+					echo "		gpios = <&${gpio} GPIO_ACTIVE_HIGH>;" >> ${file}-pinmux.txt
+					echo "		gpio-line-names = \"${sch}\";" >> ${file}-pinmux.txt
+					echo "		beagle-gpio-pi = \"${sch}\";" >> ${file}-pinmux.txt
+					echo "	};" >> ${file}-pinmux.txt
+					echo "" >> ${file}-pinmux.txt
+
+					echo "	${labela}-${type}-pd {" >> ${file}-pinmux.txt
+					echo "		compatible = \"gpio-single\";" >> ${file}-pinmux.txt
+					echo "		pinctrl-names = \"default\";" >> ${file}-pinmux.txt
+					echo "		pinctrl-0 = <&${label}_${typeu}_pd>;" >> ${file}-pinmux.txt
+					echo "		gpios = <&${gpio} GPIO_ACTIVE_HIGH>;" >> ${file}-pinmux.txt
+					echo "		gpio-line-names = \"${sch}\";" >> ${file}-pinmux.txt
+					echo "		beagle-gpio-pi = \"${sch}\";" >> ${file}-pinmux.txt
+					echo "	};" >> ${file}-pinmux.txt
+					echo "" >> ${file}-pinmux.txt
+				fi
 			fi
 
 			echo "	${label}_${typeu}: ${labela}-${type}-pins {" >> ${file}-${core}-pinmux.txt
@@ -316,6 +339,32 @@ find_pin () {
 			echo "		>;" >> ${file}-${core}-pinmux.txt
 			echo "	};" >> ${file}-${core}-pinmux.txt
 			echo "" >> ${file}-${core}-pinmux.txt
+
+			if [ "x${type}" = "xgpio" ] ; then
+				echo "	${label}_${typeu}_pu: ${labela}-${type}-pu-pins {" >> ${file}-${core}-pinmux.txt
+				echo "		/* ${label}:${interface_a}:${found_ball_a}:${name_a}:${mode_a}:${ioDir_a}: */" >> ${file}-${core}-pinmux.txt
+				echo "		pinctrl-single,pins = <" >> ${file}-${core}-pinmux.txt
+				if [ "x${mode_a}" = "x0" ] ; then
+					echo "			${iopad}(0x${cro_aa}, PIN_INPUT_PULLUP, ${mode_a}) /* (${found_ball_a}) ${interface} */" >> ${file}-${core}-pinmux.txt
+				else
+					echo "			${iopad}(0x${cro_aa}, PIN_INPUT_PULLUP, ${mode_a}) /* (${found_ball_a}) ${interface}.${name_a} */" >> ${file}-${core}-pinmux.txt
+				fi
+				echo "		>;" >> ${file}-${core}-pinmux.txt
+				echo "	};" >> ${file}-${core}-pinmux.txt
+				echo "" >> ${file}-${core}-pinmux.txt
+
+				echo "	${label}_${typeu}_pd: ${labela}-${type}-pd-pins {" >> ${file}-${core}-pinmux.txt
+				echo "		/* ${label}:${interface_a}:${found_ball_a}:${name_a}:${mode_a}:${ioDir_a}: */" >> ${file}-${core}-pinmux.txt
+				echo "		pinctrl-single,pins = <" >> ${file}-${core}-pinmux.txt
+				if [ "x${mode_a}" = "x0" ] ; then
+					echo "			${iopad}(0x${cro_aa}, PIN_INPUT_PULLDOWN, ${mode_a}) /* (${found_ball_a}) ${interface} */" >> ${file}-${core}-pinmux.txt
+				else
+					echo "			${iopad}(0x${cro_aa}, PIN_INPUT_PULLDOWN, ${mode_a}) /* (${found_ball_a}) ${interface}.${name_a} */" >> ${file}-${core}-pinmux.txt
+				fi
+				echo "		>;" >> ${file}-${core}-pinmux.txt
+				echo "	};" >> ${file}-${core}-pinmux.txt
+				echo "" >> ${file}-${core}-pinmux.txt
+			fi
 		fi
 
 		if [ "x${default}" = "x${interface_a}" ] ; then
