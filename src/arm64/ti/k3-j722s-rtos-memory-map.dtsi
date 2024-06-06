@@ -99,11 +99,11 @@
 		reg = <0x00 0xa5000000 0x00 0x02000000>;
 		no-map;
 	};
-	vision_apps_memory_region: vision-apps-dma-memory@a7000000 {
-		compatible = "shared-dma-pool";
-		reg = <0x00 0xa7000000 0x00 0x06000000>;
-		no-map;
-	};
+//	vision_apps_memory_region: vision-apps-dma-memory@a7000000 {
+//		compatible = "shared-dma-pool";
+//		reg = <0x00 0xa7000000 0x00 0x06000000>;
+//		no-map;
+//	};
 	vision_apps_c71_0_dma_memory_region: vision-apps-c71-dma-memory@ad000000 {
 		compatible = "shared-dma-pool";
 		reg = <0x00 0xad000000 0x00 0x00100000>;
@@ -129,24 +129,24 @@
 		reg = <0x00 0xb5000000 0x00 0x02800000>;
 		no-map;
 	};
-	vision_apps_core_heaps_hi: vision-apps-core-heap-memory-hi@880000000 {
-		compatible = "shared-dma-pool";
-		reg = <0x08 0x80000000 0x00 0x20000000>;
-		no-map;
-	};
-	vision_apps_shared_region: vision_apps_shared-memories {
-		compatible = "dma-heap-carveout";
-		reg = <0x09 0x00000000 0x00 0x20000000>;
-	};
+//	vision_apps_core_heaps_hi: vision-apps-core-heap-memory-hi@880000000 {
+//		compatible = "shared-dma-pool";
+//		reg = <0x08 0x80000000 0x00 0x20000000>;
+//		no-map;
+//	};
+//	vision_apps_shared_region: vision_apps_shared-memories {
+//		compatible = "dma-heap-carveout";
+//		reg = <0x09 0x00000000 0x00 0x20000000>;
+//	};
     linux,cma {
         status = "disabled";
     };
-    linux_cma_region: linux-cma-buffers@980000000 {
-        compatible = "shared-dma-pool";
-        reusable;
-        reg = <0x09 0x80000000 0x00 0x38000000>;
-        linux,cma-default;
-    };
+//    linux_cma_region: linux-cma-buffers@980000000 {
+//        compatible = "shared-dma-pool";
+//        reusable;
+//        reg = <0x09 0x80000000 0x00 0x38000000>;
+//        linux,cma-default;
+//    };
 };
 
 &wkup_r5fss0_core0 {
