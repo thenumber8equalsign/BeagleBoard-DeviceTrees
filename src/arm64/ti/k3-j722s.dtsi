@@ -276,6 +276,26 @@
 	};
 };
 
+&mcu_gpio0 {
+	gpio-ranges = <&mcu_pmx0 0 0 21>,
+		      <&mcu_pmx0 21 23 1>,
+		      <&mcu_pmx0 22 32 2>;
+};
+
+&main_gpio0 {
+	gpio-ranges = <&main_pmx0 0 0 32>,
+		      <&main_pmx0 32 33 38>,
+		      <&main_pmx0 70 72 17>;
+	ti,ngpio = <87>;
+};
+
+&main_gpio1 {
+	gpio-ranges = <&main_pmx0 7 101 25>,
+		      <&main_pmx0 42 137 5>,
+		      <&main_pmx0 47 143 3>,
+		      <&main_pmx0 50 149 2>;
+};
+
 &oc_sram {
 	reg = <0x00 0x70000000 0x00 0x40000>;
 	ranges = <0x00 0x00 0x70000000 0x40000>;
