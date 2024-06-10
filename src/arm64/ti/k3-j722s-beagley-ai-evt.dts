@@ -225,17 +225,17 @@
 		pinctrl-0 = <&led_pins_default>;
 
 		led-0 {
-			label = "j722s-evm:red:pwr";
-			gpios = <&main_gpio0 11 GPIO_ACTIVE_LOW>;
-			linux,default-trigger = "default-off";
+			label = "beagley-ai:red:disk-activity";
+			gpios = <&main_gpio0 11 GPIO_ACTIVE_HIGH>;
+			function = LED_FUNCTION_DISK_ACTIVITY;
+			linux,default-trigger = "mmc1";
 			default-state = "on";
 		};
 
 		led-1 {
-			label = "j722s-evm:green:disk-activity";
-			gpios = <&main_gpio0 12 GPIO_ACTIVE_HIGH>;
-			function = LED_FUNCTION_DISK_ACTIVITY;
-			linux,default-trigger = "mmc1";
+			label = "beagley-ai:green:pwr";
+			gpios = <&main_gpio0 12 GPIO_ACTIVE_LOW>;
+			linux,default-trigger = "default-off";
 			default-state = "on";
 		};
 	};
