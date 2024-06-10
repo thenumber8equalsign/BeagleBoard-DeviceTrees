@@ -228,7 +228,7 @@
 			label = "ACT";
 			gpios = <&main_gpio0 11 GPIO_ACTIVE_HIGH>;
 			function = LED_FUNCTION_DISK_ACTIVITY;
-			linux,default-trigger = "mmc1";
+			linux,default-trigger = "heartbeat";
 			default-state = "on";
 		};
 
@@ -236,7 +236,7 @@
 			label = "PWR";
 			gpios = <&main_gpio0 12 GPIO_ACTIVE_LOW>;
 			linux,default-trigger = "default-off";
-			default-state = "on";
+			default-state = "off";
 		};
 	};
 
