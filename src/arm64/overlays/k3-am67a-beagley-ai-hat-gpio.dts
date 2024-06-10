@@ -11,6 +11,9 @@
 };
 
 &main_pmx0 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&main_hat_gpio0_pins_default>, <&main_hat_gpio1_pins_default>;
+
 	main_hat_gpio0_pins_default: main-hat-gpio0-default-pins {
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x0088, PIN_INPUT, 7) /* (N22) GPMC0_OEn_REn.GPIO0_33 */
@@ -39,6 +42,9 @@
 };
 
 &mcu_pmx0 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&mcu_hat_gpio0_pins_default>;
+
 	mcu_hat_gpio0_pins_default: mcu-hat-gpio0-default-pins {
 		pinctrl-single,pins = <
 			J722S_MCU_IOPAD(0x0000, PIN_INPUT, 7) /* (C12) MCU_SPI0_CS0.MCU_GPIO0_0 */
@@ -51,15 +57,5 @@
 			J722S_MCU_IOPAD(0x0044, PIN_INPUT, 7) /* (B13) MCU_I2C0_SCL.MCU_GPIO0_17 */
 			J722S_MCU_IOPAD(0x0048, PIN_INPUT, 7) /* (E11) MCU_I2C0_SDA.MCU_GPIO0_18 */
 		>;
-	};
-};
-
-&{/} {
-	hat_gpio: hat-gpio {
-		status = "okay";
-		pinctrl-names = "default";
-		pinctrl-0 = <&main_hat_gpio0_pins_default>,
-			    <&main_hat_gpio1_pins_default>,
-			    <&mcu_hat_gpio0_pins_default>;
 	};
 };
