@@ -830,6 +830,7 @@
 &wkup_i2c0 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&wkup_i2c0_pins_default>;
+	symlink = "hat/wkup_i2c0";
 	clock-frequency = <100000>;
 	status = "okay";
 	bootph-all;
