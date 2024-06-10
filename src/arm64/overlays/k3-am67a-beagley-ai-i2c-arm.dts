@@ -10,10 +10,10 @@
 /plugin/;
 
 &mcu_i2c0 {
-    status = "okay";
+	status = "okay";
 };
 
 &wkup_i2c0 {
-    status = "okay";
+	status = "okay";
 };
 

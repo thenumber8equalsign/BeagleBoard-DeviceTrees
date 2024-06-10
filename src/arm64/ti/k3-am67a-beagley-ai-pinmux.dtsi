@@ -9,60 +9,6 @@
 #include <dt-bindings/gpio/gpio.h>
 
 / {
-	hat-03-gpio {
-		compatible = "gpio-single";
-		pinctrl-names = "default";
-		pinctrl-0 = <&hat_03_gpio>;
-		gpios = <&mcu_gpio0 18 GPIO_ACTIVE_HIGH>;
-		gpio-line-names = "GPIO2";
-		beagle-gpio-pi = "GPIO2";
-	};
-
-	hat-03-gpio-pu {
-		compatible = "gpio-single";
-		pinctrl-names = "default";
-		pinctrl-0 = <&hat_03_gpio_pu>;
-		gpios = <&mcu_gpio0 18 GPIO_ACTIVE_HIGH>;
-		gpio-line-names = "GPIO2";
-		beagle-gpio-pi = "GPIO2";
-	};
-
-	hat-03-gpio-pd {
-		compatible = "gpio-single";
-		pinctrl-names = "default";
-		pinctrl-0 = <&hat_03_gpio_pd>;
-		gpios = <&mcu_gpio0 18 GPIO_ACTIVE_HIGH>;
-		gpio-line-names = "GPIO2";
-		beagle-gpio-pi = "GPIO2";
-	};
-
-	hat-05-gpio {
-		compatible = "gpio-single";
-		pinctrl-names = "default";
-		pinctrl-0 = <&hat_05_gpio>;
-		gpios = <&mcu_gpio0 17 GPIO_ACTIVE_HIGH>;
-		gpio-line-names = "GPIO3";
-		beagle-gpio-pi = "GPIO3";
-	};
-
-	hat-05-gpio-pu {
-		compatible = "gpio-single";
-		pinctrl-names = "default";
-		pinctrl-0 = <&hat_05_gpio_pu>;
-		gpios = <&mcu_gpio0 17 GPIO_ACTIVE_HIGH>;
-		gpio-line-names = "GPIO3";
-		beagle-gpio-pi = "GPIO3";
-	};
-
-	hat-05-gpio-pd {
-		compatible = "gpio-single";
-		pinctrl-names = "default";
-		pinctrl-0 = <&hat_05_gpio_pd>;
-		gpios = <&mcu_gpio0 17 GPIO_ACTIVE_HIGH>;
-		gpio-line-names = "GPIO3";
-		beagle-gpio-pi = "GPIO3";
-	};
-
 	hat-07-gpio {
 		compatible = "gpio-single";
 		pinctrl-names = "default";
