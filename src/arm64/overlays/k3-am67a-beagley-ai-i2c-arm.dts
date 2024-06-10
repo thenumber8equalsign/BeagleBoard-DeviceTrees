@@ -9,11 +9,20 @@
 /dts-v1/;
 /plugin/;
 
-&mcu_i2c0 {
-	status = "okay";
+/*
+ * Helper to show loaded overlays under: /proc/device-tree/chosen/overlays/
+ */
+&{/chosen} {
+	overlays {
+		k3-am67a-beagley-ai-i2c-arm.kernel = __TIMESTAMP__;
+	};
 };
 
-&wkup_i2c0 {
+&mcu_i2c0 {
+	symlink = "hat/mcu_i2c0";
 	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&mcu_i2c0_pins_default>;
+	clock-frequency = <400000>;
 };
 
