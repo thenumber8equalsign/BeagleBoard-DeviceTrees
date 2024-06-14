@@ -792,8 +792,8 @@
 
 	mcu_i2c0_pins_default: mcu-i2c0-default-pins {
 		pinctrl-single,pins = <
-			J722S_MCU_IOPAD(0x0044, PIN_OUTPUT, 0) /* (B13) MCU_I2C0_SCL */
-			J722S_MCU_IOPAD(0x0048, PIN_OUTPUT, 0) /* (E11) MCU_I2C0_SDA */
+			J722S_MCU_IOPAD(0x0044, PIN_INPUT_PULLUP, 0) /* (B13) MCU_I2C0_SCL */
+			J722S_MCU_IOPAD(0x0048, PIN_INPUT_PULLUP, 0) /* (E11) MCU_I2C0_SDA */
 		>;
 		bootph-all;
 	};
