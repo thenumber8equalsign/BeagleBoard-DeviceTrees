@@ -840,7 +840,7 @@
 	status = "okay";
 	pinctrl-names = "default";
 	pinctrl-0 = <&mcu_i2c0_pins_default>;
-	clock-frequency = <400000>;
+	clock-frequency = <100000>;
 	bootph-all;
 };
 

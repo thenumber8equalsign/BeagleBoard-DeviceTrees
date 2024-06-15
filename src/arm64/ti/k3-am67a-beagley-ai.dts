@@ -37,7 +37,7 @@
 
 	chosen {
 		stdout-path = &main_uart0;
-		base_dtb = "k3-j722s-beagley-ai.dts";
+		base_dtb = "k3-am67a-beagley-ai.dts";
 		base_dtb_timestamp = __TIMESTAMP__;
 	};
 
