@@ -294,6 +294,7 @@
 		      <&main_pmx0 42 137 5>,
 		      <&main_pmx0 47 143 3>,
 		      <&main_pmx0 50 149 2>;
+	ti,ngpio = <73>;
 };
 
 &oc_sram {
