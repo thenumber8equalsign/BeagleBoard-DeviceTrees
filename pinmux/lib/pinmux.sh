@@ -333,6 +333,10 @@ find_pin () {
 					echo_pwm_prefix
 					echo "		${pwm_overlay_prefix}.kernel = __TIMESTAMP__;" >> ${pwm_overlay_file}
 					echo "		${labela}.pin = \"${pwm_overlay_prefix}\";" >> ${pwm_overlay_file}
+					echo "		${labela}.pin.beagle-pwm-bus = \"bus@f0000\";" >> ${pwm_overlay_file}
+					echo "		${labela}.pin.beagle-pwm-address = \"${pwm_address}\";" >> ${pwm_overlay_file}
+					echo "		${labela}.pin.beagle-pwm-export = \"${pwm_export}\";" >> ${pwm_overlay_file}
+					echo "		${labela}.pin.beagle-gpio-pi = \"${sch}\";" >> ${pwm_overlay_file}
 					echo "	};" >> ${pwm_overlay_file}
 					echo "};" >> ${pwm_overlay_file}
 					echo "" >> ${pwm_overlay_file}

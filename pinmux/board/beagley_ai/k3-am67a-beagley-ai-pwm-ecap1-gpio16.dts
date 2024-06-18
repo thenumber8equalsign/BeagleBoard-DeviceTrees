@@ -19,6 +19,10 @@
 	overlays {
 		k3-am67a-beagley-ai-pwm-ecap1-gpio16.kernel = __TIMESTAMP__;
 		hat-36.pin = "k3-am67a-beagley-ai-pwm-ecap1-gpio16";
+		hat-36.pin.beagle-pwm-bus = "bus@f0000";
+		hat-36.pin.beagle-pwm-address = "23110000";
+		hat-36.pin.beagle-pwm-export = "0";
+		hat-36.pin.beagle-gpio-pi = "GPIO16";
 	};
 };
 
