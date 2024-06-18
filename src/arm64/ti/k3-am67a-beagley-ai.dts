@@ -660,9 +660,11 @@
 	status = "okay";
 	pinctrl-names = "default";
 	/* GPIO line names can change, were mainly put in for debug purposes */
-	gpio-line-names = "GPIO8", "", "GPIO11", "", "",
-			  "", "", "", "", "",
-			  "", "", "", "HDMI_RSTn", "HDMI_INTn";
+	gpio-line-names = "GPIO8", "", "GPIO11", "GPIO10", "GPIO9", /* 0-4 */
+			  "", "", "GPIO23", "", "GPIO7", /* 5-9 */
+			  "GPIO24", "", "", "HDMI_RSTn", "HDMI_INTn", /* 10-14 */
+			  "", "", "GPIO3", "GPIO2", "", /* 15-19 */
+			  "", "", "", "", ""; /* 20-24 */
 };
 
 &main_uart0 {
