@@ -644,12 +644,12 @@
 	pinctrl-names = "default";
 	/* GPIO line names can change, were mainly put in for debug purposes */
 	gpio-line-names = "", "", "", "", "", /* 0-4 */
-					  "", "", "", "", "", /* 5-9 */
-					  "", "", "", "", "", /* 10-14 */
-					  "", "", "", "", "", /* 15-19 */
-					  "", "", "", "", "", /* 20-24 */
-					  "", "", "", "", "", /* 25-29 */
-					  "", "", "USB_RST", "", ""; /* 30-34 */
+			  "", "", "", "", "", /* 5-9 */
+			  "", "", "", "", "", /* 10-14 */
+			  "", "", "", "", "", /* 15-19 */
+			  "", "", "", "", "", /* 20-24 */
+			  "", "", "", "", "", /* 25-29 */
+			  "", "", "USB_RST", "", ""; /* 30-34 */
 };
 
 &main_gpio1 {
@@ -660,9 +660,9 @@
 	status = "okay";
 	pinctrl-names = "default";
 	/* GPIO line names can change, were mainly put in for debug purposes */
-	gpio-line-names = "", "", "", "", "",
-					  "", "", "", "", "",
-					  "", "", "", "HDMI_RSTn", "HDMI_INTn";
+	gpio-line-names = "GPIO8", "", "GPIO11", "", "",
+			  "", "", "", "", "",
+			  "", "", "", "HDMI_RSTn", "HDMI_INTn";
 };
 
 &main_uart0 {
