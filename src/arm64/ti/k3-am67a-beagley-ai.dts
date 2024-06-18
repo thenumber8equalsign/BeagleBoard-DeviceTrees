@@ -642,14 +642,15 @@
 &main_gpio0 {
 	status = "okay";
 	pinctrl-names = "default";
-	/* GPIO line names can change, were mainly put in for debug purposes */
 	gpio-line-names = "", "", "", "", "", /* 0-4 */
 			  "", "", "", "", "", /* 5-9 */
 			  "", "", "", "", "", /* 10-14 */
 			  "", "", "", "", "", /* 15-19 */
 			  "", "", "", "", "", /* 20-24 */
 			  "", "", "", "", "", /* 25-29 */
-			  "", "", "USB_RST", "", ""; /* 30-34 */
+			  "", "", "USB_RST", "GPIO27", "", /* 30-34 */
+			  "", "GPIO26", "", "GPIO4", "", /* 35-39 */
+			  "", "GPIO22", "GPIO25", "", ""; /* 40-44 */
 };
 
 &main_gpio1 {
@@ -659,7 +660,6 @@
 &mcu_gpio0 {
 	status = "okay";
 	pinctrl-names = "default";
-	/* GPIO line names can change, were mainly put in for debug purposes */
 	gpio-line-names = "GPIO8", "", "GPIO11", "GPIO10", "GPIO9", /* 0-4 */
 			  "", "", "GPIO23", "", "GPIO7", /* 5-9 */
 			  "GPIO24", "", "", "HDMI_RSTn", "HDMI_INTn", /* 10-14 */
