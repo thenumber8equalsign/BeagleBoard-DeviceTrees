@@ -11,6 +11,7 @@ if [ ! -d ./board/${board}/ ] ; then
 	mkdir -p ./board/${board}/ || true
 fi
 file="./board/${board}/beagley_ai"
+k3file="./board/${board}/k3-am67a-beagley-ai"
 
 echo "" >${file}-pinmux.dts
 echo "" >${file}-a-bone-pins.h
