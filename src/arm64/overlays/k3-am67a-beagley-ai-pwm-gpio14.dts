@@ -1,0 +1,36 @@
+// SPDX-License-Identifier: GPL-2.0
+/*
+ * DT Overlay for GPIO 14 PWM connections within the expansion header.
+ *
+ * Copyright (C) 2023 Texas Instruments Incorporated - https://www.ti.com/
+ *
+ */
+
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include "ti/k3-pinctrl.h"
+
+/*
+ * Helper to show loaded overlays under: /proc/device-tree/chosen/overlays/
+ */
+&{/chosen} {
+	overlays {
+		k3-am67a-beagley-ai-pwm-gpio14.kernel = __TIMESTAMP__;
+	};
+};
+
+&main_pmx0 {
+	hat_08_pwm: hat-08-pwm-pins {
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x1B0, PIN_OUTPUT, 6) /* (F24) MCASP0_ACLKR.EHRPWM0_B */
+		>;
+	};
+};
+
+&epwm0 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&hat_08_pwm>;
+	status = "okay";
+};
