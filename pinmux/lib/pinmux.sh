@@ -332,7 +332,7 @@ find_pin () {
 					pwm_overlay_file="${k3file}-pwm-${pwm_node}-${k3gpio}.dts"
 					echo_pwm_prefix
 					echo "		${pwm_overlay_prefix}.kernel = __TIMESTAMP__;" >> ${pwm_overlay_file}
-					echo "		${labela}.pin = ${pwm_overlay_prefix};" >> ${pwm_overlay_file}
+					echo "		${labela}.pin = \"${pwm_overlay_prefix}\";" >> ${pwm_overlay_file}
 					echo "	};" >> ${pwm_overlay_file}
 					echo "};" >> ${pwm_overlay_file}
 					echo "" >> ${pwm_overlay_file}

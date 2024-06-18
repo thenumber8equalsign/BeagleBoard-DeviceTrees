@@ -18,7 +18,7 @@
 &{/chosen} {
 	overlays {
 		k3-am67a-beagley-ai-pwm-ecap2-gpio17.kernel = __TIMESTAMP__;
-		hat-11.pin = k3-am67a-beagley-ai-pwm-ecap2-gpio17;
+		hat-11.pin = "k3-am67a-beagley-ai-pwm-ecap2-gpio17";
 	};
 };
 
