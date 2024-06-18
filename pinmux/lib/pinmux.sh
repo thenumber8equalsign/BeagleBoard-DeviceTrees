@@ -174,7 +174,6 @@ find_pin () {
 			pwm_address="23100000"
 			pwm_export="0"
 			pwm_dts="enable"
-			export_dts="enable"
 			export_pwm_overlay="enable"
 		;;
 		ECAP1_IN_APWM_OUT)
@@ -184,7 +183,6 @@ find_pin () {
 			pwm_address="23110000"
 			pwm_export="0"
 			pwm_dts="enable"
-			export_dts="enable"
 			export_pwm_overlay="enable"
 		;;
 		ECAP2_IN_APWM_OUT)
@@ -194,7 +192,6 @@ find_pin () {
 			pwm_address="23120000"
 			pwm_export="0"
 			pwm_dts="enable"
-			export_dts="enable"
 			export_pwm_overlay="enable"
 		;;
 		EHRPWM0_A)
@@ -204,7 +201,6 @@ find_pin () {
 			pwm_dts="enable"
 			pwm_address="23000000"
 			pwm_export="0"
-			export_dts="enable"
 			export_pwm_overlay="enable"
 		;;
 		EHRPWM1_A)
@@ -214,7 +210,6 @@ find_pin () {
 			pwm_dts="enable"
 			pwm_address="23010000"
 			pwm_export="0"
-			export_dts="enable"
 			export_pwm_overlay="enable"
 		;;
 		EHRPWM0_B)
@@ -224,7 +219,6 @@ find_pin () {
 			pwm_dts="enable"
 			pwm_address="23000000"
 			pwm_export="1"
-			export_dts="enable"
 			export_pwm_overlay="enable"
 		;;
 		EHRPWM1_B)
@@ -234,7 +228,6 @@ find_pin () {
 			pwm_dts="enable"
 			pwm_address="23010000"
 			pwm_export="1"
-			export_dts="enable"
 			export_pwm_overlay="enable"
 		;;
 		EQEP0_*|EQEP1_*)
@@ -324,54 +317,46 @@ find_pin () {
 			cro_aa=$(echo ${cro_a} | sed 's/^...//' || true)
 			typeu=$(echo ${type} | sed 's/-/_/g' || true)
 
-			if [ "x${export_dts}" = "xenable" ] ; then
-
-				if [ "x${export_pwm_overlay}" = "xenable" ] ; then
-					k3gpio=$(echo ${sch} | awk '{print tolower($0)}' || true)
-					pwm_overlay_prefix="k3-am67a-beagley-ai-pwm-${pwm_node}-${k3gpio}"
-					pwm_overlay_file="${k3file}-pwm-${pwm_node}-${k3gpio}.dts"
-					echo_pwm_prefix
-					echo "		${pwm_overlay_prefix}.kernel = __TIMESTAMP__;" >> ${pwm_overlay_file}
-					echo "		${labela}.pin = \"${pwm_overlay_prefix}\";" >> ${pwm_overlay_file}
-					echo "		${labela}.pin.beagle-pwm-bus = \"bus@f0000\";" >> ${pwm_overlay_file}
-					echo "		${labela}.pin.beagle-pwm-address = \"${pwm_address}\";" >> ${pwm_overlay_file}
-					echo "		${labela}.pin.beagle-pwm-export = \"${pwm_export}\";" >> ${pwm_overlay_file}
-					echo "		${labela}.pin.beagle-gpio-pi = \"${sch}\";" >> ${pwm_overlay_file}
-					echo "	};" >> ${pwm_overlay_file}
-					echo "};" >> ${pwm_overlay_file}
-					echo "" >> ${pwm_overlay_file}
-					echo "&main_pmx0 {" >> ${pwm_overlay_file}
-					echo "	${label}_${typeu}: ${labela}-${type}-pins {" >> ${pwm_overlay_file}
-					echo "		pinctrl-single,pins = <" >> ${pwm_overlay_file}
-					if [ "x${mode_a}" = "x0" ] ; then
-						echo "			${iopad}(0x${cro_aa}, ${PIN_a}, ${mode_a}) /* (${found_ball_a}) ${interface} */" >> ${pwm_overlay_file}
-					else
-						echo "			${iopad}(0x${cro_aa}, ${PIN_a}, ${mode_a}) /* (${found_ball_a}) ${interface}.${name_a} */" >> ${pwm_overlay_file}
-					fi
-					echo "		>;" >> ${pwm_overlay_file}
-					echo "	};" >> ${pwm_overlay_file}
-					echo "};" >> ${pwm_overlay_file}
-					echo "" >> ${pwm_overlay_file}
-					echo "&${pwm_node} {" >> ${pwm_overlay_file}
-					echo "	pinctrl-names = \"default\";" >> ${pwm_overlay_file}
-					echo "	pinctrl-0 = <&${label}_${typeu}>;" >> ${pwm_overlay_file}
-					echo "	status = \"okay\";" >> ${pwm_overlay_file}
-					echo "};" >> ${pwm_overlay_file}
+			if [ "x${export_pwm_overlay}" = "xenable" ] ; then
+				k3gpio=$(echo ${sch} | awk '{print tolower($0)}' || true)
+				pwm_overlay_prefix="k3-am67a-beagley-ai-pwm-${pwm_node}-${k3gpio}"
+				pwm_overlay_file="${k3file}-pwm-${pwm_node}-${k3gpio}.dts"
+				echo_pwm_prefix
+				echo "		${pwm_overlay_prefix}.kernel = __TIMESTAMP__;" >> ${pwm_overlay_file}
+				echo "		${labela}.pin = \"${pwm_overlay_prefix}\";" >> ${pwm_overlay_file}
+				echo "		${labela}.pin.beagle-pwm-bus = \"bus@f0000\";" >> ${pwm_overlay_file}
+				echo "		${labela}.pin.beagle-pwm-address = \"${pwm_address}\";" >> ${pwm_overlay_file}
+				echo "		${labela}.pin.beagle-pwm-export = \"${pwm_export}\";" >> ${pwm_overlay_file}
+				echo "		${labela}.pin.beagle-gpio-pi = \"${sch}\";" >> ${pwm_overlay_file}
+				echo "	};" >> ${pwm_overlay_file}
+				echo "};" >> ${pwm_overlay_file}
+				echo "" >> ${pwm_overlay_file}
+				echo "&main_pmx0 {" >> ${pwm_overlay_file}
+				echo "	${label}_${typeu}: ${labela}-${type}-pins {" >> ${pwm_overlay_file}
+				echo "		pinctrl-single,pins = <" >> ${pwm_overlay_file}
+				if [ "x${mode_a}" = "x0" ] ; then
+					echo "			${iopad}(0x${cro_aa}, ${PIN_a}, ${mode_a}) /* (${found_ball_a}) ${interface} */" >> ${pwm_overlay_file}
+				else
+					echo "			${iopad}(0x${cro_aa}, ${PIN_a}, ${mode_a}) /* (${found_ball_a}) ${interface}.${name_a} */" >> ${pwm_overlay_file}
 				fi
+				echo "		>;" >> ${pwm_overlay_file}
+				echo "	};" >> ${pwm_overlay_file}
+				echo "};" >> ${pwm_overlay_file}
+				echo "" >> ${pwm_overlay_file}
+				echo "&${pwm_node} {" >> ${pwm_overlay_file}
+				echo "	pinctrl-names = \"default\";" >> ${pwm_overlay_file}
+				echo "	pinctrl-0 = <&${label}_${typeu}>;" >> ${pwm_overlay_file}
+				echo "	status = \"okay\";" >> ${pwm_overlay_file}
+				echo "};" >> ${pwm_overlay_file}
+			fi
 
+			if [ "x${export_dts}" = "xenable" ] ; then
 				echo "	${labela}-${type} {" >> ${file}-pinmux.txt
 				echo "		compatible = \"gpio-single\";" >> ${file}-pinmux.txt
 				echo "		pinctrl-names = \"default\";" >> ${file}-pinmux.txt
 				echo "		pinctrl-0 = <&${label}_${typeu}>;" >> ${file}-pinmux.txt
 				echo "		gpios = <&${gpio} GPIO_ACTIVE_HIGH>;" >> ${file}-pinmux.txt
 				echo "		gpio-line-names = \"${sch}\";" >> ${file}-pinmux.txt
-
-				if [ "x${pwm_dts}" = "xenable" ] ; then
-					echo "		beagle-pwm-bus = \"bus@f0000\";" >> ${file}-pinmux.txt
-					echo "		beagle-pwm-address = \"${pwm_address}\";" >> ${file}-pinmux.txt
-					echo "		beagle-pwm-export = \"${pwm_export}\";" >> ${file}-pinmux.txt
-				fi
-
 				echo "		beagle-gpio-pi = \"${sch}\";" >> ${file}-pinmux.txt
 				echo "	};" >> ${file}-pinmux.txt
 				echo "" >> ${file}-pinmux.txt
