@@ -9,10 +9,10 @@ if [ -f /boot/firmware/extlinux/extlinux.conf ] ; then
 		case "${soc_family}" in
 		AM62X|J721E|J722S)
 			if ! id | grep -q root; then
-				make install_arm64
-			else
 				echo "Installing Device-Tree's password required for sudo..."
 				sudo make install_arm64
+			else
+				make install_arm64
 			fi
 			;;
 		esac
