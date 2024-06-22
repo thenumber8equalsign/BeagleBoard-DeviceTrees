@@ -1,10 +1,9 @@
 #!/bin/bash
 
-make clean
-make -j4
-
 if [ -f /boot/firmware/extlinux/extlinux.conf ] ; then
 	if [ -f /sys/devices/soc0/family ] ; then
+		make clean
+		make -j4 all_arm64
 		soc_family=$(cat /sys/devices/soc0/family || true)
 		case "${soc_family}" in
 		AM62X|J721E|J722S)
@@ -16,5 +15,11 @@ if [ -f /boot/firmware/extlinux/extlinux.conf ] ; then
 			fi
 			;;
 		esac
+	else
+		make clean
+		make -j4
 	fi
+else
+	make clean
+	make -j4
 fi
