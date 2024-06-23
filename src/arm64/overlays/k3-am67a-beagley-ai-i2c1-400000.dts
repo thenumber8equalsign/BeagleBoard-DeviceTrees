@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-2.0
 /*
- * DT Overlay for I2C connections within the expansion header.
+ * DT Overlay for I2C1 at 400000 within the expansion header.
  *
  * Copyright (C) 2023 Texas Instruments Incorporated - https://www.ti.com/
  *
@@ -14,15 +14,11 @@
  */
 &{/chosen} {
 	overlays {
-		k3-am67a-beagley-ai-i2c-arm.kernel = __TIMESTAMP__;
+		k3-am67a-beagley-ai-i2c1-400000.kernel = __TIMESTAMP__;
 	};
 };
 
 &mcu_i2c0 {
-	symlink = "hat/mcu_i2c0";
-	status = "okay";
-	pinctrl-names = "default";
-	pinctrl-0 = <&mcu_i2c0_pins_default>;
 	clock-frequency = <400000>;
 };
 
