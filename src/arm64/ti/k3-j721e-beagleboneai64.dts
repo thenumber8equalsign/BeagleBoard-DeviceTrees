@@ -9,6 +9,7 @@
 /dts-v1/;
 
 #include "k3-j721e.dtsi"
+#include "k3-j721e-beagleboneai64-pinmux.dtsi"
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/input/input.h>
 #include <dt-bindings/leds/common.h>
@@ -32,8 +33,6 @@
 
 	chosen {
 		stdout-path = "serial2:115200n8";
-		base_dtb = "k3-j721e-beagleboneai64.dts";
-		base_dtb_timestamp = __TIMESTAMP__;
 	};
 
 	memory@80000000 {
