@@ -13,4 +13,27 @@
 		base_dtb = "k3-j721e-beagleboneai64.dts";
 		base_dtb_timestamp = __TIMESTAMP__;
 	};
+
+	leds {
+		led-0 {
+			label = "beaglebone:green:usr0";
+		};
+
+		led-1 {
+			label = "beaglebone:green:usr1";
+		};
+
+		led-2 {
+			label = "beaglebone:green:usr2";
+		};
+
+		led-3 {
+			label = "beaglebone:green:usr3";
+		};
+
+		led-4 {
+			label = "beaglebone:green:usr4";
+			linux,default-trigger = "phy0tx";
+		};
+	};
 };
