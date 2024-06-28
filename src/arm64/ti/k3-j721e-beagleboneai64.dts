@@ -610,7 +610,7 @@
 	clock-frequency = <400000>;
 };
 
-bone_i2c_2: &main_i2c2 {
+&main_i2c2 {
 	/* BBB Header: P9.19 and P9.20 */
 	status = "okay";
 	pinctrl-names = "default";
@@ -625,7 +625,7 @@ bone_i2c_2: &main_i2c2 {
 	clock-frequency = <400000>;
 };
 
-bone_i2c_3: &main_i2c4 {
+&main_i2c4 {
 	/* BBB Header: P9.24 and P9.26 */
 	status = "okay";
 	pinctrl-names = "default";
@@ -640,7 +640,7 @@ bone_i2c_3: &main_i2c4 {
 	clock-frequency = <400000>;
 };
 
-bone_i2c_1: &main_i2c6 {
+&main_i2c6 {
 	/* BBB Header: P9.17 and P9.18 */
 	status = "okay";
 	pinctrl-names = "default";
