@@ -20,5 +20,5 @@
 &bone_i2c_1 {
 	status = "okay";
 	clock-frequency = <100000>;
-	symlink = "bone/i2c/4";
+	symlink = "bone/i2c/1";
 };
