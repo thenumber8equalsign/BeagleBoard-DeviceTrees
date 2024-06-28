@@ -316,6 +316,7 @@ find_pin () {
 			labela=$(echo ${label} | sed 's/_/-/g' || true)
 			cro_aa=$(echo ${cro_a} | sed 's/^...//' || true)
 			typeu=$(echo ${type} | sed 's/-/_/g' || true)
+			gpio_sch=$(echo ${sch} | awk '{print tolower($0)}' || true)
 
 			if [ "x${export_pwm_overlay}" = "xenable" ] ; then
 				k3gpio=$(echo ${sch} | awk '{print tolower($0)}' || true)
@@ -328,7 +329,7 @@ find_pin () {
 				echo "		${labela}.pin.beagle-pwm-export = \"${pwm_export}\";" >> ${pwm_overlay_file}
 				echo "		${labela}.pin.beagle-gpio-pi = \"${sch}\";" >> ${pwm_overlay_file}
 				echo "		${labela}.${pwm_address}.pwm = \"${pwm_overlay_prefix}.${pwm_address}.${pwm_export}.${sch}\";" >> ${pwm_overlay_file}
-				echo "		${sch}.${pwm_address}.pwm = \"${pwm_overlay_prefix}.${pwm_address}.${pwm_export}.${sch}\";" >> ${pwm_overlay_file}
+				echo "		${gpio_sch}.${pwm_address}.pwm = \"${pwm_overlay_prefix}.${pwm_address}.${pwm_export}.${sch}\";" >> ${pwm_overlay_file}
 				echo "	};" >> ${pwm_overlay_file}
 				echo "};" >> ${pwm_overlay_file}
 				echo "" >> ${pwm_overlay_file}

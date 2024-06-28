@@ -23,7 +23,7 @@
 		hat-38.pin.beagle-pwm-export = "1";
 		hat-38.pin.beagle-gpio-pi = "GPIO20";
 		hat-38.23010000.pwm = "k3-am67a-beagley-ai-pwm-epwm1-gpio20.23010000.1.GPIO20";
-		GPIO20.23010000.pwm = "k3-am67a-beagley-ai-pwm-epwm1-gpio20.23010000.1.GPIO20";
+		gpio20.23010000.pwm = "k3-am67a-beagley-ai-pwm-epwm1-gpio20.23010000.1.GPIO20";
 	};
 };
 
