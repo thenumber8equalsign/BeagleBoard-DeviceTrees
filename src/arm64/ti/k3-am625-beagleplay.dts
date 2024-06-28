@@ -687,7 +687,6 @@
 	pinctrl-0 = <&i2c_csi_pins_default>;
 	clock-frequency = <400000>;
 	/* Enable with overlay for camera sensor */
-	symlink = "play/csi/i2c";
 };
 
 &mcu_i2c0 {
@@ -695,7 +694,6 @@
 	pinctrl-0 = <&i2c_qwiic_pins_default>;
 	clock-frequency = <100000>;
 	status = "okay";
-	symlink = "play/qwiic/i2c";
 };
 
 &mcu_m4fss {
@@ -918,7 +916,6 @@
 	pinctrl-0 = <&grove_pins_default>;
 	clock-frequency = <100000>;
 	status = "okay";
-	symlink = "play/grove/i2c";
 };
 
 &main_i2c2 {
@@ -967,12 +964,10 @@
 &main_i2c3 {
 	clock-frequency = <400000>;
 	status = "okay";
-	symlink = "play/mikrobus/i2c";
 };
 
 &main_spi2 {
 	status = "okay";
-	symlink = "play/mikrobus/spi";
 };
 
 &sdhci0 {
@@ -1037,17 +1032,14 @@
 &main_uart5 {
 	status = "okay";
 	force-empty-serdev-controller;
-	symlink = "play/mikrobus/uart";
 };
 
 &main_uart6 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&wifi_debug_uart_pins_default>;
 	status = "okay";
-	symlink = "play/cc1352/uart";
 
 	mcu {
-		status = "okay";
 		compatible = "ti,cc1352p7";
 		reset-gpios = <&main_gpio0 72 GPIO_ACTIVE_LOW>;
 		vdds-supply = <&vdd_3v3>;

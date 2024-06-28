@@ -38,3 +38,31 @@
 		};
 	};
 };
+
+&wkup_i2c0 {
+	symlink = "play/csi/i2c";
+};
+
+&mcu_i2c0 {
+	symlink = "play/qwiic/i2c";
+};
+
+&main_i2c1 {
+	symlink = "play/grove/i2c";
+};
+
+&main_i2c3 {
+	symlink = "play/mikrobus/i2c";
+};
+
+&main_uart5 {
+	symlink = "play/mikrobus/uart";
+};
+
+&main_uart6 {
+	symlink = "play/cc1352/uart";
+
+	mcu {
+		status = "okay";
+	};
+};
