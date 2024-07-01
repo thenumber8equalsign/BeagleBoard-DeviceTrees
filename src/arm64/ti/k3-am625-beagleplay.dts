@@ -12,6 +12,7 @@
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/input/input.h>
 #include "k3-am625.dtsi"
+#include "k3-am625-beagleplay-pinmux.dtsi"
 
 / {
 	compatible = "beagle,am625-beagleplay", "ti,am625";
@@ -43,8 +44,6 @@
 
 	chosen {
 		stdout-path = "serial2:115200n8";
-		base_dtb = "k3-am625-beagleplay.dts";
-		base_dtb_timestamp = __TIMESTAMP__;
 	};
 
 	memory@80000000 {
@@ -155,7 +154,6 @@
 
 		led-0 {
 			bootph-all;
-			label = "beaglebone:green:usr0";
 			gpios = <&main_gpio0 3 GPIO_ACTIVE_HIGH>;
 			linux,default-trigger = "heartbeat";
 			function = LED_FUNCTION_HEARTBEAT;
@@ -164,7 +162,6 @@
 
 		led-1 {
 			bootph-all;
-			label = "beaglebone:green:usr1";
 			gpios = <&main_gpio0 4 GPIO_ACTIVE_HIGH>;
 			linux,default-trigger = "disk-activity";
 			function = LED_FUNCTION_DISK_ACTIVITY;
@@ -173,24 +170,19 @@
 
 		led-2 {
 			bootph-all;
-			label = "beaglebone:green:usr2";
 			gpios = <&main_gpio0 5 GPIO_ACTIVE_HIGH>;
-			linux,default-trigger = "cpu";
 			function = LED_FUNCTION_CPU;
 		};
 
 		led-3 {
 			bootph-all;
-			label = "beaglebone:green:usr3";
 			gpios = <&main_gpio0 6 GPIO_ACTIVE_HIGH>;
 			function = LED_FUNCTION_LAN;
 		};
 
 		led-4 {
 			bootph-all;
-			label = "beaglebone:green:usr4";
 			gpios = <&main_gpio0 9 GPIO_ACTIVE_HIGH>;
-			linux,default-trigger = "phy0tx";
 			function = LED_FUNCTION_WLAN;
 		};
 	};
@@ -609,7 +601,6 @@
 	pinctrl-0 = <&i2c_csi_pins_default>;
 	clock-frequency = <400000>;
 	/* Enable with overlay for camera sensor */
-	symlink = "play/csi/i2c";
 };
 
 &mcu_i2c0 {
@@ -617,7 +608,6 @@
 	pinctrl-0 = <&i2c_qwiic_pins_default>;
 	clock-frequency = <100000>;
 	status = "okay";
-	symlink = "play/qwiic/i2c";
 };
 
 &usbss0 {
@@ -828,7 +818,6 @@
 	pinctrl-0 = <&grove_pins_default>;
 	clock-frequency = <100000>;
 	status = "okay";
-	symlink = "play/grove/i2c";
 };
 
 &main_i2c2 {
@@ -877,7 +866,6 @@
 &main_i2c3 {
 	clock-frequency = <400000>;
 	status = "okay";
-	symlink = "play/mikrobus/i2c";
 };
 
 &main_spi2 {
@@ -947,14 +935,12 @@
 &main_uart5 {
 	status = "okay";
 	force-empty-serdev-controller;
-	symlink = "play/mikrobus/uart";
 };
 
 &main_uart6 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&wifi_debug_uart_pins_default>;
 	status = "okay";
-	symlink = "play/cc1352/uart";
 
 	mcu {
 		compatible = "ti,cc1352p7";
