@@ -9,11 +9,11 @@
 /dts-v1/;
 
 #include <dt-bindings/leds/common.h>
-#include "k3-j722s.dtsi"
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/net/ti-dp83867.h>
 #include <dt-bindings/mux/ti-serdes.h>
 #include <dt-bindings/phy/phy.h>
+#include "k3-j722s.dtsi"
 
 / {
 	compatible = "ti,j722s-evm", "ti,j722s";
@@ -420,18 +420,18 @@
 };
 
 &wkup_i2c0 {
-	status = "okay";
 	pinctrl-names = "default";
 	pinctrl-0 = <&wkup_i2c0_pins_default>;
 	clock-frequency = <400000>;
+	status = "okay";
 	bootph-all;
 };
 
 &main_i2c0 {
-	status = "okay";
 	pinctrl-names = "default";
 	pinctrl-0 = <&main_i2c0_pins_default>;
 	clock-frequency = <400000>;
+	status = "okay";
 	bootph-all;
 
 	exp1: gpio@23 {
@@ -451,7 +451,8 @@
 				  "PCIe0_1L_RC_RSTz", "PCIe0_1L_PRSNT#",
 				  "ENET1_EXP_SPARE2", "ENET1_EXP_PWRDN",
 				  "PD_I2ENET1_I2CMUX_SELC_IRQ", "ENET1_EXP_RESETZ";
-		p01-hog {
+
+		p01_hog: p01-hog {
 			/* P01 - TRC_MUX_SEL */
 			gpio-hog;
 			gpios = <0 GPIO_ACTIVE_HIGH>;
@@ -849,8 +850,8 @@
 };
 
 &usbss0 {
-	status = "okay";
 	ti,vbus-divider;
+	status = "okay";
 };
 
 &usb0 {
@@ -859,10 +860,10 @@
 };
 
 &usbss1 {
-	status = "okay";
 	pinctrl-names = "default";
 	pinctrl-0 = <&main_usb1_pins_default>;
 	ti,vbus-divider;
+	status = "okay";
 };
 
 &usb1 {
