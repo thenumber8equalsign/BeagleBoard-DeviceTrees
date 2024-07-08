@@ -351,19 +351,6 @@ find_pin () {
 				echo "	status = \"okay\";" >> ${pwm_overlay_file}
 				echo "};" >> ${pwm_overlay_file}
 			fi
-
-			if [ "x${export_dts}" = "xenable" ] ; then
-				echo "	${labela}-${type} {" >> ${file}-pinmux.txt
-				echo "		compatible = \"gpio-single\";" >> ${file}-pinmux.txt
-				echo "		pinctrl-names = \"default\";" >> ${file}-pinmux.txt
-				echo "		pinctrl-0 = <&${label}_${typeu}>;" >> ${file}-pinmux.txt
-				echo "		gpios = <&${gpio} GPIO_ACTIVE_HIGH>;" >> ${file}-pinmux.txt
-				echo "		gpio-line-names = \"${sch}\";" >> ${file}-pinmux.txt
-				echo "		beagle-gpio-pi = \"${sch}\";" >> ${file}-pinmux.txt
-				echo "	};" >> ${file}-pinmux.txt
-				echo "" >> ${file}-pinmux.txt
-			fi
-
 			echo "	${label}_${typeu}: ${labela}-${type}-pins {" >> ${file}-${core}-pinmux.txt
 			#echo "		/* ${label}:${interface_a}:${found_ball_a}:${name_a}:${mode_a}:${ioDir_a}: */" >> ${file}-${core}-pinmux.txt
 			echo "		pinctrl-single,pins = <" >> ${file}-${core}-pinmux.txt
