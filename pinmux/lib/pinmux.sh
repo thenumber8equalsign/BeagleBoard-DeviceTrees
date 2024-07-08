@@ -362,28 +362,6 @@ find_pin () {
 				echo "		beagle-gpio-pi = \"${sch}\";" >> ${file}-pinmux.txt
 				echo "	};" >> ${file}-pinmux.txt
 				echo "" >> ${file}-pinmux.txt
-
-				if [ "x${type}" = "xgpio" ] ; then
-					echo "	${labela}-${type}-pu {" >> ${file}-pinmux.txt
-					echo "		compatible = \"gpio-single\";" >> ${file}-pinmux.txt
-					echo "		pinctrl-names = \"default\";" >> ${file}-pinmux.txt
-					echo "		pinctrl-0 = <&${label}_${typeu}_pu>;" >> ${file}-pinmux.txt
-					echo "		gpios = <&${gpio} GPIO_ACTIVE_HIGH>;" >> ${file}-pinmux.txt
-					echo "		gpio-line-names = \"${sch}\";" >> ${file}-pinmux.txt
-					echo "		beagle-gpio-pi = \"${sch}\";" >> ${file}-pinmux.txt
-					echo "	};" >> ${file}-pinmux.txt
-					echo "" >> ${file}-pinmux.txt
-
-					echo "	${labela}-${type}-pd {" >> ${file}-pinmux.txt
-					echo "		compatible = \"gpio-single\";" >> ${file}-pinmux.txt
-					echo "		pinctrl-names = \"default\";" >> ${file}-pinmux.txt
-					echo "		pinctrl-0 = <&${label}_${typeu}_pd>;" >> ${file}-pinmux.txt
-					echo "		gpios = <&${gpio} GPIO_ACTIVE_HIGH>;" >> ${file}-pinmux.txt
-					echo "		gpio-line-names = \"${sch}\";" >> ${file}-pinmux.txt
-					echo "		beagle-gpio-pi = \"${sch}\";" >> ${file}-pinmux.txt
-					echo "	};" >> ${file}-pinmux.txt
-					echo "" >> ${file}-pinmux.txt
-				fi
 			fi
 
 			echo "	${label}_${typeu}: ${labela}-${type}-pins {" >> ${file}-${core}-pinmux.txt
