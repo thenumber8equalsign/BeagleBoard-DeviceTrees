@@ -37,8 +37,6 @@
 
 	chosen {
 		stdout-path = &main_uart0;
-		base_dtb = "k3-am67a-beagley-ai.dts";
-		base_dtb_timestamp = __TIMESTAMP__;
 	};
 
 	memory@80000000 {

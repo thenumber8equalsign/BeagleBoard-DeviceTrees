@@ -8,6 +8,13 @@
 
 #include <dt-bindings/gpio/gpio.h>
 
+/ {
+	chosen {
+		base_dtb = "k3-am67a-beagley-ai.dts";
+		base_dtb_timestamp = __TIMESTAMP__;
+	};
+};
+
 &main_pmx0 {
 	hat_07_uart6_rxd: hat-07-uart6-rxd-pins {
 		pinctrl-single,pins = <
