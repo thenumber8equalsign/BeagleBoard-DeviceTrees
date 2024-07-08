@@ -18,10 +18,6 @@
 &{/chosen} {
 	overlays {
 		k3-am67a-beagley-ai-pwm-epwm0-gpio15.kernel = __TIMESTAMP__;
-		hat-10.pin = "k3-am67a-beagley-ai-pwm-epwm0-gpio15";
-		hat-10.pin.beagle-pwm-address = "23000000";
-		hat-10.pin.beagle-pwm-export = "0";
-		hat-10.pin.beagle-gpio-pi = "GPIO15";
 		hat-10.23000000.pwm = "k3-am67a-beagley-ai-pwm-epwm0-gpio15.23000000.0.GPIO15";
 		gpio15.23000000.pwm = "k3-am67a-beagley-ai-pwm-epwm0-gpio15.23000000.0.GPIO15";
 	};
