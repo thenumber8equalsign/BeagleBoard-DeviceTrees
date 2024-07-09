@@ -96,17 +96,18 @@ label="P8_44" ; ball="AC25" ; sch="P8_44" ; find_pin
 label="P8_45" ; ball="AG29" ; sch="P8_45" ; find_pin
 label="P8_46" ; ball="Y25"  ; sch="P8_46" ; find_pin
 
-label="p9_11" ; ball="AC23" ; sch="AC23_UART0_RXD"              ; find_pin
-label="p9_12" ; ball="AE27" ; sch="AE27_MCASP0_ACLKR"           ; find_pin
-label="p9_13" ; ball="AG22" ; sch="AG22_UART0_TXD"              ; find_pin
-label="p9_14" ; ball="U27"  ; sch="U27_EHRPWM2_A"               ; find_pin
-label="p9_15" ; ball="AD25" ; sch="AD25_PRG0_PRU0_GPO4"         ; find_pin
-label="p9_16" ; ball="U24"  ; sch="U24_EHRPWM2_B"               ; find_pin
-label="p9_17" ; ball_a="AC21" ; ball_b="AA3" ; sch="AC21_AA3"   ; find_shared_pin
-label="p9_18" ; ball_a="AH22" ; ball_b="Y2"  ; sch="AH22_Y2"    ; find_shared_pin
-default="GPIO1"
-label="p9_19" ; ball_a="W5" ; ball_b="AF29"  ; sch="W5_AF29"    ; find_shared_pin
-default="GPIO0"
+label="P9_11"  ; ball="AC23" ; sch="P9_11"  ; find_pin
+label="P9_12"  ; ball="AE27" ; sch="P9_12"  ; find_pin
+label="P9_13"  ; ball="AG22" ; sch="P9_13"  ; find_pin
+label="P9_14"  ; ball="U27"  ; sch="P9_14"  ; find_pin
+label="P9_15"  ; ball="AD25" ; sch="P9_15"  ; find_pin
+label="P9_16"  ; ball="U24"  ; sch="P9_16"  ; find_pin
+label="P9_17A" ; ball="AC21" ; sch="P9_17A" ; find_pin
+label="P9_17B" ; ball="AA3"  ; sch="P9_17B" ; find_pin
+label="P9_18A" ; ball="AH22" ; sch="P9_18A" ; find_pin
+label="P9_18B" ; ball="Y2"   ; sch="P9_18B" ; find_pin
+label="P9_19A" ; ball="W5"   ; sch="P9_19A" ; find_pin
+label="P9_19B" ; ball="AF29" ; sch="P9_19B" ; find_pin
 
 label="p9_20" ; ball_a="W6" ; ball_b="AE25"  ; sch="W6_AE25"    ; find_shared_pin
 label="p9_21" ; ball_a="AJ22" ; ball_b="U28" ; sch="AJ22_U28"   ; find_shared_pin
