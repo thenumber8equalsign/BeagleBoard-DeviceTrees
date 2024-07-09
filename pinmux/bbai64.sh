@@ -71,16 +71,22 @@ label="P8_27" ; ball="AA28" ; sch="P8_27" ; find_pin
 label="P8_28" ; ball="Y24"  ; sch="P8_28" ; find_pin
 label="P8_29" ; ball="AA25" ; sch="P8_29" ; find_pin
 
-label="p8_30" ; ball="AG26" ; sch="AG26_PRG0_PRU1_GPO11"        ; find_pin
-label="p8_31" ; ball_a="AJ25" ; ball_b="AE29" ; sch="AJ25_AE29" ; find_shared_pin
-label="p8_32" ; ball_a="AG21" ; ball_b="AD28" ; sch="AG21_AD28" ; find_shared_pin
-label="p8_33" ; ball_a="AH24" ; ball_b="AA2"  ; sch="AH24_AA2"  ; find_shared_pin
-label="p8_34" ; ball="AD22" ; sch="AD22_UART2_TXD"              ; find_pin
-label="p8_35" ; ball_a="AD23" ; ball_b="Y3"   ; sch="AD23_Y3"   ; find_shared_pin
-label="p8_36" ; ball="AE20" ; sch="AE20_MCAN4_TX"               ; find_pin
-label="p8_37" ; ball_a="Y27"  ; ball_b="AD21" ; sch="Y27_AD21"  ; find_shared_pin
-label="p8_38" ; ball_a="AJ20" ; ball_b="Y29"  ; sch="Y29_AJ20"  ; find_shared_pin
-label="p8_39" ; ball="AC26" ; sch="AC26_PRG0_PRU1_GPO6"         ; find_pin
+label="P8_30"  ; ball="AG26" ; sch="P8_30"  ; find_pin
+label="P8_31A" ; ball="AJ25" ; sch="P8_31A" ; find_pin
+label="P8_31B" ; ball="AE29" ; sch="P8_31B" ; find_pin
+label="P8_32A" ; ball="AG21" ; sch="P8_32A" ; find_pin
+label="P8_32B" ; ball="AD28" ; sch="P8_32B" ; find_pin
+label="P8_33A" ; ball="AH24" ; sch="P8_33A" ; find_pin
+label="P8_33B" ; ball="AA2"  ; sch="P8_33B" ; find_pin
+label="P8_34"  ; ball="AD22" ; sch="P8_34"  ; find_pin
+label="P8_35A" ; ball="AD23" ; sch="P8_35A" ; find_pin
+label="P8_35B" ; ball="Y3"   ; sch="P8_35B" ; find_pin
+label="P8_36"  ; ball="AE20" ; sch="P8_36"  ; find_pin
+label="P8_37A" ; ball="Y27"  ; sch="P8_37A" ; find_pin
+label="P8_37B" ; ball="AD21" ; sch="P8_37B" ; find_pin
+label="P8_38A" ; ball="AJ20" ; sch="P8_38A" ; find_pin
+label="P8_38B" ; ball="Y29"  ; sch="P8_38B" ; find_pin
+label="P8_39"  ; ball="AC26" ; sch="P8_39"  ; find_pin
 
 label="p8_40" ; ball="AA24" ; sch="AA24_PRG0_PRU1_GPO7"         ; find_pin
 label="p8_41" ; ball="AD29" ; sch="AD29_PRG0_PRU1_GPO4"         ; find_pin
