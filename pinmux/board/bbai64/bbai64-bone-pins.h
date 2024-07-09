@@ -7,16 +7,16 @@
 #define gpio_p8_07 &main_gpio0 15	/* AD24: PRG1_PRU0_GPO14 P8_07 */
 #define gpio_p8_08 &main_gpio0 14	/* AG24: PRG1_PRU0_GPO13 P8_08 */
 #define gpio_p8_09 &main_gpio0 17	/* AE24: PRG1_PRU0_GPO16 P8_09 */
-#define gpio_p8_10 &main_gpio0 16	/* AC24: PRG1_PRU0_GPO15 AC24_MCAN6_TX */
-#define gpio_p8_11 &main_gpio0 60	/* AB24: PRG0_PRU0_GPO17 AB24_SYS_BOOTMODE7 */
-#define gpio_p8_12 &main_gpio0 59	/* AH28: PRG0_PRU0_GPO16 AH28_PRG0_PWM0_A2 */
-#define gpio_p8_13 &main_gpio0 89	/* V27: RGMII5_TD1 V27_EHRPWM0_B */
-#define gpio_p8_14 &main_gpio0 75	/* AF27: PRG0_PRU1_GPO12 AF27_PRG0_PWM1_A0 */
-#define gpio_p8_15 &main_gpio0 61	/* AB29: PRG0_PRU0_GPO18 AB29_PRG0_ECAP0_IN_APWM_OUT */
-#define gpio_p8_16 &main_gpio0 62	/* AB28: PRG0_PRU0_GPO19 AB28_PRG0_PWM0_TZ_OUT */
-#define gpio_p8_17 &main_gpio0 3	/* AF22: PRG1_PRU0_GPO2 AF22_PRG1_PWM2_A0 */
-#define gpio_p8_18 &main_gpio0 4	/* AJ23: PRG1_PRU0_GPO3 AJ23_PRG1_PWM3_A2 */
-#define gpio_p8_19 &main_gpio0 88	/* V29: RGMII5_TD2 V29_EHRPWM0_A */
+#define gpio_p8_10 &main_gpio0 16	/* AC24: PRG1_PRU0_GPO15 P8_10 */
+#define gpio_p8_11 &main_gpio0 60	/* AB24: PRG0_PRU0_GPO17 P8_11 */
+#define gpio_p8_12 &main_gpio0 59	/* AH28: PRG0_PRU0_GPO16 P8_12 */
+#define gpio_p8_13 &main_gpio0 89	/* V27: RGMII5_TD1 P8_13 */
+#define gpio_p8_14 &main_gpio0 75	/* AF27: PRG0_PRU1_GPO12 P8_14 */
+#define gpio_p8_15 &main_gpio0 61	/* AB29: PRG0_PRU0_GPO18 P8_15 */
+#define gpio_p8_16 &main_gpio0 62	/* AB28: PRG0_PRU0_GPO19 P8_16 */
+#define gpio_p8_17 &main_gpio0 3	/* AF22: PRG1_PRU0_GPO2 P8_17 */
+#define gpio_p8_18 &main_gpio0 4	/* AJ23: PRG1_PRU0_GPO3 P8_18 */
+#define gpio_p8_19 &main_gpio0 88	/* V29: RGMII5_TD2 P8_19 */
 #define gpio_p8_20 &main_gpio0 76	/* AF26: PRG0_PRU1_GPO13 AF26_PRG0_PWM1_B0 */
 #define gpio_p8_21 &main_gpio0 30	/* AF21: PRG1_PRU1_GPO9 AF21_MCAN8_TX */
 #define gpio_p8_22 &main_gpio0 5	/* AH23: PRG1_PRU0_GPO4 AH23_UART2_RXD */
@@ -124,16 +124,16 @@
 #define p8_07(mode, mux) J721E_IOPAD(0x3C, mode, mux)	/* AD24: PRG1_PRU0_GPO14 P8_07 */
 #define p8_08(mode, mux) J721E_IOPAD(0x38, mode, mux)	/* AG24: PRG1_PRU0_GPO13 P8_08 */
 #define p8_09(mode, mux) J721E_IOPAD(0x44, mode, mux)	/* AE24: PRG1_PRU0_GPO16 P8_09 */
-#define p8_10(mode, mux) J721E_IOPAD(0x40, mode, mux)	/* AC24: PRG1_PRU0_GPO15 AC24_MCAN6_TX */
-#define p8_11(mode, mux) J721E_IOPAD(0xF4, mode, mux)	/* AB24: PRG0_PRU0_GPO17 AB24_SYS_BOOTMODE7 */
-#define p8_12(mode, mux) J721E_IOPAD(0xF0, mode, mux)	/* AH28: PRG0_PRU0_GPO16 AH28_PRG0_PWM0_A2 */
-#define p8_13(mode, mux) J721E_IOPAD(0x168, mode, mux)	/* V27: RGMII5_TD1 V27_EHRPWM0_B */
-#define p8_14(mode, mux) J721E_IOPAD(0x130, mode, mux)	/* AF27: PRG0_PRU1_GPO12 AF27_PRG0_PWM1_A0 */
-#define p8_15(mode, mux) J721E_IOPAD(0xF8, mode, mux)	/* AB29: PRG0_PRU0_GPO18 AB29_PRG0_ECAP0_IN_APWM_OUT */
-#define p8_16(mode, mux) J721E_IOPAD(0xFC, mode, mux)	/* AB28: PRG0_PRU0_GPO19 AB28_PRG0_PWM0_TZ_OUT */
-#define p8_17(mode, mux) J721E_IOPAD(0xC, mode, mux)	/* AF22: PRG1_PRU0_GPO2 AF22_PRG1_PWM2_A0 */
-#define p8_18(mode, mux) J721E_IOPAD(0x10, mode, mux)	/* AJ23: PRG1_PRU0_GPO3 AJ23_PRG1_PWM3_A2 */
-#define p8_19(mode, mux) J721E_IOPAD(0x164, mode, mux)	/* V29: RGMII5_TD2 V29_EHRPWM0_A */
+#define p8_10(mode, mux) J721E_IOPAD(0x40, mode, mux)	/* AC24: PRG1_PRU0_GPO15 P8_10 */
+#define p8_11(mode, mux) J721E_IOPAD(0xF4, mode, mux)	/* AB24: PRG0_PRU0_GPO17 P8_11 */
+#define p8_12(mode, mux) J721E_IOPAD(0xF0, mode, mux)	/* AH28: PRG0_PRU0_GPO16 P8_12 */
+#define p8_13(mode, mux) J721E_IOPAD(0x168, mode, mux)	/* V27: RGMII5_TD1 P8_13 */
+#define p8_14(mode, mux) J721E_IOPAD(0x130, mode, mux)	/* AF27: PRG0_PRU1_GPO12 P8_14 */
+#define p8_15(mode, mux) J721E_IOPAD(0xF8, mode, mux)	/* AB29: PRG0_PRU0_GPO18 P8_15 */
+#define p8_16(mode, mux) J721E_IOPAD(0xFC, mode, mux)	/* AB28: PRG0_PRU0_GPO19 P8_16 */
+#define p8_17(mode, mux) J721E_IOPAD(0xC, mode, mux)	/* AF22: PRG1_PRU0_GPO2 P8_17 */
+#define p8_18(mode, mux) J721E_IOPAD(0x10, mode, mux)	/* AJ23: PRG1_PRU0_GPO3 P8_18 */
+#define p8_19(mode, mux) J721E_IOPAD(0x164, mode, mux)	/* V29: RGMII5_TD2 P8_19 */
 #define p8_20(mode, mux) J721E_IOPAD(0x134, mode, mux)	/* AF26: PRG0_PRU1_GPO13 AF26_PRG0_PWM1_B0 */
 #define p8_21(mode, mux) J721E_IOPAD(0x7C, mode, mux)	/* AF21: PRG1_PRU1_GPO9 AF21_MCAN8_TX */
 #define p8_22(mode, mux) J721E_IOPAD(0x14, mode, mux)	/* AH23: PRG1_PRU0_GPO4 AH23_UART2_RXD */

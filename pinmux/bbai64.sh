@@ -41,24 +41,24 @@ echo "&mcu_pmx0 {" >>${file}-mcu-pinmux.txt
 
 echo "/* macro:  */" >${file}.dts
 
-label="p8_03" ; ball="AH21" ; sch="P8_03" ; find_pin
-label="p8_04" ; ball="AC29" ; sch="P8_04" ; find_pin
-label="p8_05" ; ball="AH25" ; sch="P8_05" ; find_pin
-label="p8_06" ; ball="AG25" ; sch="P8_06" ; find_pin
-label="p8_07" ; ball="AD24" ; sch="P8_07" ; find_pin
-label="p8_08" ; ball="AG24" ; sch="P8_08" ; find_pin
-label="p8_09" ; ball="AE24" ; sch="P8_09" ; find_pin
+label="P8_03" ; ball="AH21" ; sch="P8_03" ; find_pin
+label="P8_04" ; ball="AC29" ; sch="P8_04" ; find_pin
+label="P8_05" ; ball="AH25" ; sch="P8_05" ; find_pin
+label="P8_06" ; ball="AG25" ; sch="P8_06" ; find_pin
+label="P8_07" ; ball="AD24" ; sch="P8_07" ; find_pin
+label="P8_08" ; ball="AG24" ; sch="P8_08" ; find_pin
+label="P8_09" ; ball="AE24" ; sch="P8_09" ; find_pin
 
-label="p8_10" ; ball="AC24" ; sch="AC24_MCAN6_TX"               ; find_pin
-label="p8_11" ; ball="AB24" ; sch="AB24_SYS_BOOTMODE7"          ; find_pin
-label="p8_12" ; ball="AH28" ; sch="AH28_PRG0_PWM0_A2"           ; find_pin
-label="p8_13" ; ball="V27"  ; sch="V27_EHRPWM0_B"               ; find_pin
-label="p8_14" ; ball="AF27" ; sch="AF27_PRG0_PWM1_A0"           ; find_pin
-label="p8_15" ; ball="AB29" ; sch="AB29_PRG0_ECAP0_IN_APWM_OUT" ; find_pin
-label="p8_16" ; ball="AB28" ; sch="AB28_PRG0_PWM0_TZ_OUT"       ; find_pin
-label="p8_17" ; ball="AF22" ; sch="AF22_PRG1_PWM2_A0"           ; find_pin
-label="p8_18" ; ball="AJ23" ; sch="AJ23_PRG1_PWM3_A2"           ; find_pin
-label="p8_19" ; ball="V29"  ; sch="V29_EHRPWM0_A"               ; find_pin
+label="P8_10" ; ball="AC24" ; sch="P8_10" ; find_pin
+label="P8_11" ; ball="AB24" ; sch="P8_11" ; find_pin
+label="P8_12" ; ball="AH28" ; sch="P8_12" ; find_pin
+label="P8_13" ; ball="V27"  ; sch="P8_13" ; find_pin
+label="P8_14" ; ball="AF27" ; sch="P8_14" ; find_pin
+label="P8_15" ; ball="AB29" ; sch="P8_15" ; find_pin
+label="P8_16" ; ball="AB28" ; sch="P8_16" ; find_pin
+label="P8_17" ; ball="AF22" ; sch="P8_17" ; find_pin
+label="P8_18" ; ball="AJ23" ; sch="P8_18" ; find_pin
+label="P8_19" ; ball="V29"  ; sch="P8_19" ; find_pin
 
 label="p8_20" ; ball="AF26" ; sch="AF26_PRG0_PWM1_B0"           ; find_pin
 label="p8_21" ; ball="AF21" ; sch="AF21_MCAN8_TX"               ; find_pin
