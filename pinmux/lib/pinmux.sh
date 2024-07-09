@@ -314,7 +314,11 @@ find_pin () {
 		if [ "x${print_dts}" = "xenable" ] ; then
 			echo "${name_a}"
 			labela=$(echo ${label} | sed 's/_/-/g' || true)
-			cro_aa=$(echo ${cro_a} | sed 's/^...//' || true)
+			if [ "x${json_dir}" = "xJ722S_TDA4VEN_TDA4AEN_AM67" ] ; then
+				cro_aa=$(echo ${cro_a} | sed 's/^...//' || true)
+			else
+				cro_aa=$(echo ${cro_a} | sed 's/^..//' || true)
+			fi
 			typeu=$(echo ${type} | sed 's/-/_/g' || true)
 			gpio_sch=$(echo ${sch} | awk '{print tolower($0)}' || true)
 
