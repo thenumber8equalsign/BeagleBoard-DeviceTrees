@@ -3,6 +3,9 @@
 json_dir="J721E_DRA829_TDA4VM_AM752x"
 json_file="J721E_DRA829_TDA4VM_AM752x.json"
 
+main_iopad="J721E_IOPAD"
+mcu_iopad="J721E_WKUP_IOPAD"
+
 source $(dirname "$0")/lib/pinmux.sh
 
 board=bbai64
@@ -11,62 +14,40 @@ if [ ! -d ./board/${board}/ ] ; then
 	mkdir -p ./board/${board}/ || true
 fi
 file="./board/${board}/bbai64"
+k3file="./board/${board}/k3-j721e-beagleboneai64"
 
 echo "" >${file}-pinmux.dts
 echo "" >${file}-a-bone-pins.h
 echo "" >${file}-b-bone-pins.h
 echo "" >${file}-bone-pins.h
 echo "" >${file}-pins.txt
-echo "" >${file}-main-pinmux.txt
-echo "" >${file}-mcu-pinmux.txt
 
-echo "/* macro: BONE_PIN( <pin>, <mode_name>, <register_value_macro(s)> */" >${file}.dts
-echo "#define BONE_PIN(XX,ZZ,QQ) \\" >>${file}.dts
-echo "	XX##_##ZZ##_pin: pinmux_##XX##_##ZZ##_pin { pinctrl-single,pins = < QQ >; };" >>${file}.dts
-echo "" >>${file}.dts
+echo "// SPDX-License-Identifier: GPL-2.0-only OR MIT" > ${file}-pinmux.txt
+echo "/*" >> ${file}-pinmux.txt
+echo " * https://beagleboard.org/ai-64" >> ${file}-pinmux.txt
+echo " *" >> ${file}-pinmux.txt
+echo " * Copyright (C) 2024 Texas Instruments Incorporated - https://www.ti.com/" >> ${file}-pinmux.txt
+echo " * Copyright (C) 2024 Robert Nelson, BeagleBoard.org Foundation" >> ${file}-pinmux.txt
+echo " */" >> ${file}-pinmux.txt
+echo "" >> ${file}-pinmux.txt
+echo "#include <dt-bindings/gpio/gpio.h>" >> ${file}-pinmux.txt
+echo "" >> ${file}-pinmux.txt
 
-echo "	/* I2C : https://elinux.org/Beagleboard:BeagleBone_cape_interface_spec#I2C */" >>${file}.dts
-echo "	/* i2c6 P9.17 P9.18 */" >>${file}.dts
-echo "	/* i2c2 P9.19 P9.20 */" >>${file}.dts
-echo "	/* i2c4 P9.24 P9.26 */" >>${file}.dts
-echo "" >>${file}.dts
+echo "&main_pmx0 {" >>${file}-main-pinmux.txt
 
-echo "	/* CAN : https://elinux.org/Beagleboard:BeagleBone_cape_interface_spec#CAN */" >>${file}.dts
-echo "	/* mcan0 P9.20 P9.19 */" >>${file}.dts
-echo "	/* mcan4 P9.26 P9.24 */" >>${file}.dts
-echo "	/* mcan5 P8.08 P8.07 */" >>${file}.dts
-echo "" >>${file}.dts
+echo "};" >${file}-mcu-pinmux.txt
+echo "" >>${file}-mcu-pinmux.txt
+echo "&mcu_pmx0 {" >>${file}-mcu-pinmux.txt
 
-echo "	/* SPI : https://elinux.org/Beagleboard:BeagleBone_cape_interface_spec#SPI */" >>${file}.dts
-echo "	/* spi6 P9.18 P9.21 P9.22 P9.16 P9.23 */" >>${file}.dts
-echo "	/* spi7 P9.30 P9.29 P9.31 P9.29 P9.42 */" >>${file}.dts
-echo "" >>${file}.dts
+echo "/* macro:  */" >${file}.dts
 
-echo "	/* UART : https://elinux.org/Beagleboard:BeagleBone_cape_interface_spec#UART */" >>${file}.dts
-echo "	/* uart0 P9.13 P9.11 */" >>${file}.dts
-echo "	/* uart2 P9.24 P9.22 */" >>${file}.dts
-echo "	/* uart5 P8.37 P8.38 P8.32 P8.31 */" >>${file}.dts
-echo "" >>${file}.dts
-
-echo "	/* PWM: https://elinux.org/Beagleboard:BeagleBone_cape_interface_spec#PWM */" >>${file}.dts
-echo "	/* ehrpwm1 P9.22 P9.21 */" >>${file}.dts
-echo "	/* ehrpwm2 P9.14 P9.16 */" >>${file}.dts
-echo "	/* ehrpwm0 P8.19 P8.13 */" >>${file}.dts
-echo "" >>${file}.dts
-
-echo "	/* Full P8/P9 header mode definitions */" >>${file}.dts
-echo "	/* p8_01 - GND */" >>${file}.dts
-echo "	/* p8_02 - GND */" >>${file}.dts
-echo "" >>${file}.dts
-
-default="GPIO0"
-label="p8_03" ; ball="AH21" ; sch="AH21_MCAN6_TX"               ; find_pin
-label="p8_04" ; ball="AC29" ; sch="AC29_SYS_BOOTMODE2"          ; find_pin
-label="p8_05" ; ball="AH25" ; sch="AH25_MCAN7_TX"               ; find_pin
-label="p8_06" ; ball="AG25" ; sch="AG25_MCAN7_RX"               ; find_pin
-label="p8_07" ; ball="AD24" ; sch="AD24_MCAN5_RX"               ; find_pin
-label="p8_08" ; ball="AG24" ; sch="AG24_MCAN5_TX"               ; find_pin
-label="p8_09" ; ball="AE24" ; sch="AE24_MCAN6_RX"               ; find_pin
+label="p8_03" ; ball="AH21" ; sch="P8_03" ; find_pin
+label="p8_04" ; ball="AC29" ; sch="P8_04" ; find_pin
+label="p8_05" ; ball="AH25" ; sch="P8_05" ; find_pin
+label="p8_06" ; ball="AG25" ; sch="P8_06" ; find_pin
+label="p8_07" ; ball="AD24" ; sch="P8_07" ; find_pin
+label="p8_08" ; ball="AG24" ; sch="P8_08" ; find_pin
+label="p8_09" ; ball="AE24" ; sch="P8_09" ; find_pin
 
 label="p8_10" ; ball="AC24" ; sch="AC24_MCAN6_TX"               ; find_pin
 label="p8_11" ; ball="AB24" ; sch="AB24_SYS_BOOTMODE7"          ; find_pin
@@ -109,18 +90,6 @@ label="p8_44" ; ball="AC25" ; sch="AC25_PRG0_PRU1_GPO3"         ; find_pin
 label="p8_45" ; ball="AG29" ; sch="AG29_PRG0_PRU1_GPO16"        ; find_pin
 label="p8_46" ; ball="Y25"  ; sch="Y25_SYS_BOOTMODE3"           ; find_pin
 
-echo "	/* p9_01 - GND */">>${file}.dts
-echo "	/* p9_02 - GND */">>${file}.dts
-echo "	/* p9_03 - VOUT_3V3 */">>${file}.dts
-echo "	/* p9_04 - VOUT_3V3 */">>${file}.dts
-echo "	/* p9_05 - VIN */">>${file}.dts
-echo "	/* p9_06 - VIN */">>${file}.dts
-echo "	/* p9_07 - VOUT_SYS */">>${file}.dts
-echo "	/* p9_08 - VOUT_SYS */">>${file}.dts
-echo "	/* p9_09 - RESET# */">>${file}.dts
-echo "	/* p9_10 - POWER# */">>${file}.dts
-echo "">>${file}.dts
-
 label="p9_11" ; ball="AC23" ; sch="AC23_UART0_RXD"              ; find_pin
 label="p9_12" ; ball="AE27" ; sch="AE27_MCASP0_ACLKR"           ; find_pin
 label="p9_13" ; ball="AG22" ; sch="AG22_UART0_TXD"              ; find_pin
@@ -148,14 +117,8 @@ label="p9_29" ; ball_a="V5" ; ball_b="AB25"  ; sch="V5_AB25"    ; find_shared_pi
 label="p9_30" ; ball_a="V6" ; ball_b="AE28"  ; sch="V6_AE28"    ; find_shared_pin
 label="p9_31" ; ball_a="U3" ; ball_b="AB26"  ; sch="U3_AB26"    ; find_shared_pin
 
-echo "	/* p9_32 - ADC_REF_OUT */">>${file}.dts
-echo "">>${file}.dts
-
 default="GPIO0"
 label="p9_33" ; ball_a="K24" ; ball_b="AC28" ; sch="K24_AC28"   ; find_shared_pin
-
-echo "	/* p9_34 - ADC_GND */">>${file}.dts
-echo "">>${file}.dts
 
 label="p9_35" ; ball_a="K29" ; ball_b="AH27" ; sch="K29_AH27"   ; find_shared_pin
 label="p9_36" ; ball_a="K27" ; ball_b="AH29" ; sch="K27_AH29"   ; find_shared_pin
@@ -169,16 +132,19 @@ label="p9_41" ; ball="AD5" ; sch="AD5_EQEP0_I"                  ; find_pin
 default="GPIO0"
 label="p9_42" ; ball_a="AC2" ; ball_b="AJ21" ; sch="AC2_AJ21"   ; find_shared_pin
 
-echo "	/* p9_43 - GND */">>${file}.dts
-echo "	/* p9_44 - GND */">>${file}.dts
-echo "	/* p9_45 - GND */">>${file}.dts
-echo "	/* p9_46 - GND */">>${file}.dts
-
 msg="" ; echo_both
 
 cat ${file}-pinmux.dts >> ${file}.dts
 
 rm -rf ${file}-pinmux.dts || true
+
+cat ${file}-pinmux.txt >> ${file}-pinmux.dts
+cat ${file}-main-pinmux.txt >> ${file}-pinmux.dts
+cat ${file}-mcu-pinmux.txt >> ${file}-pinmux.dts
+
+rm ${file}-pinmux.txt || true
+rm ${file}-main-pinmux.txt || true
+rm ${file}-mcu-pinmux.txt || true
 
 cat ${file}-a-bone-pins.h >> ${file}-bone-pins.h
 cat ${file}-b-bone-pins.h >> ${file}-bone-pins.h

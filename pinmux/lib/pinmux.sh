@@ -149,7 +149,7 @@ find_pin () {
 			interface=${name_a}
 		fi
 
-		iopad="J722S_IOPAD"
+		iopad="${main_iopad}"
 		PIN_a="PIN_INPUT"
 		unset type
 		core="main"
@@ -245,25 +245,25 @@ find_pin () {
 			type="audio"
 		;;
 		MCU_GPIO*)
-			iopad="J722S_MCU_IOPAD"
+			iopad="${mcu_iopad}"
 			type="gpio"
 			core="mcu"
 			export_dts="enable"
 		;;
 		MCU_I2C*_S*|WKUP_I2C*_S*)
-			iopad="J722S_MCU_IOPAD"
+			iopad="${mcu_iopad}"
 			PIN_a="PIN_INPUT_PULLUP"
 			type="i2c"
 			core="mcu"
 		;;
 		MCU_SPI*)
-			#iopad="J722S_MCU_IOPAD"
+			#iopad="${mcu_iopad}"
 			#type="spi"
 			#core="mcu"
 			unset print_dts
 		;;
 		MCU_TIMER*)
-			#iopad="J722S_MCU_IOPAD"
+			#iopad="${mcu_iopad}"
 			#PIN_a="PIN_OUTPUT"
 			#type="pwm-timer"
 			#core="mcu"
@@ -291,20 +291,20 @@ find_pin () {
 			unset print_dts
 		;;
 		WKUP_DMTIMER*|WKUP_TIMER_IO*)
-			#iopad="J722S_MCU_IOPAD"
+			#iopad="${mcu_iopad}"
 			#PIN_a="PIN_OUTPUT"
 			#type="pwm-timer"
 			#core="mcu"
 			unset print_dts
 		;;
 		WKUP_UART*_TXD)
-			iopad="J722S_MCU_IOPAD"
+			iopad="${mcu_iopad}"
 			PIN_a="PIN_OUTPUT"
 			type=$(echo ${name_a} | awk '{print tolower($0)}' | sed 's/_/-/g' || true)
 			core="mcu"
 		;;
 		WKUP_UART*_RXD)
-			iopad="J722S_MCU_IOPAD"
+			iopad="${mcu_iopad}"
 			PIN_a="PIN_INPUT"
 			type=$(echo ${name_a} | awk '{print tolower($0)}' | sed 's/_/-/g' || true)
 			core="mcu"
@@ -347,17 +347,20 @@ find_pin () {
 				echo "	status = \"okay\";" >> ${pwm_overlay_file}
 				echo "};" >> ${pwm_overlay_file}
 			fi
-			echo "	${label}_${typeu}: ${labela}-${type}-pins {" >> ${file}-${core}-pinmux.txt
-			#echo "		/* ${label}:${interface_a}:${found_ball_a}:${name_a}:${mode_a}:${ioDir_a}: */" >> ${file}-${core}-pinmux.txt
-			echo "		pinctrl-single,pins = <" >> ${file}-${core}-pinmux.txt
-			if [ "x${mode_a}" = "x0" ] ; then
-				echo "			${iopad}(0x${cro_aa}, ${PIN_a}, ${mode_a}) /* (${found_ball_a}) ${interface} */" >> ${file}-${core}-pinmux.txt
-			else
-				echo "			${iopad}(0x${cro_aa}, ${PIN_a}, ${mode_a}) /* (${found_ball_a}) ${interface}.${name_a} */" >> ${file}-${core}-pinmux.txt
+
+			if [ ! "x${type}" = "x" ] ; then
+				echo "	${label}_${typeu}: ${labela}-${type}-pins {" >> ${file}-${core}-pinmux.txt
+				#echo "		/* ${label}:${interface_a}:${found_ball_a}:${name_a}:${mode_a}:${ioDir_a}: */" >> ${file}-${core}-pinmux.txt
+				echo "		pinctrl-single,pins = <" >> ${file}-${core}-pinmux.txt
+				if [ "x${mode_a}" = "x0" ] ; then
+					echo "			${iopad}(0x${cro_aa}, ${PIN_a}, ${mode_a}) /* (${found_ball_a}) ${interface} */" >> ${file}-${core}-pinmux.txt
+				else
+					echo "			${iopad}(0x${cro_aa}, ${PIN_a}, ${mode_a}) /* (${found_ball_a}) ${interface}.${name_a} */" >> ${file}-${core}-pinmux.txt
+				fi
+				echo "		>;" >> ${file}-${core}-pinmux.txt
+				echo "	};" >> ${file}-${core}-pinmux.txt
+				echo "" >> ${file}-${core}-pinmux.txt
 			fi
-			echo "		>;" >> ${file}-${core}-pinmux.txt
-			echo "	};" >> ${file}-${core}-pinmux.txt
-			echo "" >> ${file}-${core}-pinmux.txt
 
 			if [ "x${type}" = "xgpio" ] ; then
 				echo "	${label}_${typeu}_pu: ${labela}-${type}-pu-pins {" >> ${file}-${core}-pinmux.txt
