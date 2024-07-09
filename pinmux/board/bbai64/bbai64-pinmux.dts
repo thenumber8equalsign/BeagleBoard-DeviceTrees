@@ -471,277 +471,277 @@
 		>;
 	};
 
-	p8_20_gpio: p8-20-gpio-pins {
+	P8_20_gpio: P8-20-gpio-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x134, PIN_INPUT, 7) /* (AF26) PRG0_PRU1_GPO13.GPIO0_76 */
 		>;
 	};
 
-	p8_20_gpio_pu: p8-20-gpio-pu-pins {
+	P8_20_gpio_pu: P8-20-gpio-pu-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x134, PIN_INPUT_PULLUP, 7) /* (AF26) PRG0_PRU1_GPO13.GPIO0_76 */
 		>;
 	};
 
-	p8_20_gpio_pd: p8-20-gpio-pd-pins {
+	P8_20_gpio_pd: P8-20-gpio-pd-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x134, PIN_INPUT_PULLDOWN, 7) /* (AF26) PRG0_PRU1_GPO13.GPIO0_76 */
 		>;
 	};
 
-	p8_20_audio: p8-20-audio-pins {
+	P8_20_audio: P8-20-audio-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x134, PIN_INPUT, 12) /* (AF26) PRG0_PRU1_GPO13.MCASP1_AXR9 */
 		>;
 	};
 
-	p8_21_gpio: p8-21-gpio-pins {
+	P8_21_gpio: P8-21-gpio-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x7C, PIN_INPUT, 7) /* (AF21) PRG1_PRU1_GPO9.GPIO0_30 */
 		>;
 	};
 
-	p8_21_gpio_pu: p8-21-gpio-pu-pins {
+	P8_21_gpio_pu: P8-21-gpio-pu-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x7C, PIN_INPUT_PULLUP, 7) /* (AF21) PRG1_PRU1_GPO9.GPIO0_30 */
 		>;
 	};
 
-	p8_21_gpio_pd: p8-21-gpio-pd-pins {
+	P8_21_gpio_pd: P8-21-gpio-pd-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x7C, PIN_INPUT_PULLDOWN, 7) /* (AF21) PRG1_PRU1_GPO9.GPIO0_30 */
 		>;
 	};
 
-	p8_21_audio: p8-21-audio-pins {
+	P8_21_audio: P8-21-audio-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x7C, PIN_INPUT, 12) /* (AF21) PRG1_PRU1_GPO9.MCASP4_AXR3 */
 		>;
 	};
 
-	p8_22_gpio: p8-22-gpio-pins {
+	P8_22_gpio: P8-22-gpio-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x14, PIN_INPUT, 7) /* (AH23) PRG1_PRU0_GPO4.GPIO0_5 */
 		>;
 	};
 
-	p8_22_gpio_pu: p8-22-gpio-pu-pins {
+	P8_22_gpio_pu: P8-22-gpio-pu-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x14, PIN_INPUT_PULLUP, 7) /* (AH23) PRG1_PRU0_GPO4.GPIO0_5 */
 		>;
 	};
 
-	p8_22_gpio_pd: p8-22-gpio-pd-pins {
+	P8_22_gpio_pd: P8-22-gpio-pd-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x14, PIN_INPUT_PULLDOWN, 7) /* (AH23) PRG1_PRU0_GPO4.GPIO0_5 */
 		>;
 	};
 
-	p8_22_audio: p8-22-audio-pins {
+	P8_22_audio: P8-22-audio-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x14, PIN_INPUT, 12) /* (AH23) PRG1_PRU0_GPO4.MCASP6_AXR2 */
 		>;
 	};
 
-	p8_22_audio: p8-22-audio-pins {
+	P8_22_audio: P8-22-audio-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x14, PIN_INPUT, 13) /* (AH23) PRG1_PRU0_GPO4.MCASP6_ACLKR */
 		>;
 	};
 
-	p8_22_uart2_rxd: p8-22-uart2-rxd-pins {
+	P8_22_uart2_rxd: P8-22-uart2-rxd-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x14, PIN_INPUT, 14) /* (AH23) PRG1_PRU0_GPO4.UART2_RXD */
 		>;
 	};
 
-	p8_23_gpio: p8-23-gpio-pins {
+	P8_23_gpio: P8-23-gpio-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x80, PIN_INPUT, 7) /* (AB23) PRG1_PRU1_GPO10.GPIO0_31 */
 		>;
 	};
 
-	p8_23_gpio_pu: p8-23-gpio-pu-pins {
+	P8_23_gpio_pu: P8-23-gpio-pu-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x80, PIN_INPUT_PULLUP, 7) /* (AB23) PRG1_PRU1_GPO10.GPIO0_31 */
 		>;
 	};
 
-	p8_23_gpio_pd: p8-23-gpio-pd-pins {
+	P8_23_gpio_pd: P8-23-gpio-pd-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x80, PIN_INPUT_PULLDOWN, 7) /* (AB23) PRG1_PRU1_GPO10.GPIO0_31 */
 		>;
 	};
 
-	p8_23_audio: p8-23-audio-pins {
+	P8_23_audio: P8-23-audio-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x80, PIN_INPUT, 12) /* (AB23) PRG1_PRU1_GPO10.MCASP5_ACLKX */
 		>;
 	};
 
-	p8_24_gpio: p8-24-gpio-pins {
+	P8_24_gpio: P8-24-gpio-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x18, PIN_INPUT, 7) /* (AD20) PRG1_PRU0_GPO5.GPIO0_6 */
 		>;
 	};
 
-	p8_24_gpio_pu: p8-24-gpio-pu-pins {
+	P8_24_gpio_pu: P8-24-gpio-pu-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x18, PIN_INPUT_PULLUP, 7) /* (AD20) PRG1_PRU0_GPO5.GPIO0_6 */
 		>;
 	};
 
-	p8_24_gpio_pd: p8-24-gpio-pd-pins {
+	P8_24_gpio_pd: P8-24-gpio-pd-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x18, PIN_INPUT_PULLDOWN, 7) /* (AD20) PRG1_PRU0_GPO5.GPIO0_6 */
 		>;
 	};
 
-	p8_24_audio: p8-24-audio-pins {
+	P8_24_audio: P8-24-audio-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x18, PIN_INPUT, 12) /* (AD20) PRG1_PRU0_GPO5.MCASP3_AXR0 */
 		>;
 	};
 
-	p8_25_gpio: p8-25-gpio-pins {
+	P8_25_gpio: P8-25-gpio-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x90, PIN_INPUT, 7) /* (AH26) PRG1_PRU1_GPO14.GPIO0_35 */
 		>;
 	};
 
-	p8_25_gpio_pu: p8-25-gpio-pu-pins {
+	P8_25_gpio_pu: P8-25-gpio-pu-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x90, PIN_INPUT_PULLUP, 7) /* (AH26) PRG1_PRU1_GPO14.GPIO0_35 */
 		>;
 	};
 
-	p8_25_gpio_pd: p8-25-gpio-pd-pins {
+	P8_25_gpio_pd: P8-25-gpio-pd-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x90, PIN_INPUT_PULLDOWN, 7) /* (AH26) PRG1_PRU1_GPO14.GPIO0_35 */
 		>;
 	};
 
-	p8_25_audio: p8-25-audio-pins {
+	P8_25_audio: P8-25-audio-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x90, PIN_INPUT, 12) /* (AH26) PRG1_PRU1_GPO14.MCASP9_AXR1 */
 		>;
 	};
 
-	p8_25_audio: p8-25-audio-pins {
+	P8_25_audio: P8-25-audio-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x90, PIN_INPUT, 13) /* (AH26) PRG1_PRU1_GPO14.MCASP4_AFSR */
 		>;
 	};
 
-	p8_26_gpio: p8-26-gpio-pins {
+	P8_26_gpio: P8-26-gpio-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0xD0, PIN_INPUT, 7) /* (AC27) PRG0_PRU0_GPO8.GPIO0_51 */
 		>;
 	};
 
-	p8_26_gpio_pu: p8-26-gpio-pu-pins {
+	P8_26_gpio_pu: P8-26-gpio-pu-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0xD0, PIN_INPUT_PULLUP, 7) /* (AC27) PRG0_PRU0_GPO8.GPIO0_51 */
 		>;
 	};
 
-	p8_26_gpio_pd: p8-26-gpio-pd-pins {
+	P8_26_gpio_pd: P8-26-gpio-pd-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0xD0, PIN_INPUT_PULLDOWN, 7) /* (AC27) PRG0_PRU0_GPO8.GPIO0_51 */
 		>;
 	};
 
-	p8_26_audio: p8-26-audio-pins {
+	P8_26_audio: P8-26-audio-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0xD0, PIN_INPUT, 12) /* (AC27) PRG0_PRU0_GPO8.MCASP0_AXR6 */
 		>;
 	};
 
-	p8_26_uart6_rxd: p8-26-uart6-rxd-pins {
+	P8_26_uart6_rxd: P8-26-uart6-rxd-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0xD0, PIN_INPUT, 14) /* (AC27) PRG0_PRU0_GPO8.UART6_RXD */
 		>;
 	};
 
-	p8_27_gpio: p8-27-gpio-pins {
+	P8_27_gpio: P8-27-gpio-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x120, PIN_INPUT, 7) /* (AA28) PRG0_PRU1_GPO8.GPIO0_71 */
 		>;
 	};
 
-	p8_27_gpio_pu: p8-27-gpio-pu-pins {
+	P8_27_gpio_pu: P8-27-gpio-pu-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x120, PIN_INPUT_PULLUP, 7) /* (AA28) PRG0_PRU1_GPO8.GPIO0_71 */
 		>;
 	};
 
-	p8_27_gpio_pd: p8-27-gpio-pd-pins {
+	P8_27_gpio_pd: P8-27-gpio-pd-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x120, PIN_INPUT_PULLDOWN, 7) /* (AA28) PRG0_PRU1_GPO8.GPIO0_71 */
 		>;
 	};
 
-	p8_27_audio: p8-27-audio-pins {
+	P8_27_audio: P8-27-audio-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x120, PIN_INPUT, 12) /* (AA28) PRG0_PRU1_GPO8.MCASP1_AFSX */
 		>;
 	};
 
-	p8_28_gpio: p8-28-gpio-pins {
+	P8_28_gpio: P8-28-gpio-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x124, PIN_INPUT, 7) /* (Y24) PRG0_PRU1_GPO9.GPIO0_72 */
 		>;
 	};
 
-	p8_28_gpio_pu: p8-28-gpio-pu-pins {
+	P8_28_gpio_pu: P8-28-gpio-pu-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x124, PIN_INPUT_PULLUP, 7) /* (Y24) PRG0_PRU1_GPO9.GPIO0_72 */
 		>;
 	};
 
-	p8_28_gpio_pd: p8-28-gpio-pd-pins {
+	P8_28_gpio_pd: P8-28-gpio-pd-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x124, PIN_INPUT_PULLDOWN, 7) /* (Y24) PRG0_PRU1_GPO9.GPIO0_72 */
 		>;
 	};
 
-	p8_28_audio: p8-28-audio-pins {
+	P8_28_audio: P8-28-audio-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x124, PIN_INPUT, 12) /* (Y24) PRG0_PRU1_GPO9.MCASP1_AXR5 */
 		>;
 	};
 
-	p8_28_uart8_rxd: p8-28-uart8-rxd-pins {
+	P8_28_uart8_rxd: P8-28-uart8-rxd-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x124, PIN_INPUT, 14) /* (Y24) PRG0_PRU1_GPO9.UART8_RXD */
 		>;
 	};
 
-	p8_29_gpio: p8-29-gpio-pins {
+	P8_29_gpio: P8-29-gpio-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x128, PIN_INPUT, 7) /* (AA25) PRG0_PRU1_GPO10.GPIO0_73 */
 		>;
 	};
 
-	p8_29_gpio_pu: p8-29-gpio-pu-pins {
+	P8_29_gpio_pu: P8-29-gpio-pu-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x128, PIN_INPUT_PULLUP, 7) /* (AA25) PRG0_PRU1_GPO10.GPIO0_73 */
 		>;
 	};
 
-	p8_29_gpio_pd: p8-29-gpio-pd-pins {
+	P8_29_gpio_pd: P8-29-gpio-pd-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x128, PIN_INPUT_PULLDOWN, 7) /* (AA25) PRG0_PRU1_GPO10.GPIO0_73 */
 		>;
 	};
 
-	p8_29_audio: p8-29-audio-pins {
+	P8_29_audio: P8-29-audio-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x128, PIN_INPUT, 12) /* (AA25) PRG0_PRU1_GPO10.MCASP1_AXR6 */
 		>;
 	};
 
-	p8_29_uart8_txd: p8-29-uart8-txd-pins {
+	P8_29_uart8_txd: P8-29-uart8-txd-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x128, PIN_OUTPUT, 14) /* (AA25) PRG0_PRU1_GPO10.UART8_TXD */
 		>;

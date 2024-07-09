@@ -60,16 +60,16 @@ label="P8_17" ; ball="AF22" ; sch="P8_17" ; find_pin
 label="P8_18" ; ball="AJ23" ; sch="P8_18" ; find_pin
 label="P8_19" ; ball="V29"  ; sch="P8_19" ; find_pin
 
-label="p8_20" ; ball="AF26" ; sch="AF26_PRG0_PWM1_B0"           ; find_pin
-label="p8_21" ; ball="AF21" ; sch="AF21_MCAN8_TX"               ; find_pin
-label="p8_22" ; ball="AH23" ; sch="AH23_UART2_RXD"              ; find_pin
-label="p8_23" ; ball="AB23" ; sch="AB23_MCAN8_RX"               ; find_pin
-label="p8_24" ; ball="AD20" ; sch="AD20_SYS_BOOTMODE0"          ; find_pin
-label="p8_25" ; ball="AH26" ; sch="AH26_PRG1_PRU1_GPO14"        ; find_pin
-label="p8_26" ; ball="AC27" ; sch="AC27_PRG0_PWM2_A1"           ; find_pin
-label="p8_27" ; ball="AA28" ; sch="AA28_PRG0_PRU1_GPO8"         ; find_pin
-label="p8_28" ; ball="Y24"  ; sch="Y24_PRG0_UART0_RXD"          ; find_pin
-label="p8_29" ; ball="AA25" ; sch="AA25_PRG0_UART0_TXD"         ; find_pin
+label="P8_20" ; ball="AF26" ; sch="P8_20" ; find_pin
+label="P8_21" ; ball="AF21" ; sch="P8_21" ; find_pin
+label="P8_22" ; ball="AH23" ; sch="P8_22" ; find_pin
+label="P8_23" ; ball="AB23" ; sch="P8_23" ; find_pin
+label="P8_24" ; ball="AD20" ; sch="P8_24" ; find_pin
+label="P8_25" ; ball="AH26" ; sch="P8_25" ; find_pin
+label="P8_26" ; ball="AC27" ; sch="P8_26" ; find_pin
+label="P8_27" ; ball="AA28" ; sch="P8_27" ; find_pin
+label="P8_28" ; ball="Y24"  ; sch="P8_28" ; find_pin
+label="P8_29" ; ball="AA25" ; sch="P8_29" ; find_pin
 
 label="p8_30" ; ball="AG26" ; sch="AG26_PRG0_PRU1_GPO11"        ; find_pin
 label="p8_31" ; ball_a="AJ25" ; ball_b="AE29" ; sch="AJ25_AE29" ; find_shared_pin
