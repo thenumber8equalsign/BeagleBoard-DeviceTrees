@@ -210,7 +210,7 @@ find_pin () {
 			fi
 			export_pwm_overlay="enable"
 		;;
-		EHRPWM1_A)
+		EHRPWM1_A|EHRPWM1_B)
 			PIN_a="PIN_OUTPUT"
 			type="pwm"
 			pwm_node="epwm1"
@@ -222,6 +222,22 @@ find_pin () {
 			fi
 			pwm_export="0"
 			if [ "x${name_a}" = "xEHRPWM1_B" ] ; then
+				pwm_export="1"
+			fi
+			export_pwm_overlay="enable"
+		;;
+		EHRPWM2_A|EHRPWM2_B)
+			PIN_a="PIN_OUTPUT"
+			type="pwm"
+			pwm_node="epwm2"
+			pwm_dts="enable"
+			if [ "x${json_dir}" = "xJ722S_TDA4VEN_TDA4AEN_AM67" ] ; then
+				pwm_address="23020000"
+			else
+				pwm_address="3020000"
+			fi
+			pwm_export="0"
+			if [ "x${name_a}" = "xEHRPWM2_B" ] ; then
 				pwm_export="1"
 			fi
 			export_pwm_overlay="enable"

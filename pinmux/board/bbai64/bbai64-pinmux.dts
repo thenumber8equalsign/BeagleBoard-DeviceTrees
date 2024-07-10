@@ -1479,6 +1479,12 @@
 		>;
 	};
 
+	P9_14_pwm: P9-14-pwm-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x178, PIN_OUTPUT, 6) /* (U27) RGMII5_RD3.EHRPWM2_A */
+		>;
+	};
+
 	P9_14_gpio: P9-14-gpio-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x178, PIN_INPUT, 7) /* (U27) RGMII5_RD3.GPIO0_93 */
@@ -1530,6 +1536,12 @@
 	P9_16_uart6_txd: P9-16-uart6-txd-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x17C, PIN_OUTPUT, 3) /* (U24) RGMII5_RD2.UART6_TXD */
+		>;
+	};
+
+	P9_16_pwm: P9-16-pwm-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x17C, PIN_OUTPUT, 6) /* (U24) RGMII5_RD2.EHRPWM2_B */
 		>;
 	};
 
@@ -1842,6 +1854,12 @@
 	P9_22B_i2c: P9-22B-i2c-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x170, PIN_INPUT_PULLUP, 2) /* (U29) RGMII5_TXC.I2C6_SCL */
+		>;
+	};
+
+	P9_22B_pwm: P9-22B-pwm-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x170, PIN_OUTPUT, 6) /* (U29) RGMII5_TXC.EHRPWM1_B */
 		>;
 	};
 

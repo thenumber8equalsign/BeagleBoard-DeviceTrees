@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-2.0-only OR MIT
 /*
- * DT Overlay for P8_19 epwm0 connections within the expansion header.
+ * DT Overlay for P9_14 epwm2 connections within the expansion header.
  *
  * Copyright (C) 2023 Texas Instruments Incorporated - https://www.ti.com/
  *
@@ -17,21 +17,21 @@
 */
 &{/chosen} {
 	overlays {
-		k3-j721e-beagleboneai64-pwm-epwm0-p8_19.kernel = __TIMESTAMP__;
-		p8_19.3000000.pwm = "k3-j721e-beagleboneai64-pwm-epwm0-p8_19.3000000.0.P8_19";
+		k3-j721e-beagleboneai64-pwm-epwm2-p9_14.kernel = __TIMESTAMP__;
+		p9_14.3020000.pwm = "k3-j721e-beagleboneai64-pwm-epwm2-p9_14.3020000.0.P9_14";
 	};
 };
 
 &main_pmx0 {
-	P8_19_pwm: P8-19-pwm-pins {
+	P9_14_pwm: P9-14-pwm-pins {
 		pinctrl-single,pins = <
-			J721E_IOPAD(0x164, PIN_OUTPUT, 6) /* (V29) RGMII5_TD2.EHRPWM0_A */
+			J721E_IOPAD(0x178, PIN_OUTPUT, 6) /* (U27) RGMII5_RD3.EHRPWM2_A */
 		>;
 	};
 };
 
-&epwm0 {
+&epwm2 {
 	pinctrl-names = "default";
-	pinctrl-0 = <&P8_19_pwm>;
+	pinctrl-0 = <&P9_14_pwm>;
 	status = "okay";
 };

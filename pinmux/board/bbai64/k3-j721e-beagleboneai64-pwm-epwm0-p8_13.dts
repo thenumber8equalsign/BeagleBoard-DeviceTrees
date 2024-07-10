@@ -30,7 +30,7 @@
 	};
 };
 
-&main_ehrpwm0 {
+&epwm0 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&P8_13_pwm>;
 	status = "okay";

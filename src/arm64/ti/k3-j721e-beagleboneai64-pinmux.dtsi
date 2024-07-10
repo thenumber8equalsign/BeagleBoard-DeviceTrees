@@ -52,3 +52,11 @@ bone_i2c_1: &main_i2c6 {
 	/* BBB Header: P9.17 and P9.18 */
 	clock-frequency = <100000>;
 };
+
+epwm0: main_ehrpwm0 {
+	status = "okay";
+}
+
+epwm2: main_ehrpwm2 {
+	status = "okay";
+}
