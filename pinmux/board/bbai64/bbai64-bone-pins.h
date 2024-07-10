@@ -81,13 +81,11 @@
 #define gpio_p9_28b &main_gpio0 43	/* AF28: PRG0_PRU0_GPO0 P9_28B */
 #define gpio_p9_29a &main_gpio1 14	/* V5: TIMER_IO1 P9_29A */
 #define gpio_p9_29b &main_gpio0 53	/* AB25: PRG0_PRU0_GPO10 P9_29B */
-#define gpio_p9_30 gpio_p9_30A
-#define gpio_p9_30A &main_GPIO1 13	/* V6: TIMER_IO0 V6_AE28 */
-#define gpio_p9_30B &main_GPIO0 44	/* AE28: PRG0_PRU0_GPO1 V6_AE28 */
-#define gpio_p9_31 gpio_p9_31A
-#define gpio_p9_31A &main_GPIO1 12	/* U3: EXT_REFCLK1 U3_AB26 */
-#define gpio_p9_31B &main_GPIO0 52	/* AB26: PRG0_PRU0_GPO9 U3_AB26 */
-#define gpio_p9_33B &main_GPIO0 50	/* AC28: PRG0_PRU0_GPO7 K24_AC28 */
+#define gpio_p9_30a &main_gpio1 13	/* V6: TIMER_IO0 p9_30A */
+#define gpio_p9_30b &main_gpio0 44	/* AE28: PRG0_PRU0_GPO1 p9_30B */
+#define gpio_p9_31a &main_gpio1 12	/* U3: EXT_REFCLK1 p9_31A */
+#define gpio_p9_31b &main_gpio0 52	/* AB26: PRG0_PRU0_GPO9 p9_31B */
+#define gpio_p9_33b &main_gpio0 50	/* AC28: PRG0_PRU0_GPO7 p9_33B */
 #define gpio_p9_35B &main_GPIO0 55	/* AH27: PRG0_PRU0_GPO12 K29_AH27 */
 #define gpio_p9_36B &main_GPIO0 56	/* AH29: PRG0_PRU0_GPO13 K27_AH29 */
 #define gpio_p9_37B &main_GPIO0 57	/* AG28: PRG0_PRU0_GPO14 K28_AG28 */
@@ -180,12 +178,11 @@
 #define p9_28b(mode, mux) J721E_IOPAD(0xB0, mode, mux)	/* AF28: PRG0_PRU0_GPO0 P9_28B */
 #define p9_29a(mode, mux) J721E_IOPAD(0x23C, mode, mux)	/* V5: TIMER_IO1 P9_29A */
 #define p9_29b(mode, mux) J721E_IOPAD(0xD8, mode, mux)	/* AB25: PRG0_PRU0_GPO10 P9_29B */
-#define p9_30A(mode, mux) J721E_IOPAD(0x238, mode, mux)	/* V6: TIMER_IO0 V6_AE28 */
-#define p9_30B(mode, mux) J721E_IOPAD(0xB4, mode, mux)	/* AE28: PRG0_PRU0_GPO1 V6_AE28 */
-#define p9_31A(mode, mux) J721E_IOPAD(0x234, mode, mux)	/* U3: EXT_REFCLK1 U3_AB26 */
-#define p9_31B(mode, mux) J721E_IOPAD(0xD4, mode, mux)	/* AB26: PRG0_PRU0_GPO9 U3_AB26 */
-#define p9_33A(mode, mux) J721E_WKUP_IOPAD(0x140, mode, mux)	/* K24: MCU_ADC0_AIN4 K24_AC28 */
-#define p9_33B(mode, mux) J721E_IOPAD(0xCC, mode, mux)	/* AC28: PRG0_PRU0_GPO7 K24_AC28 */
+#define p9_30a(mode, mux) J721E_IOPAD(0x238, mode, mux)	/* V6: TIMER_IO0 p9_30A */
+#define p9_30b(mode, mux) J721E_IOPAD(0xB4, mode, mux)	/* AE28: PRG0_PRU0_GPO1 p9_30B */
+#define p9_31a(mode, mux) J721E_IOPAD(0x234, mode, mux)	/* U3: EXT_REFCLK1 p9_31A */
+#define p9_31b(mode, mux) J721E_IOPAD(0xD4, mode, mux)	/* AB26: PRG0_PRU0_GPO9 p9_31B */
+#define p9_33b(mode, mux) J721E_IOPAD(0xCC, mode, mux)	/* AC28: PRG0_PRU0_GPO7 p9_33B */
 #define p9_35A(mode, mux) J721E_WKUP_IOPAD(0x148, mode, mux)	/* K29: MCU_ADC0_AIN6 K29_AH27 */
 #define p9_35B(mode, mux) J721E_IOPAD(0xE0, mode, mux)	/* AH27: PRG0_PRU0_GPO12 K29_AH27 */
 #define p9_36A(mode, mux) J721E_WKUP_IOPAD(0x144, mode, mux)	/* K27: MCU_ADC0_AIN5 K27_AH29 */

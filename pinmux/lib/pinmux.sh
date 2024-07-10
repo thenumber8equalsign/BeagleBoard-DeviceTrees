@@ -297,6 +297,12 @@ find_pin () {
 			#core="mcu"
 			unset print_dts
 		;;
+		WKUP_GPIO*)
+			iopad="${mcu_iopad}"
+			type="gpio"
+			core="mcu"
+			export_dts="enable"
+		;;
 		WKUP_UART*_TXD)
 			iopad="${mcu_iopad}"
 			PIN_a="PIN_OUTPUT"

@@ -129,11 +129,12 @@ label="P9_28B" ; ball="AF28" ; sch="${label}" ; find_pin
 label="P9_29A" ; ball="V5"   ; sch="${label}" ; find_pin
 label="P9_29B" ; ball="AB25" ; sch="${label}" ; find_pin
 
-label="p9_30" ; ball_a="V6" ; ball_b="AE28"  ; sch="V6_AE28"    ; find_shared_pin
-label="p9_31" ; ball_a="U3" ; ball_b="AB26"  ; sch="U3_AB26"    ; find_shared_pin
-
-default="GPIO0"
-label="p9_33" ; ball_a="K24" ; ball_b="AC28" ; sch="K24_AC28"   ; find_shared_pin
+label="p9_30A" ; ball="V6"   ; sch="${label}" ; find_pin
+label="p9_30B" ; ball="AE28" ; sch="${label}" ; find_pin
+label="p9_31A" ; ball="U3"   ; sch="${label}" ; find_pin
+label="p9_31B" ; ball="AB26" ; sch="${label}" ; find_pin
+label="p9_33A" ; ball="K24"  ; sch="${label}" ; find_pin
+label="p9_33B" ; ball="AC28" ; sch="${label}" ; find_pin
 
 label="p9_35" ; ball_a="K29" ; ball_b="AH27" ; sch="K29_AH27"   ; find_shared_pin
 label="p9_36" ; ball_a="K27" ; ball_b="AH29" ; sch="K27_AH29"   ; find_shared_pin
