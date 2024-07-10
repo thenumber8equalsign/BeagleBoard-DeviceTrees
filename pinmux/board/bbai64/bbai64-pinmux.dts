@@ -1707,27 +1707,519 @@
 		>;
 	};
 
-	p9_23_gpio: p9-23-gpio-pins {
+	P9_20A_i2c: P9-20A-i2c-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x20C, PIN_INPUT_PULLUP, 4) /* (W6) MCAN0_TX.I2C2_SDA */
+		>;
+	};
+
+	P9_20A_gpio: P9-20A-gpio-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x20C, PIN_INPUT, 7) /* (W6) MCAN0_TX.GPIO1_2 */
+		>;
+	};
+
+	P9_20A_gpio_pu: P9-20A-gpio-pu-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x20C, PIN_INPUT_PULLUP, 7) /* (W6) MCAN0_TX.GPIO1_2 */
+		>;
+	};
+
+	P9_20A_gpio_pd: P9-20A-gpio-pd-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x20C, PIN_INPUT_PULLDOWN, 7) /* (W6) MCAN0_TX.GPIO1_2 */
+		>;
+	};
+
+	P9_20B_gpio: P9-20B-gpio-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x138, PIN_INPUT, 7) /* (AE25) PRG0_PRU1_GPO14.GPIO0_77 */
+		>;
+	};
+
+	P9_20B_gpio_pu: P9-20B-gpio-pu-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x138, PIN_INPUT_PULLUP, 7) /* (AE25) PRG0_PRU1_GPO14.GPIO0_77 */
+		>;
+	};
+
+	P9_20B_gpio_pd: P9-20B-gpio-pd-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x138, PIN_INPUT_PULLDOWN, 7) /* (AE25) PRG0_PRU1_GPO14.GPIO0_77 */
+		>;
+	};
+
+	P9_20B_audio: P9-20B-audio-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x138, PIN_INPUT, 12) /* (AE25) PRG0_PRU1_GPO14.MCASP2_AXR0 */
+		>;
+	};
+
+	P9_21A_gpio: P9-21A-gpio-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0xA0, PIN_INPUT, 7) /* (AJ22) PRG1_PRU1_GPO18.GPIO0_39 */
+		>;
+	};
+
+	P9_21A_gpio_pu: P9-21A-gpio-pu-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0xA0, PIN_INPUT_PULLUP, 7) /* (AJ22) PRG1_PRU1_GPO18.GPIO0_39 */
+		>;
+	};
+
+	P9_21A_gpio_pd: P9-21A-gpio-pd-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0xA0, PIN_INPUT_PULLDOWN, 7) /* (AJ22) PRG1_PRU1_GPO18.GPIO0_39 */
+		>;
+	};
+
+	P9_21A_audio: P9-21A-audio-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0xA0, PIN_INPUT, 12) /* (AJ22) PRG1_PRU1_GPO18.MCASP5_AXR0 */
+		>;
+	};
+
+	P9_21B_i2c: P9-21B-i2c-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x16C, PIN_INPUT_PULLUP, 2) /* (U28) RGMII5_TD0.I2C3_SDA */
+		>;
+	};
+
+	P9_21B_pwm: P9-21B-pwm-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x16C, PIN_OUTPUT, 6) /* (U28) RGMII5_TD0.EHRPWM1_A */
+		>;
+	};
+
+	P9_21B_gpio: P9-21B-gpio-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x16C, PIN_INPUT, 7) /* (U28) RGMII5_TD0.GPIO0_90 */
+		>;
+	};
+
+	P9_21B_gpio_pu: P9-21B-gpio-pu-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x16C, PIN_INPUT_PULLUP, 7) /* (U28) RGMII5_TD0.GPIO0_90 */
+		>;
+	};
+
+	P9_21B_gpio_pd: P9-21B-gpio-pd-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x16C, PIN_INPUT_PULLDOWN, 7) /* (U28) RGMII5_TD0.GPIO0_90 */
+		>;
+	};
+
+	P9_21B_audio: P9-21B-audio-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x16C, PIN_INPUT, 12) /* (U28) RGMII5_TD0.MCASP11_AFSX */
+		>;
+	};
+
+	P9_22A_gpio: P9-22A-gpio-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x9C, PIN_INPUT, 7) /* (AC22) PRG1_PRU1_GPO17.GPIO0_38 */
+		>;
+	};
+
+	P9_22A_gpio_pu: P9-22A-gpio-pu-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x9C, PIN_INPUT_PULLUP, 7) /* (AC22) PRG1_PRU1_GPO17.GPIO0_38 */
+		>;
+	};
+
+	P9_22A_gpio_pd: P9-22A-gpio-pd-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x9C, PIN_INPUT_PULLDOWN, 7) /* (AC22) PRG1_PRU1_GPO17.GPIO0_38 */
+		>;
+	};
+
+	P9_22A_audio: P9-22A-audio-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x9C, PIN_INPUT, 12) /* (AC22) PRG1_PRU1_GPO17.MCASP5_AFSX */
+		>;
+	};
+
+	P9_22B_i2c: P9-22B-i2c-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x170, PIN_INPUT_PULLUP, 2) /* (U29) RGMII5_TXC.I2C6_SCL */
+		>;
+	};
+
+	P9_22B_pwm: P9-22B-pwm-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x170, PIN_OUTPUT, 6) /* (U29) RGMII5_TXC.EHRPWM1_B */
+		>;
+	};
+
+	P9_22B_gpio: P9-22B-gpio-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x170, PIN_INPUT, 7) /* (U29) RGMII5_TXC.GPIO0_91 */
+		>;
+	};
+
+	P9_22B_gpio_pu: P9-22B-gpio-pu-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x170, PIN_INPUT_PULLUP, 7) /* (U29) RGMII5_TXC.GPIO0_91 */
+		>;
+	};
+
+	P9_22B_gpio_pd: P9-22B-gpio-pd-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x170, PIN_INPUT_PULLDOWN, 7) /* (U29) RGMII5_TXC.GPIO0_91 */
+		>;
+	};
+
+	P9_22B_audio: P9-22B-audio-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x170, PIN_INPUT, 12) /* (U29) RGMII5_TXC.MCASP10_AXR2 */
+		>;
+	};
+
+	P9_23_gpio: P9-23-gpio-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x28, PIN_INPUT, 7) /* (AG20) PRG1_PRU0_GPO9.GPIO0_10 */
 		>;
 	};
 
-	p9_23_gpio_pu: p9-23-gpio-pu-pins {
+	P9_23_gpio_pu: P9-23-gpio-pu-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x28, PIN_INPUT_PULLUP, 7) /* (AG20) PRG1_PRU0_GPO9.GPIO0_10 */
 		>;
 	};
 
-	p9_23_gpio_pd: p9-23-gpio-pd-pins {
+	P9_23_gpio_pd: P9-23-gpio-pd-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x28, PIN_INPUT_PULLDOWN, 7) /* (AG20) PRG1_PRU0_GPO9.GPIO0_10 */
 		>;
 	};
 
-	p9_23_audio: p9-23-audio-pins {
+	P9_23_audio: P9-23-audio-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x28, PIN_INPUT, 12) /* (AG20) PRG1_PRU0_GPO9.MCASP3_ACLKX */
+		>;
+	};
+
+	P9_24A_i2c: P9-24A-i2c-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x1E0, PIN_INPUT_PULLUP, 2) /* (Y5) SPI1_D0.I2C4_SCL */
+		>;
+	};
+
+	P9_24A_uart2_txd: P9-24A-uart2-txd-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x1E0, PIN_OUTPUT, 3) /* (Y5) SPI1_D0.UART2_TXD */
+		>;
+	};
+
+	P9_24A_gpio: P9-24A-gpio-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x1E0, PIN_INPUT, 7) /* (Y5) SPI1_D0.GPIO0_119 */
+		>;
+	};
+
+	P9_24A_gpio_pu: P9-24A-gpio-pu-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x1E0, PIN_INPUT_PULLUP, 7) /* (Y5) SPI1_D0.GPIO0_119 */
+		>;
+	};
+
+	P9_24A_gpio_pd: P9-24A-gpio-pd-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x1E0, PIN_INPUT_PULLDOWN, 7) /* (Y5) SPI1_D0.GPIO0_119 */
+		>;
+	};
+
+	P9_24B_gpio: P9-24B-gpio-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x34, PIN_INPUT, 7) /* (AJ24) PRG1_PRU0_GPO12.GPIO0_13 */
+		>;
+	};
+
+	P9_24B_gpio_pu: P9-24B-gpio-pu-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x34, PIN_INPUT_PULLUP, 7) /* (AJ24) PRG1_PRU0_GPO12.GPIO0_13 */
+		>;
+	};
+
+	P9_24B_gpio_pd: P9-24B-gpio-pd-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x34, PIN_INPUT_PULLDOWN, 7) /* (AJ24) PRG1_PRU0_GPO12.GPIO0_13 */
+		>;
+	};
+
+	P9_24B_audio: P9-24B-audio-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x34, PIN_INPUT, 12) /* (AJ24) PRG1_PRU0_GPO12.MCASP7_AFSX */
+		>;
+	};
+
+	P9_25A_spi: P9-25A-spi-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x200, PIN_INPUT, 4) /* (AC4) UART1_CTSn.SPI2_D0 */
+		>;
+	};
+
+	P9_25A_eqep: P9-25A-eqep-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x200, PIN_INPUT, 5) /* (AC4) UART1_CTSn.EQEP0_S */
+		>;
+	};
+
+	P9_25A_gpio: P9-25A-gpio-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x200, PIN_INPUT, 7) /* (AC4) UART1_CTSn.GPIO0_127 */
+		>;
+	};
+
+	P9_25A_gpio_pu: P9-25A-gpio-pu-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x200, PIN_INPUT_PULLUP, 7) /* (AC4) UART1_CTSn.GPIO0_127 */
+		>;
+	};
+
+	P9_25A_gpio_pd: P9-25A-gpio-pd-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x200, PIN_INPUT_PULLDOWN, 7) /* (AC4) UART1_CTSn.GPIO0_127 */
+		>;
+	};
+
+	P9_25B_gpio: P9-25B-gpio-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x1A4, PIN_INPUT, 7) /* (W26) RGMII6_RXC.GPIO0_104 */
+		>;
+	};
+
+	P9_25B_gpio_pu: P9-25B-gpio-pu-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x1A4, PIN_INPUT_PULLUP, 7) /* (W26) RGMII6_RXC.GPIO0_104 */
+		>;
+	};
+
+	P9_25B_gpio_pd: P9-25B-gpio-pd-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x1A4, PIN_INPUT_PULLDOWN, 7) /* (W26) RGMII6_RXC.GPIO0_104 */
+		>;
+	};
+
+	P9_25B_audio: P9-25B-audio-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x1A4, PIN_INPUT, 12) /* (W26) RGMII6_RXC.MCASP10_AXR7 */
+		>;
+	};
+
+	P9_26A_i2c: P9-26A-i2c-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x1DC, PIN_INPUT_PULLUP, 2) /* (Y1) SPI1_CLK.I2C4_SDA */
+		>;
+	};
+
+	P9_26A_uart2_rxd: P9-26A-uart2-rxd-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x1DC, PIN_INPUT, 3) /* (Y1) SPI1_CLK.UART2_RXD */
+		>;
+	};
+
+	P9_26A_gpio: P9-26A-gpio-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x1DC, PIN_INPUT, 7) /* (Y1) SPI1_CLK.GPIO0_118 */
+		>;
+	};
+
+	P9_26A_gpio_pu: P9-26A-gpio-pu-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x1DC, PIN_INPUT_PULLUP, 7) /* (Y1) SPI1_CLK.GPIO0_118 */
+		>;
+	};
+
+	P9_26A_gpio_pd: P9-26A-gpio-pd-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x1DC, PIN_INPUT_PULLDOWN, 7) /* (Y1) SPI1_CLK.GPIO0_118 */
+		>;
+	};
+
+	P9_26B_gpio: P9-26B-gpio-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x30, PIN_INPUT, 7) /* (AF24) PRG1_PRU0_GPO11.GPIO0_12 */
+		>;
+	};
+
+	P9_26B_gpio_pu: P9-26B-gpio-pu-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x30, PIN_INPUT_PULLUP, 7) /* (AF24) PRG1_PRU0_GPO11.GPIO0_12 */
+		>;
+	};
+
+	P9_26B_gpio_pd: P9-26B-gpio-pd-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x30, PIN_INPUT_PULLDOWN, 7) /* (AF24) PRG1_PRU0_GPO11.GPIO0_12 */
+		>;
+	};
+
+	P9_26B_audio: P9-26B-audio-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x30, PIN_INPUT, 12) /* (AF24) PRG1_PRU0_GPO11.MCASP7_ACLKX */
+		>;
+	};
+
+	P9_27A_gpio: P9-27A-gpio-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0xBC, PIN_INPUT, 7) /* (AD26) PRG0_PRU0_GPO3.GPIO0_46 */
+		>;
+	};
+
+	P9_27A_gpio_pu: P9-27A-gpio-pu-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0xBC, PIN_INPUT_PULLUP, 7) /* (AD26) PRG0_PRU0_GPO3.GPIO0_46 */
+		>;
+	};
+
+	P9_27A_gpio_pd: P9-27A-gpio-pd-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0xBC, PIN_INPUT_PULLDOWN, 7) /* (AD26) PRG0_PRU0_GPO3.GPIO0_46 */
+		>;
+	};
+
+	P9_27A_uart3_txd: P9-27A-uart3-txd-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0xBC, PIN_OUTPUT, 8) /* (AD26) PRG0_PRU0_GPO3.UART3_TXD */
+		>;
+	};
+
+	P9_27A_audio: P9-27A-audio-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0xBC, PIN_INPUT, 12) /* (AD26) PRG0_PRU0_GPO3.MCASP0_AFSR */
+		>;
+	};
+
+	P9_27B_spi: P9-27B-spi-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x1F4, PIN_INPUT, 4) /* (AB1) UART0_RTSn.SPI2_CLK */
+		>;
+	};
+
+	P9_27B_eqep: P9-27B-eqep-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x1F4, PIN_INPUT, 5) /* (AB1) UART0_RTSn.EQEP0_B */
+		>;
+	};
+
+	P9_27B_gpio: P9-27B-gpio-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x1F4, PIN_INPUT, 7) /* (AB1) UART0_RTSn.GPIO0_124 */
+		>;
+	};
+
+	P9_27B_gpio_pu: P9-27B-gpio-pu-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x1F4, PIN_INPUT_PULLUP, 7) /* (AB1) UART0_RTSn.GPIO0_124 */
+		>;
+	};
+
+	P9_27B_gpio_pd: P9-27B-gpio-pd-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x1F4, PIN_INPUT_PULLDOWN, 7) /* (AB1) UART0_RTSn.GPIO0_124 */
+		>;
+	};
+
+	P9_28A_pwm_ecap: P9-28A-pwm-ecap-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x230, PIN_OUTPUT, 0) /* (U2) ECAP0_IN_APWM_OUT */
+		>;
+	};
+
+	P9_28A_spi: P9-28A-spi-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x230, PIN_INPUT, 4) /* (U2) ECAP0_IN_APWM_OUT.SPI2_CS3 */
+		>;
+	};
+
+	P9_28A_gpio: P9-28A-gpio-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x230, PIN_INPUT, 7) /* (U2) ECAP0_IN_APWM_OUT.GPIO1_11 */
+		>;
+	};
+
+	P9_28A_gpio_pu: P9-28A-gpio-pu-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x230, PIN_INPUT_PULLUP, 7) /* (U2) ECAP0_IN_APWM_OUT.GPIO1_11 */
+		>;
+	};
+
+	P9_28A_gpio_pd: P9-28A-gpio-pd-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x230, PIN_INPUT_PULLDOWN, 7) /* (U2) ECAP0_IN_APWM_OUT.GPIO1_11 */
+		>;
+	};
+
+	P9_28B_gpio: P9-28B-gpio-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0xB0, PIN_INPUT, 7) /* (AF28) PRG0_PRU0_GPO0.GPIO0_43 */
+		>;
+	};
+
+	P9_28B_gpio_pu: P9-28B-gpio-pu-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0xB0, PIN_INPUT_PULLUP, 7) /* (AF28) PRG0_PRU0_GPO0.GPIO0_43 */
+		>;
+	};
+
+	P9_28B_gpio_pd: P9-28B-gpio-pd-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0xB0, PIN_INPUT_PULLDOWN, 7) /* (AF28) PRG0_PRU0_GPO0.GPIO0_43 */
+		>;
+	};
+
+	P9_28B_audio: P9-28B-audio-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0xB0, PIN_INPUT, 12) /* (AF28) PRG0_PRU0_GPO0.MCASP0_AXR0 */
+		>;
+	};
+
+	P9_29A_pwm_ecap: P9-29A-pwm-ecap-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x23C, PIN_OUTPUT, 1) /* (V5) TIMER_IO1.ECAP2_IN_APWM_OUT */
+		>;
+	};
+
+	P9_29A_gpio: P9-29A-gpio-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x23C, PIN_INPUT, 7) /* (V5) TIMER_IO1.GPIO1_14 */
+		>;
+	};
+
+	P9_29A_gpio_pu: P9-29A-gpio-pu-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x23C, PIN_INPUT_PULLUP, 7) /* (V5) TIMER_IO1.GPIO1_14 */
+		>;
+	};
+
+	P9_29A_gpio_pd: P9-29A-gpio-pd-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x23C, PIN_INPUT_PULLDOWN, 7) /* (V5) TIMER_IO1.GPIO1_14 */
+		>;
+	};
+
+	P9_29B_gpio: P9-29B-gpio-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0xD8, PIN_INPUT, 7) /* (AB25) PRG0_PRU0_GPO10.GPIO0_53 */
+		>;
+	};
+
+	P9_29B_gpio_pu: P9-29B-gpio-pu-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0xD8, PIN_INPUT_PULLUP, 7) /* (AB25) PRG0_PRU0_GPO10.GPIO0_53 */
+		>;
+	};
+
+	P9_29B_gpio_pd: P9-29B-gpio-pd-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0xD8, PIN_INPUT_PULLDOWN, 7) /* (AB25) PRG0_PRU0_GPO10.GPIO0_53 */
+		>;
+	};
+
+	P9_29B_audio: P9-29B-audio-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0xD8, PIN_INPUT, 12) /* (AB25) PRG0_PRU0_GPO10.MCASP0_AFSX */
 		>;
 	};
 
