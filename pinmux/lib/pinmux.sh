@@ -485,60 +485,6 @@ find_pin () {
 			;;
 		esac
 	done
-
-	label=$(echo ${label} | awk '{print tolower($0)}' || true)
-	echo "	/* ${label} (${ball}) ${PinID_a} (${gpio_name_a}) ${sch} */" >> ${file}.dts
-	echo "	BONE_PIN(${label}, default,   ${label}(PIN_INPUT, ${default_mode_a}))" >> ${file}.dts
-
-	if [ "x${got_pruout_a}" = "xyes" ] ; then
-		echo "	BONE_PIN(${label}, pruout,    ${label}(PIN_OUTPUT, ${pruout_mode_a}))	/* ${pruout_name_a} */" >> ${file}.dts
-	fi
-
-	if [ "x${got_pruin_a}" = "xyes" ] ; then
-		echo "	BONE_PIN(${label}, pruin,     ${label}(PIN_INPUT, ${pruin_mode_a}))		/* ${pruin_name_a} */" >> ${file}.dts
-	fi
-
-	if [ "x${got_mcan_a}" = "xyes" ] ; then
-		echo "	BONE_PIN(${label}, can,       ${label}(${mcan_pinmux_a}, ${mcan_mode_a}))	/* ${mcan_name_a} */" >> ${file}.dts
-	fi
-
-	if [ "x${got_gpio_a}" = "xyes" ] ; then
-		echo "	BONE_PIN(${label}, gpio,      ${label}(PIN_INPUT, ${gpio_mode_a}))" >> ${file}.dts
-		echo "	BONE_PIN(${label}, gpio_pu,   ${label}(PIN_INPUT_PULLUP, ${gpio_mode_a}))" >> ${file}.dts
-		echo "	BONE_PIN(${label}, gpio_pd,   ${label}(PIN_INPUT_PULLDOWN, ${gpio_mode_a}))" >> ${file}.dts
-	fi
-
-	if [ "x${got_i2c_a}" = "xyes" ] ; then
-		echo "	BONE_PIN(${label}, i2c,       ${label}(PIN_INPUT_PULLUP, ${i2c_mode_a}))	/* ${i2c_name_a} */" >> ${file}.dts
-	fi
-
-	if [ "x${got_ehrpwm_a}" = "xyes" ] ; then
-		echo "	BONE_PIN(${label}, pwm,       ${label}(PIN_OUTPUT, ${ehrpwm_mode_a}))	/* ${ehrpwm_name_a} */" >> ${file}.dts
-	fi
-
-	if [ "x${got_dmtimer_a}" = "xyes" ] ; then
-		echo "	BONE_PIN(${label}, timer,     ${label}(PIN_OUTPUT, ${dmtimer_mode_a}))	/* ${dmtimer_name_a} */" >> ${file}.dts
-	fi
-
-	if [ "x${got_eqep_a}" = "xyes" ] ; then
-		echo "	BONE_PIN(${label}, qep,       ${label}(PIN_INPUT, ${eqep_mode_a}))	/* ${eqep_name_a} */" >> ${file}.dts
-	fi
-
-	if [ "x${got_spi_a}" = "xyes" ] ; then
-		echo "	BONE_PIN(${label}, spi,       ${label}(PIN_OUTPUT, ${spi_mode_a}))	/* ${spi_name_a} */" >> ${file}.dts
-	fi
-
-	if [ "x${got_uart_a}" = "xyes" ] ; then
-		echo "	BONE_PIN(${label}, uart,      ${label}(${uart_pinmux_a}, ${uart_mode_a}))	/* ${uart_name_a} */" >> ${file}.dts
-	fi
-
-	echo "" >>${file}.dts
-
-	if [ "x${got_gpio_a}" = "xyes" ] ; then
-		gpio_pinmux=$(echo ${gpio_name_a} | awk '{print tolower($0)}' | sed 's/_/ /g')
-		echo "#define gpio_${label} &main_${gpio_pinmux}	/* ${ball}: ${PinID_a} ${sch} */" >> ${file}-a-bone-pins.h
-		echo "#define ${label}(mode, mux) J721E_IOPAD(${cro_a}, mode, mux)	/* ${ball}: ${PinID_a} ${sch} */" >> ${file}-b-bone-pins.h
-	fi
 }
 
 if [ ! -f ${json_file} ] ; then

@@ -16,9 +16,6 @@ fi
 file="./board/${board}/beagley_ai"
 k3file="./board/${board}/k3-am67a-beagley-ai"
 
-echo "" >${file}-pinmux.dts
-echo "" >${file}-a-bone-pins.h
-echo "" >${file}-b-bone-pins.h
 echo "" >${file}-bone-pins.h
 echo "" >${file}-pins.txt
 
@@ -38,8 +35,6 @@ echo "&main_pmx0 {" >>${file}-main-pinmux.txt
 echo "};" >${file}-mcu-pinmux.txt
 echo "" >>${file}-mcu-pinmux.txt
 echo "&mcu_pmx0 {" >>${file}-mcu-pinmux.txt
-
-echo "/* macro:  */" >${file}.dts
 
 #1: 3v3
 #2: 5V power
@@ -129,13 +124,7 @@ label="hat_38" ; ball="F23" ; sch="GPIO20"; find_pin
 #40: GPIO 21
 label="hat_40" ; ball="B25" ; sch="GPIO21"; find_pin
 
-msg="" ; echo_both
-
-cat ${file}-pinmux.dts >> ${file}.dts
-
-rm -rf ${file}-pinmux.dts || true
-
-cat ${file}-pinmux.txt >> ${file}-pinmux.dts
+cat ${file}-pinmux.txt > ${file}-pinmux.dts
 cat ${file}-main-pinmux.txt >> ${file}-pinmux.dts
 cat ${file}-mcu-pinmux.txt >> ${file}-pinmux.dts
 
@@ -164,9 +153,4 @@ echo "};" >>${file}-pinmux.dts
 rm ${file}-pinmux.txt || true
 rm ${file}-main-pinmux.txt || true
 rm ${file}-mcu-pinmux.txt || true
-
-cat ${file}-a-bone-pins.h >> ${file}-bone-pins.h
-cat ${file}-b-bone-pins.h >> ${file}-bone-pins.h
-
-rm -rf ${file}-a-bone-pins.h || true
-rm -rf ${file}-b-bone-pins.h || true
+#

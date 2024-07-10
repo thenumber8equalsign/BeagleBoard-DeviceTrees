@@ -16,9 +16,6 @@ fi
 file="./board/${board}/bbai64"
 k3file="./board/${board}/k3-j721e-beagleboneai64"
 
-echo "" >${file}-pinmux.dts
-echo "" >${file}-a-bone-pins.h
-echo "" >${file}-b-bone-pins.h
 echo "" >${file}-bone-pins.h
 echo "" >${file}-pins.txt
 
@@ -38,8 +35,6 @@ echo "&main_pmx0 {" >>${file}-main-pinmux.txt
 echo "};" >${file}-mcu-pinmux.txt
 echo "" >>${file}-mcu-pinmux.txt
 echo "&mcu_pmx0 {" >>${file}-mcu-pinmux.txt
-
-echo "/* macro:  */" >${file}.dts
 
 label="P8_03" ; ball="AH21" ; sch="${label}" ; find_pin
 label="P8_04" ; ball="AC29" ; sch="${label}" ; find_pin
@@ -154,13 +149,7 @@ label="P9_41"  ; ball="AD5"  ; sch="${label}" ; find_pin
 label="P9_42A" ; ball="AC2"  ; sch="${label}" ; find_pin
 label="P9_42B" ; ball="AJ21" ; sch="${label}" ; find_pin
 
-msg="" ; echo_both
-
-cat ${file}-pinmux.dts >> ${file}.dts
-
-rm -rf ${file}-pinmux.dts || true
-
-cat ${file}-pinmux.txt >> ${file}-pinmux.dts
+cat ${file}-pinmux.txt > ${file}-pinmux.dts
 cat ${file}-main-pinmux.txt >> ${file}-pinmux.dts
 cat ${file}-mcu-pinmux.txt >> ${file}-pinmux.dts
 
@@ -170,9 +159,4 @@ echo "" >>${file}-pinmux.dts
 rm ${file}-pinmux.txt || true
 rm ${file}-main-pinmux.txt || true
 rm ${file}-mcu-pinmux.txt || true
-
-cat ${file}-a-bone-pins.h >> ${file}-bone-pins.h
-cat ${file}-b-bone-pins.h >> ${file}-bone-pins.h
-
-rm -rf ${file}-a-bone-pins.h || true
-rm -rf ${file}-b-bone-pins.h || true
+#
