@@ -143,9 +143,10 @@ label="P9_36A" ; ball="K27"  ; sch="${label}" ; find_pin
 label="P9_36B" ; ball="AH29" ; sch="${label}" ; find_pin
 label="P9_37A" ; ball="K28"  ; sch="${label}" ; find_pin
 label="P9_37B" ; ball="AG28" ; sch="${label}" ; find_pin
-
-label="p9_38" ; ball_a="L28" ; ball_b="AG27" ; sch="L28_AG27"   ; find_shared_pin
-label="p9_39" ; ball_a="K25" ; ball_b="AJ28" ; sch="K25_AJ28"   ; find_shared_pin
+label="P9_38A" ; ball="L28"  ; sch="${label}" ; find_pin
+label="P9_38B" ; ball="AG27" ; sch="${label}" ; find_pin
+label="P9_39A" ; ball="K25"  ; sch="${label}" ; find_pin
+label="P9_39B" ; ball="AJ28" ; sch="${label}" ; find_pin
 
 label="p9_40" ; ball_a="K26" ; ball_b="AA26" ; sch="K26_AA26"   ; find_shared_pin
 default="GPIO1"

@@ -2421,6 +2421,60 @@
 		>;
 	};
 
+	P9_38B_gpio: P9-38B-gpio-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0xEC, PIN_INPUT, 7) /* (AG27) PRG0_PRU0_GPO15.GPIO0_58 */
+		>;
+	};
+
+	P9_38B_gpio_pu: P9-38B-gpio-pu-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0xEC, PIN_INPUT_PULLUP, 7) /* (AG27) PRG0_PRU0_GPO15.GPIO0_58 */
+		>;
+	};
+
+	P9_38B_gpio_pd: P9-38B-gpio-pd-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0xEC, PIN_INPUT_PULLDOWN, 7) /* (AG27) PRG0_PRU0_GPO15.GPIO0_58 */
+		>;
+	};
+
+	P9_38B_uart4_txd: P9-38B-uart4-txd-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0xEC, PIN_OUTPUT, 8) /* (AG27) PRG0_PRU0_GPO15.UART4_TXD */
+		>;
+	};
+
+	P9_38B_audio: P9-38B-audio-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0xEC, PIN_INPUT, 12) /* (AG27) PRG0_PRU0_GPO15.MCASP0_AXR11 */
+		>;
+	};
+
+	P9_39B_gpio: P9-39B-gpio-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0xDC, PIN_INPUT, 7) /* (AJ28) PRG0_PRU0_GPO11.GPIO0_54 */
+		>;
+	};
+
+	P9_39B_gpio_pu: P9-39B-gpio-pu-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0xDC, PIN_INPUT_PULLUP, 7) /* (AJ28) PRG0_PRU0_GPO11.GPIO0_54 */
+		>;
+	};
+
+	P9_39B_gpio_pd: P9-39B-gpio-pd-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0xDC, PIN_INPUT_PULLDOWN, 7) /* (AJ28) PRG0_PRU0_GPO11.GPIO0_54 */
+		>;
+	};
+
+	P9_39B_audio: P9-39B-audio-pins {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0xDC, PIN_INPUT, 12) /* (AJ28) PRG0_PRU0_GPO11.MCASP0_AXR7 */
+		>;
+	};
+
 	p9_41_spi: p9-41-spi-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x204, PIN_INPUT, 4) /* (AD5) UART1_RTSn.SPI2_D1 */
@@ -2523,6 +2577,42 @@
 	P9_37A_gpio_pd: P9-37A-gpio-pd-pins {
 		pinctrl-single,pins = <
 			J721E_WKUP_IOPAD(0x138, PIN_INPUT_PULLDOWN, 7) /* (K28) MCU_ADC0_AIN2.WKUP_GPIO0_70 */
+		>;
+	};
+
+	P9_38A_gpio: P9-38A-gpio-pins {
+		pinctrl-single,pins = <
+			J721E_WKUP_IOPAD(0x13C, PIN_INPUT, 7) /* (L28) MCU_ADC0_AIN3.WKUP_GPIO0_71 */
+		>;
+	};
+
+	P9_38A_gpio_pu: P9-38A-gpio-pu-pins {
+		pinctrl-single,pins = <
+			J721E_WKUP_IOPAD(0x13C, PIN_INPUT_PULLUP, 7) /* (L28) MCU_ADC0_AIN3.WKUP_GPIO0_71 */
+		>;
+	};
+
+	P9_38A_gpio_pd: P9-38A-gpio-pd-pins {
+		pinctrl-single,pins = <
+			J721E_WKUP_IOPAD(0x13C, PIN_INPUT_PULLDOWN, 7) /* (L28) MCU_ADC0_AIN3.WKUP_GPIO0_71 */
+		>;
+	};
+
+	P9_39A_gpio: P9-39A-gpio-pins {
+		pinctrl-single,pins = <
+			J721E_WKUP_IOPAD(0x130, PIN_INPUT, 7) /* (K25) MCU_ADC0_AIN0.WKUP_GPIO0_68 */
+		>;
+	};
+
+	P9_39A_gpio_pu: P9-39A-gpio-pu-pins {
+		pinctrl-single,pins = <
+			J721E_WKUP_IOPAD(0x130, PIN_INPUT_PULLUP, 7) /* (K25) MCU_ADC0_AIN0.WKUP_GPIO0_68 */
+		>;
+	};
+
+	P9_39A_gpio_pd: P9-39A-gpio-pd-pins {
+		pinctrl-single,pins = <
+			J721E_WKUP_IOPAD(0x130, PIN_INPUT_PULLDOWN, 7) /* (K25) MCU_ADC0_AIN0.WKUP_GPIO0_68 */
 		>;
 	};
 
