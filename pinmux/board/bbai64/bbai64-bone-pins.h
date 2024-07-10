@@ -91,11 +91,10 @@
 #define gpio_p9_37b &main_gpio0 57	/* AG28: PRG0_PRU0_GPO14 P9_37B */
 #define gpio_p9_38b &main_gpio0 58	/* AG27: PRG0_PRU0_GPO15 P9_38B */
 #define gpio_p9_39b &main_gpio0 54	/* AJ28: PRG0_PRU0_GPO11 P9_39B */
-#define gpio_p9_40B &main_GPIO0 81	/* AA26: PRG0_PRU1_GPO18 K26_AA26 */
-#define gpio_p9_41 &main_gpio1 0	/* AD5: UART1_RTSn AD5_EQEP0_I */
-#define gpio_p9_42 gpio_p9_42A
-#define gpio_p9_42A &main_GPIO0 123	/* AC2: UART0_CTSn AC2_AJ21 */
-#define gpio_p9_42B &main_GPIO0 18	/* AJ21: PRG1_PRU0_GPO17 AC2_AJ21 */
+#define gpio_p9_40b &main_gpio0 81	/* AA26: PRG0_PRU1_GPO18 P9_40B */
+#define gpio_p9_41 &main_gpio1 0	/* AD5: UART1_RTSn P9_41 */
+#define gpio_p9_42a &main_gpio0 123	/* AC2: UART0_CTSn P9_42A */
+#define gpio_p9_42b &main_gpio0 18	/* AJ21: PRG1_PRU0_GPO17 P9_42B */
 
 #define p8_03(mode, mux) J721E_IOPAD(0x54, mode, mux)	/* AH21: PRG1_PRU0_GPO19 P8_03 */
 #define p8_04(mode, mux) J721E_IOPAD(0xC4, mode, mux)	/* AC29: PRG0_PRU0_GPO5 P8_04 */
@@ -188,8 +187,7 @@
 #define p9_37b(mode, mux) J721E_IOPAD(0xE8, mode, mux)	/* AG28: PRG0_PRU0_GPO14 P9_37B */
 #define p9_38b(mode, mux) J721E_IOPAD(0xEC, mode, mux)	/* AG27: PRG0_PRU0_GPO15 P9_38B */
 #define p9_39b(mode, mux) J721E_IOPAD(0xDC, mode, mux)	/* AJ28: PRG0_PRU0_GPO11 P9_39B */
-#define p9_40A(mode, mux) J721E_WKUP_IOPAD(0x134, mode, mux)	/* K26: MCU_ADC0_AIN1 K26_AA26 */
-#define p9_40B(mode, mux) J721E_IOPAD(0x148, mode, mux)	/* AA26: PRG0_PRU1_GPO18 K26_AA26 */
-#define p9_41(mode, mux) J721E_IOPAD(0x204, mode, mux)	/* AD5: UART1_RTSn AD5_EQEP0_I */
-#define p9_42A(mode, mux) J721E_IOPAD(0x1F0, mode, mux)	/* AC2: UART0_CTSn AC2_AJ21 */
-#define p9_42B(mode, mux) J721E_IOPAD(0x4C, mode, mux)	/* AJ21: PRG1_PRU0_GPO17 AC2_AJ21 */
+#define p9_40b(mode, mux) J721E_IOPAD(0x148, mode, mux)	/* AA26: PRG0_PRU1_GPO18 P9_40B */
+#define p9_41(mode, mux) J721E_IOPAD(0x204, mode, mux)	/* AD5: UART1_RTSn P9_41 */
+#define p9_42a(mode, mux) J721E_IOPAD(0x1F0, mode, mux)	/* AC2: UART0_CTSn P9_42A */
+#define p9_42b(mode, mux) J721E_IOPAD(0x4C, mode, mux)	/* AJ21: PRG1_PRU0_GPO17 P9_42B */

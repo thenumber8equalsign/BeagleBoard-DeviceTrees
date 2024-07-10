@@ -148,11 +148,11 @@ label="P9_38B" ; ball="AG27" ; sch="${label}" ; find_pin
 label="P9_39A" ; ball="K25"  ; sch="${label}" ; find_pin
 label="P9_39B" ; ball="AJ28" ; sch="${label}" ; find_pin
 
-label="p9_40" ; ball_a="K26" ; ball_b="AA26" ; sch="K26_AA26"   ; find_shared_pin
-default="GPIO1"
-label="p9_41" ; ball="AD5" ; sch="AD5_EQEP0_I"                  ; find_pin
-default="GPIO0"
-label="p9_42" ; ball_a="AC2" ; ball_b="AJ21" ; sch="AC2_AJ21"   ; find_shared_pin
+label="P9_40A" ; ball="K26"  ; sch="${label}" ; find_pin
+label="P9_40B" ; ball="AA26" ; sch="${label}" ; find_pin
+label="P9_41"  ; ball="AD5"  ; sch="${label}" ; find_pin
+label="P9_42A" ; ball="AC2"  ; sch="${label}" ; find_pin
+label="P9_42B" ; ball="AJ21" ; sch="${label}" ; find_pin
 
 msg="" ; echo_both
 
@@ -164,6 +164,9 @@ cat ${file}-pinmux.txt >> ${file}-pinmux.dts
 cat ${file}-main-pinmux.txt >> ${file}-pinmux.dts
 cat ${file}-mcu-pinmux.txt >> ${file}-pinmux.dts
 
+echo "};" >>${file}-pinmux.dts
+echo "" >>${file}-pinmux.dts
+
 rm ${file}-pinmux.txt || true
 rm ${file}-main-pinmux.txt || true
 rm ${file}-mcu-pinmux.txt || true
@@ -173,4 +176,3 @@ cat ${file}-b-bone-pins.h >> ${file}-bone-pins.h
 
 rm -rf ${file}-a-bone-pins.h || true
 rm -rf ${file}-b-bone-pins.h || true
-

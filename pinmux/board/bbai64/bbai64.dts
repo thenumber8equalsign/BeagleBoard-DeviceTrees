@@ -621,28 +621,37 @@
 	BONE_PIN(p9_39b, gpio_pu,   p9_39b(PIN_INPUT_PULLUP, 7))
 	BONE_PIN(p9_39b, gpio_pd,   p9_39b(PIN_INPUT_PULLDOWN, 7))
 
-	/* p9_40 (K26/AA26) MCU_ADC0_AIN1/PRG0_PRU1_GPO18 (GPIO0_81) K26_AA26 */
-	BONE_PIN(p9_40, default,   p9_40B(PIN_INPUT, ))
-	BONE_PIN(p9_40, gpio,      p9_40B(PIN_INPUT, 7))
-	BONE_PIN(p9_40, gpio_pu,   p9_40B(PIN_INPUT_PULLUP, 7))
-	BONE_PIN(p9_40, gpio_pd,   p9_40B(PIN_INPUT_PULLDOWN, 7))
-	BONE_PIN(p9_40, uart,      p9_40B(PIN_INPUT, 14))	/* UART2_RXD */
+	/* p9_40a (K26) MCU_ADC0_AIN1 (GPIO0_54) P9_40A */
+	BONE_PIN(p9_40a, default,   p9_40a(PIN_INPUT, ))
 
-	/* p9_41 (AD5) UART1_RTSn (GPIO1_0) AD5_EQEP0_I */
-	BONE_PIN(p9_41, default,   p9_41(PIN_INPUT, 7))
+	/* p9_40b (AA26) PRG0_PRU1_GPO18 (GPIO0_81) P9_40B */
+	BONE_PIN(p9_40b, default,   p9_40b(PIN_INPUT, ))
+	BONE_PIN(p9_40b, gpio,      p9_40b(PIN_INPUT, 7))
+	BONE_PIN(p9_40b, gpio_pu,   p9_40b(PIN_INPUT_PULLUP, 7))
+	BONE_PIN(p9_40b, gpio_pd,   p9_40b(PIN_INPUT_PULLDOWN, 7))
+	BONE_PIN(p9_40b, uart,      p9_40b(PIN_INPUT, 14))	/* UART2_RXD */
+
+	/* p9_41 (AD5) UART1_RTSn (GPIO1_0) P9_41 */
+	BONE_PIN(p9_41, default,   p9_41(PIN_INPUT, ))
 	BONE_PIN(p9_41, gpio,      p9_41(PIN_INPUT, 7))
 	BONE_PIN(p9_41, gpio_pu,   p9_41(PIN_INPUT_PULLUP, 7))
 	BONE_PIN(p9_41, gpio_pd,   p9_41(PIN_INPUT_PULLDOWN, 7))
 	BONE_PIN(p9_41, qep,       p9_41(PIN_INPUT, 5))	/* EQEP0_I */
 
-	/* p9_42 (AC2/AJ21) UART0_CTSn/PRG1_PRU0_GPO17 (GPIO0_123/GPIO0_18) AC2_AJ21 */
-	BONE_PIN(p9_42, default,   p9_42A(PIN_INPUT, 7) p9_42B(PIN_INPUT, 7))
-	BONE_PIN(p9_42, can,       p9_42A(PIN_INPUT, 7) p9_42B(PIN_OUTPUT, 6) )	/* MCAN5_TX */
-	BONE_PIN(p9_42, gpio,      p9_42A(PIN_INPUT, 7) p9_42B(PIN_INPUT, 7))	/* GPIO0_123 */
-	BONE_PIN(p9_42, gpio_pu,   p9_42A(PIN_INPUT_PULLUP, 7) p9_42B(PIN_INPUT, 7))
-	BONE_PIN(p9_42, gpio_pd,   p9_42A(PIN_INPUT_PULLDOWN, 7) p9_42B(PIN_INPUT, 7))
-	BONE_PIN(p9_42, timer,     p9_42A(PIN_OUTPUT, 1) p9_42B(PIN_INPUT, 7))	/* TIMER_IO6 */
-	BONE_PIN(p9_42, qep,       p9_42A(PIN_INPUT, 5) p9_42B(PIN_INPUT, 7))	/* EQEP0_A */
+	/* p9_42a (AC2) UART0_CTSn (GPIO0_123) P9_42A */
+	BONE_PIN(p9_42a, default,   p9_42a(PIN_INPUT, ))
+	BONE_PIN(p9_42a, gpio,      p9_42a(PIN_INPUT, 7))
+	BONE_PIN(p9_42a, gpio_pu,   p9_42a(PIN_INPUT_PULLUP, 7))
+	BONE_PIN(p9_42a, gpio_pd,   p9_42a(PIN_INPUT_PULLDOWN, 7))
+	BONE_PIN(p9_42a, timer,     p9_42a(PIN_OUTPUT, 1))	/* TIMER_IO6 */
+	BONE_PIN(p9_42a, qep,       p9_42a(PIN_INPUT, 5))	/* EQEP0_A */
+
+	/* p9_42b (AJ21) PRG1_PRU0_GPO17 (GPIO0_18) P9_42B */
+	BONE_PIN(p9_42b, default,   p9_42b(PIN_INPUT, ))
+	BONE_PIN(p9_42b, can,       p9_42b(PIN_OUTPUT, 6))	/* MCAN5_TX */
+	BONE_PIN(p9_42b, gpio,      p9_42b(PIN_INPUT, 7))
+	BONE_PIN(p9_42b, gpio_pu,   p9_42b(PIN_INPUT_PULLUP, 7))
+	BONE_PIN(p9_42b, gpio_pd,   p9_42b(PIN_INPUT_PULLDOWN, 7))
 
 
 
