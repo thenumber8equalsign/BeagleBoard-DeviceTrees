@@ -2591,7 +2591,7 @@
 
 };
 
-&mcu_pmx0 {
+&wkup_pmx0 {
 	P9_33A_gpio: P9-33A-gpio-pins {
 		pinctrl-single,pins = <
 			J721E_WKUP_IOPAD(0x140, PIN_INPUT, 7) /* (K24) MCU_ADC0_AIN4.WKUP_GPIO0_72 */

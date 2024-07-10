@@ -321,9 +321,9 @@ find_pin () {
 			echo "${name_a}"
 			labela=$(echo ${label} | sed 's/_/-/g' || true)
 			if [ "x${json_dir}" = "xJ722S_TDA4VEN_TDA4AEN_AM67" ] ; then
-				cro_aa=$(echo ${cro_a} | sed 's/^...//' || true)
+				cro_aa="0x$(echo ${cro_a} | sed 's/^...//' || true)"
 			else
-				cro_aa=$(echo ${cro_a} | sed 's/^..//' || true)
+				cro_aa="${cro_a}"
 			fi
 			typeu=$(echo ${type} | sed 's/-/_/g' || true)
 			gpio_sch=$(echo ${sch} | awk '{print tolower($0)}' || true)
@@ -343,9 +343,9 @@ find_pin () {
 				echo "	${label}_${typeu}: ${labela}-${type}-pins {" >> ${pwm_overlay_file}
 				echo "		pinctrl-single,pins = <" >> ${pwm_overlay_file}
 				if [ "x${mode_a}" = "x0" ] ; then
-					echo "			${iopad}(0x${cro_aa}, ${PIN_a}, ${mode_a}) /* (${found_ball_a}) ${interface} */" >> ${pwm_overlay_file}
+					echo "			${iopad}(${cro_aa}, ${PIN_a}, ${mode_a}) /* (${found_ball_a}) ${interface} */" >> ${pwm_overlay_file}
 				else
-					echo "			${iopad}(0x${cro_aa}, ${PIN_a}, ${mode_a}) /* (${found_ball_a}) ${interface}.${name_a} */" >> ${pwm_overlay_file}
+					echo "			${iopad}(${cro_aa}, ${PIN_a}, ${mode_a}) /* (${found_ball_a}) ${interface}.${name_a} */" >> ${pwm_overlay_file}
 				fi
 				echo "		>;" >> ${pwm_overlay_file}
 				echo "	};" >> ${pwm_overlay_file}
@@ -363,9 +363,9 @@ find_pin () {
 				#echo "		/* ${label}:${interface_a}:${found_ball_a}:${name_a}:${mode_a}:${ioDir_a}: */" >> ${file}-${core}-pinmux.txt
 				echo "		pinctrl-single,pins = <" >> ${file}-${core}-pinmux.txt
 				if [ "x${mode_a}" = "x0" ] ; then
-					echo "			${iopad}(0x${cro_aa}, ${PIN_a}, ${mode_a}) /* (${found_ball_a}) ${interface} */" >> ${file}-${core}-pinmux.txt
+					echo "			${iopad}(${cro_aa}, ${PIN_a}, ${mode_a}) /* (${found_ball_a}) ${interface} */" >> ${file}-${core}-pinmux.txt
 				else
-					echo "			${iopad}(0x${cro_aa}, ${PIN_a}, ${mode_a}) /* (${found_ball_a}) ${interface}.${name_a} */" >> ${file}-${core}-pinmux.txt
+					echo "			${iopad}(${cro_aa}, ${PIN_a}, ${mode_a}) /* (${found_ball_a}) ${interface}.${name_a} */" >> ${file}-${core}-pinmux.txt
 				fi
 				echo "		>;" >> ${file}-${core}-pinmux.txt
 				echo "	};" >> ${file}-${core}-pinmux.txt
@@ -376,9 +376,9 @@ find_pin () {
 				echo "	${label}_${typeu}_pu: ${labela}-${type}-pu-pins {" >> ${file}-${core}-pinmux.txt
 				echo "		pinctrl-single,pins = <" >> ${file}-${core}-pinmux.txt
 				if [ "x${mode_a}" = "x0" ] ; then
-					echo "			${iopad}(0x${cro_aa}, PIN_INPUT_PULLUP, ${mode_a}) /* (${found_ball_a}) ${interface} */" >> ${file}-${core}-pinmux.txt
+					echo "			${iopad}(${cro_aa}, PIN_INPUT_PULLUP, ${mode_a}) /* (${found_ball_a}) ${interface} */" >> ${file}-${core}-pinmux.txt
 				else
-					echo "			${iopad}(0x${cro_aa}, PIN_INPUT_PULLUP, ${mode_a}) /* (${found_ball_a}) ${interface}.${name_a} */" >> ${file}-${core}-pinmux.txt
+					echo "			${iopad}(${cro_aa}, PIN_INPUT_PULLUP, ${mode_a}) /* (${found_ball_a}) ${interface}.${name_a} */" >> ${file}-${core}-pinmux.txt
 				fi
 				echo "		>;" >> ${file}-${core}-pinmux.txt
 				echo "	};" >> ${file}-${core}-pinmux.txt
@@ -387,103 +387,15 @@ find_pin () {
 				echo "	${label}_${typeu}_pd: ${labela}-${type}-pd-pins {" >> ${file}-${core}-pinmux.txt
 				echo "		pinctrl-single,pins = <" >> ${file}-${core}-pinmux.txt
 				if [ "x${mode_a}" = "x0" ] ; then
-					echo "			${iopad}(0x${cro_aa}, PIN_INPUT_PULLDOWN, ${mode_a}) /* (${found_ball_a}) ${interface} */" >> ${file}-${core}-pinmux.txt
+					echo "			${iopad}(${cro_aa}, PIN_INPUT_PULLDOWN, ${mode_a}) /* (${found_ball_a}) ${interface} */" >> ${file}-${core}-pinmux.txt
 				else
-					echo "			${iopad}(0x${cro_aa}, PIN_INPUT_PULLDOWN, ${mode_a}) /* (${found_ball_a}) ${interface}.${name_a} */" >> ${file}-${core}-pinmux.txt
+					echo "			${iopad}(${cro_aa}, PIN_INPUT_PULLDOWN, ${mode_a}) /* (${found_ball_a}) ${interface}.${name_a} */" >> ${file}-${core}-pinmux.txt
 				fi
 				echo "		>;" >> ${file}-${core}-pinmux.txt
 				echo "	};" >> ${file}-${core}-pinmux.txt
 				echo "" >> ${file}-${core}-pinmux.txt
 			fi
 		fi
-
-		if [ "x${default}" = "x${interface_a}" ] ; then
-			default_name_a=${name_a}
-			default_mode_a=${mode_a}
-		fi
-
-		case "${interface_a}" in
-		DMTIMER*)
-			dmtimer_name_a=${name_a}
-			dmtimer_mode_a=${mode_a}
-			got_dmtimer_a=yes
-			;;
-		EHRPWM*)
-			case "${name_a}" in
-			EHRPWM*_A|EHRPWM*_B)
-				ehrpwm_mode_a=${mode_a}
-				ehrpwm_name_a=${name_a}
-				got_ehrpwm_a=yes
-				;;
-			esac
-			;;
-		EQEP*)
-			eqep_name_a=${name_a}
-			eqep_mode_a=${mode_a}
-			got_eqep_a=yes
-			;;
-		GPIO*)
-			gpio_name_a=${name_a}
-			gpio_mode_a=${mode_a}
-			got_gpio_a=yes
-			;;
-		I2C2|I2C4|I2C6)
-			i2c_name_a=${name_a}
-			i2c_mode_a=${mode_a}
-			got_i2c_a=yes
-			;;
-		MCAN0|MCAN4|MCAN5)
-			case "${name_a}" in
-			MCAN*_RX)
-				mcan_mode_a=${mode_a}
-				mcan_name_a=${name_a}
-				mcan_pinmux_a="PIN_INPUT"
-				got_mcan_a=yes
-				;;
-			MCAN*_TX)
-				mcan_mode_a=${mode_a}
-				mcan_name_a=${name_a}
-				mcan_pinmux_a="PIN_OUTPUT"
-				got_mcan_a=yes
-				;;
-			esac
-			;;
-		PRU_ICSSG*_PRU*)
-			case "${name_a}" in
-			prg*_pru*_gpo*)
-				pruout_mode_a=${mode_a}
-				pruout_name_a=${name_a}
-				got_pruout_a=yes
-				;;
-			prg*_pru*_gpi*)
-				pruin_mode_a=${mode_a}
-				pruin_name_a=${name_a}
-				got_pruin_a=yes
-				;;
-			esac
-			;;
-		SPI6|SPI7)
-			spi_name_a=${name_a}
-			spi_mode_a=${mode_a}
-			got_spi_a=yes
-			;;
-		USART0|USART2|USART5)
-			case "${name_a}" in
-			UART*_RXD)
-				uart_mode_a=${mode_a}
-				uart_name_a=${name_a}
-				uart_pinmux_a="PIN_INPUT"
-				got_uart_a=yes
-				;;
-			UART*_TXD)
-				uart_mode_a=${mode_a}
-				uart_name_a=${name_a}
-				uart_pinmux_a="PIN_OUTPUT"
-				got_uart_a=yes
-				;;
-			esac
-			;;
-		esac
 	done
 }
 

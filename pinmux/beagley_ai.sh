@@ -16,7 +16,6 @@ fi
 file="./board/${board}/beagley_ai"
 k3file="./board/${board}/k3-am67a-beagley-ai"
 
-echo "" >${file}-bone-pins.h
 echo "" >${file}-pins.txt
 
 echo "// SPDX-License-Identifier: GPL-2.0-only OR MIT" > ${file}-pinmux.txt

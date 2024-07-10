@@ -16,7 +16,6 @@ fi
 file="./board/${board}/bbai64"
 k3file="./board/${board}/k3-j721e-beagleboneai64"
 
-echo "" >${file}-bone-pins.h
 echo "" >${file}-pins.txt
 
 echo "// SPDX-License-Identifier: GPL-2.0-only OR MIT" > ${file}-pinmux.txt
@@ -34,7 +33,7 @@ echo "&main_pmx0 {" >>${file}-main-pinmux.txt
 
 echo "};" >${file}-mcu-pinmux.txt
 echo "" >>${file}-mcu-pinmux.txt
-echo "&mcu_pmx0 {" >>${file}-mcu-pinmux.txt
+echo "&wkup_pmx0 {" >>${file}-mcu-pinmux.txt
 
 label="P8_03" ; ball="AH21" ; sch="${label}" ; find_pin
 label="P8_04" ; ball="AC29" ; sch="${label}" ; find_pin
