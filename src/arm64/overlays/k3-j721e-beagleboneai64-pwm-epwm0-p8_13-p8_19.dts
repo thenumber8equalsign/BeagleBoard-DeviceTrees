@@ -17,7 +17,7 @@
 */
 &{/chosen} {
 	overlays {
-		k3-j721e-beagleboneai64-pwm-epwm0-p8_13.kernel = __TIMESTAMP__;
+		k3-j721e-beagleboneai64-pwm-epwm0-p8_13-p8_19.kernel = __TIMESTAMP__;
 		p8_13.3000000.pwm = "k3-j721e-beagleboneai64-pwm-epwm0-p8_13.3000000.1.P8_13";
 		p8_19.3000000.pwm = "k3-j721e-beagleboneai64-pwm-epwm0-p8_19.3000000.0.P8_19";
 	};
