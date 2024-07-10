@@ -129,16 +129,21 @@ label="P9_28B" ; ball="AF28" ; sch="${label}" ; find_pin
 label="P9_29A" ; ball="V5"   ; sch="${label}" ; find_pin
 label="P9_29B" ; ball="AB25" ; sch="${label}" ; find_pin
 
-label="p9_30A" ; ball="V6"   ; sch="${label}" ; find_pin
-label="p9_30B" ; ball="AE28" ; sch="${label}" ; find_pin
-label="p9_31A" ; ball="U3"   ; sch="${label}" ; find_pin
-label="p9_31B" ; ball="AB26" ; sch="${label}" ; find_pin
-label="p9_33A" ; ball="K24"  ; sch="${label}" ; find_pin
-label="p9_33B" ; ball="AC28" ; sch="${label}" ; find_pin
+label="P9_30A" ; ball="V6"   ; sch="${label}" ; find_pin
+label="P9_30B" ; ball="AE28" ; sch="${label}" ; find_pin
+label="P9_31A" ; ball="U3"   ; sch="${label}" ; find_pin
+label="P9_31B" ; ball="AB26" ; sch="${label}" ; find_pin
 
-label="p9_35" ; ball_a="K29" ; ball_b="AH27" ; sch="K29_AH27"   ; find_shared_pin
-label="p9_36" ; ball_a="K27" ; ball_b="AH29" ; sch="K27_AH29"   ; find_shared_pin
-label="p9_37" ; ball_a="K28" ; ball_b="AG28" ; sch="K28_AG28"   ; find_shared_pin
+label="P9_33A" ; ball="K24"  ; sch="${label}" ; find_pin
+label="P9_33B" ; ball="AC28" ; sch="${label}" ; find_pin
+
+label="P9_35A" ; ball="K29"  ; sch="${label}" ; find_pin
+label="P9_35B" ; ball="AH27" ; sch="${label}" ; find_pin
+label="P9_36A" ; ball="K27"  ; sch="${label}" ; find_pin
+label="P9_36B" ; ball="AH29" ; sch="${label}" ; find_pin
+label="P9_37A" ; ball="K28"  ; sch="${label}" ; find_pin
+label="P9_37B" ; ball="AG28" ; sch="${label}" ; find_pin
+
 label="p9_38" ; ball_a="L28" ; ball_b="AG27" ; sch="L28_AG27"   ; find_shared_pin
 label="p9_39" ; ball_a="K25" ; ball_b="AJ28" ; sch="K25_AJ28"   ; find_shared_pin
 
@@ -167,3 +172,4 @@ cat ${file}-b-bone-pins.h >> ${file}-bone-pins.h
 
 rm -rf ${file}-a-bone-pins.h || true
 rm -rf ${file}-b-bone-pins.h || true
+
