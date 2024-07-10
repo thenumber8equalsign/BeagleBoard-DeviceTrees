@@ -194,13 +194,20 @@ find_pin () {
 			pwm_dts="enable"
 			export_pwm_overlay="enable"
 		;;
-		EHRPWM0_A)
+		EHRPWM0_A|EHRPWM0_B)
 			PIN_a="PIN_OUTPUT"
 			type="pwm"
 			pwm_node="epwm0"
 			pwm_dts="enable"
-			pwm_address="23000000"
+			if [ "x${json_dir}" = "xJ722S_TDA4VEN_TDA4AEN_AM67" ] ; then
+				pwm_address="23000000"
+			else
+				pwm_address="3000000"
+			fi
 			pwm_export="0"
+			if [ "x${name_a}" = "xEHRPWM0_B" ] ; then
+				pwm_export="1"
+			fi
 			export_pwm_overlay="enable"
 		;;
 		EHRPWM1_A)
@@ -208,26 +215,15 @@ find_pin () {
 			type="pwm"
 			pwm_node="epwm1"
 			pwm_dts="enable"
-			pwm_address="23010000"
+			if [ "x${json_dir}" = "xJ722S_TDA4VEN_TDA4AEN_AM67" ] ; then
+				pwm_address="23010000"
+			else
+				pwm_address="3010000"
+			fi
 			pwm_export="0"
-			export_pwm_overlay="enable"
-		;;
-		EHRPWM0_B)
-			PIN_a="PIN_OUTPUT"
-			type="pwm"
-			pwm_node="epwm0"
-			pwm_dts="enable"
-			pwm_address="23000000"
-			pwm_export="1"
-			export_pwm_overlay="enable"
-		;;
-		EHRPWM1_B)
-			PIN_a="PIN_OUTPUT"
-			type="pwm"
-			pwm_node="epwm1"
-			pwm_dts="enable"
-			pwm_address="23010000"
-			pwm_export="1"
+			if [ "x${name_a}" = "xEHRPWM1_B" ] ; then
+				pwm_export="1"
+			fi
 			export_pwm_overlay="enable"
 		;;
 		EQEP0_*|EQEP1_*)
@@ -330,11 +326,17 @@ find_pin () {
 
 			if [ "x${export_pwm_overlay}" = "xenable" ] ; then
 				k3gpio=$(echo ${sch} | awk '{print tolower($0)}' || true)
-				pwm_overlay_prefix="k3-am67a-beagley-ai-pwm-${pwm_node}-${k3gpio}"
+				if [ "x${json_dir}" = "xJ722S_TDA4VEN_TDA4AEN_AM67" ] ; then
+					pwm_overlay_prefix="k3-am67a-beagley-ai-pwm-${pwm_node}-${k3gpio}"
+				else
+					pwm_overlay_prefix="k3-j721e-beagleboneai64-pwm-${pwm_node}-${k3gpio}"
+				fi
 				pwm_overlay_file="${k3file}-pwm-${pwm_node}-${k3gpio}.dts"
 				echo_pwm_prefix
 				echo "		${pwm_overlay_prefix}.kernel = __TIMESTAMP__;" >> ${pwm_overlay_file}
-				echo "		${labela}.${pwm_address}.pwm = \"${pwm_overlay_prefix}.${pwm_address}.${pwm_export}.${sch}\";" >> ${pwm_overlay_file}
+				if [ "x${json_dir}" = "xJ722S_TDA4VEN_TDA4AEN_AM67" ] ; then
+					echo "		${labela}.${pwm_address}.pwm = \"${pwm_overlay_prefix}.${pwm_address}.${pwm_export}.${sch}\";" >> ${pwm_overlay_file}
+				fi
 				echo "		${gpio_sch}.${pwm_address}.pwm = \"${pwm_overlay_prefix}.${pwm_address}.${pwm_export}.${sch}\";" >> ${pwm_overlay_file}
 				echo "	};" >> ${pwm_overlay_file}
 				echo "};" >> ${pwm_overlay_file}

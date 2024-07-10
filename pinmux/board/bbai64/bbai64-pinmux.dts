@@ -1845,12 +1845,6 @@
 		>;
 	};
 
-	P9_22B_pwm: P9-22B-pwm-pins {
-		pinctrl-single,pins = <
-			J721E_IOPAD(0x170, PIN_OUTPUT, 6) /* (U29) RGMII5_TXC.EHRPWM1_B */
-		>;
-	};
-
 	P9_22B_gpio: P9-22B-gpio-pins {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x170, PIN_INPUT, 7) /* (U29) RGMII5_TXC.GPIO0_91 */

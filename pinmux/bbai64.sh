@@ -29,7 +29,7 @@ echo "" >> ${file}-pinmux.txt
 echo "#include <dt-bindings/gpio/gpio.h>" >> ${file}-pinmux.txt
 echo "" >> ${file}-pinmux.txt
 
-echo "&main_pmx0 {" >>${file}-main-pinmux.txt
+echo "&main_pmx0 {" >${file}-main-pinmux.txt
 
 echo "};" >${file}-mcu-pinmux.txt
 echo "" >>${file}-mcu-pinmux.txt
