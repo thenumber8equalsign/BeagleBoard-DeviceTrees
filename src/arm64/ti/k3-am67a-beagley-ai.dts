@@ -397,7 +397,7 @@
 	disable-wp;
 	cd-gpios = <&main_gpio1 48 GPIO_ACTIVE_LOW>;
 	cd-debounce-delay-ms = <100>;
-	ti,fails-without-test-cd;
 	bootph-all;
+	ti,fails-without-test-cd;
 	status = "okay";
 };
