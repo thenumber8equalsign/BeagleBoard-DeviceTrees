@@ -96,7 +96,7 @@
 		pinctrl-0 = <&wifi_en_pins_default>;
 	};
 
-	vdd_mmc1: regulator-mmc1 {
+	vdd_mmc1: regulator-4 {
 		compatible = "regulator-fixed";
 		regulator-name = "vdd_mmc1";
 		pinctrl-names = "default";
@@ -109,7 +109,7 @@
 		bootph-all;
 	};
 
-	vdd_sd_dv: regulator-TLV71033 {
+	vdd_sd_dv: regulator-6 {
 		compatible = "regulator-gpio";
 		regulator-name = "tlv71033";
 		pinctrl-names = "default";
@@ -123,7 +123,7 @@
 			 <3300000 0x1>;
 	};
 
-	vsys_io_1v8: regulator-vsys-io-1v8 {
+	vsys_io_1v8: regulator-7 {
 		compatible = "regulator-fixed";
 		regulator-name = "vsys_io_1v8";
 		regulator-min-microvolt = <1800000>;
@@ -132,7 +132,7 @@
 		regulator-boot-on;
 	};
 
-	vsys_io_1v2: regulator-vsys-io-1v2 {
+	vsys_io_1v2: regulator-8 {
 		compatible = "regulator-fixed";
 		regulator-name = "vsys_io_1v2";
 		regulator-min-microvolt = <1200000>;
