@@ -227,9 +227,9 @@
 &cpsw3g {
 	pinctrl-names = "default";
 	pinctrl-0 = <&rgmii1_pins_default>;
-
-	assigned-clocks = <&k3_clks 227 0>;
-	assigned-clock-parents = <&k3_clks 227 6>;
+//
+//	assigned-clocks = <&k3_clks 227 0>;
+//	assigned-clock-parents = <&k3_clks 227 6>;
 	status = "okay";
 };
 
