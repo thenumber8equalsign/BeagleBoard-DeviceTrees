@@ -374,7 +374,6 @@
 	bootph-all;
 
 	tps65219: pmic@30 {
-		bootph-all;
 		compatible = "ti,tps65219";
 		reg = <0x30>;
 		buck1-supply = <&vsys_5v0>;
@@ -391,6 +390,7 @@
 		interrupt-controller;
 		#interrupt-cells = <1>;
 
+		bootph-all;
 		system-power-controller;
 		ti,power-button;
 
