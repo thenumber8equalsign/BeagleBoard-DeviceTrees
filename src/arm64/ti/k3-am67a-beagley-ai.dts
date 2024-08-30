@@ -11,6 +11,7 @@
 #include <dt-bindings/leds/common.h>
 #include <dt-bindings/net/ti-dp83867.h>
 #include "k3-j722s.dtsi"
+#include "k3-am67a-beagley-ai-pinmux.dtsi"
 
 / {
 	compatible = "beagle,am67a-beagley-ai", "ti,j722s";
@@ -28,8 +29,6 @@
 
 	chosen {
 		stdout-path = &main_uart0;
-		base_dtb = "k3-am67a-beagley-ai.dts";
-		base_dtb_timestamp = __TIMESTAMP__;
 	};
 
 	memory@80000000 {
@@ -148,15 +147,11 @@
 		pinctrl-0 = <&led_pins_default>;
 
 		led-0 {
-			// red PWR
-			label = "PWR";
 			gpios = <&main_gpio0 11 GPIO_ACTIVE_LOW>;
 			default-state = "off";
 		};
 
 		led-1 {
-			// Green ACT
-			label = "ACT";
 			gpios = <&main_gpio0 12 GPIO_ACTIVE_HIGH>;
 			linux,default-trigger = "heartbeat";
 			function = LED_FUNCTION_HEARTBEAT;
