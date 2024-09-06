@@ -10,12 +10,12 @@
 
 #include <dt-bindings/net/ti-dp83867.h>
 #include "k3-j722s.dtsi"
-#include "k3-am67a-beagley-ai-pinmux.dtsi"
 #include <dt-bindings/leds/common.h>
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/mux/ti-serdes.h>
 #include <dt-bindings/phy/phy.h>
 #include <dt-bindings/pwm/pwm.h>
+#include "k3-am67a-beagley-ai-pinmux.dtsi"
 
 / {
 	compatible = "beagle,am67a-beagley-ai", "ti,j722s";
@@ -157,7 +157,53 @@
 		regulator-boot-on;
 	};
 
-	wlan_en: regulator-3 {
+	vdd_mmc1: regulator-3 {
+		compatible = "regulator-fixed";
+		regulator-name = "vdd_mmc1";
+		pinctrl-names = "default";
+		pinctrl-0 = <&vdd_3v3_sd_pins_default>;
+		regulator-min-microvolt = <3300000>;
+		regulator-max-microvolt = <3300000>;
+		regulator-boot-on;
+		enable-active-high;
+		gpio = <&main_gpio1 50 GPIO_ACTIVE_HIGH>;
+		bootph-all;
+	};
+
+	vdd_sd_dv: regulator-4 {
+		compatible = "regulator-gpio";
+		regulator-name = "tlv71033";
+		pinctrl-names = "default";
+		pinctrl-0 = <&vdd_sd_dv_pins_default>;
+		regulator-min-microvolt = <1800000>;
+		regulator-max-microvolt = <3300000>;
+		regulator-boot-on;
+		vin-supply = <&vsys_5v0>;
+		gpios = <&main_gpio1 49 GPIO_ACTIVE_HIGH>;
+		states = <1800000 0x0>,
+			 <3300000 0x1>;
+		bootph-all;
+	};
+
+	vsys_io_1v8: regulator-5 {
+		compatible = "regulator-fixed";
+		regulator-name = "vsys_io_1v8";
+		regulator-min-microvolt = <1800000>;
+		regulator-max-microvolt = <1800000>;
+		regulator-always-on;
+		regulator-boot-on;
+	};
+
+	vsys_io_1v2: regulator-6 {
+		compatible = "regulator-fixed";
+		regulator-name = "vsys_io_1v2";
+		regulator-min-microvolt = <1200000>;
+		regulator-max-microvolt = <1200000>;
+		regulator-always-on;
+		regulator-boot-on;
+	};
+
+	wlan_en: regulator-7 {
 		compatible = "regulator-fixed";
 		regulator-name = "wlan_en";
 		regulator-min-microvolt = <1800000>;
@@ -171,51 +217,6 @@
 		pinctrl-0 = <&wifi_en_pins_default>;
 	};
 
-	vdd_mmc1: regulator-mmc1 {
-		compatible = "regulator-fixed";
-		regulator-name = "vdd_mmc1";
-		pinctrl-names = "default";
-		pinctrl-0 = <&vdd_3v3_sd_pins_default>;
-		regulator-min-microvolt = <3300000>;
-		regulator-max-microvolt = <3300000>;
-		regulator-boot-on;
-		enable-active-high;
-		gpio = <&main_gpio1 50 GPIO_ACTIVE_HIGH>;
-		bootph-all;
-	};
-
-	vdd_sd_dv: regulator-TLV71033 {
-		compatible = "regulator-gpio";
-		regulator-name = "tlv71033";
-		pinctrl-names = "default";
-		pinctrl-0 = <&vdd_sd_dv_pins_default>;
-		regulator-min-microvolt = <1800000>;
-		regulator-max-microvolt = <3300000>;
-		regulator-boot-on;
-		vin-supply = <&vsys_5v0>;
-		gpios = <&main_gpio1 49 GPIO_ACTIVE_HIGH>;
-		states = <1800000 0x0>,
-			 <3300000 0x1>;
-	};
-
-	vsys_io_1v8: regulator-vsys-io-1v8 {
-		compatible = "regulator-fixed";
-		regulator-name = "vsys_io_1v8";
-		regulator-min-microvolt = <1800000>;
-		regulator-max-microvolt = <1800000>;
-		regulator-always-on;
-		regulator-boot-on;
-	};
-
-	vsys_io_1v2: regulator-vsys-io-1v2 {
-		compatible = "regulator-fixed";
-		regulator-name = "vsys_io_1v2";
-		regulator-min-microvolt = <1200000>;
-		regulator-max-microvolt = <1200000>;
-		regulator-always-on;
-		regulator-boot-on;
-	};
-
 	leds {
 		compatible = "gpio-leds";
 		pinctrl-names = "default";
@@ -225,7 +226,6 @@
 			// red PWR
 			label = "PWR";
 			gpios = <&main_gpio0 11 GPIO_ACTIVE_LOW>;
-			linux,default-trigger = "default-off";
 			default-state = "off";
 		};
 
@@ -233,8 +233,8 @@
 			// Green ACT
 			label = "ACT";
 			gpios = <&main_gpio0 12 GPIO_ACTIVE_HIGH>;
-			function = LED_FUNCTION_HEARTBEAT;
 			linux,default-trigger = "heartbeat";
+			function = LED_FUNCTION_HEARTBEAT;
 			default-state = "on";
 		};
 	};
@@ -466,14 +466,8 @@
 
 	led_pins_default: led-default-pins {
 		pinctrl-single,pins = <
-            J722S_IOPAD(0x002c, PIN_OUTPUT, 7) /* (K26) OSPI0_CSn0.GPIO0_11 */
+			J722S_IOPAD(0x002c, PIN_OUTPUT, 7) /* (K26) OSPI0_CSn0.GPIO0_11 */
 			J722S_IOPAD(0x0030, PIN_OUTPUT, 7) /* (K23) OSPI0_CSn1.GPIO0_12 */
-		>;
-	};
-
-	vdd_3v3_sd_pins_default: vdd-3v3-sd-default-pins {
-		pinctrl-single,pins = <
-			J722S_IOPAD(0x0254, PIN_OUTPUT, 7) /* (E25) USB0_DRVVBUS.GPIO1_50 */
 		>;
 	};
 
@@ -486,6 +480,12 @@
 	pmic_irq_pins_default: pmic-irq-default-pins {
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x01f4, PIN_INPUT_PULLUP, 0) /* (B23) EXTINTn */
+		>;
+	};
+
+	vdd_3v3_sd_pins_default: vdd-3v3-sd-default-pins {
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x0254, PIN_OUTPUT, 7) /* (E25) USB0_DRVVBUS.GPIO1_50 */
 		>;
 	};
 
@@ -612,9 +612,9 @@
 };
 
 &cpsw3g_mdio {
-	status = "okay";
 	pinctrl-names = "default";
 	pinctrl-0 = <&mdio_pins_default>;
+	status = "okay";
 
 	cpsw3g_phy0: ethernet-phy@0 {
 		reg = <0>;
@@ -672,24 +672,24 @@
 &main_uart0 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&main_uart0_pins_default>;
-	status = "okay";
 	bootph-all;
+	status = "okay";
 };
 
 &main_uart1 {
 	symlink = "ttyAMA0";
 	//pinctrl-names = "default";
 	//pinctrl-0 = <&main_uart1_pins_default>;
-	status = "okay";
 	bootph-all;
+	status = "okay";
 };
 
 &main_uart6 {
 	symlink = "board/bluetooth/uart";
 	pinctrl-names = "default";
 	pinctrl-0 = <&main_uart6_pins_default>;
-	status = "okay";
 	bootph-all;
+	status = "okay";
 
 	bluetooth {
 		compatible = "ti,cc33xx-bt";
@@ -826,17 +826,17 @@
 	/* WKUP UART0 is used by Device Manager firmware */
 	pinctrl-names = "default";
 	pinctrl-0 = <&wkup_uart0_pins_default>;
-	status = "reserved";
 	bootph-all;
+	status = "reserved";
 };
 
 &mcu_i2c0 {
 	symlink = "hat/mcu_i2c0";
-	status = "okay";
 	pinctrl-names = "default";
 	pinctrl-0 = <&mcu_i2c0_pins_default>;
 	clock-frequency = <100000>;
 	bootph-all;
+	status = "okay";
 };
 
 &wkup_i2c0 {
@@ -844,11 +844,10 @@
 	pinctrl-0 = <&wkup_i2c0_pins_default>;
 	symlink = "hat/wkup_i2c0";
 	clock-frequency = <100000>;
-	status = "okay";
 	bootph-all;
+	status = "okay";
 
 	tps65219: pmic@30 {
-		bootph-all;
 		compatible = "ti,tps65219";
 		reg = <0x30>;
 		buck1-supply = <&vsys_5v0>;
@@ -865,6 +864,7 @@
 		interrupt-controller;
 		#interrupt-cells = <1>;
 
+		bootph-all;
 		system-power-controller;
 		ti,power-button;
 
@@ -1173,8 +1173,8 @@ csi0_i2c: &main_i2c2 {
 };
 
 &usbss0 {
-	status = "okay";
 	ti,vbus-divider;
+	status = "okay";
 };
 
 &usb0 {
@@ -1183,10 +1183,10 @@ csi0_i2c: &main_i2c2 {
 };
 
 &usbss1 {
-	status = "okay";
 	pinctrl-names = "default";
 	pinctrl-0 = <&main_usb1_pins_default>;
 	ti,vbus-divider;
+	status = "okay";
 };
 
 &usb1 {
