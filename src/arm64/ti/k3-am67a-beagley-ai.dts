@@ -8,12 +8,12 @@
 
 /dts-v1/;
 
-#include <dt-bindings/net/ti-dp83867.h>
-#include "k3-j722s.dtsi"
 #include <dt-bindings/leds/common.h>
-#include <dt-bindings/gpio/gpio.h>
-#include <dt-bindings/mux/ti-serdes.h>
+#include <dt-bindings/net/ti-dp83867.h>
 #include <dt-bindings/phy/phy.h>
+#include "k3-j722s.dtsi"
+#include <dt-bindings/mux/ti-serdes.h>
+#include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/pwm/pwm.h>
 #include "k3-am67a-beagley-ai-pinmux.dtsi"
 
@@ -1228,6 +1228,10 @@ csi0_i2c: &main_i2c2 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&main_dpi_pins_default>;
 
+	clocks = <&k3_clks 232 8>,
+		 <&k3_clks 232 0>,
+		 <&k3_clks 232 4>;
+
 	assigned-clocks = <&k3_clks 241 0>,	/* DSS1-VP0 */
 			  <&k3_clks 240 0>,	/* DSS1-VP1 */
 			  <&k3_clks 245 0>;	/* DPI Output */
@@ -1238,9 +1242,6 @@ csi0_i2c: &main_i2c2 {
 };
 
 &dss1_ports {
-	#address-cells = <1>;
-	#size-cells = <0>;
-
 	/* DSS1-VP1: DPI/HDMI Output */
 	port@0 {
 		reg = <0>;
