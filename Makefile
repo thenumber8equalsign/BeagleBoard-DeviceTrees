@@ -116,52 +116,35 @@ install_arm64:
 ifeq ($(ARCH),)
 
 ALL_DTS		:= $(shell find src/* -name \*.dts)
+ALL_DTSO	:= $(shell find src/* -name \*.dtso)
 
 ALL_DTB		:= $(patsubst %.dts,%.dtb,$(ALL_DTS))
+ALL_DTBO	:= $(patsubst %.dtso,%.dtbo,$(ALL_DTSO))
 
-$(ALL_DTB): ARCH=$(word 2,$(subst /, ,$@))
-$(ALL_DTB): FORCE
-	$(Q)$(MAKE) ARCH=$(ARCH) $@
-
-# DT overlays
-ALL_DTS_OVERLAYS	:= $(shell find src/*/overlays -name \*.dts)
-ALL_DTB_OVERLAYS	:= $(patsubst %.dtbo,%.dtb,$(ALL_DTS))
-$(ALL_DTB_OVERLAYS): ARCH=$(word 2,$(subst /, ,$@))
-$(ALL_DTB_OVERLAYS): FORCE
+$(ALL_DTB) $(ALL_DTBO): ARCH=$(word 2,$(subst /, ,$@))
+$(ALL_DTB) $(ALL_DTBO): FORCE
 	$(Q)$(MAKE) ARCH=$(ARCH) $@
 
 else
 
 ARCH_DTS	:= $(shell find src/$(ARCH) -name \*.dts)
+ARCH_DTSO	:= $(shell find src/$(ARCH) -name \*.dtso)
 
 ARCH_DTB	:= $(patsubst %.dts,%.dtb,$(ARCH_DTS))
+ARCH_DTBO	:= $(patsubst %.dtso,%.dtbo,$(ARCH_DTSO))
 
 src	:= src/$(ARCH)
 obj	:= src/$(ARCH)
 
 include scripts/Kbuild.include
 
-cmd_files := $(wildcard $(foreach f,$(ARCH_DTB),$(dir $(f)).$(notdir $(f)).cmd))
+cmd_files := $(wildcard $(foreach f,$(ARCH_DTB) $(ARCH_DTBO),$(dir $(f)).$(notdir $(f)).cmd))
 
 ifneq ($(cmd_files),)
   include $(cmd_files)
 endif
 
-# Overlays
-ARCH_DTS_OVERLAYS	:= $(shell find src/$(ARCH)/overlays -name \*.dts)
-ARCH_DTB_OVERLAYS	:= $(patsubst %.dts,%.dtbo,$(ARCH_DTS_OVERLAYS))
-src_overlays		:= src/$(ARCH)/overlays
-obj_overlays		:= src/$(ARCH)/overlays
-cmd_files_overlays 	:= $(wildcard $(foreach f,$(ARCH_DTB_OVERLAYS),$(dir $(f)).$(notdir $(f)).cmd))
-
-ifneq ($(cmd_files_overlays),)
-  include $(cmd_files_overlays)
-endif
-
-$(obj_overlays)/%.dtbo: $(src_overlays)/%.dts FORCE
-	$(call if_changed_dep,dtc)
-
-quiet_cmd_clean    = CLEAN   $(obj) & $(obj_overlays)
+quiet_cmd_clean    = CLEAN   $(obj)
       cmd_clean    = rm -f $(__clean-files)
 
 dtc-tmp = $(subst $(comma),_,$(dot-target).dts.tmp)
@@ -172,7 +155,7 @@ dtc_cpp_flags  = -Wp,-MD,$(depfile).pre.tmp -nostdinc		\
 
 quiet_cmd_dtc = DTC     $@
 cmd_dtc = $(CPP) $(dtc_cpp_flags) -x assembler-with-cpp -o $(dtc-tmp) $< ; \
-        $(DTC) -O dtb -o $@ -b 0 -@ \
+        $(DTC) -@ -O dtb -o $@ -b 0 \
                 -i $(src) $(DTC_FLAGS) \
                 -d $(depfile).dtc.tmp $(dtc-tmp) ; \
         cat $(depfile).pre.tmp $(depfile).dtc.tmp > $(depfile)
@@ -180,12 +163,22 @@ cmd_dtc = $(CPP) $(dtc_cpp_flags) -x assembler-with-cpp -o $(dtc-tmp) $< ; \
 $(obj)/%.dtb: $(src)/%.dts FORCE
 	$(call if_changed_dep,dtc)
 
+quiet_cmd_dtco = DTCO    $@
+cmd_dtco = $(CPP) $(dtc_cpp_flags) -x assembler-with-cpp -o $(dtc-tmp) $< ; \
+        $(DTC) -@ -O dtb -o $@ -b 0 \
+                -i $(src) $(DTC_FLAGS) \
+                -d $(depfile).dtc.tmp $(dtc-tmp) ; \
+        cat $(depfile).pre.tmp $(depfile).dtc.tmp > $(depfile)
+
+$(obj)/%.dtbo: $(src)/%.dtso FORCE
+	$(call if_changed_dep,dtco)
+
 PHONY += all_arch
-all_arch: $(ARCH_DTB) $(ARCH_DTB_OVERLAYS)
+all_arch: $(ARCH_DTB) $(ARCH_DTBO)
 	@:
 
 PHONY += install_arch_arm
-install_arch_arm: $(ARCH_DTB) $(ARCH_DTB_OVERLAYS)
+install_arch_arm: $(ARCH_DTB) $(ARCH_DTBO)
 	# install Device Tree
 	mkdir -p /boot/dtbs/$(KERNEL_VERSION)/overlays/
 	cp -v src/arm/ti/omap/*.dtb /boot/dtbs/$(KERNEL_VERSION)/ || true
@@ -193,7 +186,7 @@ install_arch_arm: $(ARCH_DTB) $(ARCH_DTB_OVERLAYS)
 	cp /boot/dtbs/$(KERNEL_VERSION)/overlays/*.dtbo /boot/dtbs/$(KERNEL_VERSION)/ || true
 
 PHONY += install_arch_arm64
-install_arch_arm64: $(ARCH_DTB) $(ARCH_DTB_OVERLAYS)
+install_arch_arm64: $(ARCH_DTB) $(ARCH_DTBO)
 	# install Device Tree
 	cp src/arm64/ti/*.dtb /usr/lib/linux-image-$(KERNEL_VERSION)/ti/ || true
 	cp src/arm64/overlays/*.dtbo /usr/lib/linux-image-$(KERNEL_VERSION)/ti/ || true
@@ -204,7 +197,7 @@ RCS_FIND_IGNORE := \( -name SCCS -o -name BitKeeper -o -name .svn -o -name CVS \
                    -o -name .pc -o -name .hg -o -name .git \) -prune -o
 
 PHONY += clean_arch
-clean_arch: __clean-files = $(ARCH_DTB) $(ARCH_DTB_OVERLAYS)
+clean_arch: __clean-files = $(ARCH_DTB) $(ARCH_DTBO)
 clean_arch: FORCE
 	$(call cmd,clean)
 	@find . $(RCS_FIND_IGNORE) \
