@@ -223,15 +223,11 @@
 		pinctrl-0 = <&led_pins_default>;
 
 		led-0 {
-			// red PWR
-			label = "PWR";
 			gpios = <&main_gpio0 11 GPIO_ACTIVE_LOW>;
 			default-state = "off";
 		};
 
 		led-1 {
-			// Green ACT
-			label = "ACT";
 			gpios = <&main_gpio0 12 GPIO_ACTIVE_HIGH>;
 			linux,default-trigger = "heartbeat";
 			function = LED_FUNCTION_HEARTBEAT;
