@@ -34,7 +34,7 @@
 		reg = <0x00000000 0x80000000 0x00000000 0x80000000>,
 		      <0x00000008 0x80000000 0x00000001 0x80000000>;
 		device_type = "memory";
-		bootph-pre-ram;
+		bootph-all;
 	};
 
 	reserved_memory: reserved-memory {
@@ -302,8 +302,8 @@
 
 	main_uart5_pins_default: main-uart5-default-pins {
 		pinctrl-single,pins = <
-			J722S_IOPAD(0x0108, PIN_INPUT, 3)       /* (J27) UART5_RXD */
-			J722S_IOPAD(0x010c, PIN_OUTPUT, 3)      /* (H27) UART5_TXD */
+			J722S_IOPAD(0x0108, PIN_INPUT, 3)	/* (J27) UART5_RXD */
+			J722S_IOPAD(0x010c, PIN_OUTPUT, 3)	/* (H27) UART5_TXD */
 		>;
 	};
 
@@ -484,6 +484,13 @@
 };
 
 &mcu_pmx0 {
+
+	mcu_i2c0_pins_default: mcu-i2c0-default-pins {
+		pinctrl-single,pins = <
+			J722S_MCU_IOPAD(0x048, PIN_INPUT, 0) /* (E11) MCU_I2C0_SDA */
+			J722S_MCU_IOPAD(0x044, PIN_INPUT, 0) /* (B13) MCU_I2C0_SCL */
+		>;
+	};
 
 	wkup_uart0_pins_default: wkup-uart0-default-pins {
 		pinctrl-single,pins = <
@@ -1096,4 +1103,11 @@
 		assigned-clock-parents = <&k3_clks 157 33>;
 		#clock-cells = <0>;
 	};
+};
+
+&mcu_i2c0 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&mcu_i2c0_pins_default>;
+	clock-frequency = <400000>;
+	status = "okay";
 };
