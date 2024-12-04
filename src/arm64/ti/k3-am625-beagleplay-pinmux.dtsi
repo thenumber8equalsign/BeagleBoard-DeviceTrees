@@ -47,6 +47,10 @@
 	symlink = "play/qwiic/i2c";
 };
 
+&main_i2c1 {
+	symlink = "play/grove/i2c";
+};
+
 &main_i2c3 {
 	symlink = "play/mikrobus/i2c";
 };
