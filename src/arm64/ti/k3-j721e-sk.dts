@@ -673,7 +673,6 @@
 	pinctrl-names = "default";
 	pinctrl-0 = <&wkup_uart0_pins_default>;
 	bootph-all;
-	bootph-all;
 };
 
 &wkup_i2c0 {
