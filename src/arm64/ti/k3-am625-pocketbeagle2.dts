@@ -27,6 +27,7 @@
 		usb1 = &usb1;
 		i2c0 = &main_i2c0;
 		i2c1 = &wkup_i2c0;
+		i2c2 = &main_i2c2;
 	};
 
 	chosen {
@@ -189,6 +190,14 @@
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x01e0, PIN_INPUT_PULLUP, 0) /* (B16) I2C0_SCL */
 			AM62X_IOPAD(0x01e4, PIN_INPUT_PULLUP, 0) /* (A16) I2C0_SDA */
+		>;
+		bootph-all;
+	};
+
+	main_i2c2_pins_default: main_i2c2-default-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00b0, PIN_INPUT_PULLUP, 1) /* (K22) GPMC0_CSn2.I2C2_SCL */
+			AM62X_IOPAD(0x00b4, PIN_INPUT_PULLUP, 1) /* (K24) GPMC0_CSn3.I2C2_SDA */
 		>;
 		bootph-all;
 	};
@@ -561,10 +570,10 @@
 };
 
 &main_i2c0 {
-	bootph-all;
 	pinctrl-names = "default";
 	pinctrl-0 = <&main_i2c0_pins_default>;
 	clock-frequency = <400000>;
+	bootph-all;
 	status = "okay";
 
 	ad7291: adc@20 {
@@ -574,7 +583,15 @@
 	};
 
 	eeprom: eeprom@50 {
-		compatible = "24c32";
+		compatible = "atmel,24c32";
 		reg = <0x50>;
 	};
+};
+
+&main_i2c2 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&main_i2c2_pins_default>;
+	clock-frequency = <400000>;
+	bootph-all;
+	status = "okay";
 };
