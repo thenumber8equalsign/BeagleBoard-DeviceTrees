@@ -9,12 +9,12 @@
 /dts-v1/;
 
 #include "k3-j721e.dtsi"
-#include "k3-j721e-beagleboneai64-pinmux.dtsi"
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/input/input.h>
 #include <dt-bindings/leds/common.h>
 #include <dt-bindings/net/ti-dp83867.h>
 #include <dt-bindings/phy/phy-cadence.h>
+#include "k3-j721e-beagleboneai64-pinmux.dtsi"
 
 / {
 	compatible = "beagle,j721e-beagleboneai64", "ti,j721e";
