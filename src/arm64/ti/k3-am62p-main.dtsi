@@ -698,6 +698,7 @@
 				label = "port1";
 				phys = <&phy_gmii_sel 1>;
 				mac-address = [00 00 00 00 00 00];
+				status = "disabled";
 			};
 
 			cpsw_port2: port@2 {
@@ -706,6 +707,7 @@
 				label = "port2";
 				phys = <&phy_gmii_sel 2>;
 				mac-address = [00 00 00 00 00 00];
+				status = "disabled";
 			};
 		};
 
