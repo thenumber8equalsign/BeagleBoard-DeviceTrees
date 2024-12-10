@@ -12,10 +12,10 @@
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/input/input.h>
 #include "k3-am625.dtsi"
-#include "k3-am625-pocketbeagle2-pinmux.dtsi"
+#include "k3-am6232-pocketbeagle2-pinmux.dtsi"
 
 / {
-	compatible = "beagle,am625-pocketbeagle2", "ti,am625";
+	compatible = "beagle,am6232-pocketbeagle2", "ti,am625";
 	model = "BeagleBoard.org PocketBeagle2";
 
 	aliases {

@@ -10,7 +10,7 @@
 
 / {
 	chosen {
-		base_dtb = "k3-am625-pocketbeagle2.dts";
+		base_dtb = "k3-am6232-pocketbeagle2.dts";
 		base_dtb_timestamp = __TIMESTAMP__;
 	};
 
