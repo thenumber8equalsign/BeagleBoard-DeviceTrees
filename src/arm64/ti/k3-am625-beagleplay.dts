@@ -396,7 +396,6 @@
 			AM62X_IOPAD(0x016c, PIN_INPUT, 1) /* (Y18) RGMII2_TD0.RMII2_TXD0 */
 			AM62X_IOPAD(0x0170, PIN_INPUT, 1) /* (AA18) RGMII2_TD1.RMII2_TXD1 */
 			AM62X_IOPAD(0x0164, PIN_INPUT, 1) /* (AA19) RGMII2_TX_CTL.RMII2_TX_EN */
-			AM62X_IOPAD(0x018c, PIN_OUTPUT, 7) /* (AC21) RGMII2_RD2.GPIO1_5 */
 			AM62X_IOPAD(0x0190, PIN_INPUT, 7) /* (AE22) RGMII2_RD3.GPIO1_6 */
 			AM62X_IOPAD(0x01f0, PIN_OUTPUT, 5) /* (A18) EXT_REFCLK1.CLKOUT0 */
 		>;
@@ -639,7 +638,7 @@
 		reg = <1>;
 		reset-gpios = <&main_gpio1 5 GPIO_ACTIVE_LOW>;
 		reset-assert-us = <25>;
-		reset-deassert-us = <60000>; /* T2 */
+		reset-deassert-us = <35>;
 	};
 };
 
@@ -884,13 +883,13 @@
 };
 
 &sdhci2 {
-	vmmc-supply = <&wlan_en>;
 	pinctrl-names = "default";
 	pinctrl-0 = <&wifi_pins_default>, <&wifi_32k_clk>;
 	non-removable;
 	ti,fails-without-test-cd;
 	cap-power-off-card;
 	keep-power-in-suspend;
+	vmmc-supply = <&wlan_en>;
 	assigned-clocks = <&k3_clks 157 158>;
 	assigned-clock-parents = <&k3_clks 157 160>;
 	#address-cells = <1>;
