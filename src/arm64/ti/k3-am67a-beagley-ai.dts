@@ -1053,6 +1053,7 @@ csi0_i2c: &main_i2c2 {
 
 &mailbox0_cluster0 {
 	status = "okay";
+
 	mbox_r5_0: mbox-r5-0 {
 		ti,mbox-rx = <0 0 0>;
 		ti,mbox-tx = <1 0 0>;
@@ -1061,6 +1062,7 @@ csi0_i2c: &main_i2c2 {
 
 &mailbox0_cluster1 {
 	status = "okay";
+
 	mbox_mcu_r5_0: mbox-mcu-r5-0 {
 		ti,mbox-rx = <0 0 0>;
 		ti,mbox-tx = <1 0 0>;
@@ -1069,6 +1071,7 @@ csi0_i2c: &main_i2c2 {
 
 &mailbox0_cluster2 {
 	status = "okay";
+
 	mbox_c7x_0: mbox-c7x-0 {
 		ti,mbox-rx = <0 0 0>;
 		ti,mbox-tx = <1 0 0>;
@@ -1077,6 +1080,7 @@ csi0_i2c: &main_i2c2 {
 
 &mailbox0_cluster3 {
 	status = "okay";
+
 	mbox_main_r5_0: mbox-main-r5-0 {
 		ti,mbox-rx = <0 0 0>;
 		ti,mbox-tx = <1 0 0>;
@@ -1088,6 +1092,7 @@ csi0_i2c: &main_i2c2 {
 	};
 };
 
+/* Timers are used by Remoteproc firmware */
 &main_timer0 {
 	status = "reserved";
 };
@@ -1131,17 +1136,17 @@ csi0_i2c: &main_i2c2 {
 };
 
 &c7x_0 {
-	status = "okay";
 	mboxes = <&mailbox0_cluster2 &mbox_c7x_0>;
 	memory-region = <&c7x_0_dma_memory_region>,
 			<&c7x_0_memory_region>;
+	status = "okay";
 };
 
 &c7x_1 {
-	status = "okay";
 	mboxes = <&mailbox0_cluster3 &mbox_c7x_1>;
 	memory-region = <&c7x_1_dma_memory_region>,
 			<&c7x_1_memory_region>;
+	status = "okay";
 };
 
 &serdes_ln_ctrl {
