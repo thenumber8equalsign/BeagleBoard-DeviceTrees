@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-2.0-only OR MIT
 /*
- * https://beagleplay.org/
+ * https://www.beagleboard.org/boards/pocketbeagle-2
  *
  * Copyright (C) 2022-2024 Texas Instruments Incorporated - https://www.ti.com/
  * Copyright (C) 2022-2024 Robert Nelson, BeagleBoard.org Foundation
@@ -15,10 +15,6 @@
 	};
 
 	leds {
-		led-0 {
-			label = "beaglebone:green:usr0";
-		};
-
 		led-1 {
 			label = "beaglebone:green:usr1";
 		};
@@ -29,11 +25,23 @@
 
 		led-3 {
 			label = "beaglebone:green:usr3";
+			function = LED_FUNCTION_ACTIVITY;
+			linux,default-trigger = "activity";
+		};
+
+		led-4 {
+			label = "beaglebone:green:usr4";
 		};
 	};
 };
 
 &main_pmx0 {
+	mspm0_nrst_pins_default: mspm0-nrst-default-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x0254, PIN_INPUT, 7) /* (C20) USB0_DRVVBUS.GPIO1_50 */
+		>;
+	};
+
 	P1_02_E18_gpio: P1-02-E18-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x01A0, PIN_INPUT, 7) /* (E18) MCASP0_AXR0.GPIO1_10 */
@@ -425,6 +433,12 @@
 };
 
 &mcu_pmx0 {
+	mspm0_bsl_pins_default: mspm0-bsl-default-pins {
+		pinctrl-single,pins = <
+			AM62X_MCU_IOPAD(0x0004, PIN_INPUT, 7) /* (B8) MCU_SPI0_CS1.MCU_GPIO0_1 */
+		>;
+	};
+
 	P1_26_D6_gpio: P1-26-D6-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_MCU_IOPAD(0x0034, PIN_INPUT, 7) /* (D6) MCU_MCAN0_TX.MCU_GPIO0_13 */
@@ -460,5 +474,15 @@
 			AM62X_MCU_IOPAD(0x003C, PIN_INPUT, 7) /* (E5) MCU_MCAN1_TX.MCU_GPIO0_15 */
 		>;
 	};
+};
 
+&main_i2c0 {
+	mspm0l1105: mspm0l1105@48 {
+		compatible = "ti,mspm0l1105";
+		reg = <0x48>;
+		bootloader-backdoor-gpios = <&mcu_gpio0 1 GPIO_ACTIVE_HIGH>;
+		reset-gpios = <&main_gpio1 50 GPIO_ACTIVE_HIGH>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&mspm0_bsl_pins_default &mspm0_nrst_pins_default>;
+	};
 };
