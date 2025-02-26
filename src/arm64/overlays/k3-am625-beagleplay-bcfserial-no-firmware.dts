@@ -18,4 +18,7 @@
 	bcfserial {
 		status = "disabled";
 	};
+	mcu {
+		status = "disabled";
+	};
 };
