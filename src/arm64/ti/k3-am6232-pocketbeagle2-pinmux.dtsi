@@ -197,6 +197,13 @@
 		>;
 	};
 
+	P1_33_A17_pwm: P1-33-A15-pwm-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x01EC, PIN_INPUT, 8) /* (A17) I2C1_SDA.EHRPWM2_B */
+			AM62X_IOPAD(0x00E4, PIN_DISABLE, 7) /* (AA23) VOUT0_DATA11.GPIO0_56 */
+		>;
+	};
+
 	P1_33_AA23_gpio: P1-33-AA23-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x00E4, PIN_INPUT, 7) /* (AA23) VOUT0_DATA11.GPIO0_56 */
