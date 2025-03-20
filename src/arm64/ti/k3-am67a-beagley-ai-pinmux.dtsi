@@ -13,6 +13,18 @@
 		base_dtb = "k3-am67a-beagley-ai.dts";
 		base_dtb_timestamp = __TIMESTAMP__;
 	};
+
+	leds {
+		led-0 {
+			color = <LED_COLOR_ID_RED>;
+			label = "PWR";
+		};
+
+		led-1 {
+			color = <LED_COLOR_ID_GREEN>;
+			label = "ACT";
+		};
+	};
 };
 
 &main_pmx0 {
