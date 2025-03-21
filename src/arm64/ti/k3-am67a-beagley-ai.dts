@@ -306,9 +306,6 @@
 &cpsw_port1 {
 	phy-mode = "rgmii-rxid";
 	phy-handle = <&cpsw3g_phy0>;
-};
-
-&epwm2 {
 	status = "okay";
 };
 
@@ -354,7 +351,6 @@
 &wkup_i2c0 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&wkup_i2c0_pins_default>;
-	symlink = "hat/wkup_i2c0";
 	clock-frequency = <100000>;
 	bootph-all;
 	status = "okay";
