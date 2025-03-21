@@ -36,6 +36,34 @@
 };
 
 &main_pmx0 {
+	pinctrl-single,gpio-range =
+		<&main_pmx0_range 0 32 PIN_GPIO_RANGE_IOPAD>,
+		<&main_pmx0_range 33 38 PIN_GPIO_RANGE_IOPAD>,
+		<&main_pmx0_range 72 22 PIN_GPIO_RANGE_IOPAD>,
+		<&main_pmx0_range 137 5 PIN_GPIO_RANGE_IOPAD>,
+		<&main_pmx0_range 143 3 PIN_GPIO_RANGE_IOPAD>,
+		<&main_pmx0_range 149 2 PIN_GPIO_RANGE_IOPAD>;
+
+	main_pmx0_range: gpio-range {
+		#pinctrl-single,gpio-range-cells = <3>;
+	};
+
+	main_mmc0_pins_default: main-mmc0-default-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x220, PIN_INPUT, 0) /* (Y3/V3) MMC0_CMD */
+			AM62X_IOPAD(0x218, PIN_INPUT, 0) /* (AB1/Y1) MMC0_CLK */
+			AM62X_IOPAD(0x214, PIN_INPUT, 0) /* (AA2/V2) MMC0_DAT0 */
+			AM62X_IOPAD(0x210, PIN_INPUT, 0) /* (AA1/V1) MMC0_DAT1 */
+			AM62X_IOPAD(0x20c, PIN_INPUT, 0) /* (AA3/W2) MMC0_DAT2 */
+			AM62X_IOPAD(0x208, PIN_INPUT, 0) /* (Y4/W1) MMC0_DAT3 */
+			AM62X_IOPAD(0x204, PIN_INPUT, 0) /* (AB2/Y2) MMC0_DAT4 */
+			AM62X_IOPAD(0x200, PIN_INPUT, 0) /* (AC1/W3) MMC0_DAT5 */
+			AM62X_IOPAD(0x1fc, PIN_INPUT, 0) /* (AD2/W4) MMC0_DAT6 */
+			AM62X_IOPAD(0x1f8, PIN_INPUT, 0) /* (AC2/V4) MMC0_DAT7 */
+		>;
+		bootph-all;
+	};
+
 	mspm0_nrst_pins_default: mspm0-nrst-default-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x0254, PIN_INPUT, 7) /* (C20) USB0_DRVVBUS.GPIO1_50 */
@@ -193,6 +221,13 @@
 	P1_33_A17_gpio: P1-33-A17-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x01EC, PIN_INPUT, 7) /* (A17) I2C1_SDA.GPIO1_29 */
+			AM62X_IOPAD(0x00E4, PIN_DISABLE, 7) /* (AA23) VOUT0_DATA11.GPIO0_56 */
+		>;
+	};
+
+	P1_33_A17_pwm: P1-33-A15-pwm-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x01EC, PIN_INPUT, 8) /* (A17) I2C1_SDA.EHRPWM2_B */
 			AM62X_IOPAD(0x00E4, PIN_DISABLE, 7) /* (AA23) VOUT0_DATA11.GPIO0_56 */
 		>;
 	};
@@ -474,6 +509,73 @@
 			AM62X_MCU_IOPAD(0x003C, PIN_INPUT, 7) /* (E5) MCU_MCAN1_TX.MCU_GPIO0_15 */
 		>;
 	};
+};
+
+&main_gpio0 {
+	gpio-line-names = "", "", "",	/* 0-2 */
+			  "USR_LED_4", "USR_LED_3", "USR_LED_2",	/* 3-5 */
+			  "USR_LED_1", "", "",	/* 6-8 */
+			  "", "", "",	/* 9-11 */
+			  "", "", "",	/* 12-14 */
+			  "", "", "",	/* 15-17 */
+			  "", "", "",	/* 18-20 */
+			  "", "", "",	/* 21-23 */
+			  "", "", "",	/* 24-26 */
+			  "", "", "",	/* 27-29 */
+			  "", "", "",	/* 30-32 */
+			  "", "", "",	/* 33-35 */
+			  "P1.13/USB_ID", "", "",	/* 36-38 */
+			  "", "P2.29(M22)", "",	/* 39-41 */
+			  "", "P1.28/I2C1_SCL(K22)", "P1.26/I2C1_SDA(K24)",	/* 42-44 */
+			  "P2.02/AIN6", "P2.04", "P2.06",	/* 45-47 */
+			  "P2.08", "P2.20", "P1.20",	/* 48-50 */
+			  "P2.24", "P2.33", "P2.18",	/* 51-53 */
+			  "P2.35/AIN5", "P1.36(V20)", "P1.33(AA23)",	/* 54-56 */
+			  "P2.32", "P2.30", "P1.31",	/* 57-59 */
+			  "P2.34", "P2.28", "P1.29",	/* 60-62 */
+			  "P2.22", "P2.17", "",	/* 63-65 */
+			  "", "", "",	/* 66-68 */
+			  "", "", "",	/* 69-71 */
+			  "", "", "",	/* 72-74 */
+			  "", "", "P1.12(AE18)",	/* 75-77 */
+			  "P1.06(AD18)", "", "",	/* 78-80 */
+			  "", "", "",	/* 81-83 */
+			  "", "P2.03(AB22)", "P2.01(AD24)",	/* 84-86 */
+			  "P1.02(AA19)", "", "P1.04(Y18)",	/* 87-89 */
+			  "P2.31(AA18)", "P2.10";	/* 90-91 */
+};
+
+&main_gpio1 {
+	gpio-line-names = "P2.19", "P1.19/AIN0", "P1.34",	/* 0-2 */
+			  "P1.27/AIN4", "P1.25/AIN3", "P1.23/AIN2",	/* 3-5 */
+			  "P1.21/AIN1", "P1.10(B19)", "P1.12(A19)",	/* 6-8 */
+			  "P2.03(B18)", "P1.02/AIN6(E18)", "P2.01(B20)",	/* 9-11 */
+			  "P1.04(D20)", "P1.06(E19)", "P1.08",	/* 12-14 */
+			  "P2.31(A13)", "P2.36/AIN7", "P2.29(A14)",	/* 15-17 */
+			  "P2.27", "P2.25", "P1.32",	/* 18-20 */
+			  "P1.30", "P2.09(A15)", "P2.11(B15)",	/* 21-23 */
+			  "P2.05(C15)", "P2.07(E15)", "",	/* 24-26 */
+			  "", "P1.36(B17)", "P1.33(A17)",	/* 27-29 */
+			  "P1.10(A18)", "";	/* 30-31 */
+};
+
+&mcu_gpio0 {
+	gpio-line-names = "", "", "",   /* 0-2 */
+			  "", "", "P2.05(B5)",   /* 3-5 */
+			  "P2.07(A5)", "", "",   /* 6-8 */
+			  "", "", "",   /* 9-11 */
+			  "", "P1.26(D6)", "P1.28(B3)",   /* 12-14 */
+			  "P2.11(E5)", "P2.09(D4)", "",   /* 15-17 */
+			  "", "", "",   /* 18-20 */
+			  "", "", "";   /* 21-23 */
+};
+
+&sdhci0 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&main_mmc0_pins_default>;
+	disable-wp;
+	bootph-all;
+	status = "okay";
 };
 
 &main_i2c0 {

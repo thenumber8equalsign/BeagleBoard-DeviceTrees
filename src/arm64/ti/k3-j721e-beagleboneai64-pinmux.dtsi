@@ -38,6 +38,29 @@
 	};
 };
 
+&main_pmx0 {
+	pinctrl-single,gpio-range =
+		<&main_pmx0_range 0 18 PIN_GPIO_RANGE_IOPAD>,
+		<&main_pmx0_range 19 110 PIN_GPIO_RANGE_IOPAD>,
+		<&main_pmx0_range 129 29 PIN_GPIO_RANGE_IOPAD>,
+		<&main_pmx0_range 164 7 PIN_GPIO_RANGE_IOPAD>;
+
+	main_pmx0_range: gpio-range {
+		#pinctrl-single,gpio-range-cells = <3>;
+	};
+};
+
+&wkup_pmx0 {
+	pinctrl-single,gpio-range =
+		<&wkup_pmx_range 44 16 PIN_GPIO_RANGE_IOPAD>,
+		<&wkup_pmx_range 0 44 PIN_GPIO_RANGE_IOPAD>,
+		<&wkup_pmx_range 60 24 PIN_GPIO_RANGE_IOPAD>;
+
+	wkup_pmx_range: gpio-range {
+		#pinctrl-single,gpio-range-cells = <3>;
+	};
+};
+
 &main_gpio0 {
 	gpio-line-names = "", "", "", "", "P8_18", /* 0-4 */
 			  "", "", "", "", "", /* 5-9 */
@@ -67,6 +90,11 @@
 			  "", "", "", "", "", /* 30-34 */
 			  "", "", "", "", "", /* 35-39 */
 			  "", "", "", "", ""; /* 40-44 */
+};
+
+&wkup_gpio0 {
+	gpio-ranges = <&wkup_pmx0 0 44 16>, <&wkup_pmx0 16 0 44>,
+		      <&wkup_pmx0 60 60 24>;
 };
 
 bone_i2c_2: &main_i2c2 {
