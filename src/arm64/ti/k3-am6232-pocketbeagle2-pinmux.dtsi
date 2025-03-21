@@ -36,6 +36,18 @@
 };
 
 &main_pmx0 {
+	pinctrl-single,gpio-range =
+		<&main_pmx0_range 0 32 PIN_GPIO_RANGE_IOPAD>,
+		<&main_pmx0_range 33 38 PIN_GPIO_RANGE_IOPAD>,
+		<&main_pmx0_range 72 22 PIN_GPIO_RANGE_IOPAD>,
+		<&main_pmx0_range 137 5 PIN_GPIO_RANGE_IOPAD>,
+		<&main_pmx0_range 143 3 PIN_GPIO_RANGE_IOPAD>,
+		<&main_pmx0_range 149 2 PIN_GPIO_RANGE_IOPAD>;
+
+	main_pmx0_range: gpio-range {
+		#pinctrl-single,gpio-range-cells = <3>;
+	};
+
 	main_mmc0_pins_default: main-mmc0-default-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x220, PIN_INPUT, 0) /* (Y3/V3) MMC0_CMD */
@@ -529,7 +541,7 @@
 			  "P1.06(AD18)", "", "",	/* 78-80 */
 			  "", "", "",	/* 81-83 */
 			  "", "P2.03(AB22)", "P2.01(AD24)",	/* 84-86 */
-			  "P1.02(AA19)", "", "P1.04(Y18)",	/* 87-89 */
+			  "P1.02(AA19)", "P1.35", "P1.04(Y18)",	/* 87-89 */
 			  "P2.31(AA18)", "P2.10";	/* 90-91 */
 };
 

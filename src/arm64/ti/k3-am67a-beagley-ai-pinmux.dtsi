@@ -28,6 +28,19 @@
 };
 
 &main_pmx0 {
+	pinctrl-single,gpio-range =
+		<&main_pmx0_range 0 32 PIN_GPIO_RANGE_IOPAD>,
+		<&main_pmx0_range 33 38 PIN_GPIO_RANGE_IOPAD>,
+		<&main_pmx0_range 72 17 PIN_GPIO_RANGE_IOPAD>,
+		<&main_pmx0_range 101 25 PIN_GPIO_RANGE_IOPAD>,
+		<&main_pmx0_range 137 5 PIN_GPIO_RANGE_IOPAD>,
+		<&main_pmx0_range 143 3 PIN_GPIO_RANGE_IOPAD>,
+		<&main_pmx0_range 149 2 PIN_GPIO_RANGE_IOPAD>;
+
+	main_pmx0_range: gpio-range {
+		#pinctrl-single,gpio-range-cells = <3>;
+	};
+
 	hat_07_uart6_rxd: hat-07-uart6-rxd-pins {
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x09C, PIN_INPUT, 3) /* (W26) GPMC0_WAIT1.UART6_RXD */
@@ -621,6 +634,15 @@
 };
 
 &mcu_pmx0 {
+	pinctrl-single,gpio-range =
+		<&mcu_pmx_range 0 21 PIN_GPIO_RANGE_IOPAD>,
+		<&mcu_pmx_range 23 1 PIN_GPIO_RANGE_IOPAD>,
+		<&mcu_pmx_range 32 2 PIN_GPIO_RANGE_IOPAD>;
+
+	mcu_pmx_range: gpio-range {
+		#pinctrl-single,gpio-range-cells = <3>;
+	};
+
 	hat_03_i2c: hat-03-i2c-pins {
 		pinctrl-single,pins = <
 			J722S_MCU_IOPAD(0x048, PIN_INPUT_PULLUP, 0) /* (E11) MCU_I2C0_SDA */
@@ -858,7 +880,35 @@
 			J722S_MCU_IOPAD(0x04C, PIN_INPUT_PULLDOWN, 7) /* (B9) WKUP_I2C0_SCL.MCU_GPIO0_19 */
 		>;
 	};
+};
 
+&main_gpio0 {
+	pinctrl-names = "default";
+	gpio-line-names = "", "", "", "", "", /* 0-4 */
+			  "", "", "", "", "", /* 5-9 */
+			  "", "", "", "", "", /* 10-14 */
+			  "", "", "", "", "", /* 15-19 */
+			  "", "", "", "", "", /* 20-24 */
+			  "", "", "", "", "", /* 25-29 */
+			  "", "", "USB_RST", "GPIO27", "", /* 30-34 */
+			  "", "GPIO26", "", "GPIO4", "", /* 35-39 */
+			  "", "GPIO22", "GPIO25", "", ""; /* 40-44 */
+};
+
+&main_gpio1 {
+	pinctrl-names = "default";
+	gpio-line-names = "", "", "", "", "", /* 0-4 */
+			  "", "", "GPIO16", "GPIO17", "GPIO21", /* 5-9 */
+			  "GPIO20", "GPIO18", "GPIO19", "GPIO15", "GPIO14", /* 10-14 */
+			  "GPIO5", "GPIO12", "GPIO6", "GPIO13", ""; /* 15-19 */
+};
+
+&mcu_gpio0 {
+	pinctrl-names = "default";
+	gpio-line-names = "GPIO8", "", "GPIO11", "GPIO10", "GPIO9", /* 0-4 */
+			  "", "", "GPIO23", "", "GPIO7", /* 5-9 */
+			  "GPIO24", "", "", "HDMI_RSTn", "HDMI_INTn", /* 10-14 */
+			  "", "", "GPIO3", "GPIO2", ""; /* 15-19 */
 };
 
 &ecap0 {
@@ -878,6 +928,10 @@
 };
 
 &epwm1 {
+	status = "okay";
+};
+
+&epwm2 {
 	status = "okay";
 };
 
