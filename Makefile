@@ -188,10 +188,10 @@ install_arch_arm: $(ARCH_DTB) $(ARCH_DTBO)
 PHONY += install_arch_arm64
 install_arch_arm64: $(ARCH_DTB) $(ARCH_DTBO)
 	# install Device Tree
-	cp src/arm64/ti/*.dtb /usr/lib/linux-image-$(KERNEL_VERSION)/ti/ || true
+	cp src/arm64/ti/k3-*.dtb /usr/lib/linux-image-$(KERNEL_VERSION)/ti/ || true
 	cp src/arm64/overlays/*.dtbo /usr/lib/linux-image-$(KERNEL_VERSION)/ti/ || true
-	cp /usr/lib/linux-image-$(KERNEL_VERSION)/ti/k3-*.dtb /boot/firmware/ti/ || true
-	cp /usr/lib/linux-image-$(KERNEL_VERSION)/ti/*.dtbo /boot/firmware/overlays/ || true
+	cp src/arm64/ti/k3-*.dtb /boot/firmware/ti/ || true
+	cp src/arm64/overlays/*.dtbo /boot/firmware/overlays/ || true
 
 RCS_FIND_IGNORE := \( -name SCCS -o -name BitKeeper -o -name .svn -o -name CVS \
                    -o -name .pc -o -name .hg -o -name .git \) -prune -o
