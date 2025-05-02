@@ -241,6 +241,21 @@
 			slew-rate = <0>;
 		};
 	};
+
+	wifi_pins: wifi-pins {
+		wifi-host-wake {
+			pins = "SDIO1_DETN";
+			bias-pull-up;
+			input-enable;
+		};
+
+		wifi-reset {
+			pins = "GPIO2_31";
+			bias-pull-up;
+			drive-strength = <8>;
+			output-high;
+		};
+	};
 };
 
 &sdio0 {
@@ -287,6 +302,28 @@
 			input-schmitt-enable;
 			slew-rate = <0>;
 		};
+	};
+};
+
+&sdio1 {
+	bus-width = <4>;
+	max-frequency = <198000000>;
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&wifi_pins>;
+
+	#address-cells = <1>;
+	#size-cells = <0>;
+
+	brcmf: wifi@1 {
+		status = "okay";
+		compatible = "brcm,bcm43456-fmac", "brcm,bcm4329-fmac";
+		reg = <1>;
+		interrupt-parent = <&gpio2>;
+		interrupts = <29 IRQ_TYPE_EDGE_FALLING>;
+		interrupt-names = "host-wake";
+		reset-gpios = <&gpio2 31 GPIO_ACTIVE_LOW>;
+		brcm,ccode-map = "JP-JP-78", "US-Q2-86";
 	};
 };
 
