@@ -298,7 +298,16 @@
 	status = "okay";
 };
 
+&main_gpio0 {
+	status = "okay";
+};
+
 &main_gpio1 {
+	bootph-all;
+	status = "okay";
+};
+
+&mcu_gpio0 {
 	status = "okay";
 };
 
