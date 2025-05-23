@@ -15,3 +15,9 @@ sudo make install_arm
 ```
 sudo make install_arm64
 ```
+
+# Wip
+
+```
+sudo build_n_install.sh
+```

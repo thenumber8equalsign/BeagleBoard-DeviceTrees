@@ -5,6 +5,15 @@
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/input/input.h>
 
+/*
+ * Helper to show loaded overlays under: /proc/device-tree/chosen/overlays/
+ */
+&{/chosen} {
+	overlays {
+		k3-am6232-pocketbeagle2-techlab-cape.kernel = __TIMESTAMP__;
+	};
+};
+
 &main_spi0 {
 	status = "okay";
 	#address-cells = <1>;
