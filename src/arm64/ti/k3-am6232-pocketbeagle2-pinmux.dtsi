@@ -35,6 +35,14 @@
 	};
 };
 
+&a53_opp_table {
+	/* Requires VDD_CORE to be at 0.85V */
+	opp-1400000000 {
+		opp-hz = /bits/ 64 <1400000000>;
+		opp-supported-hw = <0x01 0x0004>;
+	};
+};
+
 &main_pmx0 {
 	main_mmc0_pins_default: main-mmc0-default-pins {
 		pinctrl-single,pins = <
