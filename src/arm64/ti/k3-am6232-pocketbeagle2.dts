@@ -41,7 +41,7 @@
 
 	chosen {
 		stdout-path = &main_uart6;
-		base_dtb = "k3-am62-pocketbeagle2.dts";
+		base_dtb = "k3-am6232-pocketbeagle2.dts";
 	};
 
 	memory@80000000 {
