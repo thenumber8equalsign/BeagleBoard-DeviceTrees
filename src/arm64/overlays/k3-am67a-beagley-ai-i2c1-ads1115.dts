@@ -23,6 +23,9 @@
 &mcu_i2c0 {
 	status = "okay";
 
+	#address-cells = <1>;
+	#size-cells = <0>;
+
 	adc@48 {
 		compatible = "ti,ads1115";
 		reg = <0x48>;
