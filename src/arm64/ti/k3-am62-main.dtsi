@@ -724,8 +724,6 @@
 		dma-names = "tx0", "tx1", "tx2", "tx3", "tx4", "tx5", "tx6",
 			    "tx7", "rx";
 
-		status = "disabled";
-
 		ethernet-ports {
 			#address-cells = <1>;
 			#size-cells = <0>;
@@ -737,7 +735,6 @@
 				phys = <&phy_gmii_sel 1>;
 				mac-address = [00 00 00 00 00 00];
 				ti,syscon-efuse = <&cpsw_mac_syscon 0x0>;
-				status = "disabled";
 			};
 
 			cpsw_port2: port@2 {
@@ -746,7 +743,6 @@
 				label = "port2";
 				phys = <&phy_gmii_sel 2>;
 				mac-address = [00 00 00 00 00 00];
-				status = "disabled";
 			};
 		};
 
