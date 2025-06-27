@@ -128,6 +128,10 @@
 		ti,fifo-depth = <DP83867_PHYCR_FIFO_DEPTH_8_B_NIB>;
 		ti,min-output-impedance;
 		ti,dp83867-rxctrl-strap-quirk;
+
+		reset-gpios = <&gpio1 8 GPIO_ACTIVE_LOW>;
+		reset-assert-us = <300>;
+		reset-deassert-us = <50000>;
 	};
 };
 
