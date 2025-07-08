@@ -180,3 +180,13 @@
 &tscadc {
 	status = "okay";
 };
+
+&rtc {
+	pinctrl-0 = <&ext_wakeup>;
+	pinctrl-names = "default";
+
+	ext_wakeup: ext-wakeup {
+		pins = "ext_wakeup0";
+		input-enable;
+	};
+ };
