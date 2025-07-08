@@ -5,7 +5,6 @@ build-debian-12-arm64:
     - docker-aarch64
   stage: build
   script:
-    - ./scripts/pull.sh
     - make CC=gcc CROSS_COMPILE= all
 
 build-debian-13-arm64:
@@ -15,5 +14,4 @@ build-debian-13-arm64:
     - docker-aarch64
   stage: build
   script:
-    - ./scripts/pull.sh
     - make CC=gcc CROSS_COMPILE= all
