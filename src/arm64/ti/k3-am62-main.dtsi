@@ -553,7 +553,6 @@
 		clocks = <&k3_clks 57 5>, <&k3_clks 57 6>;
 		clock-names = "clk_ahb", "clk_xin";
 		bus-width = <8>;
-		mmc-ddr-1_8v;
 		mmc-hs200-1_8v;
 		ti,clkbuf-sel = <0x7>;
 		ti,otap-del-sel-legacy = <0x0>;
@@ -724,8 +723,6 @@
 		dma-names = "tx0", "tx1", "tx2", "tx3", "tx4", "tx5", "tx6",
 			    "tx7", "rx";
 
-		status = "disabled";
-
 		ethernet-ports {
 			#address-cells = <1>;
 			#size-cells = <0>;
@@ -737,7 +734,6 @@
 				phys = <&phy_gmii_sel 1>;
 				mac-address = [00 00 00 00 00 00];
 				ti,syscon-efuse = <&cpsw_mac_syscon 0x0>;
-				status = "disabled";
 			};
 
 			cpsw_port2: port@2 {
@@ -746,7 +742,6 @@
 				label = "port2";
 				phys = <&phy_gmii_sel 2>;
 				mac-address = [00 00 00 00 00 00];
-				status = "disabled";
 			};
 		};
 
