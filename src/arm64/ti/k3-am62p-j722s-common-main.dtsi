@@ -728,7 +728,6 @@
 				mac-address = [00 00 00 00 00 00];
 				ti,syscon-efuse = <&cpsw_mac_syscon 0x0>;
 				status = "disabled";
-				bootph-all;
 			};
 
 			cpsw_port2: port@2 {
@@ -750,7 +749,6 @@
 			clock-names = "fck";
 			bus_freq = <1000000>;
 			status = "disabled";
-			bootph-all;
 		};
 
 		cpts@3d000 {
