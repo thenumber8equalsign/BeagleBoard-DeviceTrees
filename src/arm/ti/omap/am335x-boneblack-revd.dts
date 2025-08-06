@@ -178,3 +178,7 @@
 &baseboard_eeprom {
 	vcc-supply = <&ldo4_reg>;
 };
+
+&tscadc {
+	status = "okay";
+};
