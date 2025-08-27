@@ -8,7 +8,7 @@
 #include "am335x-bone-common.dtsi"
 #include "am335x-bonegreen-common.dtsi"
 #include <dt-bindings/net/ti-dp83867.h>
-
+#include "am335x-bonegreeneco-ite-hdmi.dtsi"
 / {
 	model = "Seeed Studio BeagleBone Green Eco";
 	compatible = "seeed,am335x-bone-green-eco", "ti,am33xx";
