@@ -15,10 +15,9 @@
  */
 &{/chosen} {
 	overlays {
-		BBGE-HDMI-IT66121-00A0.kernel = __TIMESTAMP__;
+		BB-HDMI-IT66121-00A0.kernel = __TIMESTAMP__;
 	};
 };
-
 
 /*
  * Free up the pins used by the cape from the pinmux helpers.
@@ -54,7 +53,6 @@
 	P8_10_pinmux { status = "disabled"; };	/* hdmi_int */
 };
 
-
 &{/} {
 	connector-hdmi {
 		compatible = "hdmi-connector";
@@ -74,7 +72,6 @@
 		regulator-max-microvolt = <1800000>;
 	};
 };
-
 
 &am33xx_pinmux {
 	nxp_hdmi_bonelt_pins: nxp-hdmi-bonelt-pins {
@@ -141,6 +138,9 @@
 };
 
 &i2c2 {
+	#address-cells = <1>;
+	#size-cells = <0>;
+
 	status = "okay";
 	it66121: bridge-hdmi@4d {
 		compatible = "ite,it66121";
@@ -181,7 +181,7 @@
 	};
 };
 
-&mcasp0	{
+&mcasp0 {
 	#sound-dai-cells = <0>;
 	pinctrl-names = "default";
 	pinctrl-0 = <&mcasp0_pins>;

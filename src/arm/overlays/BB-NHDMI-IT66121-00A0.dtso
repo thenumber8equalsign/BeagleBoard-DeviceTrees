@@ -15,7 +15,7 @@
  */
 &{/chosen} {
 	overlays {
-		BBGE-NHDMI-IT66121-00A0.kernel = __TIMESTAMP__;
+		BB-NHDMI-IT66121-00A0.kernel = __TIMESTAMP__;
 	};
 };
 
@@ -45,7 +45,6 @@
 	P8_30_pinmux { status = "disabled"; };	/* lcd_ac_bias_en */
 };
 
-
 &{/} {
 	connector-hdmi {
 		compatible = "hdmi-connector";
@@ -65,8 +64,6 @@
 		regulator-max-microvolt = <1800000>;
 	};
 };
-
-
 
 &am33xx_pinmux {
 	nxp_hdmi_bonelt_pins: nxp-hdmi-bonelt-pins {
@@ -101,9 +98,7 @@
 			AM33XX_PADCONF(AM335X_PIN_GPMC_WEN, PIN_OUTPUT_PULLUP, MUX_MODE7) /* HDMI_RESET GPMC_WEN.GPIO2_4 */
 		>;
 	};
-
 };
-
 
 &lcdc {
 	status = "okay";
@@ -125,6 +120,9 @@
 };
 
 &i2c2 {
+	#address-cells = <1>;
+	#size-cells = <0>;
+
 	status = "okay";
 	it66121: bridge-hdmi@4d {
 		compatible = "ite,it66121";
