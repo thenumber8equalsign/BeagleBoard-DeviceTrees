@@ -28,10 +28,10 @@
 
 &epwmss2 {
 	status = "okay";
+};
 
-	ehrpwm2 {
-		status = "okay";
-		pinctrl-names = "default";
-		pinctrl-0 = <&epwmss2_pins>;
-	};
+&ehrpwm2 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&epwmss2_pins>;
 };
