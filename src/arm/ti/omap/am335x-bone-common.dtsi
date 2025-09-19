@@ -409,7 +409,12 @@
 	status = "okay";
 };
 
+&wkup_m3_ipc {
+	firmware-name = "am335x-bone-scale-data.bin";
+};
+
 &tscadc {
+	status = "okay";
 	adc {
 		ti,adc-channels = <0 1 2 3 4 5 6 7>;
 		ti,chan-step-avg = <16 16 16 16 16 16 16 16>;
