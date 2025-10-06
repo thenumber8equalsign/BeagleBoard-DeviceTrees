@@ -23,6 +23,11 @@
 	};
 };
 
+&i2c2 {
+	pinctrl-0 = <>;
+	status = "disabled";
+};
+
 &{/} {
 	leds {
 		pinctrl-names = "default";
