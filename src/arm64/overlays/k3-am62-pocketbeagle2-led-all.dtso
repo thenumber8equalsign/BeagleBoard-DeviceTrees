@@ -375,6 +375,11 @@
 	status = "disabled";
 };
 
+&main_spi0 {
+	pinctrl-0 = <>;
+	status = "disabled";
+};
+
 &ecap2 {
 	pinctrl-0 = <>;
 	status = "disabled";
