@@ -17,13 +17,45 @@
 	leds {
 		compatible = "gpio-leds";
 		pinctrl-names = "default";
-		pinctrl-0 = <&P1_02_E18_gpio>;
+		pinctrl-0 = <&P1_02_E18_gpio>,
+					<&P1_04_D20_gpio>,
+					<&P1_06_E19_gpio>,
+					<&P1_08_gpio>,
+					<&P1_10_A18_gpio>;
 		bootph-all;
 
 		pin@102 {
 			label = "P1_02";
 			linux,default-trigger = "heartbeat";
 			gpios = <&main_gpio1 10 GPIO_ACTIVE_HIGH>;
+			default-state = "on";
+		};
+
+		pin@104 {
+			label = "P1_04";
+			linux,default-trigger = "heartbeat";
+			gpios = <&main_gpio1 12 GPIO_ACTIVE_HIGH>;
+			default-state = "on";
+		};
+
+		pin@106 {
+			label = "P1_06";
+			linux,default-trigger = "heartbeat";
+			gpios = <&main_gpio1 13 GPIO_ACTIVE_HIGH>;
+			default-state = "on";
+		};
+
+		pin@108 {
+			label = "P1_08";
+			linux,default-trigger = "heartbeat";
+			gpios = <&main_gpio1 14 GPIO_ACTIVE_HIGH>;
+			default-state = "on";
+		};
+
+		pin@110 {
+			label = "P1_10";
+			linux,default-trigger = "heartbeat";
+			gpios = <&main_gpio1 30 GPIO_ACTIVE_HIGH>;
 			default-state = "on";
 		};
 	};
