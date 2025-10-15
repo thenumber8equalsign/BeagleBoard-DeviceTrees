@@ -265,6 +265,7 @@
 		>;
 	};
 
+	/* UART0_TXD debug */
 	P1_30_gpio: P1-30-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x01CC, PIN_INPUT, 7) /* (E14) UART0_TXD.GPIO1_21 */
