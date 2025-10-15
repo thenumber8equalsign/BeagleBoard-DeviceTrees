@@ -172,3 +172,8 @@
 		};
 	};
 };
+
+&epwm2 {
+	status = "disabled";
+	pinctrl-0 = <>;
+};
