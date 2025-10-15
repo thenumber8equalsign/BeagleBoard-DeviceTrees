@@ -129,7 +129,7 @@
 	P1_02_E18_gpio: P1-02-E18-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x01A0, PIN_INPUT, 7) /* (E18) MCASP0_AXR0.GPIO1_10 */
-			AM62X_IOPAD(0x0164, PIN_INPUT, 7) /* (AA19) RGMII2_TX_CTL.GPIO0_87 */
+			AM62X_IOPAD(0x0164, PIN_DISABLE, 7) /* (AA19) RGMII2_TX_CTL.GPIO0_87 */
 		>;
 	};
 
@@ -202,6 +202,13 @@
 		>;
 	};
 
+	/* USB ID */
+	P1_13_gpio: P1-13-gpio-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x0094, PIN_INPUT, 7) /* (N20) GPMC0_BE1n.GPIO0_36 */
+		>;
+	}
+
 	P1_19_gpio: P1-19-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x017C, PIN_INPUT, 7) /* (AD22) RGMII2_RX_CTL.GPIO1_1 */
@@ -232,7 +239,7 @@
 		>;
 	};
 
-	/* i2c 20020000.i2c */
+	/* I2C2 20020000.i2c */
 	P1_26_K24_gpio: P1-26-K24-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x00B4, PIN_INPUT, 7) /* (K24) GPMC0_CSn3.GPIO0_44 */
@@ -245,6 +252,7 @@
 		>;
 	};
 
+	/* I2C2 20020000.i2c */
 	P1_28_K22_gpio: P1-28-K22-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x00B0, PIN_INPUT, 7) /* (K22) GPMC0_CSn2.GPIO0_43 */
