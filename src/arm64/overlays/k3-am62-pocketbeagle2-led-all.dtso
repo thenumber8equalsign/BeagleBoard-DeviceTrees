@@ -28,7 +28,7 @@
 					<&P1_21_gpio>,
 					<&P1_23_gpio>,
 					<&P1_25_gpio>,
-					<&P1_26_K24_gpio>;
+					<&P1_27_gpio>;
 		bootph-all;
 
 		pin@102 {
@@ -108,10 +108,10 @@
 			default-state = "on";
 		};
 
-		pin@126 {
-			label = "P1_26";
+		pin@127 {
+			label = "P1_27";
 			linux,default-trigger = "heartbeat";
-			gpios = <&main_gpio0 44 GPIO_ACTIVE_HIGH>;
+			gpios = <&main_gpio1 3 GPIO_ACTIVE_HIGH>;
 			default-state = "on";
 		};
 	};

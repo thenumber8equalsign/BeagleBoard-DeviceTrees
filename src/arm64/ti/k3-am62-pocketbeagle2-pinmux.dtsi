@@ -232,6 +232,7 @@
 		>;
 	};
 
+	/* i2c 20020000.i2c */
 	P1_26_K24_gpio: P1-26-K24-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x00B4, PIN_INPUT, 7) /* (K24) GPMC0_CSn3.GPIO0_44 */
