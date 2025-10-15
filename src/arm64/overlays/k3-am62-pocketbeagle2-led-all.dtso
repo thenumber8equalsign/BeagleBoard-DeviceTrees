@@ -1,0 +1,30 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/leds/common.h>
+
+/*
+ * Helper to show loaded overlays under: /proc/device-tree/chosen/overlays/
+ */
+&{/chosen} {
+	overlays {
+		k3-am62-pocketbeagle2-led-all.kernel = __TIMESTAMP__;
+	};
+};
+
+&{/} {
+	leds {
+		compatible = "gpio-leds";
+		pinctrl-names = "default";
+		pinctrl-0 = <&P1_02_E18_gpio>;
+		bootph-all;
+
+		pin@102 {
+			label = "P1_02";
+			linux,default-trigger = "heartbeat";
+			gpios = <&main_gpio1 10 GPIO_ACTIVE_HIGH>;
+			default-state = "on";
+		};
+	};
+};
