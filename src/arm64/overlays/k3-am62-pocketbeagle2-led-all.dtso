@@ -29,7 +29,9 @@
 					<&P1_21_gpio>,
 					<&P1_23_gpio>,
 					<&P1_25_gpio>,
+					<&P1_26_K24_gpio>,
 					<&P1_27_gpio>,
+					<&P1_28_K22_gpio>,
 					<&P1_29_gpio>,
 					<&P1_30_gpio>,
 					<&P1_31_gpio>,
@@ -124,10 +126,24 @@
 			default-state = "on";
 		};
 
+		pin@126 {
+			label = "P1_26";
+			linux,default-trigger = "heartbeat";
+			gpios = <&main_gpio0 44 GPIO_ACTIVE_HIGH>;
+			default-state = "on";
+		};
+
 		pin@127 {
 			label = "P1_27";
 			linux,default-trigger = "heartbeat";
 			gpios = <&main_gpio1 3 GPIO_ACTIVE_HIGH>;
+			default-state = "on";
+		};
+
+		pin@128 {
+			label = "P1_28";
+			linux,default-trigger = "heartbeat";
+			gpios = <&main_gpio0 43 GPIO_ACTIVE_HIGH>;
 			default-state = "on";
 		};
 
@@ -190,6 +206,11 @@
 };
 
 &main_uart0 {
+	pinctrl-0 = <>;
+	status = "disabled";
+};
+
+&main_i2c2 {
 	pinctrl-0 = <>;
 	status = "disabled";
 };
