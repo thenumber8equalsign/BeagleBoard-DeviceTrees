@@ -207,7 +207,7 @@
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x0094, PIN_INPUT, 7) /* (N20) GPMC0_BE1n.GPIO0_36 */
 		>;
-	}
+	};
 
 	P1_19_gpio: P1-19-gpio-pins {
 		pinctrl-single,pins = <
