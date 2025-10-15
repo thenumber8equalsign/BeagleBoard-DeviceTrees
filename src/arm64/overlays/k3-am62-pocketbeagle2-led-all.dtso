@@ -59,7 +59,11 @@
 					<&P2_24_gpio>,
 					<&P2_25_gpio>,
 					<&P2_27_gpio>,
-					<&P2_28_gpio>;
+					<&P2_28_gpio>,
+					<&P2_29_A14_gpio>,
+					<&P2_30_gpio>,
+					<&P2_31_A13_gpio>,
+					<&P2_32_gpio>;
 		bootph-all;
 
 		pin@102 {
@@ -360,6 +364,34 @@
 			label = "P2_28";
 			linux,default-trigger = "heartbeat";
 			gpios = <&main_gpio0 61 GPIO_ACTIVE_HIGH>;
+			default-state = "on";
+		};
+
+		pin@229 {
+			label = "P2_29";
+			linux,default-trigger = "heartbeat";
+			gpios = <&main_gpio1 17 GPIO_ACTIVE_HIGH>;
+			default-state = "on";
+		};
+
+		pin@230 {
+			label = "P2_30";
+			linux,default-trigger = "heartbeat";
+			gpios = <&main_gpio0 58 GPIO_ACTIVE_HIGH>;
+			default-state = "on";
+		};
+
+		pin@231 {
+			label = "P2_31";
+			linux,default-trigger = "heartbeat";
+			gpios = <&main_gpio1 15 GPIO_ACTIVE_HIGH>;
+			default-state = "on";
+		};
+
+		pin@232 {
+			label = "P2_32";
+			linux,default-trigger = "heartbeat";
+			gpios = <&main_gpio0 57 GPIO_ACTIVE_HIGH>;
 			default-state = "on";
 		};
 	};
