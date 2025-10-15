@@ -31,7 +31,9 @@
 					<&P1_25_gpio>,
 					<&P1_27_gpio>,
 					<&P1_29_gpio>,
+					<&P1_30_gpio>,
 					<&P1_31_gpio>,
+					<&P1_32_gpio>,
 					<&P1_33_A17_gpio>,
 					<&P1_34_gpio>,
 					<&P1_35_gpio>,
@@ -136,10 +138,24 @@
 			default-state = "on";
 		};
 
+		pin@130 {
+			label = "P1_30";
+			linux,default-trigger = "heartbeat";
+			gpios = <&main_gpio1 21 GPIO_ACTIVE_HIGH>;
+			default-state = "on";
+		};
+
 		pin@131 {
 			label = "P1_31";
 			linux,default-trigger = "heartbeat";
 			gpios = <&main_gpio0 59 GPIO_ACTIVE_HIGH>;
+			default-state = "on";
+		};
+
+		pin@132 {
+			label = "P1_32";
+			linux,default-trigger = "heartbeat";
+			gpios = <&main_gpio1 20 GPIO_ACTIVE_HIGH>;
 			default-state = "on";
 		};
 
@@ -173,7 +189,12 @@
 	};
 };
 
-&epwm2 {
-	status = "disabled";
+&main_uart0 {
 	pinctrl-0 = <>;
+	status = "disabled";
+};
+
+&epwm2 {
+	pinctrl-0 = <>;
+	status = "disabled";
 };
