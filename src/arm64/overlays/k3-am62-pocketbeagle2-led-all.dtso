@@ -248,6 +248,11 @@
 	status = "disabled";
 };
 
+&ecap2 {
+	pinctrl-0 = <>;
+	status = "disabled";
+};
+
 &epwm2 {
 	pinctrl-0 = <>;
 	status = "disabled";
