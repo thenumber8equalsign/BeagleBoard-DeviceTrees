@@ -278,6 +278,7 @@
 		>;
 	};
 
+	/* UART0_RXD debug */
 	P1_32_gpio: P1-32-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x01C8, PIN_INPUT, 7) /* (D14) UART0_RXD.GPIO1_20 */
