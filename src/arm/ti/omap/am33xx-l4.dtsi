@@ -891,28 +891,9 @@
 					};
 				};
 
-				pruss_uart: serial@28000 {
-					compatible = "ti,pruss-uart";
-					reg = <0x28000 0x38>;
-					clocks = <&dpll_per_m2_ck>;
-					interrupt-parent = <&pruss_intc>;
-					status = "disabled";
-				};
-
 				pruss_mii_rt: mii-rt@32000 {
 					compatible = "ti,pruss-mii", "syscon";
 					reg = <0x32000 0x58>;
-				};
-
-				pruss_iep: iep@2e000 {
-					compatible = "ti,am3356-icss-iep";
-					reg = <0x2e000 0x31c>;
-					clocks = <&pruss_iepclk_mux>;
-				};
-
-				pruss_ecap: ecap@30000 {
-					compatible = "ti,pruss-ecap";
-					reg = <0x30000 0x60>;
 				};
 
 				pruss_intc: interrupt-controller@20000 {
@@ -1476,10 +1457,10 @@
 
 			gpio1: gpio@0 {
 				compatible = "ti,omap4-gpio";
-				gpio-ranges =   <&am33xx_pinmux  0  0  8>,
-						<&am33xx_pinmux  8 90  4>,
-						<&am33xx_pinmux 12 12 16>,
-						<&am33xx_pinmux 28 30  4>;
+				gpio-ranges = <&am33xx_pinmux  0  0  8>,
+					      <&am33xx_pinmux  8 90  4>,
+					      <&am33xx_pinmux 12 12 16>,
+					      <&am33xx_pinmux 28 30  4>;
 				gpio-controller;
 				#gpio-cells = <2>;
 				interrupt-controller;

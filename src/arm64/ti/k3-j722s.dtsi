@@ -56,6 +56,7 @@
 			d-cache-sets = <128>;
 			next-level-cache = <&l2_0>;
 			clocks = <&k3_clks 135 0>;
+			#cooling-cells = <2>;
 		};
 
 		cpu1: cpu@1 {
@@ -71,6 +72,7 @@
 			d-cache-sets = <128>;
 			next-level-cache = <&l2_0>;
 			clocks = <&k3_clks 136 0>;
+			#cooling-cells = <2>;
 		};
 
 		cpu2: cpu@2 {
@@ -86,6 +88,7 @@
 			d-cache-sets = <128>;
 			next-level-cache = <&l2_0>;
 			clocks = <&k3_clks 137 0>;
+			#cooling-cells = <2>;
 		};
 
 		cpu3: cpu@3 {
@@ -101,6 +104,7 @@
 			d-cache-sets = <128>;
 			next-level-cache = <&l2_0>;
 			clocks = <&k3_clks 138 0>;
+			#cooling-cells = <2>;
 		};
 	};
 
@@ -164,7 +168,6 @@
 			 <0x00 0x30210000 0x00 0x30210000 0x00 0x00010000>, /* VPU */
 			 <0x00 0x30220000 0x00 0x30220000 0x00 0x00010000>, /* DSS1 */
 			 <0x00 0x30270000 0x00 0x30270000 0x00 0x00010000>, /* DSI-base1 */
-			 <0x00 0x30300000 0x00 0x30300000 0x00 0x00001000>, /* MCRC64 */
 			 <0x00 0x30500000 0x00 0x30500000 0x00 0x00100000>, /* DSI-base2 */
 			 <0x00 0x31000000 0x00 0x31000000 0x00 0x00050000>, /* USB0 DWC3 Core window */
 			 <0x00 0x31200000 0x00 0x31200000 0x00 0x00040000>, /* USB1 DWC3 Core window */
@@ -221,22 +224,6 @@
 				 <0x00 0x78100000 0x00 0x78100000 0x00 0x00008000>; /* DM R5 BTCM*/
 			bootph-all;
 		};
-	};
-
-	dss0_vp1_clk: clock-divider-oldi-dss0 {
-		compatible = "fixed-factor-clock";
-		clocks = <&k3_clks 186 0>;
-		#clock-cells = <0>;
-		clock-div = <7>;
-		clock-mult = <1>;
-	};
-
-	dss1_vp1_clk: clock-divider-oldi-dss1 {
-		compatible = "fixed-factor-clock";
-		clocks = <&k3_clks 232 0>;
-		#clock-cells = <0>;
-		clock-div = <7>;
-		clock-mult = <1>;
 	};
 
 	#include "k3-am62p-j722s-common-thermal.dtsi"
