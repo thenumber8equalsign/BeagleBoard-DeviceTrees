@@ -27,7 +27,7 @@
 	P9_28_pinmux { status = "disabled"; };	/* mcasp0_axr2 */
 	P9_29_pinmux { status = "disabled"; };	/* mcasp0_fsx */
 	P9_31_pinmux { status = "disabled"; };	/* mcasp0_aclkx */
-	
+
 	P8_45_pinmux { status = "disabled"; };	/* lcd_data0 */
 	P8_46_pinmux { status = "disabled"; };	/* lcd_data1 */
 	P8_43_pinmux { status = "disabled"; };	/* lcd_data2 */
