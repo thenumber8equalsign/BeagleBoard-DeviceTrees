@@ -38,9 +38,8 @@
 		};
 	};
 
-	scm_conf: scm-conf@100000 {
-		compatible = "ti,j721e-system-controller", "syscon", "simple-mfd";
-		reg = <0 0x00100000 0 0x1c000>; /* excludes pinctrl region */
+	scm_conf: bus@100000 {
+		compatible = "simple-bus";
 		#address-cells = <1>;
 		#size-cells = <1>;
 		ranges = <0x0 0x0 0x00100000 0x1c000>;
@@ -606,8 +605,14 @@
 		ranges;
 		#address-cells = <2>;
 		#size-cells = <2>;
-		dmas = <&main_udmap 0x4940>;
-		dma-names = "rx0";
+		dmas = <&main_udmap 0x4940>, <&main_udmap 0x4941>, <&main_udmap 0x4942>,
+		       <&main_udmap 0x4943>, <&main_udmap 0x4944>, <&main_udmap 0x4945>,
+		       <&main_udmap 0x4946>, <&main_udmap 0x4947>, <&main_udmap 0x4948>,
+		       <&main_udmap 0x4949>, <&main_udmap 0x494a>, <&main_udmap 0x494b>,
+		       <&main_udmap 0x494c>, <&main_udmap 0x494d>, <&main_udmap 0x494e>,
+		       <&main_udmap 0x494f>;
+		dma-names = "rx0", "rx1", "rx2", "rx3", "rx4", "rx5", "rx6", "rx7",
+			    "rx8", "rx9", "rx10", "rx11", "rx12", "rx13", "rx14", "rx15";
 		power-domains = <&k3_pds 26 TI_SCI_PD_EXCLUSIVE>;
 		status = "disabled";
 
@@ -618,9 +623,9 @@
 				     <GIC_SPI 152 IRQ_TYPE_LEVEL_HIGH>;
 			interrupt-names = "error_irq", "irq";
 			clocks = <&k3_clks 26 2>, <&k3_clks 26 0>, <&k3_clks 26 2>,
-				<&k3_clks 26 2>, <&k3_clks 26 3>, <&k3_clks 26 3>;
+				 <&k3_clks 26 2>, <&k3_clks 26 3>, <&k3_clks 26 3>;
 			clock-names = "sys_clk", "p_clk", "pixel_if0_clk",
-				"pixel_if1_clk", "pixel_if2_clk", "pixel_if3_clk";
+				      "pixel_if1_clk", "pixel_if2_clk", "pixel_if3_clk";
 			phys = <&dphy0>;
 			phy-names = "dphy";
 
@@ -662,8 +667,14 @@
 		ranges;
 		#address-cells = <2>;
 		#size-cells = <2>;
-		dmas = <&main_udmap 0x4960>;
-		dma-names = "rx0";
+		dmas = <&main_udmap 0x4960>, <&main_udmap 0x4961>, <&main_udmap 0x4962>,
+		       <&main_udmap 0x4963>, <&main_udmap 0x4964>, <&main_udmap 0x4965>,
+		       <&main_udmap 0x4966>, <&main_udmap 0x4967>, <&main_udmap 0x4968>,
+		       <&main_udmap 0x4969>, <&main_udmap 0x496a>, <&main_udmap 0x496b>,
+		       <&main_udmap 0x496c>, <&main_udmap 0x496d>, <&main_udmap 0x496e>,
+		       <&main_udmap 0x496f>;
+		dma-names = "rx0", "rx1", "rx2", "rx3", "rx4", "rx5", "rx6", "rx7",
+			    "rx8", "rx9", "rx10", "rx11", "rx12", "rx13", "rx14", "rx15";
 		power-domains = <&k3_pds 27 TI_SCI_PD_EXCLUSIVE>;
 		status = "disabled";
 
@@ -1840,6 +1851,22 @@
 		status = "disabled";
 	};
 
+	vxe384: video-encoder@4200000 {
+		compatible = "img,vxe384";
+		reg = <0x00 0x04200000>,
+			<0x00 0x100000>;
+		power-domains = <&k3_pds 153 TI_SCI_PD_EXCLUSIVE>;
+		interrupts = <GIC_SPI 181 IRQ_TYPE_LEVEL_HIGH>;
+	};
+
+	d5520: video-decoder@4300000 {
+		compatible = "img,d5500-vxd";
+		reg = <0x00 0x04300000>,
+			<0x00 0x100000>;
+		power-domains = <&k3_pds 144 TI_SCI_PD_EXCLUSIVE>;
+		interrupts = <GIC_SPI 180 IRQ_TYPE_LEVEL_HIGH>;
+	};
+
 	ufs_wrapper: ufs-wrapper@4e80000 {
 		compatible = "ti,j721e-ufs";
 		reg = <0x0 0x4e80000 0x0 0x100>;
@@ -1895,7 +1922,7 @@
 
 	dphy2: phy@4480000 {
 		compatible = "ti,j721e-dphy";
-		reg = <0x00 0x04480000 0x00 0x1000>;
+		reg = <0x0 0x04480000 0x0 0x1000>;
 		clocks = <&k3_clks 296 1>, <&k3_clks 296 3>;
 		clock-names = "psm", "pll_ref";
 		#phy-cells = <0>;
@@ -1906,9 +1933,9 @@
 		status = "disabled";
 	};
 
-	dsi0: dsi@4800000 {
+	dsi0: dsi@48000000 {
 		compatible = "ti,j721e-dsi";
-		reg = <0x00 0x04800000 0x00 0x100000>, <0x00 0x04710000 0x00 0x100>;
+		reg = <0x0 0x04800000 0x0 0x100000>, <0x0 0x04710000 0x0 0x100>;
 		clocks = <&k3_clks 150 1>, <&k3_clks 150 5>;
 		clock-names = "dsi_p_clk", "dsi_sys_clk";
 		power-domains = <&k3_pds 150 TI_SCI_PD_EXCLUSIVE>;
@@ -1921,14 +1948,6 @@
 		dsi0_ports: ports {
 			#address-cells = <1>;
 			#size-cells = <0>;
-
-			port@0 {
-				reg = <0>;
-			};
-
-			port@1 {
-				reg = <1>;
-			};
 		};
 	};
 
@@ -2227,7 +2246,6 @@
 		ranges = <0x5c00000 0x00 0x5c00000 0x20000>,
 			 <0x5d00000 0x00 0x5d00000 0x20000>;
 		power-domains = <&k3_pds 243 TI_SCI_PD_EXCLUSIVE>;
-		status = "disabled";
 
 		main_r5fss0_core0: r5f@5c00000 {
 			compatible = "ti,j721e-r5f";
@@ -2242,7 +2260,6 @@
 			ti,atcm-enable = <1>;
 			ti,btcm-enable = <1>;
 			ti,loczrama = <1>;
-			status = "disabled";
 		};
 
 		main_r5fss0_core1: r5f@5d00000 {
@@ -2258,7 +2275,6 @@
 			ti,atcm-enable = <1>;
 			ti,btcm-enable = <1>;
 			ti,loczrama = <1>;
-			status = "disabled";
 		};
 	};
 
@@ -2270,7 +2286,6 @@
 		ranges = <0x5e00000 0x00 0x5e00000 0x20000>,
 			 <0x5f00000 0x00 0x5f00000 0x20000>;
 		power-domains = <&k3_pds 244 TI_SCI_PD_EXCLUSIVE>;
-		status = "disabled";
 
 		main_r5fss1_core0: r5f@5e00000 {
 			compatible = "ti,j721e-r5f";
@@ -2285,7 +2300,6 @@
 			ti,atcm-enable = <1>;
 			ti,btcm-enable = <1>;
 			ti,loczrama = <1>;
-			status = "disabled";
 		};
 
 		main_r5fss1_core1: r5f@5f00000 {
@@ -2301,7 +2315,6 @@
 			ti,atcm-enable = <1>;
 			ti,btcm-enable = <1>;
 			ti,loczrama = <1>;
-			status = "disabled";
 		};
 	};
 
@@ -2343,6 +2356,13 @@
 		ti,sci-proc-ids = <0x30 0xff>;
 		resets = <&k3_reset 15 1>;
 		firmware-name = "j7-c71_0-fw";
+		status = "disabled";
+	};
+
+	timesync_router: mux-controller@a40000 {
+		compatible = "reg-mux";
+		reg = <0x0 0xa40000 0x0 0x800>;
+		#mux-control-cells = <1>;
 		status = "disabled";
 	};
 

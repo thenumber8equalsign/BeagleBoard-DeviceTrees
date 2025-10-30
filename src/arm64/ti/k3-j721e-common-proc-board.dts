@@ -13,6 +13,8 @@
 #include <dt-bindings/net/ti-dp83867.h>
 #include <dt-bindings/phy/phy-cadence.h>
 
+#include "k3-timesync-router.h"
+
 / {
 	compatible = "ti,j721e-evm", "ti,j721e";
 	model = "Texas Instruments J721e EVM";
@@ -540,7 +542,6 @@
 		#phy-cells = <0>;
 		cdns,phy-type = <PHY_TYPE_USB3>;
 		resets = <&serdes_wiz3 1>, <&serdes_wiz3 2>;
-		bootph-all;
 	};
 };
 
@@ -571,6 +572,7 @@
 };
 
 &ospi1 {
+	status = "okay";
 	pinctrl-names = "default";
 	pinctrl-0 = <&mcu_fss0_ospi1_pins_default>;
 	status = "okay";
@@ -769,6 +771,11 @@
 &mcu_cpsw {
 	pinctrl-names = "default";
 	pinctrl-0 = <&mcu_cpsw_pins_default>, <&mcu_mdio_pins_default>;
+
+	cpts@3d000 {
+		/* Map HW4_TS_PUSH to GENF1 */
+		ti,pps = <3 1>;
+	};
 };
 
 &davinci_mdio {
@@ -805,11 +812,7 @@
 };
 
 &dss_ports {
-	#address-cells = <1>;
-	#size-cells = <0>;
-
-	port@0 {
-		reg = <0>;
+	port {
 		dpi0_out: endpoint {
 			remote-endpoint = <&dp0_in>;
 		};
@@ -995,4 +998,12 @@
 	pinctrl-names = "default";
 	pinctrl-0 = <&main_mcan2_pins_default>;
 	phys = <&transceiver4>;
+};
+
+&timesync_router {
+	/* Use Time Sync Router to map GENF1 input to HW4_TS_PUSH output */
+	mux-reg-masks-state = <
+		K3_TS_OFFSET(25, 0x0001ffff, 17)
+		>;
+	status = "okay";
 };

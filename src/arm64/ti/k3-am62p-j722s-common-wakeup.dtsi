@@ -2,7 +2,7 @@
 /*
  * Device Tree file for the WAKEUP domain peripherals shared by AM62P and J722S
  *
- * Copyright (C) 2023-2025 Texas Instruments Incorporated - https://www.ti.com/
+ * Copyright (C) 2023-2024 Texas Instruments Incorporated - https://www.ti.com/
  */
 
 #include <dt-bindings/bus/ti-sysc.h>
@@ -18,7 +18,8 @@
 
 		chipid: chipid@14 {
 			compatible = "ti,am654-chipid";
-			reg = <0x14 0x4>;
+			reg = <0x14 0x4>,
+			      <0x230 0x10>;
 			bootph-all;
 		};
 
@@ -40,6 +41,16 @@
 		usb1_phy_ctrl: syscon@4018 {
 			compatible = "ti,am62-usb-phy-ctrl", "syscon";
 			reg = <0x4018 0x4>;
+		};
+
+		ddr_pmctrl: syscon@80d0 {
+			compatible = "ti,am62-ddr-pmctrl", "syscon";
+			reg = <0x80d0 0x4>;
+		};
+
+		canuart_wake: syscon@18300 {
+			compatible = "ti,am62-canuart-wake", "syscon";
+			reg = <0x18300 0x44>;
 		};
 	};
 
@@ -136,7 +147,6 @@
 			ti,atcm-enable = <1>;
 			ti,btcm-enable = <1>;
 			ti,loczrama = <1>;
-			status = "disabled";
 		};
 	};
 };
