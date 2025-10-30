@@ -912,7 +912,6 @@
 	mboxes = <&mailbox0_cluster3 &mbox_c7x_1>;
 	memory-region = <&c7x_1_dma_memory_region>,
 			<&c7x_1_memory_region>;
-	status = "okay";
 };
 
 &dss1 {
