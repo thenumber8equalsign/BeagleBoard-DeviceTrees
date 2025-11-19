@@ -65,7 +65,7 @@
 
 / {
 	chosen {
-		stdout-path = &uart0;
+		stdout-path = "serial0:115200n8";
 	};
 
 	leds {
