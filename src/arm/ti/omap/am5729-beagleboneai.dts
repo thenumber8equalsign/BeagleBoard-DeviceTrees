@@ -212,7 +212,6 @@
 
 	extcon_usb1: extcon_usb1 {
 		compatible = "linux,extcon-usb-gpio";
-		ti,enable-id-detection;
 		id-gpios = <&gpio3 13 GPIO_ACTIVE_HIGH>;
 		pinctrl-names = "default";
 		pinctrl-0 = <&extcon_usb1_pins_default>;
@@ -584,7 +583,6 @@
 
 &uart1 {
 	status = "okay";
-	symlink = "bone/uart/0";
 };
 
 &davinci_mdio_sw {
@@ -646,7 +644,6 @@
 	non-removable;
 	mmc-pwrseq = <&emmc_pwrseq>;
 
-	ti,needs-special-reset;
 	dmas = <&sdma_xbar 47>, <&sdma_xbar 48>;
 	dma-names = "tx", "rx";
 	pinctrl-names = "default", "hs", "ddr_1_8v", "hs200_1_8v";
@@ -670,7 +667,6 @@
 	pinctrl-0 = <&mmc4_pins_default &wifibt_extra_pins_default>;
 	pinctrl-1 = <&mmc4_pins_hs &wifibt_extra_pins_default>;
 
-	ti,needs-special-reset;
 	vmmc-supply = <&vdd_3v3>;
 	cap-power-off-card;
 	keep-power-in-suspend;
