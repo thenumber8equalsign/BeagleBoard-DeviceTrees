@@ -1,3 +1,29 @@
+# Syncing Source
+
+### Syncing script directory
+
+```
+scripts/ -> https://git.kernel.org/pub/scm/linux/kernel/git/devicetree/devicetree-rebasing.git/tree/scripts
+```
+
+### Syncing include directory
+
+```
+include/ -> https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/include/dt-bindings
+```
+
+### Device Trees, sync with mainline and patch on top
+
+```
+src/ -> https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/arch (and local pull requests)
+```
+
+### Local pull request:
+
+```
+tools/ -> local pull requests
+```
+
 # Building
 
 ```
