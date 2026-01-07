@@ -584,7 +584,6 @@
 
 &uart1 {
 	status = "okay";
-	symlink = "bone/uart/0";
 };
 
 &davinci_mdio_sw {
