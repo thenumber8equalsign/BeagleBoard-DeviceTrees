@@ -82,25 +82,25 @@
 		"(AC24)P8_10                ", /* gpio0_16: AC24 */
 		"(AE24)P8_09                ", /* gpio0_17: AE24 */
 		"(AJ21)P9_42b               ", /* gpio0_18: AJ21 */
-		"(AE21)-[M.2 UART-WAKE]     ", /* gpio0_19: AE21 */
+		"(AE21)-[M.2-UART-WAKE]     ", /* gpio0_19: AE21 */
 		"(AH21)P8_03                ", /* gpio0_20: AH21 */
 		"(AE22)-[PWR_ST]            ", /* gpio0_21: AE22 */
-		"(AG23)-[M.2 RST]           ", /* gpio0_22: AG23 */
-		"(AF23)-[M.2 I2C-ALERT]     ", /* gpio0_23: AF23 */
+		"(AG23)-[M.2-RST]           ", /* gpio0_22: AG23 */
+		"(AF23)-[M.2-I2C-ALERT]     ", /* gpio0_23: AF23 */
 		"(AD23)P8_35a               ", /* gpio0_24: AD23 */
 		"(AH24)P8_33a               ", /* gpio0_25: AH24 */
 		"(AG21)P8_32a               ", /* gpio0_26: AG21 */
-		"(AE23)-[M.2 SDIO-WAKE]     ", /* gpio0_27: AE23 */
+		"(AE23)-[M.2-SDIO-WAKE]     ", /* gpio0_27: AE23 */
 		"(AC21)P9_17a               ", /* gpio0_28: AC21 */
-		"(Y23)-[M.2 SDIO-RESET]     ", /* gpio0_29: Y23  */
+		"(Y23)-[M.2-SDIO-RESET]     ", /* gpio0_29: Y23  */
 		"(AF21)P8_21                ", /* gpio0_30: AF21 */
 		"(AB23)P8_23                ", /* gpio0_31: AB23 */
 		"(AJ25)P8_31a               ", /* gpio0_32: AJ25 */
 		"(AH25)P8_05                ", /* gpio0_33: AH25 */
 		"(AG25)P8_06                ", /* gpio0_34: AG25 */
 		"(AH26)P8_25                ", /* gpio0_35: AH26 */
-		"(AJ27)-[M.2 W-DISABLE1]    ", /* gpio0_36: AJ27 */
-		"(AJ26)-[M.2 W-DISABLE2]    ", /* gpio0_37: AJ26 */
+		"(AJ27)-[M.2-W-DISABLE1]    ", /* gpio0_36: AJ27 */
+		"(AJ26)-[M.2-W-DISABLE2]    ", /* gpio0_37: AJ26 */
 		"(AC22)P9_22a               ", /* gpio0_38: AC22 */
 		"(AJ22)P9_21a               ", /* gpio0_39: AJ22 */
 		"(AH22)P9_18a               ", /* gpio0_40: AH22 */
@@ -148,19 +148,19 @@
 		"(AA29)-[sd-pwr-en]         ", /* gpio0_82: AA29 */
 		"(Y26)-[CSI0-I2C5-SCL]      ", /* gpio0_83: Y26 */
 		"(AA27)-[CSI0-I2C5-SDA]     ", /* gpio0_84: AA27 */
-		"(U23)-[M.2 MCASP10-ACLKX]  ", /* gpio0_85: U23 */
-		"(U26)-[M.2 MCASP10-AFSX]   ", /* gpio0_86: U26 */
-		"(V28)-[M.2 MCASP10-AXR0]   ", /* gpio0_87: V28 */
+		"(U23)-[M.2-MCASP10-ACLKX]  ", /* gpio0_85: U23 */
+		"(U26)-[M.2-MCASP10-AFSX]   ", /* gpio0_86: U26 */
+		"(V28)-[M.2-MCASP10-AXR0]   ", /* gpio0_87: V28 */
 		"(V29)P8_19                 ", /* gpio0_88: V29 */
 		"(V27)P8_13                 ", /* gpio0_89: V27 */
 		"(U28)P9_21b                ", /* gpio0_90: U28 */
 		"(U29)P9_22b                ", /* gpio0_91: U29 */
-		"(U25)-[M.2 MCASP10-AXR3]   ", /* gpio0_92: U25 */
+		"(U25)-[M.2-MCASP10-AXR3]   ", /* gpio0_92: U25 */
 		"(U27)P9_14                 ", /* gpio0_93: U27 */
 		"(U24)P9_16                 ", /* gpio0_94: U24 */
-		"(R23)LED_2 [mm0 activity]  ", /* gpio0_95: R23 */
-		"(T23)LED_1 [Heartbeat]     ", /* gpio0_96: T23 */
-		"(Y28)LED_3 [cpu activity]  ", /* gpio0_97: Y28 */
+		"(R23)LED_2-[mm0-activity]  ", /* gpio0_95: R23 */
+		"(T23)LED_1-[Heartbeat]     ", /* gpio0_96: T23 */
+		"(Y28)LED_3-[cpu-activity]  ", /* gpio0_97: Y28 */
 		"(V23)-[DSI-GPIO1]          ", /* gpio0_98: V23 */
 		"(W23)-[FAN_PWM]            ", /* gpio0_99: W23 */
 		"(W28)-[FAN_TACH]           ", /* gpio0_100: W28 */
@@ -172,44 +172,44 @@
 		"(Y27)P8_37a                ", /* gpio0_106: Y27 */
 		"(W24)-[CSI1-GPIO2]         ", /* gpio0_107: W24 */
 		"(W25)-[DSI-GPIO2]          ", /* gpio0_108: W25 */
-		"(V26)LED_5 [WLAN activity] ", /* gpio0_109: V26 */
-		"(V24)LED_4 [mmc1 activity] ", /* gpio0_110: V24 */
+		"(V26)LED_5-[WLAN-activity] ", /* gpio0_109: V26 */
+		"(V24)LED_4-[mmc1-activity] ", /* gpio0_110: V24 */
 		"(AA2)P8_33b                ", /* gpio0_111: AA2 */
 		"(Y4)-[DP0_HPD]             ", /* gpio0_112: Y4 */
-		"(AA1)-[M.2 UART_CTS]       ", /* gpio0_113: AA1 */
-		"(AB5)-[M.2 UART_RTS]       ", /* gpio0_114: AB5 */
+		"(AA1)-[M.2-UART_CTS]       ", /* gpio0_113: AA1 */
+		"(AB5)-[M.2-UART_RTS]       ", /* gpio0_114: AB5 */
 		"(AA3)P9_17b                ", /* gpio0_115: AA3 */
 		"(Y3)P8_35b                 ", /* gpio0_116: Y3 */
 		"(W4)-[sd-dv-alt]           ", /* gpio0_117: W4 */
 		"(Y1)P9_26a                 ", /* gpio0_118: Y1 */
 		"(Y5)P9_24a                 ", /* gpio0_119: Y5 */
 		"(Y2)P9_18b                 ", /* gpio0_120: Y2 */
-		"(AB2)-[Debug UART0_RX]     ", /* gpio0_121: AB2 */
-		"(AB3)-[Debug UART0_TX]     ", /* gpio0_122: AB3 */
+		"(AB2)-[Debug-UART0_RX]     ", /* gpio0_121: AB2 */
+		"(AB3)-[Debug-UART0_TX]     ", /* gpio0_122: AB3 */
 		"(AC2)P9_42a                ", /* gpio0_123: AC2 */
 		"(AB1)P9_27b                ", /* gpio0_124: AB1 */
-		"(AA4)-[M.2 UART_RX]        ", /* gpio0_125: AA4 */
-		"(AB4)-[M.2 UART_TX]        ", /* gpio0_126: AB4 */
+		"(AA4)-[M.2-UART_RX]        ", /* gpio0_125: AA4 */
+		"(AB4)-[M.2-UART_TX]        ", /* gpio0_126: AB4 */
 		"(AC4)P9_25a                "; /* gpio0_127: AC4 */
 };
 
 &main_gpio1 {
 	gpio-line-names =
-		"P9_41(AD5)                 ", /* gpio1_0: AD5 */
-		"P9_19a(W5)                 ", /* gpio1_1: W5 */
-		"P9_20a(W6)                 ", /* gpio1_2: W6 */
+		"(AD5)P9_41                 ", /* gpio1_0: AD5 */
+		"(W5)P9_19a                 ", /* gpio1_1: W5 */
+		"(W6)P9_20a                 ", /* gpio1_2: W6 */
 		"(W3)-[USBC_DIR]            ", /* gpio1_3: W3 */
 		"(V4)-[USBC-INT]            ", /* gpio1_4: V4 */
-		"(W2)-[M.2 WAKE]            ", /* gpio1_5: W2 */
-		"(W1)-[M.2 CLKREQ]          ", /* gpio1_6: W1 */
-		"(AC5)-[M.2 I2C0-SCL]       ", /* gpio1_7: AC5 */
-		"(AA5)-[M.2 I2C0-SDA]       ", /* gpio1_8: AA5 */
+		"(W2)-[M.2-WAKE]            ", /* gpio1_5: W2 */
+		"(W1)-[M.2-CLKREQ]          ", /* gpio1_6: W1 */
+		"(AC5)-[M.2-I2C0-SCL]       ", /* gpio1_7: AC5 */
+		"(AA5)-[M.2-I2C0-SDA]       ", /* gpio1_8: AA5 */
 		"(Y6)-[CSI1-I2C1-SCL]       ", /* gpio1_9: Y6 */
 		"(AA6)-[CSI1-I2C1-SDA]      ", /* gpio1_10: AA6 */
-		"P9_28a(U2)                 ", /* gpio1_11: U2 */
-		"P9_31a(U3)                 ", /* gpio1_12: U3 */
-		"P9_30a(V6)                 ", /* gpio1_13: V6 */
-		"P9_29a(V5)                 "; /* gpio1_14: V5 */
+		"(U2)P9_28a                 ", /* gpio1_11: U2 */
+		"(U3)P9_31a                 ", /* gpio1_12: U3 */
+		"(V6)P9_30a                 ", /* gpio1_13: V6 */
+		"(V5)P9_29a                 "; /* gpio1_14: V5 */
 };
 
 &wkup_gpio0 {
