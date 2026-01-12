@@ -35,13 +35,9 @@
 	};
 };
 
-/ {
-	fragment@3 {
-		target = <&uart5>;
-		__overlay__ {
-			status = "okay";
-			pinctrl-names = "default";
-			pinctrl-0 = <&bb_uart5_pins>;
-		};
-	};
+&uart5 {
+	/* sudo agetty 115200 ttyS5 */
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&bb_uart5_pins>;
 };
