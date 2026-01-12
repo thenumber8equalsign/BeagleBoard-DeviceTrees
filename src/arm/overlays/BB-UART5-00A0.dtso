@@ -19,17 +19,16 @@
 	};
 };
 
+/*
+ * Free up the pins used by the cape from the pinmux helpers.
+ */
+&ocp {
+	P8_37_pinmux { status = "disabled"; };	/* uart5_txd */
+	P8_38_pinmux { status = "disabled"; };	/* uart5_rxd */
+};
+
 / {
-	/*
-	 * Free up the pins used by the cape from the pinmux helpers.
-	 */
-	fragment@1 {
-		target = <&ocp>;
-		__overlay__ {
-			P8_37_pinmux { status = "disabled"; };	/* uart5_txd */
-			P8_38_pinmux { status = "disabled"; };	/* uart5_rxd */
-		};
-	};
+
 
 	fragment@2 {
 		target = <&am33xx_pinmux>;
