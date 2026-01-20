@@ -104,10 +104,10 @@
 			#clock-cells = <1>;
 		};
 
-		acspcie0_proxy_ctrl: syscon@18090 {
-			compatible = "ti,j721e-acspcie-proxy-ctrl", "syscon";
-			reg = <0x18090 0x4>;
-		};
+		//acspcie0_proxy_ctrl: syscon@18090 {
+		//	compatible = "ti,j721e-acspcie-proxy-ctrl", "syscon";
+		//	reg = <0x18090 0x4>;
+		//};
 	};
 
 	main_ehrpwm0: pwm@3000000 {
@@ -1011,8 +1011,10 @@
 		max-link-speed = <3>;
 		num-lanes = <2>;
 		power-domains = <&k3_pds 240 TI_SCI_PD_EXCLUSIVE>;
-		clocks = <&k3_clks 240 1>, <&serdes1 CDNS_SIERRA_DERIVED_REFCLK>;
-		clock-names = "fck", "pcie_refclk";
+		clocks = <&k3_clks 240 1>;
+		clock-names = "fck";
+		//clocks = <&k3_clks 240 1>, <&serdes1 CDNS_SIERRA_DERIVED_REFCLK>;
+		//clock-names = "fck", "pcie_refclk";
 		#address-cells = <3>;
 		#size-cells = <2>;
 		bus-range = <0x0 0xff>;

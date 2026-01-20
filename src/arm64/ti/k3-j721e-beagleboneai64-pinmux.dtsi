@@ -129,5 +129,5 @@ epwm2: &main_ehrpwm2 {
 	 * There is no on-board or external reference clock generators,
 	 * use refclk from the ACSPCIE module's PAD IO Buffers.
 	 */
-	ti,syscon-acspcie-proxy-ctrl = <&acspcie0_proxy_ctrl 0x3>;
+	//ti,syscon-acspcie-proxy-ctrl = <&acspcie0_proxy_ctrl 0x3>;
 };
