@@ -569,6 +569,12 @@
 			AM62X_MCU_IOPAD(0x003C, PIN_INPUT, 7) /* (E5) MCU_MCAN1_TX.MCU_GPIO0_15 */
 		>;
 	};
+
+	mspm0_swdio_pins_gpio: mspm0-swdio-gpio-pins {
+		pinctrl-single,pins = <
+			AM62X_MCU_IOPAD(0x0010, PIN_INPUT_PULLDOWN, 7) /* (C9) MCU_SPI0_D1.MCU_GPIO0_4 */
+		>;
+	};
 };
 
 &main_gpio0 {
