@@ -1,10 +1,9 @@
-// SPDX-License-Identifier: GPL-2.0-only OR MIT
+// SPDX-License-Identifier: GPL-2.0
 /*
  * Copyright (C) 2022 BeagleBoard.org - https://beagleboard.org/
  *
- * https://docs.beagleboard.io/boards/capes/cape-interface-spec.html
+ * https://docs.beagleboard.io/latest/boards/capes/cape-interface-spec.html#i2c
  */
-
 #include <dt-bindings/leds/common.h>
 #include <dt-bindings/gpio/gpio.h>
 #include "ti/k3-pinctrl.h"
@@ -94,8 +93,8 @@
 			AM62X_IOPAD(0x00F0, PIN_OUTPUT_PULLDOWN, 5) /* P1.31 - RCOUT 2*/
 			AM62X_IOPAD(0x00E4, PIN_OUTPUT_PULLDOWN, 5) /* P1.33A - RCOUT 3*/
 			AM62X_IOPAD(0x00F4, PIN_OUTPUT_PULLDOWN, 5) /* P2.34 - RCOUT 4*/
-			AM62X_IOPAD(0x00E8, PIN_OUTPUT_PULLDOWN, 5) /* P2.32 - RCOUT 5*/
-			AM62X_IOPAD(0x00F8, PIN_OUTPUT_PULLDOWN, 5) /* P2.28 - RCOUT 6*/
+                        AM62X_IOPAD(0x00E8, PIN_OUTPUT_PULLDOWN, 5) /* P2.32 - RCOUT 5*/
+                        AM62X_IOPAD(0x00F8, PIN_OUTPUT_PULLDOWN, 5) /* P2.28 - RCOUT 6*/
 
 			AM62X_IOPAD(0x0104, PIN_INPUT_PULLUP, 8) /* P2.17 - RCINPUT*/
 		>;
