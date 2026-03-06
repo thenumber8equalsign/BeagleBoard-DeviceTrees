@@ -110,6 +110,12 @@ clean_%:
 install_arm:
 	$(Q)$(MAKE) ARCH=arm install_arch_arm
 
+install_arm_debian:
+	$(Q)$(MAKE) ARCH=arm install_arch_arm_debian
+
+install_arm_arch:
+	$(Q)$(MAKE) ARCH=arm install_arch_arm_arch
+
 install_arm64:
 	$(Q)$(MAKE) ARCH=arm64 install_arch_arm64
 
@@ -183,6 +189,17 @@ install_arch_arm: $(ARCH_DTB) $(ARCH_DTBO)
 	mkdir -p /boot/dtbs/$(KERNEL_VERSION)/overlays/
 	cp src/arm/ti/omap/*.dtb /boot/dtbs/$(KERNEL_VERSION)/ || true
 	cp src/arm/overlays/*.dtbo /boot/dtbs/$(KERNEL_VERSION)/overlays || true
+
+PHONY += install_arm_debian
+install_arm_debian: $(ARCH_DTB) $(ARCH_DTBO)
+	mkdir -p /boot/dtbs/$(KERNEL_VERSION)/overlays/
+	cp src/arm/ti/omap/*.dtb /boot/dtbs/$(KERNEL_VERSION)/ || true
+	cp src/arm/overlays/*.dtbo /boot/dtbs/$(KERNEL_VERSION)/overlays || true
+
+PHONY += install_arm_arch
+install_arm_arch: $(ARCH_DTB) $(ARCH_DTBO)
+	cp src/arm/ti/omap/*.dtb /boot/dtbs/ || true
+	cp src/arm/overlays/*.dtbo /lib/firmware/ || true
 
 PHONY += install_arch_arm64
 install_arch_arm64: $(ARCH_DTB) $(ARCH_DTBO)
