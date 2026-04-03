@@ -19,12 +19,12 @@
 
 /* remove HDMI as pins shared with PWM0 */
 &lcdc {
-      status = "disabled";
-      };
+	status = "disabled";
+};
 
 &mcasp0	{
-      status = "disabled";
-      };
+	status = "disabled";
+};
 
 &am33xx_pinmux {
 	nxp_hdmi_bonelt_pins: nxp-hdmi-bonelt-pins {
