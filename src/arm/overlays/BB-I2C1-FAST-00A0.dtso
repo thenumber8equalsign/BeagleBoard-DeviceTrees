@@ -3,7 +3,6 @@
  * Copyright (C) 2013 CircuitCo
  *
  * Virtual cape for I2C1 on connector pins P9.17 P9.18
- *
  */
 
 /dts-v1/;
@@ -28,7 +27,19 @@
 	P9_18_pinmux { status = "disabled"; };	/* i2c1_sda */
 };
 
+&am33xx_pinmux {
+	bb_i2c1_pins: pinmux_bb_i2c1_pins {
+		pinctrl-single,pins = <
+			AM33XX_PADCONF(AM335X_PIN_SPI0_D1, SLEWCTRL_SLOW | PIN_INPUT_PULLUP, MUX_MODE2)		/* spi0_d1.i2c1_sda */
+			AM33XX_PADCONF(AM335X_PIN_SPI0_CS0, SLEWCTRL_SLOW | PIN_INPUT_PULLUP, MUX_MODE2)	/* spi0_cs0.i2c1_scl */
+		>;
+	};
+};
+
 &i2c1 {
 	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&bb_i2c1_pins>;
+
 	clock-frequency = <400000>;
 };
