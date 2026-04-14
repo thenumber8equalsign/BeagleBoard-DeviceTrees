@@ -15,7 +15,7 @@
  */
 &{/chosen} {
 	overlays {
-		BB-I2C2-FAST-00A0.kernel = __TIMESTAMP__;
+		BB-I2C2-00A0.kernel = __TIMESTAMP__;
 	};
 };
 
@@ -41,5 +41,5 @@
 	pinctrl-names = "default";
 	pinctrl-0 = <&bb_i2c2_pins>;
 
-	clock-frequency = <400000>;
+	clock-frequency = <100000>;
 };
