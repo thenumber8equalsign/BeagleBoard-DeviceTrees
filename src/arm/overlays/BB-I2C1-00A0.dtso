@@ -4,9 +4,6 @@
  *
  * Virtual cape for I2C1 on connector pins P9.17 P9.18
  *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License version 2 as
- * published by the Free Software Foundation.
  */
 
 /dts-v1/;

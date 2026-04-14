@@ -4,9 +4,6 @@
  *
  * Virtual cape for I2C2 on connector pins P9.19 P9.20
  *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License version 2 as
- * published by the Free Software Foundation.
  */
 
 /dts-v1/;
@@ -32,7 +29,7 @@
 };
 
 / {
-	/*
+	fragment@2 {
 		target = <&am33xx_pinmux>;
 		__overlay__ {
 			bb_i2c2_pins: pinmux_bb_i2c2_pins {
