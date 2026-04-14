@@ -17,6 +17,14 @@
 	};
 };
 
+/*
+ * Free up the pins used by the cape from the pinmux helpers.
+ */
+&ocp {
+	P9_17_pinmux { status = "disabled"; };	/* i2c1_scl */
+	P9_18_pinmux { status = "disabled"; };	/* i2c1_sda */
+};
+
 &i2c1 {
 	status = "okay";
 	clock-frequency = <400000>;
