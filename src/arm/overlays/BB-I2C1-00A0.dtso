@@ -12,7 +12,6 @@
 /dts-v1/;
 /plugin/;
 
-#include <dt-bindings/board/am335x-bbw-bbb-base.h>
 #include <dt-bindings/pinctrl/am33xx.h>
 
 / {
@@ -47,8 +46,8 @@
 		__overlay__ {
 			bb_i2c1_pins: pinmux_bb_i2c1_pins {
 				pinctrl-single,pins = <
-					BONE_P9_18 0x72	/* spi0_d1.i2c1_sda, SLEWCTRL_SLOW | INPUT_PULLUP | MODE2 */
-					BONE_P9_17 0x72	/* spi0_cs0.i2c1_scl, SLEWCTRL_SLOW | INPUT_PULLUP | MODE2 */
+			AM33XX_PADCONF(AM335X_PIN_SPI0_D1, SLEWCTRL_SLOW | PIN_INPUT_PULLUP, MUX_MODE2)		/* spi0_d1.i2c1_sda */
+			AM33XX_PADCONF(AM335X_PIN_SPI0_CS0, SLEWCTRL_SLOW | PIN_INPUT_PULLUP, MUX_MODE2)	/* spi0_cs0.i2c1_scl */
 				>;
 			};
 		};
