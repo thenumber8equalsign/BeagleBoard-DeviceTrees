@@ -15,8 +15,7 @@
  */
 &{/chosen} {
 	overlays {
-		BB-BBGW-WL1835-00A0.kernel = __TIMESTAMP__;
-		wl1835_bt = "S3-texas-300000";
+		BB-BBGW-WL1835-NOBLUE-00A0.kernel = __TIMESTAMP__;
 	};
 };
 
