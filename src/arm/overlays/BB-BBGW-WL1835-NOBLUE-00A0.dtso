@@ -55,8 +55,7 @@
 
 	leds {
 		pinctrl-names = "default";
-		//pinctrl-0 = <&user_leds_s0>;
-		pinctrl-0 = <&user_leds_s0 &bt_pins>;
+		pinctrl-0 = <&user_leds_s0>;
 
 		compatible = "gpio-leds";
 
