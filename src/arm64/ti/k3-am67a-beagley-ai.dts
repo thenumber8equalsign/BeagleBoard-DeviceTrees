@@ -10,7 +10,9 @@
 
 #include <dt-bindings/leds/common.h>
 #include <dt-bindings/net/ti-dp83867.h>
+#include <dt-bindings/phy/phy.h>
 #include "k3-j722s.dtsi"
+#include "k3-serdes.h"
 #include <dt-bindings/gpio/gpio.h>
 #include "k3-am67a-beagley-ai-pinmux.dtsi"
 
@@ -25,6 +27,7 @@
 		serial6 = &main_uart6;
 		mmc1 = &sdhci1;
 		rtc0 = &rtc;
+		rtc1 = &wkup_rtc0;
 		i2c1 = &mcu_i2c0;
 	};
 
@@ -235,6 +238,18 @@
 			J722S_IOPAD(0x0140, PIN_OUTPUT, 0) /* (AF24) RGMII1_TD3 */
 			J722S_IOPAD(0x0130, PIN_OUTPUT, 0) /* (AG26) RGMII1_TXC */
 			J722S_IOPAD(0x012c, PIN_OUTPUT, 0) /* (AF25) RGMII1_TX_CTL */
+		>;
+	};
+
+	main_usb1_pins_default: main-usb1-default-pins {
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x0258, PIN_INPUT, 0) /* (B27) USB1_DRVVBUS */
+		>;
+	};
+
+	usb_hub: usb-hub-default-pins {
+		pinctrl-single,pins = <
+			J722S_IOPAD(0x0084, PIN_OUTPUT, 7) /* (N21) GPMC0_ADVn_ALE.GPIO0_32 */
 		>;
 	};
 
@@ -554,6 +569,77 @@
 	bootph-all;
 	ti,fails-without-test-cd;
 	status = "okay";
+};
+
+&serdes_ln_ctrl {
+	idle-states = <J722S_SERDES0_LANE0_USB>,
+		      <J722S_SERDES1_LANE0_PCIE0_LANE0>;
+};
+
+&serdes_wiz0 {
+	status = "okay";
+};
+
+&serdes0 {
+	serdes0_usb_link: phy@0 {
+		reg = <0>;
+		cdns,num-lanes = <1>;
+		#phy-cells = <0>;
+		cdns,phy-type = <PHY_TYPE_USB3>;
+		resets = <&serdes_wiz0 1>;
+	};
+};
+
+&usbss0 {
+	ti,vbus-divider;
+	status = "okay";
+};
+
+&usb0 {
+	dr_mode = "otg";
+	usb-role-switch;
+};
+
+&usb0_phy_ctrl {
+	bootph-all;
+};
+
+&usbss1 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&main_usb1_pins_default>;
+	ti,vbus-divider;
+	status = "okay";
+};
+
+&usb1 {
+	dr_mode = "host";
+	maximum-speed = "super-speed";
+	phys = <&serdes0_usb_link>;
+	phy-names = "cdns3,usb3-phy";
+
+	#address-cells = <1>;
+	#size-cells = <0>;
+	pinctrl-names = "default";
+	pinctrl-0 = <&usb_hub>;
+	status = "okay";
+
+	/* 2.0 hub on port 1 */
+	hub_2_0: hub@1 {
+		compatible = "usb451,8142";
+		reg = <1>;
+		peer-hub = <&hub_3_0>;
+		reset-gpios = <&main_gpio0 32 GPIO_ACTIVE_LOW>;
+		vdd-supply = <&vdd_3v3>;
+	};
+
+	/* 3.0 hub on port 2 */
+	hub_3_0: hub@2 {
+		compatible = "usb451,8140";
+		reg = <2>;
+		peer-hub = <&hub_2_0>;
+		reset-gpios = <&main_gpio0 32 GPIO_ACTIVE_LOW>;
+		vdd-supply = <&vdd_3v3>;
+	};
 };
 
 #include "k3-j722s-ti-ipc-firmware.dtsi"
