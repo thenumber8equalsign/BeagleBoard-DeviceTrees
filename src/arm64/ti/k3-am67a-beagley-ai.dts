@@ -27,6 +27,7 @@
 		serial6 = &main_uart6;
 		mmc1 = &sdhci1;
 		rtc0 = &rtc;
+		rtc1 = &wkup_rtc0;
 		i2c1 = &mcu_i2c0;
 	};
 
