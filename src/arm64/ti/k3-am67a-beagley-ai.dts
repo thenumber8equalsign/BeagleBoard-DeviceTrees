@@ -26,6 +26,7 @@
 		serial3 = &main_uart1;
 		serial6 = &main_uart6;
 		mmc1 = &sdhci1;
+		mmc2 = &sdhci2;
 		rtc0 = &rtc;
 		rtc1 = &wkup_rtc0;
 		i2c1 = &mcu_i2c0;
@@ -135,6 +136,20 @@
 		regulator-max-microvolt = <1200000>;
 		regulator-always-on;
 		regulator-boot-on;
+	};
+
+	wlan_en: regulator-7 {
+		compatible = "regulator-fixed";
+		regulator-name = "wlan_en";
+		regulator-min-microvolt = <1800000>;
+		regulator-max-microvolt = <1800000>;
+		enable-active-high;
+		/* regulator-always-on; */
+		regulator-off-in-suspend;
+		vin-supply = <&vdd_3v3>;
+		gpio = <&main_gpio0 4 GPIO_ACTIVE_HIGH>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&wifi_en_pins_default>;
 	};
 
 	leds {
@@ -716,6 +731,32 @@
 	bootph-all;
 	ti,fails-without-test-cd;
 	status = "okay";
+};
+
+&sdhci2 {
+	vmmc-supply = <&wlan_en>;
+	pinctrl-names = "default";
+	pinctrl-0 = <&wifi_pins_default>, <&wifi_32k_clk>;
+	bus-width = <4>;
+	non-removable;
+	ti,fails-without-test-cd;
+	cap-power-off-card;
+	keep-power-in-suspend;
+	ti,driver-strength-ohm = <50>;
+	assigned-clocks = <&k3_clks 157 174>;
+	assigned-clock-parents = <&k3_clks 157 175>;
+	#address-cells = <1>;
+	#size-cells = <0>;
+	status = "okay";
+
+	wlcore: wlcore@2 {
+		compatible = "ti,cc33xx";
+		reg = <2>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&wifi_wlirq_pins_default>;
+		interrupt-parent = <&main_gpio0>;
+		interrupts = <5 IRQ_TYPE_EDGE_RISING>;
+	};
 };
 
 &dss1 {
