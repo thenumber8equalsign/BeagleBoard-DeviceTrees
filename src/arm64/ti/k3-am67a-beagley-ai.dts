@@ -147,9 +147,9 @@
 		/* regulator-always-on; */
 		regulator-off-in-suspend;
 		vin-supply = <&vdd_3v3>;
-		gpio = <&main_gpio0 4 GPIO_ACTIVE_HIGH>;
+		gpios = <&main_gpio0 4 GPIO_ACTIVE_HIGH>;
 		pinctrl-names = "default";
-		pinctrl-0 = <&wifi_en_pins_default>;
+		pinctrl-0 = <&wlan_en_pins_default>;
 	};
 
 	leds {
@@ -370,7 +370,7 @@
 		>;
 	};
 
-	wifi_pins_default: wifi-default-pins {
+	main_mmc2_pins_default: main-mmc2-pins-default {
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x0120, PIN_INPUT, 0) /* (F27) MMC2_CMD */
 			J722S_IOPAD(0x0118, PIN_OUTPUT, 0) /* (H26) MMC2_CLK */
@@ -382,13 +382,13 @@
 		>;
 	};
 
-	wifi_en_pins_default: wifi-en-default-pins {
+	wlan_en_pins_default: wlan-en-pins-default {
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x0010, PIN_OUTPUT, 7) /* (L27) OSPI0_D1.GPIO0_4 */
 		>;
 	};
 
-	wifi_wlirq_pins_default: wifi-wlirq-default-pins {
+	main_wlirq_pins_default: main-wlirq-pins-default {
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x0014, PIN_INPUT, 7) /* (L26) OSPI0_D2.GPIO0_5 */
 		>;
@@ -736,7 +736,7 @@
 &sdhci2 {
 	vmmc-supply = <&wlan_en>;
 	pinctrl-names = "default";
-	pinctrl-0 = <&wifi_pins_default>, <&wifi_32k_clk>;
+	pinctrl-0 = <&main_mmc2_pins_default>, <&wifi_32k_clk>;
 	bus-width = <4>;
 	non-removable;
 	ti,fails-without-test-cd;
@@ -754,7 +754,7 @@
 		compatible = "ti,cc3300";
 		reg = <2>;
 		pinctrl-names = "default";
-		pinctrl-0 = <&wifi_wlirq_pins_default>;
+		pinctrl-0 = <&main_wlirq_pins_default>;
 		interrupt-parent = <&main_gpio0>;
 		interrupts = <5 IRQ_TYPE_EDGE_RISING>;
 	};
