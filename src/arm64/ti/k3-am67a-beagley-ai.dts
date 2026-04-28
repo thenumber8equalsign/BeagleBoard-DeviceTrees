@@ -868,7 +868,14 @@
 	phys = <&serdes1_pcie_link>;
 	phy-names = "pcie-phy";
 	num-lanes = <1>;
+
+	/*
+	 * J722S has the ability to run at max-link-speed of 3 but we limit it to Gen 2.
+	 * https://pip.raspberrypi.com/categories/892-raspberry-pi-5 : pcie-connector-standard
+	 * Signals can be run at Gen 3 speeds, but this is not officially supported.
+	 */
 	max-link-speed = <2>;
+
 	reset-gpios = <&mcu_gpio0 6 GPIO_ACTIVE_HIGH>;
 };
 
