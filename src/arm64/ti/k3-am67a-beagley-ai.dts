@@ -508,13 +508,17 @@
 		>;
 	};
 
-	pcie_pins_default: pcie-default-pins {
+	mcu_pcie_reset: mcu-pcie-reset-default-pins {
 		pinctrl-single,pins = <
 			J722S_MCU_IOPAD(0x0018, PIN_OUTPUT, 7)	/* (B4) MCU_UART0_TXD.MCU_GPIO0_6 */
+		>;
+	};
+
+	mcu_pcie_pins: mcu-pcie-default-pins {
+		pinctrl-single,pins = <
 			J722S_MCU_IOPAD(0x0014, PIN_INPUT, 7)	/* (B8) MCU_UART0_RXD.MCU_GPIO0_5 */ /* PCIE_DET_WAKE */
 			J722S_MCU_IOPAD(0x0020, PIN_OUTPUT, 7)	/* (C5) MCU_UART0_RTSn.MCU_GPIO0_8 */ /* PCIE_PWR_EN */
 		>;
-		bootph-all;
 	};
 
 	mcu_i2c0_pins_default: mcu-i2c0-default-pins {
@@ -708,6 +712,29 @@
 		cdns,phy-type = <PHY_TYPE_USB3>;
 		resets = <&serdes_wiz0 1>;
 	};
+};
+
+&serdes_wiz1 {
+	status = "okay";
+};
+
+&serdes1 {
+	serdes1_pcie_link: phy@0 {
+		reg = <0>;
+		cdns,num-lanes = <1>;
+		#phy-cells = <0>;
+		cdns,phy-type = <PHY_TYPE_PCIE>;
+		resets = <&serdes_wiz1 1>;
+	};
+};
+
+&pcie0_rc {
+	pinctrl-names = "default";
+	pinctrl-0 = <&mcu_pcie_reset>;
+	reset-gpios = <&mcu_gpio0 6 GPIO_ACTIVE_HIGH>;
+	phys = <&serdes1_pcie_link>;
+	phy-names = "pcie-phy";
+	status = "okay";
 };
 
 &usbss0 {
