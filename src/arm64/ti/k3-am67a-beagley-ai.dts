@@ -155,8 +155,9 @@
 	pcie_pwr_en: regulator-8 {
 		compatible = "regulator-fixed";
 		regulator-name = "pcie_pwr_en";
-		regulator-min-microvolt = <1800000>;
-		regulator-max-microvolt = <1800000>;
+		regulator-min-microvolt = <3300000>;
+		regulator-max-microvolt = <3300000>;
+		enable-active-high;
 		regulator-always-on;
 		regulator-boot-on;
 		vin-supply = <&vdd_3v3>;
@@ -742,12 +743,21 @@
 };
 
 &pcie0_rc {
+	status = "okay";
 	pinctrl-names = "default";
 	pinctrl-0 = <&mcu_pcie_reset_default>;
-	reset-gpios = <&mcu_gpio0 6 GPIO_ACTIVE_HIGH>;
 	phys = <&serdes1_pcie_link>;
 	phy-names = "pcie-phy";
-	status = "okay";
+	num-lanes = <1>;
+
+	/*
+	 * J722S has the ability to run at max-link-speed of 3 but we limit it to Gen 2.
+	 * https://pip.raspberrypi.com/categories/892-raspberry-pi-5 : pcie-connector-standard
+	 * Signals can be run at Gen 3 speeds, but this is not officially supported.
+	 */
+	max-link-speed = <2>;
+
+	reset-gpios = <&mcu_gpio0 6 GPIO_ACTIVE_HIGH>;
 };
 
 &usbss0 {
