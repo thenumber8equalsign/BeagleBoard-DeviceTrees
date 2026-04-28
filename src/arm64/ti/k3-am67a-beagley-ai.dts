@@ -157,7 +157,8 @@
 		regulator-name = "pcie_pwr_en";
 		regulator-min-microvolt = <1800000>;
 		regulator-max-microvolt = <1800000>;
-		enable-active-high;
+		regulator-always-on;
+		regulator-boot-on;
 		vin-supply = <&vdd_3v3>;
 		gpios = <&mcu_gpio0 8 GPIO_ACTIVE_HIGH>;
 		pinctrl-names = "default";
@@ -523,18 +524,13 @@
 	mcu_pcie_reset_default: mcu-pcie-reset-default-pins {
 		pinctrl-single,pins = <
 			J722S_MCU_IOPAD(0x0018, PIN_OUTPUT, 7) /* (B4) MCU_UART0_TXD.MCU_GPIO0_6 */
+			J722S_MCU_IOPAD(0x0014, PIN_INPUT, 7) /* (B8) MCU_UART0_RXD.MCU_GPIO0_5 */ /* PCIE_DET_WAKE */
 		>;
 	};
 
 	mcu_pcie_pwr_default: mcu-pcie-pwr-default-pins {
 		pinctrl-single,pins = <
 			J722S_MCU_IOPAD(0x0020, PIN_OUTPUT, 7) /* (C5) MCU_UART0_RTSn.MCU_GPIO0_8 */ /* PCIE_PWR_EN */
-		>;
-	};
-
-	mcu_pcie_pins_default: mcu-pcie-default-pins {
-		pinctrl-single,pins = <
-			J722S_MCU_IOPAD(0x0014, PIN_INPUT, 7) /* (B8) MCU_UART0_RXD.MCU_GPIO0_5 */ /* PCIE_DET_WAKE */
 		>;
 	};
 
