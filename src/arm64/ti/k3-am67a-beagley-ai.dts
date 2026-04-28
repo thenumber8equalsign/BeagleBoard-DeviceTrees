@@ -155,8 +155,8 @@
 	pcie_pwr_en: regulator-8 {
 		compatible = "regulator-fixed";
 		regulator-name = "pcie_pwr_en";
-		regulator-min-microvolt = <1800000>;
-		regulator-max-microvolt = <1800000>;
+		regulator-min-microvolt = <3300000>;
+		regulator-max-microvolt = <3300000>;
 		enable-active-high;
 		regulator-always-on;
 		regulator-boot-on;
@@ -862,12 +862,14 @@
 };
 
 &pcie0_rc {
+	status = "okay";
 	pinctrl-names = "default";
 	pinctrl-0 = <&mcu_pcie_reset_default>;
-	reset-gpios = <&mcu_gpio0 6 GPIO_ACTIVE_HIGH>;
 	phys = <&serdes1_pcie_link>;
 	phy-names = "pcie-phy";
-	status = "okay";
+	num-lanes = <1>;
+	max-link-speed = <2>;
+	reset-gpios = <&mcu_gpio0 6 GPIO_ACTIVE_HIGH>;
 };
 
 &usbss0 {
