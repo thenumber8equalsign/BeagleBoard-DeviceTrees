@@ -152,6 +152,19 @@
 		pinctrl-0 = <&wlan_en_pins_default>;
 	};
 
+	pcie_pwr_en: regulator-8 {
+		compatible = "regulator-fixed";
+		regulator-name = "pcie_pwr_en";
+		regulator-min-microvolt = <1800000>;
+		regulator-max-microvolt = <1800000>;
+		regulator-always-on;
+		regulator-boot-on;
+		vin-supply = <&vdd_3v3>;
+		gpios = <&mcu_gpio0 8 GPIO_ACTIVE_HIGH>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&mcu_pcie_pwr_default>;
+	};
+
 	leds {
 		compatible = "gpio-leds";
 		pinctrl-names = "default";
@@ -374,11 +387,11 @@
 		pinctrl-single,pins = <
 			J722S_IOPAD(0x0120, PIN_INPUT, 0) /* (F27) MMC2_CMD */
 			J722S_IOPAD(0x0118, PIN_OUTPUT, 0) /* (H26) MMC2_CLK */
-			J722S_IOPAD(0x011C, PIN_INPUT, 0) /* () MMC2_CLKLB */
 			J722S_IOPAD(0x0114, PIN_INPUT, 0) /* (G26) MMC2_DAT0 */
-			J722S_IOPAD(0x0110, PIN_INPUT_PULLUP, 0) /* (G27) MMC2_DAT1 */
-			J722S_IOPAD(0x010c, PIN_INPUT_PULLUP, 0) /* (H27) MMC2_DAT2 */
-			J722S_IOPAD(0x0108, PIN_INPUT_PULLUP, 0) /* (J27) MMC2_DAT3 */
+			J722S_IOPAD(0x0110, PIN_INPUT, 0) /* (G27) MMC2_DAT1 */
+			J722S_IOPAD(0x010c, PIN_INPUT, 0) /* (H27) MMC2_DAT2 */
+			J722S_IOPAD(0x0108, PIN_INPUT, 0) /* (J27) MMC2_DAT3 */
+			J722S_IOPAD(0x011C, PIN_INPUT, 0) /* () MMC2_CLKLB */
 		>;
 	};
 
@@ -536,13 +549,17 @@
 		>;
 	};
 
-	pcie_pins_default: pcie-default-pins {
+	mcu_pcie_reset_default: mcu-pcie-reset-default-pins {
 		pinctrl-single,pins = <
-			J722S_MCU_IOPAD(0x0018, PIN_OUTPUT, 7)	/* (B4) MCU_UART0_TXD.MCU_GPIO0_6 */
-			J722S_MCU_IOPAD(0x0014, PIN_INPUT, 7)	/* (B8) MCU_UART0_RXD.MCU_GPIO0_5 */ /* PCIE_DET_WAKE */
-			J722S_MCU_IOPAD(0x0020, PIN_OUTPUT, 7)	/* (C5) MCU_UART0_RTSn.MCU_GPIO0_8 */ /* PCIE_PWR_EN */
+			J722S_MCU_IOPAD(0x0018, PIN_OUTPUT, 7) /* (B4) MCU_UART0_TXD.MCU_GPIO0_6 */
+			J722S_MCU_IOPAD(0x0014, PIN_INPUT, 7) /* (B8) MCU_UART0_RXD.MCU_GPIO0_5 */ /* PCIE_DET_WAKE */
 		>;
-		bootph-all;
+	};
+
+	mcu_pcie_pwr_default: mcu-pcie-pwr-default-pins {
+		pinctrl-single,pins = <
+			J722S_MCU_IOPAD(0x0020, PIN_OUTPUT, 7) /* (C5) MCU_UART0_RTSn.MCU_GPIO0_8 */ /* PCIE_PWR_EN */
+		>;
 	};
 
 	mcu_i2c0_pins_default: mcu-i2c0-default-pins {
@@ -827,6 +844,29 @@
 		cdns,phy-type = <PHY_TYPE_USB3>;
 		resets = <&serdes_wiz0 1>;
 	};
+};
+
+&serdes_wiz1 {
+	status = "okay";
+};
+
+&serdes1 {
+	serdes1_pcie_link: phy@0 {
+		reg = <0>;
+		cdns,num-lanes = <1>;
+		#phy-cells = <0>;
+		cdns,phy-type = <PHY_TYPE_PCIE>;
+		resets = <&serdes_wiz1 1>;
+	};
+};
+
+&pcie0_rc {
+	pinctrl-names = "default";
+	pinctrl-0 = <&mcu_pcie_reset_default>;
+	reset-gpios = <&mcu_gpio0 6 GPIO_ACTIVE_HIGH>;
+	phys = <&serdes1_pcie_link>;
+	phy-names = "pcie-phy";
+	status = "okay";
 };
 
 &usbss0 {
