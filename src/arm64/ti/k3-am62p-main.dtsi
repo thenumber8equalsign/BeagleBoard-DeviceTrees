@@ -68,12 +68,6 @@
 	ti,ngpio = <52>;
 };
 
-&sdhci0 {
-	mmc-hs400-1_8v;
-	ti,strobe-sel = <0x66>;
-	ti,otap-del-sel-hs400 = <0x5>;
-};
-
 &main_pmx0 {
 	compatible = "ti,am654-padconf", "pinctrl-single";
 	/*

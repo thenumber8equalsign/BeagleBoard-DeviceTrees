@@ -623,9 +623,9 @@
 				     <GIC_SPI 152 IRQ_TYPE_LEVEL_HIGH>;
 			interrupt-names = "error_irq", "irq";
 			clocks = <&k3_clks 26 2>, <&k3_clks 26 0>, <&k3_clks 26 2>,
-				<&k3_clks 26 2>, <&k3_clks 26 3>, <&k3_clks 26 3>;
+				 <&k3_clks 26 2>, <&k3_clks 26 3>, <&k3_clks 26 3>;
 			clock-names = "sys_clk", "p_clk", "pixel_if0_clk",
-				"pixel_if1_clk", "pixel_if2_clk", "pixel_if3_clk";
+				      "pixel_if1_clk", "pixel_if2_clk", "pixel_if3_clk";
 			phys = <&dphy0>;
 			phy-names = "dphy";
 
@@ -1922,7 +1922,7 @@
 
 	dphy2: phy@4480000 {
 		compatible = "ti,j721e-dphy";
-		reg = <0x00 0x04480000 0x00 0x1000>;
+		reg = <0x0 0x04480000 0x0 0x1000>;
 		clocks = <&k3_clks 296 1>, <&k3_clks 296 3>;
 		clock-names = "psm", "pll_ref";
 		#phy-cells = <0>;
