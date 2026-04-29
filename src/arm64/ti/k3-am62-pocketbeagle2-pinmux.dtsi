@@ -202,13 +202,6 @@
 		>;
 	};
 
-	/* USB ID */
-	P1_13_gpio: P1-13-gpio-pins {
-		pinctrl-single,pins = <
-			AM62X_IOPAD(0x0094, PIN_INPUT, 7) /* (N20) GPMC0_BE1n.GPIO0_36 */
-		>;
-	};
-
 	P1_19_gpio: P1-19-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x017C, PIN_INPUT, 7) /* (AD22) RGMII2_RX_CTL.GPIO1_1 */
@@ -580,7 +573,6 @@
 	mspm0_swdio_pins_gpio: mspm0-swdio-gpio-pins {
 		pinctrl-single,pins = <
 			AM62X_MCU_IOPAD(0x0010, PIN_INPUT_PULLDOWN, 7) /* (C9) MCU_SPI0_D1.MCU_GPIO0_4 */
-
 		>;
 	};
 };
