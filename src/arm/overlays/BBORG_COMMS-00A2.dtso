@@ -6,7 +6,6 @@
  */
 
 /*
- * Tested RobertCNelson [20240119] BBB and BBAI (6.1.69-ti-r21)
  *
  * sudo ip link set can0 type can bitrate 500000
  * sudo ifconfig can0 up
