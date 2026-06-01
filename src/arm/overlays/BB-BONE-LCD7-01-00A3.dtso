@@ -174,6 +174,15 @@
 		compatible = "ti,tilcdc,panel";
 		pinctrl-names = "default";
 		pinctrl-0 = <&bb_lcd_lcd_pins>;
+		backlight = <&backlight>;
+
+		//FIXME - LCD doesn't init...
+		//port {
+		//	panel_0: endpoint@0 {
+		//		remote-endpoint = <&lcdc_0>;
+		//	};
+		//};
+
 		panel-info {
 			ac-bias           = <255>;
 			ac-bias-intrpt    = <0>;
@@ -206,12 +215,12 @@
 		};
 	};
 
-	gpio-leds-cape-lcd {
+	gpio-leds {
 		compatible = "gpio-leds";
 		pinctrl-names = "default";
 		pinctrl-0 = <&bb_lcd_led_pins>;
 
-		lcd-led0 {
+		led-ld0 {
 			label = "lcd:green:usr0";
 			gpios = <&gpio1 28 0>;
 			linux,default-trigger = "heartbeat";
