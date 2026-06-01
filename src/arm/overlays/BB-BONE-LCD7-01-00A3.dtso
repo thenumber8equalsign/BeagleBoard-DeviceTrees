@@ -120,14 +120,20 @@
 	status = "okay";
 };
 
-/ {
-	fragment@5 {
-		target = <&lcdc>;
-		__overlay__ {
-			status = "okay";
-		};
-	};
+&lcdc {
+	status = "okay";
 
+	blue-and-red-wiring = "straight";
+
+	//FIXME - LCD doesn't init...
+	//port {
+	//	lcdc_0: endpoint@0 {
+	//		remote-endpoint = <&panel_0>;
+	//	};
+	//};
+};
+
+/ {
 	fragment@6 {
 		target = <&tscadc>;
 		__overlay__ {
