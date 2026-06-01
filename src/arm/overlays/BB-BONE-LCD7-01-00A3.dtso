@@ -7,8 +7,8 @@
 /plugin/;
 
 #include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/interrupt-controller/irq.h>
 #include <dt-bindings/pinctrl/am33xx.h>
-#include <dt-bindings/board/am335x-bbw-bbb-base.h>
 
 /*
  * Helper to show loaded overlays under: /proc/device-tree/chosen/overlays/
@@ -73,7 +73,7 @@
 
 	bb_lcd_lcd_pins: pinmux_bb_lcd_lcd_pins {
 		pinctrl-single,pins = <
-			BONE_P9_22 (PIN_OUTPUT_PULLUP | MUX_MODE7)	/* P9_22: gpio0_2 */
+			AM33XX_PADCONF(AM335X_PIN_SPI0_SCLK, PIN_OUTPUT_PULLUP, MUX_MODE7)	/* P9_22: gpio0_2 */
 
 			AM33XX_PADCONF(AM335X_PIN_LCD_DATA0, PIN_OUTPUT, MUX_MODE0)
 			AM33XX_PADCONF(AM335X_PIN_LCD_DATA1, PIN_OUTPUT, MUX_MODE0)
@@ -105,7 +105,7 @@
 			AM33XX_PADCONF(AM335X_PIN_GPMC_A1, PIN_INPUT, MUX_MODE7)	/* P9_23: gpmc_a1.gpio1_17 */
 			AM33XX_PADCONF(AM335X_PIN_GPMC_A3, PIN_INPUT, MUX_MODE7)	/* P9_16: gpmc_a3.gpio1_19 */
 			AM33XX_PADCONF(AM335X_PIN_MCASP0_AXR0, PIN_INPUT, MUX_MODE7)	/* P9_30: mcasp0_axr0.gpio3_16 */
-			BONE_P9_21 (PIN_INPUT | MUX_MODE7)	/* P9_21: spi0_d0.gpio0_3 */
+			AM33XX_PADCONF(AM335X_PIN_SPI0_D0, PIN_INPUT, MUX_MODE7)	/* P9_21: spi0_d0.gpio0_3 */
 		>;
 	};
 };
