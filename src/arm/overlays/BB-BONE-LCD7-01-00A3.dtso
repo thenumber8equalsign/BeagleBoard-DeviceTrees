@@ -10,22 +10,16 @@
 #include <dt-bindings/pinctrl/am33xx.h>
 #include <dt-bindings/board/am335x-bbw-bbb-base.h>
 
-/ {
-	/*
-	 * Helper to show loaded overlays under: /proc/device-tree/chosen/overlays/
-	 */
-	fragment@0 {
-		target-path="/";
-		__overlay__ {
-
-			chosen {
-				overlays {
-					BB-BONE-LCD7-01-00A3 = __TIMESTAMP__;
-				};
-			};
-		};
+/*
+ * Helper to show loaded overlays under: /proc/device-tree/chosen/overlays/
+ */
+&{/chosen} {
+	overlays {
+		BB-BONE-LCD7-01-00A3.kernel = __TIMESTAMP__;
 	};
+};
 
+/ {
 	/*
 	 * Free up the pins used by the cape from the pinmux helpers.
 	 */
