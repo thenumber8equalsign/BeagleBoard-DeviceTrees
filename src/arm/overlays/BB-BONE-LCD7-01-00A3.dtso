@@ -114,17 +114,13 @@
 	status = "okay";
 };
 
+&ehrpwm1 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&bb_lcd_pwm_backlight_pins>;
+	status = "okay";
+};
+
 / {
-
-	fragment@4 {
-		target = <&ehrpwm1>;
-		__overlay__ {
-			pinctrl-names = "default";
-			pinctrl-0 = <&bb_lcd_pwm_backlight_pins>;
-			status = "okay";
-		};
-	};
-
 	fragment@5 {
 		target = <&lcdc>;
 		__overlay__ {
