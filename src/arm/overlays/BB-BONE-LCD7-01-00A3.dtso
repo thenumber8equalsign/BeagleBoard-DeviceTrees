@@ -219,12 +219,12 @@
 		};
 	};
 
-	gpio_keys {
+	gpio-keys {
 		compatible = "gpio-keys";
 		pinctrl-names = "default";
 		pinctrl-0 = <&bb_lcd_keymap_pins>;
 
-		button@1 {
+		button-1 {
 			debounce_interval = <50>;
 			linux,code = <105>;
 			label = "left";
@@ -232,7 +232,7 @@
 			gpio-key,wakeup;
 			autorepeat;
 		};
-		button@2 {
+		button-2 {
 			debounce_interval = <50>;
 			linux,code = <106>;
 			label = "right";
@@ -240,7 +240,7 @@
 			gpio-key,wakeup;
 			autorepeat;
 		};
-		button@3 {
+		button-3 {
 			debounce_interval = <50>;
 			linux,code = <103>;
 			label = "up";
@@ -248,7 +248,7 @@
 			gpio-key,wakeup;
 			autorepeat;
 		};
-		button@4 {
+		button-4 {
 			debounce_interval = <50>;
 			linux,code = <108>;
 			label = "down";
@@ -256,7 +256,7 @@
 			gpio-key,wakeup;
 			autorepeat;
 		};
-		button@5 {
+		button-5 {
 			debounce_interval = <50>;
 			linux,code = <28>;
 			label = "enter";
