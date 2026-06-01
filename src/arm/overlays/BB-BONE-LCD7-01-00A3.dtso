@@ -172,6 +172,43 @@
 				default-brightness-level = <100>;
 			};
 
+			panel {
+				status = "okay";
+				compatible = "ti,tilcdc,panel";
+				pinctrl-names = "default";
+				pinctrl-0 = <&bb_lcd_lcd_pins>;
+				panel-info {
+					ac-bias           = <255>;
+					ac-bias-intrpt    = <0>;
+					dma-burst-sz      = <16>;
+					bpp               = <16>;
+					fdd               = <0x80>;
+					sync-edge         = <0>;
+					sync-ctrl         = <1>;
+					raster-order      = <0>;
+					fifo-th           = <0>;
+				};
+				display-timings {
+					native-mode = <&timing0>;
+					/* Settings for ThreeFive S9700RTWV35TR / LCD7 cape: */
+					timing0: 800x480 {
+						clock-frequency = <30000000>;
+						hactive = <800>;
+						vactive = <480>;
+						hfront-porch = <40>;
+						hback-porch = <40>;
+						hsync-len = <48>;
+						vback-porch = <30>;
+						vfront-porch = <13>;
+						vsync-len = <3>;
+						hsync-active = <0>;
+						vsync-active = <0>;
+						de-active = <1>;
+						pixelclk-active = <0>;
+					};
+				};
+			};
+
 			gpio-leds-cape-lcd {
 				compatible = "gpio-leds";
 				pinctrl-names = "default";
@@ -228,43 +265,6 @@
 					label = "enter";
 					gpios = <&gpio0 3 0x1>;
 					gpio-key,wakeup;
-				};
-			};
-
-			panel {
-				status = "okay";
-				compatible = "ti,tilcdc,panel";
-				pinctrl-names = "default";
-				pinctrl-0 = <&bb_lcd_lcd_pins>;
-				panel-info {
-					ac-bias           = <255>;
-					ac-bias-intrpt    = <0>;
-					dma-burst-sz      = <16>;
-					bpp               = <16>;
-					fdd               = <0x80>;
-					sync-edge         = <0>;
-					sync-ctrl         = <1>;
-					raster-order      = <0>;
-					fifo-th           = <0>;
-				};
-				display-timings {
-					native-mode = <&timing0>;
-					/* Settings for ThreeFive S9700RTWV35TR / LCD7 cape: */
-					timing0: 800x480 {
-						clock-frequency = <30000000>;
-						hactive = <800>;
-						vactive = <480>;
-						hfront-porch = <40>;
-						hback-porch = <40>;
-						hsync-len = <48>;
-						vback-porch = <30>;
-						vfront-porch = <13>;
-						vsync-len = <3>;
-						hsync-active = <0>;
-						vsync-active = <0>;
-						de-active = <1>;
-						pixelclk-active = <0>;
-					};
 				};
 			};
 		};
