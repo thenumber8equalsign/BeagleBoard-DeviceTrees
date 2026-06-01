@@ -25,7 +25,7 @@
 &ocp {
 	P9_12_pinmux { status = "disabled"; };	/* P9_12: gpmc_ben1.gpio1_28, INPUT | PULLDIS | MODE7 */
 
-	P9_14_pinmux { status = "disabled"; };	/* P9_14: ehrpwm1a PWM_BL */
+	P9_14_pinmux { status = "disabled"; };	/* P9_14: gpmc_a2.ehrpwm1a */
 
 	P9_22_pinmux { status = "disabled"; };	/* P9_22: gpio0_2 DISPEN */
 
@@ -67,7 +67,7 @@
 
 	bb_lcd_pwm_backlight_pins: pinmux_bb_lcd_pwm_backlight_pins {
 		pinctrl-single,pins = <
-			BONE_P9_14 (PIN_OUTPUT_PULLDOWN | MUX_MODE6)	/* P9_14: gpmc_a2.ehrpwm1a */
+			AM33XX_PADCONF(AM335X_PIN_GPMC_A2, PIN_OUTPUT_PULLDOWN, MUX_MODE6)	/* P9_14: gpmc_a2.ehrpwm1a */
 		>;
 	};
 
