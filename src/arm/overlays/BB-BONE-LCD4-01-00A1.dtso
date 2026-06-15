@@ -170,26 +170,10 @@
 
 	panel: panel {
 		status = "okay";
-		compatible = "panel-dpi";
+		compatible = "newhaven,nhd-4.3-480272ef-atxl", "panel-dpi";
 		pinctrl-names = "default";
 		pinctrl-0 = <&bb_lcd_lcd_pins>;
 		backlight = <&backlight>;
-
-		panel-timing {
-			clock-frequency = <9200000>;
-			hactive = <480>;
-			vactive = <272>;
-			hfront-porch = <8>;
-			hback-porch = <47>;
-			hsync-len = <41>;
-			vfront-porch = <3>;
-			vback-porch = <2>;
-			vsync-len = <10>;
-			hsync-active = <0>;
-			vsync-active = <0>;
-			de-active = <1>;
-			pixelclk-active = <0>;
-		};
 
 		port {
 			panel_0: endpoint {
