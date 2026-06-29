@@ -1,5 +1,13 @@
 # Syncing Source
 
+### Syncing Bindings directory
+
+https://git.kernel.org/pub/scm/linux/kernel/git/devicetree/devicetree-rebasing.git/tree/Bindings
+
+```
+Bindings/
+```
+
 ### Syncing script directory
 
 https://git.kernel.org/pub/scm/linux/kernel/git/devicetree/devicetree-rebasing.git/tree/scripts
