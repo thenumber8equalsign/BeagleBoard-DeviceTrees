@@ -1,5 +1,10 @@
 # merge hints
 
+# linux-next bindings:
+```
+rsync -av  ~/linux-next/Documentation/devicetree/bindings/ ./bindings/ --delete
+```
+
 # linux
 ```
 meld include/dt-bindings/ ~/linux-src/include/dt-bindings/
@@ -10,7 +15,6 @@ meld src/riscv/ ~/linux-src/arch/riscv/boot/dts/
 
 # linux-next
 ```
-cp -rv ~/linux-next//Documentation/devicetree/bindings/ ./bindings/
 meld include/dt-bindings/ ~/linux-next/include/dt-bindings/
 meld src/arm/ti/omap/ ~/linux-next/arch/arm/boot/dts/ti/omap/
 meld src/arm64/ti/ ~/linux-next/arch/arm64/boot/dts/ti/
