@@ -2,7 +2,7 @@
 
 # linux-next bindings:
 ```
-rsync -av  ~/linux-next/Documentation/devicetree/bindings/ ./bindings/ --delete
+rsync -av  ~/linux-next/Documentation/devicetree/bindings/ ./Bindings/ --delete
 ```
 
 # linux
