@@ -16,7 +16,12 @@ description:
 
 properties:
   compatible:
-    const: qcom,hawi-pcie
+    oneOf:
+      - const: qcom,hawi-pcie
+      - items:
+          - enum:
+              - qcom,maili-pcie
+          - const: qcom,hawi-pcie
 
   reg:
     items:
