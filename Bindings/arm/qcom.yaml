@@ -165,6 +165,11 @@ properties:
 
       - items:
           - enum:
+              - qcom,hawi-mtp
+          - const: qcom,hawi
+
+      - items:
+          - enum:
               - qcom,kaanapali-mtp
               - qcom,kaanapali-qrd
           - const: qcom,kaanapali
@@ -204,6 +209,7 @@ properties:
               - microsoft,tesla
               - motorola,peregrine
               - samsung,matisselte
+              - sony,eagle
           - const: qcom,msm8926
           - const: qcom,msm8226
 
@@ -413,6 +419,7 @@ properties:
               - shift,otter
               - thundercomm,minipc-g1iot
               - thundercomm,rubikpi3
+              - vicharak,axon-mini
           - const: qcom,qcm6490
 
       - items:
